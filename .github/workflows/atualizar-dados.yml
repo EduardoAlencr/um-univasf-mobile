@@ -1,0 +1,49 @@
+name: Atualizar dados do app
+
+# Roda 1x por dia (~06:00 no horário de Brasília / 09:00 UTC) e sempre que
+# disparado manualmente. Coleta os dados públicos da UNIVASF e commita o
+# JSON atualizado de volta no repositório.
+#
+# Limitação conhecida: o itinerário dos ônibus (scraper/sources/itinerario.py)
+# lê um PDF local em MATERIAIS/ — só muda quando alguém substituir esse
+# arquivo manualmente. Ver scraper/README.md.
+on:
+  schedule:
+    - cron: "0 9 * * *"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  atualizar:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Configurar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Instalar dependências do scraper
+        run: |
+          cd scraper
+          pip install -r requirements.txt
+
+      - name: Rodar o scraper
+        run: |
+          cd scraper
+          python run.py
+
+      - name: Copiar resultado para os assets do Flutter
+        run: cp scraper/output/dados_univasf.json assets/data/dados_univasf.json
+
+      - name: Commitar mudanças (se houver)
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add assets/data/dados_univasf.json
+          git diff --cached --quiet && echo "Sem mudanças nos dados." || git commit -m "chore: atualizar dados do app (automático)"
+          git push
