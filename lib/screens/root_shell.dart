@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import '../state/auth_scope.dart';
+import '../theme/app_theme.dart';
 import '../widgets/tab_bar_shell.dart';
 import '../widgets/um_app_bar.dart';
 import '../navigation/go_profile.dart';
@@ -44,15 +46,54 @@ class _RootShellState extends State<RootShell> {
         body = HomeScreen(onOpenNotif: () => setState(() => _tab = 1));
     }
 
-    return TabBarShell(
-      currentIndex: _tab,
-      onTabSelected: (i) => setState(() => _tab = i),
-      onFabTap: () => Navigator.of(context).push(MaterialPageRoute(builder: (_) => const DiscenteScreen())),
-      body: Scaffold(
-        appBar: UmAppBar(onAvatarTap: () => goProfile(context)),
-        body: body,
+    return PopScope(
+      canPop: false,
+      onPopInvokedWithResult: (didPop, _) {
+        if (didPop) return;
+        if (_tab != 0) {
+          setState(() => _tab = 0);
+          return;
+        }
+        _confirmarSaida(context);
+      },
+      child: TabBarShell(
+        currentIndex: _tab,
+        onTabSelected: (i) => setState(() => _tab = i),
+        onFabTap: () => Navigator.of(context).push(MaterialPageRoute(builder: (_) => const DiscenteScreen())),
+        body: Scaffold(
+          appBar: UmAppBar(onAvatarTap: () => goProfile(context)),
+          body: body,
+        ),
       ),
     );
+  }
+
+  Future<void> _confirmarSaida(BuildContext context) async {
+    final sair = await showDialog<bool>(
+      context: context,
+      builder: (ctx) => AlertDialog(
+        backgroundColor: AppColors.card,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+        title: const Text('Sair do app?', style: TextStyle(fontWeight: FontWeight.w900)),
+        content: const Text(
+          'Tem certeza que deseja sair do UM · UNIVASF Mobile?',
+          style: TextStyle(color: AppColors.ink2),
+        ),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.of(ctx).pop(false),
+            child: const Text('Cancelar', style: TextStyle(color: AppColors.ink2, fontWeight: FontWeight.w700)),
+          ),
+          TextButton(
+            onPressed: () => Navigator.of(ctx).pop(true),
+            child: const Text('Sair', style: TextStyle(color: AppColors.blue, fontWeight: FontWeight.w800)),
+          ),
+        ],
+      ),
+    );
+    if (sair == true) {
+      SystemNavigator.pop();
+    }
   }
 }
 
