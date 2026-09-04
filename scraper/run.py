@@ -18,6 +18,7 @@ from sources.cecomp import raspar_cecomp
 from sources.itinerario import raspar_itinerario
 from sources.ru_cardapio import raspar_cardapio_ru
 from sources.setor_noticias import raspar_todos_setores
+from sources.siga_avisos import raspar_avisos_siga
 
 OUTPUT_DIR = Path(__file__).parent / "output"
 OUTPUT_FILE = OUTPUT_DIR / "dados_univasf.json"
@@ -67,6 +68,14 @@ def main() -> None:
     else:
         print(f"  -> {len(itinerario)} viagens")
 
+    print("Coletando avisos públicos da tela inicial do SIG@...")
+    avisos_siga = raspar_avisos_siga()
+    if not avisos_siga and anterior.get("avisos_siga"):
+        print("  -> sem avisos agora; mantendo os últimos coletados")
+        avisos_siga = anterior["avisos_siga"]
+    else:
+        print(f"  -> {len(avisos_siga)} avisos")
+
     dados = {
         "gerado_em": datetime.now().isoformat(timespec="seconds"),
         "noticias_setores": noticias or anterior.get("noticias_setores", []),
@@ -74,6 +83,7 @@ def main() -> None:
         "calendario": calendario,
         "colegiado_cecomp": cecomp or anterior.get("colegiado_cecomp", []),
         "itinerario_onibus": itinerario,
+        "avisos_siga": avisos_siga,
     }
 
     OUTPUT_DIR.mkdir(exist_ok=True)

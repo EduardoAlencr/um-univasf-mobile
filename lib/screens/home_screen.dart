@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../data/mock_data.dart';
 import '../theme/app_theme.dart';
+import '../util/data_pt.dart';
 import '../widgets/app_card.dart';
 import '../widgets/source_tag.dart';
 import 'discente_screen.dart';
@@ -24,9 +25,9 @@ class HomeScreen extends StatelessWidget {
         children: [
           Text('Olá! 👋', style: Theme.of(context).textTheme.headlineMedium),
           const SizedBox(height: 4),
-          const Text(
-            'Quarta-feira, 26 de agosto de 2026 · acesso livre, sem login',
-            style: TextStyle(fontSize: 13, color: AppColors.ink2, height: 1.45),
+          Text(
+            '${formatarDataCompleta(DateTime.now())} · acesso livre, sem login',
+            style: const TextStyle(fontSize: 13, color: AppColors.ink2, height: 1.45),
           ),
           const SizedBox(height: 18),
           _Hero(),
@@ -112,6 +113,26 @@ class HomeScreen extends StatelessWidget {
 class _Hero extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final hoje = DateTime.now();
+    CalendarEvent? proximoEvento;
+    DateTime? proximaData;
+    for (final e in calendarEvents) {
+      final data = proximaOcorrencia(e.day, e.month, hoje);
+      if (data == null) continue;
+      if (proximaData == null || data.isBefore(proximaData)) {
+        proximaData = data;
+        proximoEvento = e;
+      }
+    }
+
+    final titulo = proximoEvento != null ? proximoEvento.title : 'Nenhum prazo no calendário no momento';
+    final selo = proximaData != null
+        ? 'PRÓXIMO PRAZO · ${descreverPrazo(proximaData, hoje).toUpperCase()}'
+        : 'CALENDÁRIO ACADÊMICO';
+    final desc = proximoEvento != null
+        ? proximoEvento.desc
+        : 'Consulte o calendário completo na aba Calendário.';
+
     return Container(
       margin: const EdgeInsets.only(bottom: 4),
       padding: const EdgeInsets.all(20),
@@ -131,23 +152,23 @@ class _Hero extends StatelessWidget {
               color: Colors.white.withValues(alpha: 0.2),
               borderRadius: BorderRadius.circular(AppRadius.pill),
             ),
-            child: const Text(
-              'PRÓXIMO PRAZO · EM 3 DIAS',
-              style: TextStyle(fontSize: 10, fontWeight: FontWeight.w800, letterSpacing: 0.8, color: Colors.white),
+            child: Text(
+              selo,
+              style: const TextStyle(fontSize: 10, fontWeight: FontWeight.w800, letterSpacing: 0.8, color: Colors.white),
             ),
           ),
           const SizedBox(height: 10),
-          const Text(
-            'Ajuste de matrícula encerra em 29/08',
-            style: TextStyle(fontSize: 16, fontWeight: FontWeight.w900, color: Colors.white),
+          Text(
+            titulo,
+            style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w900, color: Colors.white),
           ),
           const SizedBox(height: 4),
-          const Text(
-            'Solicitações presenciais na SRCA ou via SIG@.',
-            style: TextStyle(fontSize: 12.5, color: Colors.white, height: 1.45),
+          Text(
+            desc,
+            style: const TextStyle(fontSize: 12.5, color: Colors.white, height: 1.45),
           ),
           const SourceTag(
-            text: 'Atualizado automaticamente · Calendário acadêmico oficial · hoje, 06:00',
+            text: 'Atualizado automaticamente · Calendário acadêmico oficial',
             dotColor: AppColors.yellow,
             topPadding: 12,
           ),

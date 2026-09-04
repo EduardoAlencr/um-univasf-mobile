@@ -3,8 +3,10 @@ import '../theme/app_theme.dart';
 import '../widgets/app_card.dart';
 import '../widgets/pill_button.dart';
 import '../widgets/um_app_bar.dart';
-import '../widgets/um_toast.dart';
+import '../util/abrir_link.dart';
 import '../navigation/go_profile.dart';
+
+const _sigaUrl = 'https://siga.univasf.edu.br/univasf/jsp/acesso/pages/inicio.jsf';
 
 class RedirectNotasScreen extends StatelessWidget {
   const RedirectNotasScreen({super.key});
@@ -44,7 +46,7 @@ class RedirectNotasScreen extends StatelessWidget {
                 ],
               ),
             ),
-            PillButton(label: 'Abrir SIG@ ↗', onPressed: () => showUmToast(context, 'Abrindo sig.univasf.edu.br no navegador…')),
+            PillButton(label: 'Abrir SIG@ ↗', onPressed: () => abrirLink(context, _sigaUrl)),
             const SectionHeaderNotas(),
             AppCard(
               child: Column(

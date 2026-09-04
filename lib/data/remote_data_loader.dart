@@ -19,6 +19,7 @@ Future<void> loadRemoteData() async {
     _aplicarCardapio(json['ru_cardapio']);
     _aplicarCalendario(json['calendario']);
     _aplicarItinerario(json['itinerario_onibus']);
+    _aplicarAvisosSiga(json['avisos_siga']);
   } catch (_) {
     // Sem asset ainda, ou scraper não rodou — mantém os mocks.
   }
@@ -47,6 +48,7 @@ void _aplicarNoticias(dynamic lista) {
         title: titulo,
         desc: 'Notícia oficial do setor $setor.',
         when: data != null ? '$data · coletado do site da $setor' : 'coletado do site da $setor',
+        url: item['url'] as String?,
       ),
     );
   }
@@ -91,6 +93,7 @@ void _aplicarEditais(dynamic lista) {
       titulo: titulo,
       desc: 'Notícia oficial do setor $setor.',
       fonte: 'Coletado do site da $setor',
+      url: item['url'] as String?,
     );
     comData.add(MapEntry(edital, _parseDataBr(data)));
   }
@@ -198,4 +201,18 @@ void _aplicarCalendario(dynamic lista) {
   if (eventos.isEmpty) return;
 
   calendarEvents = eventos.take(6).toList();
+}
+
+void _aplicarAvisosSiga(dynamic lista) {
+  if (lista is! List || lista.isEmpty) return;
+
+  final avisos = <String>[];
+  for (final item in lista) {
+    final texto = item is String ? item : (item is Map ? item['texto'] as String? : null);
+    if (texto == null || texto.trim().isEmpty) continue;
+    avisos.add(texto.trim());
+  }
+  if (avisos.isEmpty) return;
+
+  sigaAvisos = avisos;
 }

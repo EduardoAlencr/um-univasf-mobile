@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../data/mock_data.dart';
 import '../theme/app_theme.dart';
+import '../util/abrir_link.dart';
 import '../widgets/app_card.dart';
 
 /// Feed de notícias agregando todos os setores (PROAE, PROEX, PROEN, ...),
@@ -84,6 +85,7 @@ class _NotificacoesScreenState extends State<NotificacoesScreen> {
 
         final n = itens[index - 1];
         return AppCard(
+          onTap: () => abrirLink(context, n.url),
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [

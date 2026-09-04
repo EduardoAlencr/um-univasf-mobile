@@ -1,15 +1,17 @@
 import 'package:flutter/material.dart';
 import '../data/mock_data.dart';
 import '../theme/app_theme.dart';
+import '../util/data_pt.dart';
 import '../widgets/app_card.dart';
 import '../widgets/source_tag.dart';
 
 const _headers = ['S', 'T', 'Q', 'Q', 'S', 'S', 'D']; // Seg..Dom
-const _mesesAbrev = ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'];
-const _mesesNomes = [
-  'Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho',
-  'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro',
-];
+const _mesesAbrev = mesesAbrevPt;
+
+String _nomeMesCapitalizado(int mes) {
+  final nome = mesesNomesPt[mes - 1];
+  return nome[0].toUpperCase() + nome.substring(1);
+}
 
 class CalendarioScreen extends StatefulWidget {
   const CalendarioScreen({super.key});
@@ -60,7 +62,7 @@ class _CalendarioScreenState extends State<CalendarioScreen> {
             children: [
               _MonthNavButton(icon: '‹', onTap: () => _mudarMes(-1)),
               Text(
-                '${_mesesNomes[_mesExibido.month - 1]} ${_mesExibido.year}',
+                '${_nomeMesCapitalizado(_mesExibido.month)} ${_mesExibido.year}',
                 style: const TextStyle(fontSize: 15, fontWeight: FontWeight.w900),
               ),
               _MonthNavButton(icon: '›', onTap: () => _mudarMes(1)),
@@ -134,7 +136,7 @@ class _CalendarioScreenState extends State<CalendarioScreen> {
                       ],
                     ),
                   ),
-                const SourceTag(text: 'Atualizado automaticamente · site oficial da UNIVASF · hoje, 06:00', topPadding: 10),
+                const SourceTag(text: 'Atualizado automaticamente · site oficial da UNIVASF', topPadding: 10),
               ],
             ),
           ),

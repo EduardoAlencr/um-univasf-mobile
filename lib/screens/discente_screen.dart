@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import '../data/mock_data.dart';
 import '../state/auth_scope.dart';
 import '../theme/app_theme.dart';
 import '../widgets/app_badge.dart';
+import '../widgets/app_card.dart';
 import '../widgets/um_app_bar.dart';
 import '../widgets/um_toast.dart';
 import '../navigation/go_profile.dart';
@@ -89,6 +91,20 @@ class DiscenteScreen extends StatelessWidget {
                 'O ajuste de matrícula encerra em 29/08. Faça a solicitação pelo SIG@ ou presencialmente na SRCA.',
               ),
             ),
+            if (sigaAvisos.isNotEmpty) ...[
+              const SizedBox(height: 22),
+              const Text('AVISOS DO SIG@', style: TextStyle(fontSize: 12, fontWeight: FontWeight.w800, letterSpacing: 1, color: AppColors.ink2)),
+              const SizedBox(height: 4),
+              const Text(
+                'Coletados da tela pública de acesso — não exigem login.',
+                style: TextStyle(fontSize: 11.5, color: AppColors.ink2),
+              ),
+              const SizedBox(height: 12),
+              for (final aviso in sigaAvisos)
+                AppCard(
+                  child: Text(aviso, style: const TextStyle(fontSize: 12.5, height: 1.5)),
+                ),
+            ],
           ],
         ),
       ),

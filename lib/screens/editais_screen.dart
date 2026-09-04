@@ -5,7 +5,7 @@ import '../widgets/app_badge.dart';
 import '../widgets/app_card.dart';
 import '../widgets/source_tag.dart';
 import '../widgets/um_app_bar.dart';
-import '../widgets/um_toast.dart';
+import '../util/abrir_link.dart';
 import '../navigation/go_profile.dart';
 
 class EditaisScreen extends StatefulWidget {
@@ -71,7 +71,7 @@ class _EditaisScreenState extends State<EditaisScreen> {
                 child: Text('Nenhum edital encontrado para esse setor.', style: TextStyle(fontSize: 12.5, color: AppColors.ink2)),
               ),
             ...visiveis.map((e) => AppCard(
-                  onTap: () => showUmToast(context, 'Abrindo edital no site da ${e.setor}…'),
+                  onTap: () => abrirLink(context, e.url),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [

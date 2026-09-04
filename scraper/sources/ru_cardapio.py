@@ -1,8 +1,11 @@
 """Acha o cardápio vigente do RU (PDF) e extrai as refeições por dia.
 
 Fluxo:
-1. Busca ``@@busca?Subject:list=Cardápio vigente`` no portal para achar o link
-   do PDF mais recente.
+1. Busca por texto ("cardapio") no portal, ordenado por data de modificação
+   decrescente, e pega o primeiro resultado em PDF cujo link/título aponte
+   pra um cardápio semanal — isso é robusto a mudanças de estrutura do site
+   (a tag "Cardápio vigente" usada antes parou de ser aplicada; buscar pelo
+   PDF mais recente evita depender dessa marcação manual).
 2. Baixa o PDF e usa pdfplumber para extrair a tabela.
 3. Mapeia as linhas conhecidas (FRUTA, PRATO PROTEICO, PRATO PRINCIPAL,
    PROTEÍNA, VEGETARIANO, ...) para os 5 dias úteis, café/almoço/jantar.
@@ -22,7 +25,7 @@ import requests
 from bs4 import BeautifulSoup
 
 BASE_URL = "https://portais.univasf.edu.br"
-BUSCA_URL = f"{BASE_URL}/proae/@@busca?Subject%3Alist=Card%C3%A1pio%20vigente"
+BUSCA_URL = f"{BASE_URL}/proae/@@search?SearchableText=cardapio&sort_on=Date&sort_order=reverse"
 HEADERS = {"User-Agent": "UM-UNIVASF-Mobile-Scraper/1.0 (+TCC academico)"}
 TIMEOUT = 30
 
@@ -54,18 +57,21 @@ def _achar_pdf_vigente() -> tuple[str, str] | None:
         return None
 
     soup = BeautifulSoup(resp.text, "lxml")
-    link = soup.find("a", href=re.compile(r"\.pdf(/|$|\?)", re.IGNORECASE))
-    if not link:
-        return None
+    for link in soup.select("dt.contenttype-file a"):
+        href = link.get("href", "")
+        titulo = link.get_text(strip=True)
+        if "cardapio" not in href.lower() and "cardápio" not in titulo.lower():
+            continue
 
-    pdf_url = link["href"]
-    if pdf_url.startswith("/"):
-        pdf_url = BASE_URL + pdf_url
-    # a busca retorna a página "/view" do arquivo; removê-la baixa o PDF cru.
-    if pdf_url.endswith("/view"):
-        pdf_url = pdf_url[: -len("/view")]
-    titulo = link.get_text(strip=True) or "Cardápio vigente"
-    return pdf_url, titulo
+        pdf_url = href
+        if pdf_url.startswith("/"):
+            pdf_url = BASE_URL + pdf_url
+        # a busca retorna a página "/view" do arquivo; removê-la baixa o PDF cru.
+        if pdf_url.endswith("/view"):
+            pdf_url = pdf_url[: -len("/view")]
+        return pdf_url, titulo or "Cardápio vigente"
+
+    return None
 
 
 def _extrair_periodo(titulo: str, texto_pdf: str) -> str:

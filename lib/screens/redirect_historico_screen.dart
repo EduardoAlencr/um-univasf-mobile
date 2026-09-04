@@ -6,8 +6,12 @@ import '../widgets/app_card.dart';
 import '../widgets/pill_button.dart';
 import '../widgets/source_tag.dart';
 import '../widgets/um_app_bar.dart';
-import '../widgets/um_toast.dart';
+import '../util/abrir_link.dart';
 import '../navigation/go_profile.dart';
+
+const _sigaUrl = 'https://siga.univasf.edu.br/univasf/jsp/acesso/pages/inicio.jsf';
+const _srcaUrl = 'https://portais.univasf.edu.br/srca';
+const _instagramSrcaUrl = 'https://www.instagram.com/srca.univasf';
 
 class RedirectHistoricoScreen extends StatelessWidget {
   const RedirectHistoricoScreen({super.key});
@@ -43,7 +47,7 @@ class RedirectHistoricoScreen extends StatelessWidget {
                     style: TextStyle(fontSize: 12.5, color: AppColors.ink2, height: 1.5),
                   ),
                   const SizedBox(height: 12),
-                  PillButton(label: 'Abrir SIG@ ↗', onPressed: () => showUmToast(context, 'Abrindo sig.univasf.edu.br no navegador…')),
+                  PillButton(label: 'Abrir SIG@ ↗', onPressed: () => abrirLink(context, _sigaUrl)),
                 ],
               ),
             ),
@@ -112,12 +116,12 @@ class RedirectHistoricoScreen extends StatelessWidget {
                   PillButton(
                     label: 'Ver página da SRCA ↗',
                     variant: PillButtonVariant.secondary,
-                    onPressed: () => showUmToast(context, 'Abrindo portais.univasf.edu.br/srca no navegador…'),
+                    onPressed: () => abrirLink(context, _srcaUrl),
                   ),
                   PillButton(
                     label: '📷 Instagram @srca.univasf ↗',
                     variant: PillButtonVariant.secondary,
-                    onPressed: () => showUmToast(context, 'Abrindo Instagram @srca.univasf…'),
+                    onPressed: () => abrirLink(context, _instagramSrcaUrl),
                   ),
                   const SourceTag(text: 'Contatos do SIC/SRCA · verificados em 02/09/2026', topPadding: 4),
                 ],

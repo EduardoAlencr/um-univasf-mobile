@@ -2,13 +2,18 @@
 // exatamente os exemplos do protótipo HTML de referência.
 
 class Notice {
-  const Notice({required this.icon, required this.iconBg, required this.title, required this.desc, required this.when});
+  const Notice({required this.icon, required this.iconBg, required this.title, required this.desc, required this.when, this.url});
   final String icon;
   final int iconBg; // índice de cor suave (ver AppColors soft variants)
   final String title;
   final String desc;
   final String when;
+  final String? url;
 }
+
+/// Avisos públicos da página inicial do SIG@ (sem login), coletados pelo
+/// scraper. Vazio até o scraper rodar / não há mock de exemplo.
+List<String> sigaAvisos = [];
 
 List<Notice> homeNotices = [
   Notice(
@@ -143,6 +148,7 @@ class Edital {
     required this.titulo,
     required this.desc,
     required this.fonte,
+    this.url,
   });
   final String setor;
   final String setorColor; // blue, green, yellow
@@ -150,6 +156,7 @@ class Edital {
   final String titulo;
   final String desc;
   final String fonte;
+  final String? url;
 }
 
 List<Edital> editais = [

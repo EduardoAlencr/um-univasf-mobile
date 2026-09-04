@@ -29,3 +29,4 @@ MATERIAIS/Requerimento_Geral_Recurso_Desligamento_assinado.pdf
 # Ferramentas locais (IDE / harness do Claude Code)
 .claude/
 android/.kotlin/
+android/*.log
