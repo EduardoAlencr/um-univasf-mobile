@@ -1,5 +1,5 @@
 {
-  "gerado_em": "2026-09-04T11:35:36",
+  "gerado_em": "2026-09-05T12:14:27",
   "noticias_setores": [
     {
       "setor": "PROAE",
@@ -423,6 +423,20 @@
     },
     {
       "setor": "Últimas notícias",
+      "titulo": "Univasf promove II Simpósio de Medicamentos Inovadores do Vale do São Francisco em outubro e prorroga prazo para submissão de trabalhos",
+      "data": null,
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/noticias/univasf-promove-ii-simposio-de-medicamentos-inovadores-do-vale-do-sao-francisco-em-outubro-e-prorroga-prazo-para-submissao-de-trabalhos"
+    },
+    {
+      "setor": "Últimas notícias",
+      "titulo": "XXVII Encontro Semestral de Carreiras Univasf e XI Simpósio de Administração do Vale do São Francisco acontecem na Univasf a partir de terça-feira (8)",
+      "data": null,
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/noticias/xxvii-encontro-semestral-de-carreiras-univasf-e-xi-simposio-de-administracao-do-vale-do-sao-francisco-acontecem-na-univasf-a-partir-de-terca-feira-8"
+    },
+    {
+      "setor": "Últimas notícias",
       "titulo": "Univasf seleciona estudantes do Campus Salgueiro para formação em Inteligência Artificial do projeto LAB-IA Sertão Twin",
       "data": null,
       "resumo": "",
@@ -686,20 +700,6 @@
       "data": null,
       "resumo": "",
       "url": "https://portais.univasf.edu.br/noticias/secretaria-de-infraestrutura-infra-da-univasf-seleciona-estagiario-de-engenharia-civil"
-    },
-    {
-      "setor": "Últimas notícias",
-      "titulo": "Univasf divulga retificação do resultado final da seleção de discentes para o PET-Saúde Clima",
-      "data": null,
-      "resumo": "",
-      "url": "https://portais.univasf.edu.br/noticias/univasf-divulga-retificacao-do-resultado-final-da-selecao-de-discentes-para-o-pet-saude-clima"
-    },
-    {
-      "setor": "Últimas notícias",
-      "titulo": "Aberto prazo de submissão de trabalhos para o XXVII Encontro Semestral de Carreiras Univasf e o XI Simpósio de Administração do Vale do São Francisco",
-      "data": null,
-      "resumo": "",
-      "url": "https://portais.univasf.edu.br/noticias/aberto-prazo-de-submissao-de-trabalhos-para-o-xxvii-encontro-semestral-de-carreiras-univasf-e-o-xi-simposio-de-administracao-do-vale-do-sao-francisco"
     }
   ],
   "ru_cardapio": {
