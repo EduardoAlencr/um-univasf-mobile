@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "842539540971",
+    "project_id": "um-univasf-mobile",
+    "storage_bucket": "um-univasf-mobile.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:842539540971:android:5e2730b0b22b00be8239ae",
+        "android_client_info": {
+          "package_name": "br.edu.univasf.um_univasf_mobile"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCHDKPRdWHvW3Tc2c381K-HM9ICmf9k5Vo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -13,7 +13,10 @@ class PerfilScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final hasGrade = AuthScope.of(context).hasGrade;
+    final auth = AuthScope.of(context);
+    final hasGrade = auth.hasGrade;
+    final nome = auth.user?.displayName?.isNotEmpty == true ? auth.user!.displayName! : 'Estudante UNIVASF';
+    final email = auth.user?.email ?? 'sem e-mail';
     return SingleChildScrollView(
       padding: const EdgeInsets.fromLTRB(20, 6, 20, 110),
       child: Column(
@@ -37,12 +40,12 @@ class PerfilScreen extends StatelessWidget {
                 alignment: Alignment.center,
                 child: const Icon(Icons.person, color: Colors.white, size: 28),
               ),
-              const Column(
+              Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text('Nome do estudante', style: TextStyle(fontSize: 16.5, fontWeight: FontWeight.w900)),
-                  SizedBox(height: 2),
-                  Text('seu.email@discente.univasf.edu.br', style: TextStyle(fontSize: 12, color: AppColors.ink2)),
+                  Text(nome, style: const TextStyle(fontSize: 16.5, fontWeight: FontWeight.w900)),
+                  const SizedBox(height: 2),
+                  Text(email, style: const TextStyle(fontSize: 12, color: AppColors.ink2)),
                 ],
               ),
             ],

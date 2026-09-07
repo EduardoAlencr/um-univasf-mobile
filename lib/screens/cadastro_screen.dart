@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import '../state/auth_scope.dart';
@@ -15,7 +16,67 @@ class CadastroScreen extends StatefulWidget {
 }
 
 class _CadastroScreenState extends State<CadastroScreen> {
+  final _nomeCtrl = TextEditingController();
+  final _emailCtrl = TextEditingController();
+  final _cursoCtrl = TextEditingController(text: 'Engenharia de Computação');
+  final _periodoCtrl = TextEditingController();
+  final _senhaCtrl = TextEditingController();
+  final _confirmarCtrl = TextEditingController();
   bool _termsAccepted = true;
+  bool _carregando = false;
+
+  @override
+  void dispose() {
+    _nomeCtrl.dispose();
+    _emailCtrl.dispose();
+    _cursoCtrl.dispose();
+    _periodoCtrl.dispose();
+    _senhaCtrl.dispose();
+    _confirmarCtrl.dispose();
+    super.dispose();
+  }
+
+  Future<void> _criarConta() async {
+    if (_nomeCtrl.text.trim().isEmpty || _emailCtrl.text.trim().isEmpty || _senhaCtrl.text.isEmpty) {
+      showUmToast(context, 'Preencha nome, e-mail e senha.');
+      return;
+    }
+    if (_senhaCtrl.text != _confirmarCtrl.text) {
+      showUmToast(context, 'As senhas não coincidem.');
+      return;
+    }
+    setState(() => _carregando = true);
+    try {
+      await AuthScope.of(context).cadastrar(
+        email: _emailCtrl.text,
+        senha: _senhaCtrl.text,
+        nome: _nomeCtrl.text.trim(),
+        curso: _cursoCtrl.text.trim(),
+        periodo: _periodoCtrl.text.trim(),
+      );
+      if (!mounted) return;
+      Navigator.of(context).popUntil((r) => r.isFirst);
+      showUmToast(context, 'Bem-vindo! Seu calendário pessoal foi desbloqueado.');
+    } on FirebaseAuthException catch (e) {
+      if (!mounted) return;
+      showUmToast(context, _mensagemErro(e));
+    } finally {
+      if (mounted) setState(() => _carregando = false);
+    }
+  }
+
+  String _mensagemErro(FirebaseAuthException e) {
+    switch (e.code) {
+      case 'email-already-in-use':
+        return 'Já existe uma conta com esse e-mail.';
+      case 'invalid-email':
+        return 'E-mail inválido.';
+      case 'weak-password':
+        return 'Senha muito fraca — use pelo menos 6 caracteres.';
+      default:
+        return 'Não foi possível criar a conta (${e.code}).';
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -34,17 +95,17 @@ class _CadastroScreenState extends State<CadastroScreen> {
                 style: TextStyle(fontSize: 13, color: AppColors.ink2, height: 1.45),
               ),
               const SizedBox(height: 18),
-              const _Field(label: 'Nome completo', value: 'Seu Nome Completo'),
+              _Field(label: 'Nome completo', controller: _nomeCtrl, hint: 'Seu Nome Completo'),
               const SizedBox(height: 12),
-              const _Field(label: 'E-mail institucional', value: 'seu.nome@discente.univasf.edu.br'),
+              _Field(label: 'E-mail institucional', controller: _emailCtrl, hint: 'seu.nome@discente.univasf.edu.br'),
               const SizedBox(height: 12),
-              const _Field(label: 'Curso', value: 'Engenharia de Computação'),
+              _Field(label: 'Curso', controller: _cursoCtrl),
               const SizedBox(height: 12),
-              const _Field(label: 'Período de ingresso', value: '2020.2'),
+              _Field(label: 'Período de ingresso', controller: _periodoCtrl, hint: '2020.2'),
               const SizedBox(height: 12),
-              const _Field(label: 'Senha do aplicativo', value: '••••••••'),
+              _Field(label: 'Senha do aplicativo', controller: _senhaCtrl, obscure: true, hint: '••••••••'),
               const SizedBox(height: 12),
-              const _Field(label: 'Confirmar senha', value: '••••••••'),
+              _Field(label: 'Confirmar senha', controller: _confirmarCtrl, obscure: true, hint: '••••••••'),
               const SizedBox(height: 16),
               _TermsCheck(
                 checked: _termsAccepted,
@@ -52,17 +113,13 @@ class _CadastroScreenState extends State<CadastroScreen> {
               ),
               const SizedBox(height: 4),
               IgnorePointer(
-                ignoring: !_termsAccepted,
+                ignoring: !_termsAccepted || _carregando,
                 child: AnimatedOpacity(
                   opacity: _termsAccepted ? 1 : 0.4,
                   duration: const Duration(milliseconds: 200),
                   child: PillButton(
-                    label: 'Criar conta',
-                    onPressed: () {
-                      AuthScope.of(context).login();
-                      Navigator.of(context).popUntil((r) => r.isFirst);
-                      showUmToast(context, 'Bem-vindo! Seu calendário pessoal foi desbloqueado.');
-                    },
+                    label: _carregando ? 'Criando conta…' : 'Criar conta',
+                    onPressed: () => _criarConta(),
                   ),
                 ),
               ),
@@ -90,9 +147,11 @@ class _CadastroScreenState extends State<CadastroScreen> {
 }
 
 class _Field extends StatelessWidget {
-  const _Field({required this.label, required this.value});
+  const _Field({required this.label, required this.controller, this.hint, this.obscure = false});
   final String label;
-  final String value;
+  final TextEditingController controller;
+  final String? hint;
+  final bool obscure;
 
   @override
   Widget build(BuildContext context) {
@@ -101,15 +160,29 @@ class _Field extends StatelessWidget {
       children: [
         Text(label, style: const TextStyle(fontSize: 12, fontWeight: FontWeight.w800)),
         const SizedBox(height: 6),
-        Container(
-          width: double.infinity,
-          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
-          decoration: BoxDecoration(
-            color: AppColors.card,
-            borderRadius: BorderRadius.circular(AppRadius.pill),
-            border: Border.all(color: AppColors.border),
+        TextField(
+          controller: controller,
+          obscureText: obscure,
+          style: const TextStyle(fontSize: 14, color: AppColors.ink),
+          decoration: InputDecoration(
+            hintText: hint,
+            hintStyle: const TextStyle(color: AppColors.ink2),
+            filled: true,
+            fillColor: AppColors.card,
+            contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
+            border: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(AppRadius.pill),
+              borderSide: const BorderSide(color: AppColors.border),
+            ),
+            enabledBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(AppRadius.pill),
+              borderSide: const BorderSide(color: AppColors.border),
+            ),
+            focusedBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(AppRadius.pill),
+              borderSide: const BorderSide(color: AppColors.blue, width: 1.5),
+            ),
           ),
-          child: Text(value, style: const TextStyle(fontSize: 14, color: AppColors.ink)),
         ),
       ],
     );

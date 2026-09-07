@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import '../state/auth_scope.dart';
@@ -7,8 +8,58 @@ import '../widgets/um_toast.dart';
 import 'cadastro_screen.dart';
 import 'termos_screen.dart';
 
-class LoginScreen extends StatelessWidget {
+class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
+
+  @override
+  State<LoginScreen> createState() => _LoginScreenState();
+}
+
+class _LoginScreenState extends State<LoginScreen> {
+  final _emailCtrl = TextEditingController();
+  final _senhaCtrl = TextEditingController();
+  bool _carregando = false;
+
+  @override
+  void dispose() {
+    _emailCtrl.dispose();
+    _senhaCtrl.dispose();
+    super.dispose();
+  }
+
+  Future<void> _entrar() async {
+    if (_emailCtrl.text.trim().isEmpty || _senhaCtrl.text.isEmpty) {
+      showUmToast(context, 'Preencha e-mail e senha.');
+      return;
+    }
+    setState(() => _carregando = true);
+    try {
+      await AuthScope.of(context).login(_emailCtrl.text, _senhaCtrl.text);
+      if (!mounted) return;
+      Navigator.of(context).popUntil((r) => r.isFirst);
+      showUmToast(context, 'Bem-vindo! Seu calendário pessoal foi desbloqueado.');
+    } on FirebaseAuthException catch (e) {
+      if (!mounted) return;
+      showUmToast(context, _mensagemErro(e));
+    } finally {
+      if (mounted) setState(() => _carregando = false);
+    }
+  }
+
+  String _mensagemErro(FirebaseAuthException e) {
+    switch (e.code) {
+      case 'user-not-found':
+      case 'invalid-credential':
+      case 'wrong-password':
+        return 'E-mail ou senha incorretos.';
+      case 'invalid-email':
+        return 'E-mail inválido.';
+      case 'too-many-requests':
+        return 'Muitas tentativas — tente novamente em instantes.';
+      default:
+        return 'Não foi possível entrar (${e.code}).';
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -22,16 +73,14 @@ class LoginScreen extends StatelessWidget {
                 children: [
                   _LoginHero(),
                   const SizedBox(height: 26),
-                  const _ReadOnlyField(label: 'E-mail institucional', value: 'seu.nome@discente.univasf.edu.br'),
+                  _EditableField(label: 'E-mail institucional', controller: _emailCtrl, hint: 'seu.nome@discente.univasf.edu.br'),
                   const SizedBox(height: 12),
-                  const _ReadOnlyField(label: 'Senha do aplicativo', value: '••••••••', obscure: true),
+                  _EditableField(label: 'Senha do aplicativo', controller: _senhaCtrl, obscure: true, hint: '••••••••'),
                   const SizedBox(height: 12),
                   PillButton(
-                    label: 'Entrar',
+                    label: _carregando ? 'Entrando…' : 'Entrar',
                     onPressed: () {
-                      AuthScope.of(context).login();
-                      Navigator.of(context).popUntil((r) => r.isFirst);
-                      showUmToast(context, 'Bem-vindo! Seu calendário pessoal foi desbloqueado.');
+                      if (!_carregando) _entrar();
                     },
                   ),
                   PillButton(
@@ -104,7 +153,7 @@ class _LoginHero extends StatelessWidget {
         ),
         const SizedBox(height: 6),
         const Text(
-          'Todos os serviços da universidade em um só lugar',
+          'Informações públicas agregadas, com conta só pra grade e calendário pessoal',
           textAlign: TextAlign.center,
           style: TextStyle(fontSize: 12.5, color: AppColors.ink2),
         ),
@@ -134,11 +183,12 @@ class _UmLogoPainter extends CustomPainter {
   bool shouldRepaint(covariant CustomPainter oldDelegate) => false;
 }
 
-class _ReadOnlyField extends StatelessWidget {
-  const _ReadOnlyField({required this.label, required this.value, this.obscure = false});
+class _EditableField extends StatelessWidget {
+  const _EditableField({required this.label, required this.controller, this.hint, this.obscure = false});
 
   final String label;
-  final String value;
+  final TextEditingController controller;
+  final String? hint;
   final bool obscure;
 
   @override
@@ -148,15 +198,30 @@ class _ReadOnlyField extends StatelessWidget {
       children: [
         Text(label, style: const TextStyle(fontSize: 12, fontWeight: FontWeight.w800, color: AppColors.ink)),
         const SizedBox(height: 6),
-        Container(
-          width: double.infinity,
-          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
-          decoration: BoxDecoration(
-            color: AppColors.card,
-            borderRadius: BorderRadius.circular(AppRadius.pill),
-            border: Border.all(color: AppColors.border),
+        TextField(
+          controller: controller,
+          obscureText: obscure,
+          keyboardType: obscure ? TextInputType.visiblePassword : TextInputType.emailAddress,
+          style: const TextStyle(fontSize: 14, color: AppColors.ink),
+          decoration: InputDecoration(
+            hintText: hint,
+            hintStyle: const TextStyle(color: AppColors.ink2),
+            filled: true,
+            fillColor: AppColors.card,
+            contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
+            border: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(AppRadius.pill),
+              borderSide: const BorderSide(color: AppColors.border),
+            ),
+            enabledBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(AppRadius.pill),
+              borderSide: const BorderSide(color: AppColors.border),
+            ),
+            focusedBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(AppRadius.pill),
+              borderSide: const BorderSide(color: AppColors.blue, width: 1.5),
+            ),
           ),
-          child: Text(value, style: const TextStyle(fontSize: 14, color: AppColors.ink)),
         ),
       ],
     );

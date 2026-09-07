@@ -1,0 +1,17 @@
+rules_version = '2';
+
+// Cada usuário só lê/escreve o próprio documento de perfil (users/{uid}) e
+// os próprios subdocumentos (ex.: calendário pessoal, quando existir).
+// Nenhum usuário enxerga dado de outro — segurança garantida pela regra,
+// não pela lógica do app.
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /users/{userId} {
+      allow read, write: if request.auth != null && request.auth.uid == userId;
+
+      match /{document=**} {
+        allow read, write: if request.auth != null && request.auth.uid == userId;
+      }
+    }
+  }
+}

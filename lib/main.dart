@@ -1,12 +1,16 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'data/remote_data_loader.dart';
+import 'firebase_options.dart';
 import 'screens/root_shell.dart';
 import 'screens/welcome_screen.dart';
 import 'state/auth_scope.dart';
 import 'state/auth_state.dart';
 import 'theme/app_theme.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   runApp(const UmUnivasfApp());
 }
 
