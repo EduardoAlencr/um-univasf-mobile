@@ -18,7 +18,7 @@ python run.py
 | Fonte | Arquivo | De onde vem |
 |---|---|---|
 | Notícias (PROAE/PROEX/PROEN) | `sources/setor_noticias.py` | `portais.univasf.edu.br/<setor>/noticias/ultimas-noticias` |
-| Cardápio do RU | `sources/ru_cardapio.py` | Busca por tag "Cardápio vigente" + parsing do PDF |
+| Cardápio do RU | `sources/ru_cardapio.py` | Busca por texto "cardapio" ordenada por data + parsing do PDF |
 | Calendário acadêmico | `sources/calendario.py` | PDF oficial do calendário (próximos 60 dias) |
 | Colegiado CECOMP | `sources/cecomp.py` | `cecomp.univasf.edu.br` (best-effort) |
 | Itinerário dos ônibus | `sources/itinerario.py` | **PDF local** em `MATERIAIS/Itinerário PROAE 2026.2.pdf` |
@@ -37,6 +37,33 @@ dentro do site institucional, como já fazem com o cardápio), dá pra trocar
 `raspar_itinerario()` para baixar de lá automaticamente, no mesmo padrão de
 `ru_cardapio.py`.
 
+Pra não precisar editar código/repositório manualmente toda vez, existe o
+**painel admin** (`admin_tool.py`) — ver seção abaixo.
+
+## Painel admin (`admin_tool.py`)
+
+Janela desktop simples (Tkinter, sem dependência nova) pra quem administra os
+dados, sem precisar mexer em código:
+
+```bash
+cd scraper
+python admin_tool.py
+```
+
+Três botões, em ordem:
+1. **Selecionar novo PDF de itinerário** — escolhe um arquivo no seu
+   computador e substitui `MATERIAIS/Itinerário PROAE 2026.2.pdf`.
+2. **Rodar atualização agora** — roda `run.py` (mesma coleta de todas as
+   fontes) e já copia o resultado pros assets do Flutter.
+3. **Enviar para o GitHub** — `git add` + `commit` + `push` usando a
+   autenticação git já configurada na máquina (a ferramenta não lê nem
+   guarda nenhuma credencial).
+
+Pensado pra ser extensível: se outro arquivo padronizado (ex. um calendário
+sem URL estável) precisar do mesmo tratamento no futuro, é só seguir o
+mesmo padrão de botão — não é um framework genérico, é deliberadamente
+simples pro escopo do projeto.
+
 ## Resiliência a falhas pontuais
 
 `run.py` mantém os dados da rodada anterior quando uma fonte falha ou volta
@@ -53,8 +80,9 @@ Workflow em `.github/workflows/atualizar-dados.yml`, agendado para rodar
 `assets/data/dados_univasf.json` e commita a mudança de volta no repositório
 automaticamente (usando o `GITHUB_TOKEN` padrão do Actions).
 
-**Isso só atualiza o arquivo JSON no repositório — o app Flutter ainda
-precisa de um novo build/instalação para embutir a versão mais recente do
-asset.** Próximo passo natural (fora do escopo atual): publicar o JSON num
-endpoint HTTP estático (ex. GitHub Raw da branch principal) e o app buscar
-direto pela rede, eliminando a necessidade de rebuild a cada atualização.
+**O app não precisa mais de rebuild a cada atualização**: `lib/data/remote_data_loader.dart`
+busca o JSON publicado no GitHub Raw (`raw.githubusercontent.com/.../main/assets/data/dados_univasf.json`)
+toda vez que abre, com cache local pra funcionar offline e fallback final pro
+asset embutido no APK caso nunca tenha conseguido buscar nada (primeira
+instalação sem internet). Basta o commit chegar no `main` — pelo Actions ou
+pelo painel admin — que o app já busca a versão nova na próxima abertura.

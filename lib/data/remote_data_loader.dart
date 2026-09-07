@@ -1,17 +1,35 @@
+import 'dart:async';
 import 'dart:convert';
+import 'dart:io';
 import 'package:flutter/services.dart' show rootBundle;
+import 'package:http/http.dart' as http;
+import 'package:path_provider/path_provider.dart';
 import 'mock_data.dart';
 
-/// Carrega o JSON gerado pelo scraper (`scraper/run.py`), empacotado como
-/// asset em `assets/data/dados_univasf.json`, e substitui as listas mockadas
-/// (homeNotices, allNotices, ruDays, calendarEvents) por dados reais.
+/// URL do JSON gerado pelo scraper, publicado automaticamente pelo GitHub
+/// Actions (`.github/workflows/atualizar-dados.yml`) a cada execução —
+/// permite pegar dados novos sem precisar rebuildar o app.
+const _urlDadosRemotos =
+    'https://raw.githubusercontent.com/EduardoAlencr/um-univasf-mobile/main/assets/data/dados_univasf.json';
+const _timeoutRede = Duration(seconds: 6);
+const _nomeArquivoCache = 'dados_univasf_cache.json';
+
+/// Carrega o JSON gerado pelo scraper e substitui as listas mockadas
+/// (homeNotices, allNotices, ruDays, calendarEvents, ...) por dados reais.
 ///
-/// Qualquer falha (asset ausente, JSON malformado, seção vazia) é ignorada
-/// silenciosamente e a seção correspondente continua com os dados mockados
-/// originais — o app nunca quebra por causa disso.
+/// Ordem de tentativa, cada uma só usada se a anterior falhar:
+/// 1. Busca a versão mais recente via HTTP (GitHub raw) — se der certo,
+///    também salva uma cópia em cache local pra próxima abertura offline.
+/// 2. Cache local da última busca bem-sucedida.
+/// 3. Asset embutido no APK (o JSON congelado na data do build).
+///
+/// Qualquer falha (rede fora, asset ausente, JSON malformado, seção vazia)
+/// é ignorada silenciosamente — o app nunca quebra por causa disso.
 Future<void> loadRemoteData() async {
+  final raw = await _buscarJson();
+  if (raw == null) return;
+
   try {
-    final raw = await rootBundle.loadString('assets/data/dados_univasf.json');
     final json = jsonDecode(raw) as Map<String, dynamic>;
 
     _aplicarNoticias(json['noticias_setores']);
@@ -21,7 +39,57 @@ Future<void> loadRemoteData() async {
     _aplicarItinerario(json['itinerario_onibus']);
     _aplicarAvisosSiga(json['avisos_siga']);
   } catch (_) {
-    // Sem asset ainda, ou scraper não rodou — mantém os mocks.
+    // JSON malformado (de qualquer fonte) — mantém os mocks.
+  }
+}
+
+Future<String?> _buscarJson() async {
+  final remoto = await _buscarRemoto();
+  if (remoto != null) return remoto;
+
+  final cache = await _lerCache();
+  if (cache != null) return cache;
+
+  try {
+    return await rootBundle.loadString('assets/data/dados_univasf.json');
+  } catch (_) {
+    return null;
+  }
+}
+
+Future<String?> _buscarRemoto() async {
+  try {
+    final resp = await http.get(Uri.parse(_urlDadosRemotos)).timeout(_timeoutRede);
+    if (resp.statusCode != 200 || resp.body.isEmpty) return null;
+    jsonDecode(resp.body); // valida que é JSON íntegro antes de aceitar/cachear
+    unawaited(_salvarCache(resp.body));
+    return resp.body;
+  } catch (_) {
+    return null;
+  }
+}
+
+Future<File> _arquivoCache() async {
+  final dir = await getApplicationSupportDirectory();
+  return File('${dir.path}/$_nomeArquivoCache');
+}
+
+Future<void> _salvarCache(String conteudo) async {
+  try {
+    final arquivo = await _arquivoCache();
+    await arquivo.writeAsString(conteudo);
+  } catch (_) {
+    // Sem permissão de disco ou similar — segue sem cache, sem quebrar o app.
+  }
+}
+
+Future<String?> _lerCache() async {
+  try {
+    final arquivo = await _arquivoCache();
+    if (!await arquivo.exists()) return null;
+    return await arquivo.readAsString();
+  } catch (_) {
+    return null;
   }
 }
 
