@@ -1,5 +1,5 @@
 {
-  "gerado_em": "2026-09-07T14:36:52",
+  "gerado_em": "2026-09-08T13:11:43",
   "noticias_setores": [
     {
       "setor": "PROAE",
@@ -703,108 +703,52 @@
     }
   ],
   "ru_cardapio": {
-    "periodo": "31/08 a 04/09/2026",
+    "periodo": "Cardápio Semana 07/09 a 11/09",
     "refeicoes": [
       {
-        "dia": "Segunda",
-        "periodo": "Café da Manhã",
-        "descricao": "Ovos mexidos com cheiro verde · Soja à primavera"
-      },
-      {
-        "dia": "Terça",
-        "periodo": "Café da Manhã",
-        "descricao": "Coxa e sobrecoxa ao sugo · Ervilha salteada com azeitona e orégano"
-      },
-      {
-        "dia": "Quarta",
-        "periodo": "Café da Manhã",
-        "descricao": "Carne moída com manjericão · Lentilha ao sugo"
-      },
-      {
-        "dia": "Quinta",
-        "periodo": "Café da Manhã",
-        "descricao": "Cubos de frango acebolado · Guisado de grão de bico"
-      },
-      {
-        "dia": "Sexta",
-        "periodo": "Café da Manhã",
-        "descricao": "Carne de panela · Hambúrguer de soja ao sugo***"
-      },
-      {
-        "dia": "Segunda",
-        "periodo": "Almoço",
-        "descricao": "Frango crocante · Quibe de abóbora com lentilha"
-      },
-      {
         "dia": "Terça",
         "periodo": "Almoço",
-        "descricao": "Moqueca de peixe · Moqueca de banana com grão de bico"
+        "descricao": "Ensopado de lentilha"
       },
       {
         "dia": "Quarta",
         "periodo": "Almoço",
-        "descricao": "Frango assado · Bolinho de batata com ervilha ***"
+        "descricao": "Escondidinho de soja"
       },
       {
         "dia": "Quinta",
         "periodo": "Almoço",
-        "descricao": "Lasanha de Frango * *** · Lasanha de abobrinha com soja*"
+        "descricao": "Ensopado de repolho com grão de bico"
       },
       {
         "dia": "Sexta",
         "periodo": "Almoço",
-        "descricao": "Isca de frango a juliene na chapa · Bife de soja acebolado***"
-      },
-      {
-        "dia": "Segunda",
-        "periodo": "Jantar",
-        "descricao": "Isca de frango acebolada · Bobó de ervilhas*"
+        "descricao": "Jardineira de grão de bico e lentilhas"
       },
       {
         "dia": "Terça",
         "periodo": "Jantar",
-        "descricao": "Frango guisado com legumes · Ensopado de lentilha"
+        "descricao": "Omelete de ervilhas"
       },
       {
         "dia": "Quarta",
         "periodo": "Jantar",
-        "descricao": "Filé de frango na chapa · Escondidinho de soja * **"
+        "descricao": "Suflê de legumes com lentilhas"
       },
       {
         "dia": "Quinta",
         "periodo": "Jantar",
-        "descricao": "Filé de frango à parmegiana* *** · Ensopado de repolho com grão de bico"
+        "descricao": "Bolinho de batata com ervilha ***"
       },
       {
         "dia": "Sexta",
         "periodo": "Jantar",
-        "descricao": "Creme de frango* · Pizza vegetariana de soja"
+        "descricao": "Yakissoba de soja"
       }
     ],
     "legenda": "*Contém lactose ** Contém produtos de origem animal ***Contém glúten"
   },
   "calendario": [
-    {
-      "dia": "07",
-      "mes": "Set",
-      "ano": 2026,
-      "titulo": "Feriado Nacional para todos os campi – Independência do Brasil.",
-      "tag": "feriado"
-    },
-    {
-      "dia": "07",
-      "mes": "Set",
-      "ano": 2026,
-      "titulo": "Trancamento do período ou cancelamento de disciplinas (com ônus), referente a 2026.2.",
-      "tag": "matricula"
-    },
-    {
-      "dia": "07",
-      "mes": "Set",
-      "ano": 2026,
-      "titulo": "participaram das solenidades regulares do Período 2026.1, conforme Resolução nº 18/2017",
-      "tag": "outro"
-    },
     {
       "dia": "08",
       "mes": "Set",
@@ -3060,6 +3004,8 @@
     }
   ],
   "avisos_siga": [
+    "ATENÇÃO! CADERNETAS ELETRÔNICAS REABERTAS PARA REGISTRO — - As cadernetas eletrônicas dos períodos 2021.2 a 2026.1 estão disponíveis para possíveis alterações até o dia15/09/2026.",
+    "TRANCAMENTO DO PERÍODO OU CANCELAMENTO DE DISCIPLINAS DE 2026.2 — - De 7 a 11 de setembro, os alunos da graduação presencial poderão acessar o SIGA para realizar o TRANCAMENTO DO PERÍODO LETIVO 2026.2 ou o CANCELAMENTO DE DISCIPLINAS COM ÔNUS",
     "TRANCAMENTO e MATR VÍNCULO PÓS-GRADUAÇÃO 2026.2 (Coordenação) — - Até 11/09 -  o Sig@ estará habilitado para que as Coordenações de Curso  registrem TRANCAMENTO e MATRÍCULA VINCULO do período letivo 2026.2 para os alunos regulares da pós-graduação deferidos, conforme os trâmites do art. 45 da Res. n° 01/2019.",
     "BLOQUEIO DE ACESSO/SENHA BLOQUEADA — A funcionalidade ESQUECEU SUA SENHA não funciona, para DESBLOQUEIO: * se for discente, solicite ao SIC do seu campus; * se for docente/técnico, solicite à SRCA. Verifique os contatos na página da SRCA (https://portais.univasf.edu.br/srca)"
   ]
