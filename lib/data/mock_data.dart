@@ -15,6 +15,10 @@ class Notice {
 /// scraper. Vazio até o scraper rodar / não há mock de exemplo.
 List<String> sigaAvisos = [];
 
+/// Timestamp (`gerado_em` do JSON do scraper) da última vez que os dados
+/// públicos foram raspados — nulo enquanto só os mocks estão em uso.
+DateTime? dadosAtualizadosEm;
+
 List<Notice> homeNotices = [
   Notice(
     icon: '🛠️',
@@ -203,46 +207,6 @@ List<CalendarEvent> calendarEvents = [
 /// Dias com eventos no mês exibido (agosto/2026), usados para marcar o grid.
 const calendarEventDays = {29};
 const calendarTodayDay = 26;
-
-class ClassEntry {
-  const ClassEntry({
-    required this.code,
-    required this.name,
-    required this.details,
-    required this.room,
-    this.isSaturday = false,
-  });
-  final String code;
-  final String name;
-  final String details; // código da disciplina, ex: CCMP0230
-  final String room;
-  final bool isSaturday;
-}
-
-const classLegend = [
-  ClassEntry(code: 'C4', name: 'Eletrônica Analógica', details: 'CCMP0230', room: 'Sala 01'),
-  ClassEntry(code: '6B', name: 'Sistemas Distribuídos I', details: 'CCMP0268', room: 'Sala 10'),
-  ClassEntry(code: 'C8', name: 'Sistemas de Controle II', details: 'CCMP0266', room: 'Sala 19'),
-  ClassEntry(code: 'C0', name: 'Aprendizado Profundo', details: 'CCMP0213', room: 'Lab. Automação e Robótica'),
-  ClassEntry(code: 'C8', name: 'Teoria da Computação', details: 'CCMP0273', room: 'Sala 21'),
-  ClassEntry(code: 'X1', name: 'Org. e Arquitetura de Computadores II', details: 'CCMP0031', room: 'Sala 01', isSaturday: true),
-];
-
-/// Grade semanal: dia (0=Seg..5=Sáb) -> horário -> índice em [classLegend] (ou null).
-/// Usa índice (não código) porque "C8" aparece duas vezes com disciplinas diferentes.
-const weekDays = ['Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb'];
-const timeSlots = ['08–10', '10–12', '14–16', '16–18'];
-
-// índices: 0=C4 Eletrônica, 1=6B Sist.Distribuídos, 2=C8 Sist.Controle,
-// 3=C0 Aprendizado Profundo, 4=C8 Teoria Computação, 5=X1 Org.Arquitetura
-const Map<String, List<int?>> weeklyGrid = {
-  '08–10': [0, null, 0, 2, null, null],
-  '10–12': [1, null, 1, 2, null, null],
-  '14–16': [null, null, null, null, null, 5],
-  '16–18': [3, 4, 3, 4, null, 5],
-};
-
-const todayColumnIndex = 2; // Quarta-feira
 
 class SicContact {
   const SicContact({required this.campus, required this.email});

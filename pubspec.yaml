@@ -41,6 +41,9 @@ dependencies:
   firebase_core: ^4.14.0
   firebase_auth: ^6.6.1
   cloud_firestore: ^6.9.0
+  file_picker: ^11.0.3
+  open_filex: ^4.7.0
+  pdfrx: ^2.2.24
 
 dev_dependencies:
   flutter_test:

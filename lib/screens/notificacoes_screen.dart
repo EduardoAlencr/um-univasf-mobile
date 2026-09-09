@@ -64,6 +64,10 @@ class _NotificacoesScreenState extends State<NotificacoesScreen> {
                   'Agregador de notícias de todos os setores, com link para a fonte oficial.',
                   style: TextStyle(fontSize: 13, color: AppColors.ink2, height: 1.45),
                 ),
+                if (dadosAtualizadosEm != null) ...[
+                  const SizedBox(height: 6),
+                  Text(_formatarAtualizacao(dadosAtualizadosEm!), style: const TextStyle(fontSize: 11, color: AppColors.ink2)),
+                ],
               ],
             ),
           );
@@ -115,4 +119,13 @@ class _NotificacoesScreenState extends State<NotificacoesScreen> {
       },
     );
   }
+}
+
+String _formatarAtualizacao(DateTime data) {
+  final local = data.toLocal();
+  final dd = local.day.toString().padLeft(2, '0');
+  final mm = local.month.toString().padLeft(2, '0');
+  final hh = local.hour.toString().padLeft(2, '0');
+  final min = local.minute.toString().padLeft(2, '0');
+  return 'Dados públicos atualizados em $dd/$mm às $hh:${min}h';
 }

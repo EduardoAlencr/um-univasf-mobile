@@ -32,6 +32,7 @@ Future<void> loadRemoteData() async {
   try {
     final json = jsonDecode(raw) as Map<String, dynamic>;
 
+    dadosAtualizadosEm = DateTime.tryParse(json['gerado_em'] as String? ?? '');
     _aplicarNoticias(json['noticias_setores']);
     _aplicarEditais(json['noticias_setores']);
     _aplicarCardapio(json['ru_cardapio']);

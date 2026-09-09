@@ -1,5 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:pdfrx/pdfrx.dart';
 import 'data/remote_data_loader.dart';
 import 'firebase_options.dart';
 import 'screens/root_shell.dart';
@@ -11,6 +12,7 @@ import 'theme/app_theme.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+  await pdfrxFlutterInitialize();
   runApp(const UmUnivasfApp());
 }
 

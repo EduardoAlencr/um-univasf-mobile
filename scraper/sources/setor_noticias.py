@@ -39,23 +39,58 @@ class NoticiaSetor:
     url: str
 
 
-def _parse_item(link, setor_label: str) -> NoticiaSetor | None:
+_SELETOR_LINK_TITULO = "h2.headline a.summary, h2.tileHeadline a, article a.summary, span.summary a.url"
+
+
+def _extrair_data_do_titulo(texto: str) -> tuple[str, str | None]:
+    """Alguns setores (ex. PROAE) embutem a data no próprio texto do título
+    ("DD.MM.AAAA – Título"). Retorna (título limpo, data ou None)."""
+    prefixo = DATE_PREFIX_RE.match(texto)
+    if prefixo:
+        return texto[prefixo.end():].strip(), prefixo.group(1).replace(".", "/")
+    return texto, None
+
+
+def _extrair_data_da_byline(item_el) -> str | None:
+    """Outros setores (ex. PROEN) não têm data no título — ela fica num
+    bloco `div.documentByLine > span.documentPublished` dentro do mesmo
+    item da listagem."""
+    byline = item_el.find(class_="documentByLine")
+    if not byline:
+        return None
+    publicado = byline.find(class_="documentPublished")
+    texto = (publicado or byline).get_text(" ", strip=True)
+    m = DATE_RE.search(texto)
+    return m.group(0).replace(".", "/") if m else None
+
+
+def _parse_link_solto(link, setor_label: str) -> NoticiaSetor | None:
+    """Fallback pra quando a listagem não usa blocos `div.item` (ex. PROEX,
+    feed geral "Últimas notícias") — a página não expõe data por item nesse
+    caso, então `data` fica None (não inventamos)."""
     texto = link.get_text(strip=True)
     if not texto:
         return None
     href = link.get("href", "")
     if href.startswith("/"):
         href = BASE_URL + href
+    titulo, data = _extrair_data_do_titulo(texto)
+    return NoticiaSetor(setor=setor_label, titulo=titulo, data=data, resumo="", url=href)
 
-    prefixo = DATE_PREFIX_RE.match(texto)
-    if prefixo:
-        data = prefixo.group(1).replace(".", "/")
-        titulo = texto[prefixo.end():].strip()
-    else:
-        data_match = DATE_RE.search(texto)
-        data = data_match.group(0).replace(".", "/") if data_match else None
-        titulo = texto
 
+def _parse_item_div(item_el, setor_label: str) -> NoticiaSetor | None:
+    link = item_el.select_one(_SELETOR_LINK_TITULO)
+    if link is None:
+        return None
+    texto = link.get_text(strip=True)
+    if not texto:
+        return None
+    href = link.get("href", "")
+    if href.startswith("/"):
+        href = BASE_URL + href
+    titulo, data = _extrair_data_do_titulo(texto)
+    if data is None:
+        data = _extrair_data_da_byline(item_el)
     return NoticiaSetor(setor=setor_label, titulo=titulo, data=data, resumo="", url=href)
 
 
@@ -79,15 +114,20 @@ def raspar_noticias_setor(setor_slug: str, setor_label: str, limite: int = 6) ->
 
         soup = BeautifulSoup(resp.text, "lxml")
         # O template de notícias da UNIVASF (Plone) varia por setor: a maioria
-        # usa <h2 class="headline"><a class="summary url">DD.MM.AAAA – Título</a></h2>,
-        # mas alguns (ex. PROEX) usam <span class="summary"><a class="...url">Título</a></span>.
-        links = soup.select(
-            "h2.headline a.summary, h2.tileHeadline a, article a.summary, span.summary a.url"
-        )
+        # agrupa cada notícia num <div class="item">, com a data em algum
+        # lugar dentro desse bloco (no título ou numa "byline" separada).
+        # Alguns feeds (ex. PROEX, "Últimas notícias" geral) usam outro
+        # template de busca sem esse agrupamento — nesses, cada link vira
+        # uma notícia sem data (a página não expõe isso por item).
+        blocos = soup.select("div.item")
+        if blocos:
+            itens_pagina = [_parse_item_div(b, setor_label) for b in blocos]
+        else:
+            links = soup.select(_SELETOR_LINK_TITULO)
+            itens_pagina = [_parse_link_solto(link, setor_label) for link in links]
 
         novos_nesta_pagina = 0
-        for link in links:
-            item = _parse_item(link, setor_label)
+        for item in itens_pagina:
             if item is None or item.url in vistos:
                 continue
             vistos.add(item.url)
