@@ -1,5 +1,5 @@
 {
-  "gerado_em": "2026-09-08T13:11:43",
+  "gerado_em": "2026-09-09T13:16:29",
   "noticias_setores": [
     {
       "setor": "PROAE",
@@ -423,6 +423,27 @@
     },
     {
       "setor": "Últimas notícias",
+      "titulo": "Estudantes da Univasf podem se inscrever para mobilidade acadêmica na UFRB no período 2027.1",
+      "data": null,
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/noticias/estudantes-da-univasf-podem-se-inscrever-para-mobilidade-academica-na-ufrb-no-periodo-2027.1"
+    },
+    {
+      "setor": "Últimas notícias",
+      "titulo": "Univasf participa do I Seminário Nacional de Modelos de Financiamento das Universidades Federais",
+      "data": null,
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/noticias/univasf-participa-do-i-seminario-nacional-de-modelos-de-financiamento-das-universidades-federais"
+    },
+    {
+      "setor": "Últimas notícias",
+      "titulo": "Univasf realizará 19ª Scientex entre os dias 25 e 27 de novembro",
+      "data": null,
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/noticias/univasf-realizara-19a-scientex-entre-os-dias-25-e-27-de-novembro"
+    },
+    {
+      "setor": "Últimas notícias",
       "titulo": "Univasf promove II Simpósio de Medicamentos Inovadores do Vale do São Francisco em outubro e prorroga prazo para submissão de trabalhos",
       "data": null,
       "resumo": "",
@@ -679,27 +700,6 @@
       "data": null,
       "resumo": "",
       "url": "https://portais.univasf.edu.br/noticias/univasf-divulga-calendario-de-colacoes-de-grau-do-periodo-letivo-2026.1"
-    },
-    {
-      "setor": "Últimas notícias",
-      "titulo": "Univasf divulga edital de transferência interna do PS-PVO 2027",
-      "data": null,
-      "resumo": "",
-      "url": "https://portais.univasf.edu.br/noticias/univasf-divulga-edital-de-transferencia-interna-do-ps-pvo-2027"
-    },
-    {
-      "setor": "Últimas notícias",
-      "titulo": "Semana do Reitor – 27 a 31/07/2026",
-      "data": "31/07/2026",
-      "resumo": "",
-      "url": "https://portais.univasf.edu.br/noticias/semana-do-reitor-2013-27-a-31-07-2026"
-    },
-    {
-      "setor": "Últimas notícias",
-      "titulo": "Secretaria de Infraestrutura (Infra) da Univasf seleciona estagiário de Engenharia Civil",
-      "data": null,
-      "resumo": "",
-      "url": "https://portais.univasf.edu.br/noticias/secretaria-de-infraestrutura-infra-da-univasf-seleciona-estagiario-de-engenharia-civil"
     }
   ],
   "ru_cardapio": {
@@ -749,13 +749,6 @@
     "legenda": "*Contém lactose ** Contém produtos de origem animal ***Contém glúten"
   },
   "calendario": [
-    {
-      "dia": "08",
-      "mes": "Set",
-      "ano": 2026,
-      "titulo": "Feriado Municipal para o campus Juazeiro – Padroeira de Juazeiro/BA.",
-      "tag": "feriado"
-    },
     {
       "dia": "21",
       "mes": "Set",
@@ -3003,10 +2996,5 @@
       ]
     }
   ],
-  "avisos_siga": [
-    "ATENÇÃO! CADERNETAS ELETRÔNICAS REABERTAS PARA REGISTRO — - As cadernetas eletrônicas dos períodos 2021.2 a 2026.1 estão disponíveis para possíveis alterações até o dia15/09/2026.",
-    "TRANCAMENTO DO PERÍODO OU CANCELAMENTO DE DISCIPLINAS DE 2026.2 — - De 7 a 11 de setembro, os alunos da graduação presencial poderão acessar o SIGA para realizar o TRANCAMENTO DO PERÍODO LETIVO 2026.2 ou o CANCELAMENTO DE DISCIPLINAS COM ÔNUS",
-    "TRANCAMENTO e MATR VÍNCULO PÓS-GRADUAÇÃO 2026.2 (Coordenação) — - Até 11/09 -  o Sig@ estará habilitado para que as Coordenações de Curso  registrem TRANCAMENTO e MATRÍCULA VINCULO do período letivo 2026.2 para os alunos regulares da pós-graduação deferidos, conforme os trâmites do art. 45 da Res. n° 01/2019.",
-    "BLOQUEIO DE ACESSO/SENHA BLOQUEADA — A funcionalidade ESQUECEU SUA SENHA não funciona, para DESBLOQUEIO: * se for discente, solicite ao SIC do seu campus; * se for docente/técnico, solicite à SRCA. Verifique os contatos na página da SRCA (https://portais.univasf.edu.br/srca)"
-  ]
+  "avisos_siga": []
 }
