@@ -23,8 +23,10 @@ scraper/debug_*.html
 Thumbs.db
 .DS_Store
 
-# Documento pessoal/sensível — não faz parte do material do TCC
-MATERIAIS/Requerimento_Geral_Recurso_Desligamento_assinado.pdf
+# MATERIAIS/ é uso local (referências, exemplos pessoais, relatórios) —
+# só entra no repositório o que o app/scraper realmente precisa pra rodar.
+MATERIAIS/*
+!MATERIAIS/Itinerário PROAE 2026.2.pdf
 
 # Ferramentas locais (IDE / harness do Claude Code)
 .claude/
