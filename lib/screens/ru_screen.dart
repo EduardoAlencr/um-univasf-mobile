@@ -69,27 +69,14 @@ class RuScreen extends StatelessWidget {
                       ],
                     ),
                     const SizedBox(height: 10),
-                    ...day.meals.map((m) {
-                      final icone = _iconesPorPeriodo[m.time.toLowerCase()] ?? '🍴';
-                      return Padding(
-                        padding: const EdgeInsets.symmetric(vertical: 6),
-                        child: Row(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(icone, style: const TextStyle(fontSize: 16)),
-                            const SizedBox(width: 10),
-                            SizedBox(
-                              width: 84,
-                              child: Text(
-                                m.time,
-                                style: const TextStyle(fontSize: 11.5, fontWeight: FontWeight.w800, color: AppColors.blueDark),
-                              ),
-                            ),
-                            Expanded(child: Text(m.what, style: const TextStyle(fontSize: 13, height: 1.4))),
-                          ],
-                        ),
-                      );
-                    }),
+                    for (var i = 0; i < day.meals.length; i++)
+                      Container(
+                        decoration: i == 0
+                            ? null
+                            : const BoxDecoration(border: Border(top: BorderSide(color: AppColors.border))),
+                        padding: EdgeInsets.only(top: i == 0 ? 0 : 4),
+                        child: _RefeicaoBloco(meal: day.meals[i]),
+                      ),
                   ],
                 ),
               );
@@ -105,6 +92,65 @@ class RuScreen extends StatelessWidget {
             const SourceTag(text: 'Atualizado automaticamente · site da PROAE · hoje, 06:00'),
           ],
         ),
+      ),
+    );
+  }
+}
+
+class _RefeicaoBloco extends StatelessWidget {
+  const _RefeicaoBloco({required this.meal});
+  final Meal meal;
+
+  @override
+  Widget build(BuildContext context) {
+    final icone = _iconesPorPeriodo[meal.time.toLowerCase()] ?? '🍴';
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 8),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            children: [
+              Text(icone, style: const TextStyle(fontSize: 16)),
+              const SizedBox(width: 8),
+              Text(
+                meal.time,
+                style: const TextStyle(fontSize: 12.5, fontWeight: FontWeight.w900, color: AppColors.blueDark),
+              ),
+            ],
+          ),
+          if (meal.itens.isEmpty)
+            Padding(
+              padding: const EdgeInsets.only(top: 4, left: 24),
+              child: Text(meal.what, style: const TextStyle(fontSize: 13, height: 1.4)),
+            )
+          else
+            Padding(
+              padding: const EdgeInsets.only(top: 6, left: 24),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: meal.itens
+                    .map(
+                      (item) => Padding(
+                        padding: const EdgeInsets.only(bottom: 5),
+                        child: RichText(
+                          text: TextSpan(
+                            style: const TextStyle(fontSize: 12.5, height: 1.4, color: AppColors.ink),
+                            children: [
+                              TextSpan(
+                                text: '${item.categoria}: ',
+                                style: const TextStyle(fontWeight: FontWeight.w800, color: AppColors.ink2),
+                              ),
+                              TextSpan(text: item.prato),
+                            ],
+                          ),
+                        ),
+                      ),
+                    )
+                    .toList(),
+              ),
+            ),
+        ],
       ),
     );
   }

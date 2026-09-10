@@ -67,10 +67,24 @@ List<Notice> allNotices = [
   ),
 ];
 
+class ItemCardapio {
+  const ItemCardapio({required this.categoria, required this.prato});
+  final String categoria;
+  final String prato;
+}
+
 class Meal {
-  const Meal({required this.time, required this.what});
+  const Meal({required this.time, required this.what, this.itens = const []});
   final String time;
+
+  /// Resumo curto (usado no mock e como fallback se o scraper não trouxer
+  /// itens detalhados por algum motivo).
   final String what;
+
+  /// Cardápio detalhado por categoria (proteína, vegetariano, salada,
+  /// arroz, feijão, guarnição, molho, bebida, sobremesa...), quando vindo
+  /// de dados reais.
+  final List<ItemCardapio> itens;
 }
 
 class RuDay {

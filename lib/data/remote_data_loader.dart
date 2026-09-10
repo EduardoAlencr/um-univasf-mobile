@@ -226,9 +226,23 @@ void _aplicarCardapio(dynamic cardapio) {
     if (item is! Map) continue;
     final dia = item['dia'] as String?;
     final periodoRefeicao = item['periodo'] as String?;
-    final descricao = item['descricao'] as String?;
-    if (dia == null || periodoRefeicao == null || descricao == null) continue;
-    porDia.putIfAbsent(dia, () => []).add(Meal(time: periodoRefeicao, what: descricao));
+    if (dia == null || periodoRefeicao == null) continue;
+
+    final itensJson = item['itens'];
+    final itens = <ItemCardapio>[];
+    if (itensJson is List) {
+      for (final it in itensJson) {
+        if (it is! Map) continue;
+        final categoria = it['categoria'] as String?;
+        final prato = it['prato'] as String?;
+        if (categoria == null || prato == null || prato.isEmpty) continue;
+        itens.add(ItemCardapio(categoria: categoria, prato: prato));
+      }
+    }
+    if (itens.isEmpty) continue;
+
+    final resumo = itens.take(2).map((i) => i.prato).join(' · ');
+    porDia.putIfAbsent(dia, () => []).add(Meal(time: periodoRefeicao, what: resumo, itens: itens));
   }
   if (porDia.isEmpty) return;
 

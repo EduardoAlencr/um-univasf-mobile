@@ -1,4 +1,4 @@
-"""Acha o cardápio vigente do RU (PDF) e extrai as refeições por dia.
+"""Acha o cardápio vigente do RU (PDF) e extrai o cardápio completo por dia.
 
 Fluxo:
 1. Busca por texto ("cardapio") no portal, ordenado por data de modificação
@@ -7,8 +7,9 @@ Fluxo:
    (a tag "Cardápio vigente" usada antes parou de ser aplicada; buscar pelo
    PDF mais recente evita depender dessa marcação manual).
 2. Baixa o PDF e usa pdfplumber para extrair a tabela.
-3. Mapeia as linhas conhecidas (FRUTA, PRATO PROTEICO, PRATO PRINCIPAL,
-   PROTEÍNA, VEGETARIANO, ...) para os 5 dias úteis, café/almoço/jantar.
+3. Pra cada refeição (desjejum/almoço/jantar), captura TODAS as categorias
+   do cardápio daquele dia (proteína, vegetariano, salada, arroz, feijão,
+   guarnição, molho, bebida, sobremesa, fruta...), não só um resumo.
 
 O layout é o mesmo usado pela empresa terceirizada (Marmitek) todo semestre,
 mas se a estrutura mudar e nada bater com o esperado, retornamos lista vazia
@@ -30,21 +31,36 @@ HEADERS = {"User-Agent": "UM-UNIVASF-Mobile-Scraper/1.0 (+TCC academico)"}
 TIMEOUT = 30
 
 DIAS_SEMANA = ["Segunda", "Terça", "Quarta", "Quinta", "Sexta"]
+SECOES = {"CAFÉ DA MANHÃ", "DESJEJUM", "ALMOÇO", "JANTAR"}
 
-# Linhas de cada bloco de refeição que consideramos "o prato principal do dia"
-# para montar a descrição curta que o app mostra.
-LINHAS_RELEVANTES = {
-    "café da manhã": ["PRATO PROTEICO", "PRATO VEGETARIANO"],
-    "almoço": ["PRATO PRINCIPAL", "VEGETARIANO"],
-    "jantar": ["PROTEÍNA", "VEGETARIANO"],
-}
+# Nome de exibição amigável pros rótulos de linha do PDF (que variam:
+# "PRATO PROTEICO 1", "ACOMP_01", "SALADA CRUA/ COZIDA", ...). Correspondência
+# por prefixo — o rótulo cru vira a chave de busca (maiúsculo, sem espaço).
+_APELIDOS = [
+    ("PRATOPROTEICO", "Proteína"),
+    ("PRATOVEGETARIANO", "Vegetariano"),
+    ("VEGETARIANO", "Vegetariano"),
+    ("SALADA", "Salada"),
+    ("ACOMP", "Acompanhamento"),
+    ("GUARNI", "Guarnição"),
+    ("MOLHO", "Molho"),
+    ("BEBIDA", "Bebida"),
+    ("SOBREMESA", "Sobremesa"),
+    ("FRUTA", "Fruta"),
+]
+
+
+@dataclass
+class ItemCardapio:
+    categoria: str
+    prato: str
 
 
 @dataclass
 class RefeicaoDia:
     dia: str
     periodo: str  # "Café da Manhã" | "Almoço" | "Jantar"
-    descricao: str
+    itens: list[ItemCardapio]
 
 
 def _achar_pdf_vigente() -> tuple[str, str] | None:
@@ -79,15 +95,15 @@ def _extrair_periodo(titulo: str, texto_pdf: str) -> str:
     return match.group(0) if match else titulo
 
 
-SECOES = {"CAFÉ DA MANHÃ", "ALMOÇO", "JANTAR"}
-
-
 def _bloco_da_secao(tabela: list[list[str | None]], nome_secao: str) -> list[list[str | None]]:
-    """Retorna só as linhas entre o cabeçalho ``nome_secao`` e o próximo
-    cabeçalho de seção (ou o fim da tabela)."""
+    """Retorna só as linhas entre o cabeçalho ``nome_secao`` (ou seus
+    sinônimos) e o próximo cabeçalho de seção (ou o fim da tabela)."""
+    sinonimos = {"ALMOÇO": {"ALMOÇO"}, "JANTAR": {"JANTAR"}, "CAFÉ DA MANHÃ": {"CAFÉ DA MANHÃ", "DESJEJUM"}}[nome_secao]
+
     inicio = None
     for i, linha in enumerate(tabela):
-        if linha and linha[0] and linha[0].strip().upper() == nome_secao.upper():
+        primeiro = linha[0].strip().upper() if linha and linha[0] else None
+        if primeiro in sinonimos:
             inicio = i + 1
             break
     if inicio is None:
@@ -106,37 +122,57 @@ def _limpar(texto: str) -> str:
     return " ".join(texto.split())
 
 
-def _linha_por_rotulo(bloco: list[list[str | None]], rotulo: str) -> list[str] | None:
+def _apelido(rotulo_cru: str) -> str:
+    chave = re.sub(r"[^A-ZÀ-Ú0-9]", "", rotulo_cru.upper())
+    for prefixo, nome in _APELIDOS:
+        if chave.startswith(prefixo):
+            # preserva sufixo numérico, ex. "PRATOPROTEICO1" -> "Proteína 1"
+            sufixo = chave[len(prefixo):]
+            return f"{nome} {sufixo}".strip() if sufixo.isdigit() else nome
+    return rotulo_cru.strip().title()
+
+
+def _linhas_de_itens(bloco: list[list[str | None]]) -> list[tuple[str, list[str]]]:
+    """Cada linha do bloco vira (rótulo, [prato por dia]) — linhas sem rótulo
+    (ex. o suco extra embaixo de "BEBIDAS") são mescladas na linha anterior."""
+    resultado: list[tuple[str, list[str]]] = []
     for linha in bloco:
-        if not linha or not linha[0]:
+        if not linha:
             continue
-        if linha[0].strip().upper() == rotulo.upper():
-            return [_limpar(c) if c else "" for c in linha[1:6]]
-    return None
+        rotulo_cru = linha[0].strip() if linha[0] else None
+        if rotulo_cru and rotulo_cru.upper() == "PREPARACÃO":
+            continue  # cabeçalho dos dias da semana, não é item
+        valores = [_limpar(c) if c else "" for c in linha[1:6]]
+        if not any(valores):
+            continue
+        if rotulo_cru:
+            resultado.append((_apelido(rotulo_cru), valores))
+        elif resultado:
+            categoria_anterior, valores_anteriores = resultado[-1]
+            resultado[-1] = (
+                categoria_anterior,
+                [f"{a} / {b}" if a and b else (a or b) for a, b in zip(valores_anteriores, valores)],
+            )
+    return resultado
 
 
-def _montar_refeicoes(tabela: list[list[str | None]], periodo_label: str, nome_secao: str, rotulos: list[str]) -> list[RefeicaoDia]:
+def _montar_refeicoes(tabela: list[list[str | None]], periodo_label: str, nome_secao: str) -> list[RefeicaoDia]:
     bloco = _bloco_da_secao(tabela, nome_secao)
-    valores_por_rotulo = []
-    for rotulo in rotulos:
-        linha = _linha_por_rotulo(bloco, rotulo)
-        if linha:
-            valores_por_rotulo.append(linha)
-
-    if not valores_por_rotulo:
+    linhas = _linhas_de_itens(bloco)
+    if not linhas:
         return []
 
     refeicoes = []
     for i, dia in enumerate(DIAS_SEMANA):
-        partes = [v[i] for v in valores_por_rotulo if i < len(v) and v[i]]
-        if not partes:
+        itens = [ItemCardapio(categoria=rotulo, prato=valores[i]) for rotulo, valores in linhas if i < len(valores) and valores[i]]
+        if not itens:
             continue
-        refeicoes.append(RefeicaoDia(dia=dia, periodo=periodo_label, descricao=" · ".join(partes)))
+        refeicoes.append(RefeicaoDia(dia=dia, periodo=periodo_label, itens=itens))
     return refeicoes
 
 
 def raspar_cardapio_ru() -> dict:
-    """Retorna {"periodo": str, "refeicoes": [RefeicaoDia,...]} ou dict vazio."""
+    """Retorna {"periodo": str, "refeicoes": [...], "legenda": str|None} ou dict vazio."""
     achado = _achar_pdf_vigente()
     if not achado:
         return {}
@@ -164,16 +200,18 @@ def raspar_cardapio_ru() -> dict:
     tabela = max(tabelas, key=len)  # a tabela principal costuma ser a maior
 
     refeicoes: list[RefeicaoDia] = []
-    refeicoes += _montar_refeicoes(tabela, "Café da Manhã", "CAFÉ DA MANHÃ", LINHAS_RELEVANTES["café da manhã"])
-    refeicoes += _montar_refeicoes(tabela, "Almoço", "ALMOÇO", LINHAS_RELEVANTES["almoço"])
-    refeicoes += _montar_refeicoes(tabela, "Jantar", "JANTAR", LINHAS_RELEVANTES["jantar"])
+    refeicoes += _montar_refeicoes(tabela, "Café da Manhã", "CAFÉ DA MANHÃ")
+    refeicoes += _montar_refeicoes(tabela, "Almoço", "ALMOÇO")
+    refeicoes += _montar_refeicoes(tabela, "Jantar", "JANTAR")
 
     if not refeicoes:
         return {}
 
     return {
         "periodo": _extrair_periodo(titulo, texto),
-        "refeicoes": [asdict(r) for r in refeicoes],
+        "refeicoes": [
+            {"dia": r.dia, "periodo": r.periodo, "itens": [asdict(it) for it in r.itens]} for r in refeicoes
+        ],
         "legenda": _extrair_legenda(texto),
     }
 
