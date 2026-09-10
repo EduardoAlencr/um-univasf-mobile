@@ -64,10 +64,23 @@ def _extrair_data_da_byline(item_el) -> str | None:
     return m.group(0).replace(".", "/") if m else None
 
 
-def _parse_link_solto(link, setor_label: str) -> NoticiaSetor | None:
+def _buscar_data_no_artigo(url: str) -> str | None:
+    """Fallback pra listagens sem data por item (ex. PROEX, feed geral):
+    a página do artigo em si sempre tem a data em `documentByLine`, então
+    buscamos lá — custa 1 requisição extra por notícia sem data."""
+    try:
+        resp = requests.get(url, headers=HEADERS, timeout=TIMEOUT)
+        resp.raise_for_status()
+    except requests.RequestException:
+        return None
+    soup = BeautifulSoup(resp.text, "lxml")
+    return _extrair_data_da_byline(soup)
+
+
+def _parse_link_solto(link, setor_label: str, *, buscar_data_no_artigo: bool) -> NoticiaSetor | None:
     """Fallback pra quando a listagem não usa blocos `div.item` (ex. PROEX,
-    feed geral "Últimas notícias") — a página não expõe data por item nesse
-    caso, então `data` fica None (não inventamos)."""
+    feed geral) — a listagem não expõe data por item nesse caso, então
+    buscamos (opcionalmente) direto na página do artigo."""
     texto = link.get_text(strip=True)
     if not texto:
         return None
@@ -75,6 +88,8 @@ def _parse_link_solto(link, setor_label: str) -> NoticiaSetor | None:
     if href.startswith("/"):
         href = BASE_URL + href
     titulo, data = _extrair_data_do_titulo(texto)
+    if data is None and buscar_data_no_artigo:
+        data = _buscar_data_no_artigo(href)
     return NoticiaSetor(setor=setor_label, titulo=titulo, data=data, resumo="", url=href)
 
 
@@ -94,10 +109,16 @@ def _parse_item_div(item_el, setor_label: str) -> NoticiaSetor | None:
     return NoticiaSetor(setor=setor_label, titulo=titulo, data=data, resumo="", url=href)
 
 
-def raspar_noticias_setor(setor_slug: str, setor_label: str, limite: int = 6) -> list[NoticiaSetor]:
+def raspar_noticias_setor(
+    setor_slug: str, setor_label: str, limite: int = 6, *, buscar_data_no_artigo: bool = False
+) -> list[NoticiaSetor]:
     """Busca as últimas notícias de um setor, paginando conforme necessário até
     atingir `limite`. Retorna lista vazia em caso de erro (nunca lança exceção
-    para não derrubar o restante do scraper)."""
+    para não derrubar o restante do scraper).
+
+    `buscar_data_no_artigo`: quando a listagem não expõe data por item (ex.
+    PROEX, feed geral), busca a data direto na página de cada notícia — mais
+    lento (1 requisição extra por item sem data), mas evita ficar sem data."""
     url_base = f"{BASE_URL}/{setor_slug}/noticias/ultimas-noticias"
     noticias: list[NoticiaSetor] = []
     vistos: set[str] = set()
@@ -124,7 +145,9 @@ def raspar_noticias_setor(setor_slug: str, setor_label: str, limite: int = 6) ->
             itens_pagina = [_parse_item_div(b, setor_label) for b in blocos]
         else:
             links = soup.select(_SELETOR_LINK_TITULO)
-            itens_pagina = [_parse_link_solto(link, setor_label) for link in links]
+            itens_pagina = [
+                _parse_link_solto(link, setor_label, buscar_data_no_artigo=buscar_data_no_artigo) for link in links
+            ]
 
         novos_nesta_pagina = 0
         for item in itens_pagina:
@@ -143,16 +166,23 @@ def raspar_noticias_setor(setor_slug: str, setor_label: str, limite: int = 6) ->
 
 
 def raspar_todos_setores() -> list[dict]:
+    # "UNIVASF" não é um setor de verdade — é o feed geral do site
+    # institucional (https://portais.univasf.edu.br), listado como
+    # "Últimas notícias" lá, mas cobre a universidade toda, não um setor
+    # específico como PROAE/PROEX/PROEN.
     setores = [
         ("proae", "PROAE"),
         ("proex", "PROEX"),
         ("proen", "PROEN"),
-        ("univasf", "Últimas notícias"),
+        ("univasf", "UNIVASF"),
     ]
     resultado: list[dict] = []
     for slug, label in setores:
         limite = 40 if slug == "univasf" else 20
-        for noticia in raspar_noticias_setor(slug, label, limite=limite):
+        # PROEX e o feed geral não expõem data na listagem — busca na página
+        # de cada notícia (mais lento, mas evita ficar sem data).
+        buscar_data = slug in ("proex", "univasf")
+        for noticia in raspar_noticias_setor(slug, label, limite=limite, buscar_data_no_artigo=buscar_data):
             resultado.append(asdict(noticia))
     return resultado
 

@@ -11,6 +11,61 @@ import 'termos_screen.dart';
 class PerfilScreen extends StatelessWidget {
   const PerfilScreen({super.key});
 
+  Future<void> _editarNome(BuildContext context, String nomeAtual) async {
+    final controller = TextEditingController(text: nomeAtual == 'Estudante UNIVASF' ? '' : nomeAtual);
+    final novoNome = await showDialog<String>(
+      context: context,
+      builder: (ctx) => Dialog(
+        backgroundColor: AppColors.card,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(24)),
+        child: Padding(
+          padding: const EdgeInsets.fromLTRB(22, 24, 22, 18),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const Text('Seu nome', style: TextStyle(fontSize: 16.5, fontWeight: FontWeight.w900)),
+              const SizedBox(height: 14),
+              TextField(
+                controller: controller,
+                autofocus: true,
+                decoration: InputDecoration(
+                  hintText: 'Nome completo',
+                  filled: true,
+                  fillColor: AppColors.canvas,
+                  contentPadding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
+                  border: OutlineInputBorder(borderRadius: BorderRadius.circular(14), borderSide: BorderSide.none),
+                ),
+              ),
+              const SizedBox(height: 20),
+              Row(
+                children: [
+                  Expanded(
+                    child: TextButton(
+                      onPressed: () => Navigator.of(ctx).pop(),
+                      child: const Text('Cancelar', style: TextStyle(color: AppColors.ink2, fontWeight: FontWeight.w700)),
+                    ),
+                  ),
+                  Expanded(
+                    child: FilledButton(
+                      style: FilledButton.styleFrom(backgroundColor: AppColors.blue),
+                      onPressed: () => Navigator.of(ctx).pop(controller.text.trim()),
+                      child: const Text('Salvar'),
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+
+    if (novoNome == null || novoNome.isEmpty || !context.mounted) return;
+    await AuthScope.of(context).atualizarNome(novoNome);
+    if (context.mounted) showUmToast(context, 'Nome atualizado.');
+  }
+
   @override
   Widget build(BuildContext context) {
     final auth = AuthScope.of(context);
@@ -40,13 +95,24 @@ class PerfilScreen extends StatelessWidget {
                 alignment: Alignment.center,
                 child: const Icon(Icons.person, color: Colors.white, size: 28),
               ),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(nome, style: const TextStyle(fontSize: 16.5, fontWeight: FontWeight.w900)),
-                  const SizedBox(height: 2),
-                  Text(email, style: const TextStyle(fontSize: 12, color: AppColors.ink2)),
-                ],
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Row(
+                      children: [
+                        Flexible(child: Text(nome, style: const TextStyle(fontSize: 16.5, fontWeight: FontWeight.w900), overflow: TextOverflow.ellipsis)),
+                        const SizedBox(width: 6),
+                        GestureDetector(
+                          onTap: () => _editarNome(context, nome),
+                          child: const Icon(Icons.edit_outlined, size: 16, color: AppColors.blueDark),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: 2),
+                    Text(email, style: const TextStyle(fontSize: 12, color: AppColors.ink2)),
+                  ],
+                ),
               ),
             ],
           ),

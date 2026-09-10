@@ -84,6 +84,18 @@ class AuthState extends ChangeNotifier {
     await _auth.signOut();
   }
 
+  /// Atualiza o nome do usuário (Firebase Auth + Firestore) e notifica a UI
+  /// na hora, sem precisar reabrir o app.
+  Future<void> atualizarNome(String novoNome) async {
+    final user = _auth.currentUser;
+    if (user == null) return;
+    await user.updateDisplayName(novoNome);
+    await user.reload();
+    _user = _auth.currentUser;
+    notifyListeners();
+    await _db.collection('users').doc(user.uid).set({'nome': novoNome}, SetOptions(merge: true));
+  }
+
   Future<void> setHasGrade(bool value) async {
     _hasGrade = value;
     notifyListeners();

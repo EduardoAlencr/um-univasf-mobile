@@ -56,14 +56,19 @@ class _BusScreenState extends State<BusScreen> {
             const SizedBox(height: 12),
             const Text('TURNO', style: TextStyle(fontSize: 10.5, fontWeight: FontWeight.w800, color: AppColors.ink2, letterSpacing: 0.6)),
             const SizedBox(height: 8),
-            Row(
-              children: [
-                _FiltroChip(label: 'Todos', selecionado: _turno == null, onTap: () => setState(() => _turno = null)),
-                const SizedBox(width: 8),
-                _FiltroChip(label: 'Manhã', selecionado: _turno == 'Manhã', onTap: () => setState(() => _turno = 'Manhã')),
-                const SizedBox(width: 8),
-                _FiltroChip(label: 'Tarde', selecionado: _turno == 'Tarde', onTap: () => setState(() => _turno = 'Tarde')),
-              ],
+            SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(
+                children: [
+                  _FiltroChip(label: 'Todos', selecionado: _turno == null, onTap: () => setState(() => _turno = null)),
+                  const SizedBox(width: 8),
+                  _FiltroChip(label: 'Manhã', selecionado: _turno == 'Manhã', onTap: () => setState(() => _turno = 'Manhã')),
+                  const SizedBox(width: 8),
+                  _FiltroChip(label: 'Tarde', selecionado: _turno == 'Tarde', onTap: () => setState(() => _turno = 'Tarde')),
+                  const SizedBox(width: 8),
+                  _FiltroChip(label: 'Noite', selecionado: _turno == 'Noite', onTap: () => setState(() => _turno = 'Noite')),
+                ],
+              ),
             ),
             const SizedBox(height: 14),
             const Text('ÔNIBUS', style: TextStyle(fontSize: 10.5, fontWeight: FontWeight.w800, color: AppColors.ink2, letterSpacing: 0.6)),

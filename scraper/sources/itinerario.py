@@ -17,7 +17,7 @@ from dataclasses import dataclass, asdict, field
 import pdfplumber
 
 HORA_RE = re.compile(r"^\d{1,2}[:;]\d{2}$")
-TURNO_RE = re.compile(r"Itiner[aá]rio\s*:?\s*(MANH[AÃ]|TARDE)", re.IGNORECASE)
+TURNO_RE = re.compile(r"Itiner[aá]rio\s*:?\s*-?\s*(MANH[AÃ]|TARDE|NOITE)", re.IGNORECASE)
 # As aspas em torno da letra são obrigatórias no regex para não confundir
 # textos como "(ÔNIBUS COM PLATAFORMA ELEVATÓRIA)" com um cabeçalho real
 # (sem isso, "COM" seria lido como se "C" fosse a letra do ônibus).
@@ -79,7 +79,12 @@ def parsear_itinerario(caminho_pdf: str) -> list[dict]:
                     turno_match = TURNO_RE.search(completo)
                     if turno_match:
                         bruto = turno_match.group(1).upper()
-                        turno_atual = "Manhã" if bruto.startswith("MANH") else "Tarde"
+                        if bruto.startswith("MANH"):
+                            turno_atual = "Manhã"
+                        elif bruto.startswith("NOITE"):
+                            turno_atual = "Noite"
+                        else:
+                            turno_atual = "Tarde"
                         continue
 
                     onibus_match = ONIBUS_RE.search(completo)
