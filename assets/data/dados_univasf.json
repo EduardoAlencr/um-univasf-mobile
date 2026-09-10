@@ -1,5 +1,5 @@
 {
-  "gerado_em": "2026-09-09T12:50:34",
+  "gerado_em": "2026-09-10T13:14:11",
   "noticias_setores": [
     {
       "setor": "PROAE",
@@ -283,6 +283,13 @@
     },
     {
       "setor": "PROEN",
+      "titulo": "Nota da Proen sobre as colações de grau em gabinete para os cursos de graduação presencial e EAD no semestre 2026.1",
+      "data": "09/09/2026",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/proen/noticias/nota-da-proen-sobre-as-colacoes-de-grau-em-gabinete-para-os-cursos-de-graduacao-presencial-e-ead-no-semestre-2026.1"
+    },
+    {
+      "setor": "PROEN",
       "titulo": "Seleção de propostas para concessão de auxílio financeiro a discentes em atividades de campo e visitas técnicas - Semestre Letivo 2026.2",
       "data": "09/09/2026",
       "resumo": "",
@@ -413,13 +420,6 @@
       "data": "04/07/2025",
       "resumo": "",
       "url": "https://portais.univasf.edu.br/proen/noticias/edital_074_2025_aviso_110_2025_mobilidade_discente_interinstitucional-publicado-1.pdf/view"
-    },
-    {
-      "setor": "PROEN",
-      "titulo": "IFSertaoPE - EDITAL DE MOBILIDADE 2025.2",
-      "data": "04/07/2025",
-      "resumo": "",
-      "url": "https://portais.univasf.edu.br/proen/noticias/edital-de-mobilidade-2025-2_if_sertao_pe_ass.pdf/view"
     },
     {
       "setor": "Últimas notícias",
@@ -2996,9 +2996,5 @@
       ]
     }
   ],
-  "avisos_siga": [
-    "PRAZO LIMITE PARA ATENDIMENTO DE MATRÍCULA EXTEMPORÂNEA-GRADUAÇÃO — - As Coordenações de Curso podem atender solicitações extemporâneas de matrícula e/ou modificação de matrícula para 2026.2 até o dia 05/09/2026, mediante solicitação do discente, protocolada no período de 24 a 28/08/2026.",
-    "TRANCAMENTO e MATR VÍNCULO PÓS-GRADUAÇÃO 2026.2 (Coordenação) — - Até 11/09 -  o Sig@ estará habilitado para que as Coordenações de Curso  registrem TRANCAMENTO e MATRÍCULA VINCULO do período letivo 2026.2 para os alunos regulares da pós-graduação deferidos, conforme os trâmites do art. 45 da Res. n° 01/2019.",
-    "BLOQUEIO DE ACESSO/SENHA BLOQUEADA — A funcionalidade ESQUECEU SUA SENHA não funciona, para DESBLOQUEIO: * se for discente, solicite ao SIC do seu campus; * se for docente/técnico, solicite à SRCA. Verifique os contatos na página da SRCA (https://portais.univasf.edu.br/srca)"
-  ]
+  "avisos_siga": []
 }
