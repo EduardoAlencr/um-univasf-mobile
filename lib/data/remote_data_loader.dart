@@ -187,8 +187,10 @@ void _aplicarEditais(dynamic lista) {
 }
 
 void _aplicarItinerario(dynamic dados) {
-  if (dados is! Map) return;
-  final lista = dados['viagens'];
+  // Tolera o formato antigo (lista de viagens direto, sem vigência/data de
+  // publicação) pra nunca ficar sem nada numa janela de transição entre o
+  // app novo e um JSON ainda gerado pelo scraper antigo.
+  final lista = dados is List ? dados : (dados is Map ? dados['viagens'] : null);
   if (lista is! List || lista.isEmpty) return;
 
   final viagens = <Viagem>[];
@@ -223,8 +225,10 @@ void _aplicarItinerario(dynamic dados) {
   if (viagens.isEmpty) return;
 
   onibusViagens = viagens;
-  itinerarioVigencia = dados['vigencia'] as String?;
-  itinerarioPublicadoEm = dados['publicado_em'] as String?;
+  if (dados is Map) {
+    itinerarioVigencia = dados['vigencia'] as String?;
+    itinerarioPublicadoEm = dados['publicado_em'] as String?;
+  }
 }
 
 void _aplicarCardapio(dynamic cardapio) {
