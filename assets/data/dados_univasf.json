@@ -1,5 +1,5 @@
 {
-  "gerado_em": "2026-09-10T10:41:12",
+  "gerado_em": "2026-09-11T13:09:24",
   "noticias_setores": [
     {
       "setor": "PROAE",
@@ -423,6 +423,34 @@
     },
     {
       "setor": "UNIVASF",
+      "titulo": "Univasf sedia a IX Reunião Nordestina de Ciência do Solo (RNCS) e o VII Simpósio de Mudança Climática e Desertificação (SMUD)",
+      "data": "10/09/2026",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/noticias/univasf-sedia-a-ix-reuniao-nordestina-de-ciencia-do-solo-rncs-e-o-vii-simposio-de-mudanca-climatica-e-desertificacao-smud"
+    },
+    {
+      "setor": "UNIVASF",
+      "titulo": "Univasf realiza seleção para mestrado e doutorado em Ciências da Saúde e Biológicas com 59 vagas",
+      "data": "10/09/2026",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/noticias/univasf-realiza-selecao-para-mestrado-e-doutorado-em-ciencias-da-saude-e-biologicas-com-59-vagas"
+    },
+    {
+      "setor": "UNIVASF",
+      "titulo": "NGPS da Univasf abre seleção para bolsistas de graduação de pesquisa e extensão",
+      "data": "10/09/2026",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/noticias/ngps-da-univasf-abre-selecao-para-bolsistas-de-graduacao-de-pesquisa-e-extensao"
+    },
+    {
+      "setor": "UNIVASF",
+      "titulo": "Univasf seleciona propostas para auxílio financeiro a estudantes em atividades de campo e visitas técnicas",
+      "data": "10/09/2026",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/noticias/univasf-seleciona-propostas-para-auxilio-financeiro-a-estudantes-em-atividades-de-campo-e-visitas-tecnicas"
+    },
+    {
+      "setor": "UNIVASF",
       "titulo": "Prevenção ao suicídio – protocolo do HU-Univasf envolve equipe multiprofissional para acolhimento a vítimas",
       "data": "09/09/2026",
       "resumo": "",
@@ -672,34 +700,6 @@
       "data": "07/08/2026",
       "resumo": "",
       "url": "https://portais.univasf.edu.br/noticias/proae-reabre-inscricoes-para-cadastro-de-reserva-das-residencias-estudantis-da-univasf"
-    },
-    {
-      "setor": "UNIVASF",
-      "titulo": "Período letivo 2026.2 da Univasf terá início na próxima segunda-feira (10)",
-      "data": "06/08/2026",
-      "resumo": "",
-      "url": "https://portais.univasf.edu.br/noticias/periodo-letivo-2026-2-da-univasf-tera-inicio-na-proxima-segunda-feira-10"
-    },
-    {
-      "setor": "UNIVASF",
-      "titulo": "Univasf sedia XX Congresso Brasileiro de Fisiologia Vegetal de 17 a 22 de agosto",
-      "data": "06/08/2026",
-      "resumo": "",
-      "url": "https://portais.univasf.edu.br/noticias/univasf-sedia-xx-congresso-brasileiro-de-fisiologia-vegetal-de-17-a-22-de-agosto"
-    },
-    {
-      "setor": "UNIVASF",
-      "titulo": "Reaberto edital para seleção de estudantes voluntários e cadastro de reserva do PET-Saúde Clima Univasf",
-      "data": "06/08/2026",
-      "resumo": "",
-      "url": "https://portais.univasf.edu.br/noticias/reaberto-edital-para-selecao-de-estudantes-voluntarios-e-cadastro-de-reserva-do-pet-saude-clima-univasf"
-    },
-    {
-      "setor": "UNIVASF",
-      "titulo": "Proae divulga cronograma de atendimentos para orientar estudantes sobre o Processo Seletivo Unificado (PSU 2026)",
-      "data": "05/08/2026",
-      "resumo": "",
-      "url": "https://portais.univasf.edu.br/noticias/proae-divulga-cronograma-de-atendimentos-para-orientar-estudantes-sobre-o-processo-seletivo-unificado-psu-2026"
     }
   ],
   "ru_cardapio": {
@@ -3460,9 +3460,5 @@
       ]
     }
   ],
-  "avisos_siga": [
-    "PRAZO LIMITE PARA ATENDIMENTO DE MATRÍCULA EXTEMPORÂNEA-GRADUAÇÃO — - As Coordenações de Curso podem atender solicitações extemporâneas de matrícula e/ou modificação de matrícula para 2026.2 até o dia 05/09/2026, mediante solicitação do discente, protocolada no período de 24 a 28/08/2026.",
-    "TRANCAMENTO e MATR VÍNCULO PÓS-GRADUAÇÃO 2026.2 (Coordenação) — - Até 11/09 -  o Sig@ estará habilitado para que as Coordenações de Curso  registrem TRANCAMENTO e MATRÍCULA VINCULO do período letivo 2026.2 para os alunos regulares da pós-graduação deferidos, conforme os trâmites do art. 45 da Res. n° 01/2019.",
-    "BLOQUEIO DE ACESSO/SENHA BLOQUEADA — A funcionalidade ESQUECEU SUA SENHA não funciona, para DESBLOQUEIO: * se for discente, solicite ao SIC do seu campus; * se for docente/técnico, solicite à SRCA. Verifique os contatos na página da SRCA (https://portais.univasf.edu.br/srca)"
-  ]
+  "avisos_siga": []
 }
