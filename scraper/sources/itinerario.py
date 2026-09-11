@@ -22,6 +22,11 @@ TURNO_RE = re.compile(r"Itiner[aá]rio\s*:?\s*-?\s*(MANH[AÃ]|TARDE|NOITE)", re.
 # textos como "(ÔNIBUS COM PLATAFORMA ELEVATÓRIA)" com um cabeçalho real
 # (sem isso, "COM" seria lido como se "C" fosse a letra do ônibus).
 ONIBUS_RE = re.compile(r'[ÔO]NIBUS\s*["\'“]([A-Z])["\'”]\s*(.*)')
+# "Período: 10/08/2026 – 30/12/2026" — vigência oficial do semestre pro
+# transporte, sempre presente na primeira página.
+VIGENCIA_RE = re.compile(r"Per[ií]odo\s*:?\s*(\d{2}/\d{2}/\d{4})\s*(?:[àa–\-]|at[ée])\s*(\d{2}/\d{2}/\d{4})", re.IGNORECASE)
+# Data de metadados do PDF, formato "D:20260806161532-03'00'".
+PDF_DATA_RE = re.compile(r"D:(\d{4})(\d{2})(\d{2})(\d{2})(\d{2})(\d{2})")
 
 
 def _limpar(texto: str | None) -> str:
@@ -60,13 +65,40 @@ def _linha_relevante(row: list) -> tuple[str, str, str]:
     return primeira, ultima, completo
 
 
-def parsear_itinerario(caminho_pdf: str) -> list[dict]:
+def _extrair_vigencia(texto_primeira_pagina: str) -> str | None:
+    m = VIGENCIA_RE.search(texto_primeira_pagina)
+    if not m:
+        return None
+    return f"{m.group(1)} a {m.group(2)}"
+
+
+def _extrair_publicado_em(metadata: dict) -> str | None:
+    """Data em que o PDF foi gerado/alterado por último, conforme os
+    metadados do próprio arquivo — não é algo calculado por nós, é o que o
+    Word/"Salvar como PDF" grava. Prioriza ModDate (última alteração real);
+    cai pra CreationDate se ModDate não existir."""
+    bruto = metadata.get("ModDate") or metadata.get("CreationDate")
+    if not bruto:
+        return None
+    m = PDF_DATA_RE.search(bruto)
+    if not m:
+        return None
+    ano, mes, dia, hora, minuto, _segundo = m.groups()
+    return f"{dia}/{mes}/{ano} {hora}:{minuto}"
+
+
+def parsear_itinerario(caminho_pdf: str) -> dict:
     viagens: list[Viagem] = []
     turno_atual = "Manhã"
     viagem_atual: Viagem | None = None
+    vigencia: str | None = None
+    publicado_em: str | None = None
 
     with pdfplumber.open(caminho_pdf) as pdf:
-        for pagina in pdf.pages:
+        publicado_em = _extrair_publicado_em(pdf.metadata or {})
+        for indice, pagina in enumerate(pdf.pages):
+            if indice == 0:
+                vigencia = _extrair_vigencia(pagina.extract_text() or "")
             tabelas = pagina.extract_tables()
             for tabela in tabelas:
                 for row in tabela:
@@ -122,19 +154,23 @@ def parsear_itinerario(caminho_pdf: str) -> list[dict]:
     if viagem_atual and viagem_atual.paradas:
         viagens.append(viagem_atual)
 
-    return [
-        {
-            "letra": v.letra,
-            "turno": v.turno,
-            "rota": v.rota,
-            "horario_saida": v.paradas[0].horario if v.paradas else None,
-            "paradas": [asdict(p) for p in v.paradas],
-        }
-        for v in viagens
-    ]
+    return {
+        "vigencia": vigencia,
+        "publicado_em": publicado_em,
+        "viagens": [
+            {
+                "letra": v.letra,
+                "turno": v.turno,
+                "rota": v.rota,
+                "horario_saida": v.paradas[0].horario if v.paradas else None,
+                "paradas": [asdict(p) for p in v.paradas],
+            }
+            for v in viagens
+        ],
+    }
 
 
-def raspar_itinerario() -> list[dict]:
+def raspar_itinerario() -> dict:
     """Lê o PDF local do itinerário. Ainda não temos uma URL pública estável
     para baixar isso automaticamente — o arquivo precisa ser atualizado
     manualmente em MATERIAIS/ quando a PROAE publicar uma nova versão (ver
@@ -144,12 +180,12 @@ def raspar_itinerario() -> list[dict]:
     caminho = Path(__file__).parent.parent.parent / "MATERIAIS" / "Itinerário PROAE 2026.2.pdf"
     if not caminho.exists():
         print(f"[itinerario] PDF não encontrado em {caminho}")
-        return []
+        return {}
     try:
         return parsear_itinerario(str(caminho))
     except Exception as exc:
         print(f"[itinerario] falha ao parsear: {exc}")
-        return []
+        return {}
 
 
 if __name__ == "__main__":
@@ -162,4 +198,4 @@ if __name__ == "__main__":
         sys.exit(1)
     resultado = parsear_itinerario(caminho)
     print(json.dumps(resultado, ensure_ascii=False, indent=2))
-    print(f"\n{len(resultado)} viagens encontradas", file=sys.stderr)
+    print(f"\n{len(resultado.get('viagens', []))} viagens encontradas", file=sys.stderr)

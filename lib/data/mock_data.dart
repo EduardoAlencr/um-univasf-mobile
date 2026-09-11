@@ -144,6 +144,15 @@ class Viagem {
 /// recente pelo scraper. Vazio até o asset carregar.
 List<Viagem> onibusViagens = [];
 
+/// Vigência oficial do itinerário (ex. "10/08/2026 a 30/12/2026"), extraída
+/// do texto do PDF. Nula até o asset carregar.
+String? itinerarioVigencia;
+
+/// Quando o PDF do itinerário foi gerado/alterado por último (metadados do
+/// próprio arquivo) — permite ao usuário notar se há uma revisão mais nova
+/// (ex. troca pontual de rota) mesmo dentro do mesmo período de vigência.
+String? itinerarioPublicadoEm;
+
 class BusLine {
   const BusLine({required this.name, required this.hours, required this.status, required this.active});
   final String name;

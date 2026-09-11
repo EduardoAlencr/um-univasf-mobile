@@ -47,7 +47,17 @@ class _BusScreenState extends State<BusScreen> {
             BackRow(label: 'Início', onTap: () => Navigator.of(context).pop()),
             Text('Ônibus Universitários', style: Theme.of(context).textTheme.headlineMedium),
             const SizedBox(height: 4),
-            const Text('Transporte estudantil · PROAE · 2026.2', style: TextStyle(fontSize: 13, color: AppColors.ink2)),
+            Text(
+              itinerarioVigencia != null ? 'Transporte estudantil · PROAE · vigência $itinerarioVigencia' : 'Transporte estudantil · PROAE · 2026.2',
+              style: const TextStyle(fontSize: 13, color: AppColors.ink2),
+            ),
+            if (itinerarioPublicadoEm != null) ...[
+              const SizedBox(height: 3),
+              Text(
+                'Documento publicado em $itinerarioPublicadoEm — confira se há uma versão mais recente se algo parecer desatualizado.',
+                style: const TextStyle(fontSize: 11, color: AppColors.ink2, height: 1.4),
+              ),
+            ],
             const SizedBox(height: 16),
             _CampoBusca(
               controller: _buscaController,

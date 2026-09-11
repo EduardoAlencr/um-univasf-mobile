@@ -66,7 +66,7 @@ def main() -> None:
         print("  -> sem dados agora; mantendo o último itinerário válido")
         itinerario = anterior["itinerario_onibus"]
     else:
-        print(f"  -> {len(itinerario)} viagens")
+        print(f"  -> {len(itinerario.get('viagens', []))} viagens · vigência: {itinerario.get('vigencia')}")
 
     print("Coletando avisos públicos da tela inicial do SIG@...")
     avisos_siga = raspar_avisos_siga()

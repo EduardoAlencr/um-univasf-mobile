@@ -103,26 +103,34 @@ const _iconesPorSetor = {
 void _aplicarNoticias(dynamic lista) {
   if (lista is! List || lista.isEmpty) return;
 
-  final noticias = <Notice>[];
+  final comData = <MapEntry<Notice, DateTime?>>[];
   for (final item in lista) {
     if (item is! Map) continue;
     final setor = (item['setor'] as String?) ?? 'UNIVASF';
     final titulo = (item['titulo'] as String?)?.trim();
     if (titulo == null || titulo.isEmpty) continue;
     final data = item['data'] as String?;
-    noticias.add(
-      Notice(
-        icon: _iconesPorSetor[setor] ?? '📰',
-        iconBg: noticias.length % 4,
-        title: titulo,
-        desc: 'Notícia oficial do setor $setor.',
-        when: data != null ? '$data · coletado do site da $setor' : 'coletado do site da $setor',
-        url: item['url'] as String?,
-      ),
+    final notice = Notice(
+      icon: _iconesPorSetor[setor] ?? '📰',
+      iconBg: comData.length % 4,
+      title: titulo,
+      desc: 'Notícia oficial do setor $setor.',
+      when: data != null ? '$data · coletado do site da $setor' : 'coletado do site da $setor',
+      url: item['url'] as String?,
     );
+    comData.add(MapEntry(notice, _parseDataBr(data)));
   }
-  if (noticias.isEmpty) return;
+  if (comData.isEmpty) return;
 
+  // Mais recente primeiro; itens sem data (raro) ficam por último.
+  comData.sort((a, b) {
+    if (a.value == null && b.value == null) return 0;
+    if (a.value == null) return 1;
+    if (b.value == null) return -1;
+    return b.value!.compareTo(a.value!);
+  });
+
+  final noticias = comData.map((e) => e.key).toList();
   homeNotices = noticias.take(2).toList();
   allNotices = noticias;
 }
@@ -178,7 +186,9 @@ void _aplicarEditais(dynamic lista) {
   editais = itens;
 }
 
-void _aplicarItinerario(dynamic lista) {
+void _aplicarItinerario(dynamic dados) {
+  if (dados is! Map) return;
+  final lista = dados['viagens'];
   if (lista is! List || lista.isEmpty) return;
 
   final viagens = <Viagem>[];
@@ -213,6 +223,8 @@ void _aplicarItinerario(dynamic lista) {
   if (viagens.isEmpty) return;
 
   onibusViagens = viagens;
+  itinerarioVigencia = dados['vigencia'] as String?;
+  itinerarioPublicadoEm = dados['publicado_em'] as String?;
 }
 
 void _aplicarCardapio(dynamic cardapio) {
