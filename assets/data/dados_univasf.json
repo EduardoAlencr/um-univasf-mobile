@@ -1,5 +1,5 @@
 {
-  "gerado_em": "2026-09-11T10:27:24",
+  "gerado_em": "2026-09-12T12:32:36",
   "noticias_setores": [
     {
       "setor": "PROAE",
@@ -423,6 +423,20 @@
     },
     {
       "setor": "UNIVASF",
+      "titulo": "Univasf concede acesso subsidiado provisório aos RUs aos ingressantes de 2026 com perfil de vulnerabilidade da ampla concorrência e das cotas que independem de renda",
+      "data": "11/09/2026",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/noticias/univasf-concede-acesso-subsidiado-provisorio-aos-rus-aos-ingressantes-de-2026-com-perfil-de-vulnerabilidade-da-ampla-concorrencia-e-das-cotas-que-independem-de-renda"
+    },
+    {
+      "setor": "UNIVASF",
+      "titulo": "Programa Institucional de Bolsas de Incentivo Acadêmico (BIA) está com inscrições abertas para seleção de estudantes",
+      "data": "11/09/2026",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/noticias/programa-institucional-de-bolsas-de-incentivo-academico-bia-esta-com-inscricoes-abertas-para-selecao-de-estudantes"
+    },
+    {
+      "setor": "UNIVASF",
       "titulo": "Univasf sedia a IX Reunião Nordestina de Ciência do Solo (RNCS) e o VII Simpósio de Mudança Climática e Desertificação (SMUD)",
       "data": "10/09/2026",
       "resumo": "",
@@ -686,20 +700,6 @@
       "data": "07/08/2026",
       "resumo": "",
       "url": "https://portais.univasf.edu.br/noticias/reabertura-dos-restaurantes-universitarios-da-univasf-ocorrera-em-17-de-agosto"
-    },
-    {
-      "setor": "UNIVASF",
-      "titulo": "Univasf cria Fundação de Apoio ao Desenvolvimento do Semiárido (Fadesa)",
-      "data": "07/08/2026",
-      "resumo": "",
-      "url": "https://portais.univasf.edu.br/noticias/univasf-cria-fundacao-de-apoio-ao-desenvolvimento-do-semiarido-fadesa"
-    },
-    {
-      "setor": "UNIVASF",
-      "titulo": "Proae reabre inscrições para Cadastro de Reserva das Residências Estudantis da Univasf",
-      "data": "07/08/2026",
-      "resumo": "",
-      "url": "https://portais.univasf.edu.br/noticias/proae-reabre-inscricoes-para-cadastro-de-reserva-das-residencias-estudantis-da-univasf"
     }
   ],
   "ru_cardapio": {
@@ -1261,6 +1261,13 @@
       "ano": 2026,
       "titulo": "Feriado Nacional para todos os campi – Finados.",
       "tag": "feriado"
+    },
+    {
+      "dia": "11",
+      "mes": "Nov",
+      "ano": 2026,
+      "titulo": "disciplina; emissão de parecer consubstanciado do NDE; aprovação pelo Colegiado Acadêmico e",
+      "tag": "outro"
     }
   ],
   "colegiado_cecomp": [
@@ -3465,7 +3472,8 @@
     ]
   },
   "avisos_siga": [
-    "TRANCAMENTO e MATR VÍNCULO PÓS-GRADUAÇÃO 2026.2 (Coordenação) — - Até 11/09 -  o Sig@ estará habilitado para que as Coordenações de Curso  registrem TRANCAMENTO e MATRÍCULA VINCULO do período letivo 2026.2 para os alunos regulares da pós-graduação deferidos, conforme os trâmites do art. 45 da Res. n° 01/2019.",
+    "ATENÇÃO! CADERNETAS ELETRÔNICAS REABERTAS PARA REGISTRO — - As cadernetas eletrônicas dos períodos 2021.2 a 2026.1 estão disponíveis para possíveis alterações até o dia15/09/2026.",
+    "TRANCAMENTO DE 2026.2 OU CANCELAMENTO DE DISCIPLINAS COM ÔNUS — - Os discentes dos cursos de GRADUAÇÃO presencial podem, pelo sistema SIGA, realizar o TRANCAMENTO DO PERÍODO 2026.2 ou CANCELAR DISCIPLINAS COM ÔNUS entre os dias 07 a 11/09/2026.",
     "BLOQUEIO DE ACESSO/SENHA BLOQUEADA — A funcionalidade ESQUECEU SUA SENHA não funciona, para DESBLOQUEIO: * se for discente, solicite ao SIC do seu campus; * se for docente/técnico, solicite à SRCA. Verifique os contatos na página da SRCA (https://portais.univasf.edu.br/srca)"
   ]
 }
