@@ -1,5 +1,5 @@
 {
-  "gerado_em": "2026-09-14T15:30:02",
+  "gerado_em": "2026-09-15T14:02:34",
   "noticias_setores": [
     {
       "setor": "PROAE",
@@ -423,6 +423,13 @@
     },
     {
       "setor": "UNIVASF",
+      "titulo": "Univasf oferta 1.626 vagas em etapa externa do Processo Seletivo para Preenchimento de Vagas Ociosas (PS-PVO 2027)",
+      "data": "14/09/2026",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/noticias/univasf-oferta-1-626-vagas-em-etapa-externa-do-processo-seletivo-para-preenchimento-de-vagas-ociosas-ps-pvo-2027"
+    },
+    {
+      "setor": "UNIVASF",
       "titulo": "Edição especial do Canteiro de Antropologia comemora os 10 anos do curso com palestras e discussões",
       "data": "14/09/2026",
       "resumo": "",
@@ -693,13 +700,6 @@
       "data": "11/08/2026",
       "resumo": "",
       "url": "https://portais.univasf.edu.br/noticias/univasf-prorroga-ate-16-de-agosto-inscricoes-para-selecao-de-cursos-de-especializacao-a-distancia"
-    },
-    {
-      "setor": "UNIVASF",
-      "titulo": "Programa Escola Verde promove IV Workshop de Escrita Científica: Transformando Ideias em Publicações",
-      "data": "10/08/2026",
-      "resumo": "",
-      "url": "https://portais.univasf.edu.br/noticias/programa-escola-verde-promove-iv-workshop-de-escrita-cientifica-transformando-ideias-em-publicacoes"
     }
   ],
   "ru_cardapio": {
@@ -3597,5 +3597,8 @@
       }
     ]
   },
-  "avisos_siga": []
+  "avisos_siga": [
+    "ATENÇÃO! CADERNETAS ELETRÔNICAS REABERTAS PARA REGISTRO — - As cadernetas eletrônicas dos períodos 2021.2 a 2026.1 estão disponíveis para possíveis alterações até o dia15/09/2026.",
+    "BLOQUEIO DE ACESSO/SENHA BLOQUEADA — A funcionalidade ESQUECEU SUA SENHA não funciona, para DESBLOQUEIO: * se for discente, solicite ao SIC do seu campus; * se for docente/técnico, solicite à SRCA. Verifique os contatos na página da SRCA (https://portais.univasf.edu.br/srca)"
+  ]
 }
