@@ -1,9 +1,1422 @@
 {
-  "gerado_em": "2026-09-18T13:18:49",
-  "noticias_setores": [],
-  "ru_cardapio": {},
-  "calendario": [],
-  "colegiado_cecomp": [],
+  "gerado_em": "2026-09-19T12:48:30",
+  "noticias_setores": [
+    {
+      "setor": "PROAE",
+      "titulo": "A PROAE Informa Sobre o Itinerário Temporário do Transporte Estudantil",
+      "data": "15/09/2026",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/proae/noticias/15-09-2026-a-proae-informa-sobre-o-itinerario-temporario-do-transporte-estudantil"
+    },
+    {
+      "setor": "PROAE",
+      "titulo": "CONVOCAÇÃO PARA ENTREVISTA SOCIAL - Processo Seletivo Simplificado – Residências Estudantis",
+      "data": "14/09/2026",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/proae/noticias/14-09-2026-convocacao-para-entrevista-social-processo-seletivo-simplificado-2013-residencias-estudantis"
+    },
+    {
+      "setor": "PROAE",
+      "titulo": "PROAE inicia etapa de Análises Socioeconômicas do Processo Seletivo Unificado (PSU) 2026",
+      "data": "31/08/2026",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/proae/noticias/31-08-2026-2013-proae-inicia-etapa-de-analises-socioeconomicas-do-processo-seletivo-unificado-psu-2026"
+    },
+    {
+      "setor": "PROAE",
+      "titulo": "PROAE PRORROGA PRAZO DA REABERTURA DE INSCRIÇÕES PARA RESIDÊNCIAS ESTUDANTIS",
+      "data": "21/08/2026",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/proae/noticias/21-08-2026-proae-prorroga-prazo-da-reabertura-de-inscricoes-para-residencias-estudantis"
+    },
+    {
+      "setor": "PROAE",
+      "titulo": "A PROAE prorroga prazo de inscrições do Processo Seletivo Unificado – PSU 2026",
+      "data": "20/08/2026",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/proae/noticias/20-08-2026-2013-a-proae-prorroga-prazo-de-inscricoes-do-processo-seletivo-unificado-2013-psu-2026"
+    },
+    {
+      "setor": "PROAE",
+      "titulo": "PROAE prorroga prazo de inscrições do Processo Seletivo Unificado – PSU 2026",
+      "data": "13/08/2026",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/proae/noticias/13-08-2026-proae-prorroga-prazo-de-inscricoes-do-processo-seletivo-unificado-2013-psu-2026"
+    },
+    {
+      "setor": "PROAE",
+      "titulo": "Acesso Temporário aos Restaurantes Universitários para estudantes cotistas de renda ingressantes em 2026.1 e 2026.2",
+      "data": "13/08/2026",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/proae/noticias/13-08-2026-acesso-temporario-aos-restaurantes-universitarios-para-estudantes-cotistas-de-renda-ingressantes-em-2026-1-e-2026.2"
+    },
+    {
+      "setor": "PROAE",
+      "titulo": "A PROAE reabre inscrições do Edital nº 02/2026 para Cadastro de Reserva das Residências Estudantis da UNIVASF",
+      "data": "07/08/2026",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/proae/noticias/07-08-2026-2013-a-proae-reabre-inscricoes-do-edital-no-02-2026-para-cadastro-de-reserva-das-residencias-estudantis-da-univasf"
+    },
+    {
+      "setor": "PROAE",
+      "titulo": "A PROAE Informa Sobre o Funcionamento do Transporte Estudantil",
+      "data": "06/08/2026",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/proae/noticias/06-08-2026-a-proae-informa-sobre-o-funcionamento-do-transporte-estudantil"
+    },
+    {
+      "setor": "PROAE",
+      "titulo": "A PROAE divulga cronograma de atendimentos para orientação aos estudantes inscritos no Processo Seletivo Unificado/PSU 2026",
+      "data": "05/08/2026",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/proae/noticias/05-08-2026-2013-a-proae-divulga-cronograma-de-atendimentos-para-orientacao-aos-estudantes-inscritos-no-processo-seletivo-unificado-psu-2026-2"
+    },
+    {
+      "setor": "PROAE",
+      "titulo": "A PROAE Informa: Reabertura dos Restaurantes Universitários da Univasf está prevista para 10 de agosto",
+      "data": "29/07/2026",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/proae/noticias/29-07-2026-a-proae-informa-reabertura-dos-restaurantes-universitarios-da-univasf-esta-prevista-para-10-de-agosto"
+    },
+    {
+      "setor": "PROAE",
+      "titulo": "A PROAE divulga itinerário do transporte estudantil durante o recesso acadêmico",
+      "data": "23/07/2026",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/proae/noticias/23-07-2026-a-proae-divulga-itinerario-do-transporte-estudantil-durante-o-recesso-academico"
+    },
+    {
+      "setor": "PROAE",
+      "titulo": "Univasf divulga o Edital nº 03/2026 referente ao Processo Seletivo Unificado (PSU 2026) para bolsas, auxílios e serviços do Programa de Assistência Estudantil (PAE)",
+      "data": "23/07/2026",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/proae/noticias/22-07-2026-univasf-divulga-o-edital-no-03-2026-referente-ao-processo-seletivo-unificado-psu-2026-para-bolsas-auxilios-e-servicos-do-programa-de-assistencia-estudantil-pae"
+    },
+    {
+      "setor": "PROAE",
+      "titulo": "Resultado Final da Seleção para estagiários dos RUs",
+      "data": "17/07/2026",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/proae/noticias/17-07-2026-resultado-final-da-selecao-para-estagiarios-dos-rus"
+    },
+    {
+      "setor": "PROAE",
+      "titulo": "Resultado Parcial da Seleção para estagiários dos RUs",
+      "data": "10/07/2026",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/proae/noticias/10-07-2026-resultado-parcial-da-selecao-para-estagiarios-dos-rus"
+    },
+    {
+      "setor": "PROAE",
+      "titulo": "COMUNICADO: Funcionamento do RU CCA durante o Recesso Acadêmico",
+      "data": "06/07/2026",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/proae/noticias/06-07-2026-comunicado-funcionamento-do-ru-cca-durante-o-recesso-academico"
+    },
+    {
+      "setor": "PROAE",
+      "titulo": "Nota Sobre o Itinerário do Transporte Estudantil",
+      "data": "03/07/2026",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/proae/noticias/03-07-2026-a-proae-informa-itinerario-do-transporte-estudantil"
+    },
+    {
+      "setor": "PROAE",
+      "titulo": "PROAE INFORMA: Itinerários do Transporte Estudantil serão mantidos na segunda-feira (29/06)",
+      "data": "25/06/2026",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/proae/noticias/25-06-2026-proae-informa-itinerarios-do-transporte-estudantil-serao-mantidos-na-segunda-feira-29-06"
+    },
+    {
+      "setor": "PROAE",
+      "titulo": "PROAE Informa: Itinerários Noturnos do Transporte Estudantil Seguem Inalterados Nesta sexta-feira (19.06.2026)",
+      "data": "19/06/2026",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/proae/noticias/19-06-2026-proae-informa-itinerarios-noturnos-do-transporte-estudantil-seguem-inalterados-nesta-sexta-feira-19-06-2026"
+    },
+    {
+      "setor": "PROAE",
+      "titulo": "SELEÇÃO DE ESTÁGIO REMUNERADO: Processo Seletivo destinado à contratação de estagiários para atuar nos Restaurantes Universitários da Univasf.",
+      "data": "19/06/2026",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/proae/noticias/19-06-2026-selecao-de-estagio-remunerado-processo-seletivo-destinado-a-contratacao-de-estagiarios-para-atuar-nos-restaurantes-universitarios-da-univasf"
+    },
+    {
+      "setor": "PROEX",
+      "titulo": "Conheça o novo modelo da identidade digital padrão do governo federal",
+      "data": "04/06/2013",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/proex/noticias/conheca-o-novo-modelo-da-identidade-digital-padrao-do-governo-federal"
+    },
+    {
+      "setor": "PROEX",
+      "titulo": "Edital PIBEX 2017-2018",
+      "data": "03/02/2017",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/proex/noticias/titulo-da-noticia-entre-35-e-90-caracteres-com-espaco"
+    },
+    {
+      "setor": "PROEX",
+      "titulo": "II Encontro da Agricultura Familiar",
+      "data": "03/02/2017",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/proex/noticias/copy_of_titulo-da-noticia-entre-35-e-90-caracteres-com-espaco"
+    },
+    {
+      "setor": "PROEX",
+      "titulo": "XI Mostra de Extensão",
+      "data": "03/02/2017",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/proex/noticias/copy4_of_titulo-da-noticia-entre-35-e-90-caracteres-com-espaco"
+    },
+    {
+      "setor": "PROEX",
+      "titulo": "EDITAL Nº 003/2017 - PROEX",
+      "data": "24/03/2017",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/proex/noticias/edital-no-003-2017-proex"
+    },
+    {
+      "setor": "PROEX",
+      "titulo": "RESULTADO PARCIAL – EDITAL Nº 003/2017 - PROEX",
+      "data": "03/04/2017",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/proex/noticias/test"
+    },
+    {
+      "setor": "PROEX",
+      "titulo": "RESULTADO PARCIAL – EDITAL Nº 003/2017 - PROEX",
+      "data": "03/04/2017",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/proex/noticias/resultado-parcial-2013-edital-no-003-2017-proex-1"
+    },
+    {
+      "setor": "PROEX",
+      "titulo": "AVISO SOBRE OS CERTIFICADOS 2016",
+      "data": "05/04/2017",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/proex/noticias/aviso-sobre-os-certificados-2016"
+    },
+    {
+      "setor": "PROEX",
+      "titulo": "FICHA DE AVALIAÇÃO PARA REGISTRO DE ATIVIDADES DE EXTENSÃO",
+      "data": "22/06/2017",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/proex/noticias/ficha-de-avaliacao-para-registro-de-atividades-de-extensao-propostas-para-avaliacao-por-conselheiros-da-camara-de-extensao"
+    },
+    {
+      "setor": "PROEX",
+      "titulo": "INSCRIÇÕES PARA O PROCESSO SELETIVO EDITAL PARA BOLSAS DE ESTÁGIO PARCERIA UNIVASF/PMP",
+      "data": "31/07/2017",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/proex/noticias/inscricoes-para-o-processo-seletivo-edital-para-bolsas-de-estagio-parceria-univasf-pmp"
+    },
+    {
+      "setor": "PROEX",
+      "titulo": "Alterações no Edital 01/2017 de seleção PARA BOLSAS DE ESTÁGIO através da PARCERIA UNIVASF/PMP",
+      "data": "07/08/2017",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/proex/noticias/alteracoes-no-edital-01-2017-de-selecao-para-bolsas-de-estagio-atraves-da-parceria-univasf-pmp"
+    },
+    {
+      "setor": "PROEX",
+      "titulo": "Processo Seletivo Simplificado, com vista à seleção de PROFESSORES para atuação nos cursos de Licenciatura em Ciências Sociais e Licenciatura em História",
+      "data": "07/08/2017",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/proex/noticias/processo-seletivo-simplificado-com-vista-a-selecao-de-professores-para-atuacao-nos-cursos-de-licenciatura-em-ciencias-sociais-e-licenciatura-em-historia"
+    },
+    {
+      "setor": "PROEX",
+      "titulo": "Aviso sobre o Processo Seletivo Simplificado, com vista à seleção de PROFESSORES para atuação nos cursos de Licenciatura em Ciências Sociais e Licenciatura em História",
+      "data": "16/08/2017",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/proex/noticias/aviso-sobre-o-processo-seletivo-simplificado-com-vista-a-selecao-de-professores-para-atuacao-nos-cursos-de-licenciatura-em-ciencias-sociais-e-licenciatura-em-historia"
+    },
+    {
+      "setor": "PROEX",
+      "titulo": "Resultados Parciais - História e Ciências Sociais",
+      "data": "18/08/2017",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/proex/noticias/resultados-parciais-historia-e-ciencias-sociais"
+    },
+    {
+      "setor": "PROEX",
+      "titulo": "Resultado Final - História e Ciências Sociais",
+      "data": "21/08/2017",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/proex/noticias/resultado-final-historia-e-ciencias-sociais"
+    },
+    {
+      "setor": "PROEX",
+      "titulo": "SELEÇÃO DE ESTAGIÁRIO PARA COORDENAÇÃO DE ESTÁGIOS - DIREX",
+      "data": "31/08/2017",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/proex/noticias/selecao-de-estagiario-para-diretoria-de-extensao-edital-06-2017-proex"
+    },
+    {
+      "setor": "PROEX",
+      "titulo": "Resultado parcial do Edital nº 06/2017 – PROEX de seleção de estagiário",
+      "data": "06/09/2017",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/proex/noticias/resultado-parcial-do-edital-no-06-2017-2013-proex-de-selecao-de-estagiario"
+    },
+    {
+      "setor": "PROEX",
+      "titulo": "Processo Seletivo Simplificado, com vista à seleção de PROFESSORES para atuação nas disciplinas de Teoria Antropológica III e Teoria Política III do curso de Licenciatura em Ciências Sociais",
+      "data": "11/09/2017",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/proex/noticias/processo-seletivo-simplificado-com-vista-a-selecao-de-professores-para-atuacao-nas-disciplinas-de-teoria-antropologica-iii-e-teoria-politica-iii-do-curso-de-licenciatura-em-ciencias-sociais"
+    },
+    {
+      "setor": "PROEX",
+      "titulo": "Resultado Final do Edital nº 06/2017 – PROEX de seleção de estagiário",
+      "data": "12/09/2017",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/proex/noticias/resultado-final-do-edital-no-06-2017-2013-proex-de-selecao-de-estagiario"
+    },
+    {
+      "setor": "PROEX",
+      "titulo": "Resultado Final do Edital nº 07/2017 - seleção simplificada de professores para o curso de licensiatura em ciencias sociais pelo PRONERA - Programa nacional de educação para a reforma agrária.",
+      "data": "22/09/2017",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/proex/noticias/selecao-simplificada-de-professores-para-o-curso-de-licenciatura-em-ciencias-sociais-pelo-pronera-programa-nacional-da-educacao-para-a-reforma-agraria-2013-resultado-final"
+    },
+    {
+      "setor": "PROEN",
+      "titulo": "Nota da Proen sobre as colações de grau em gabinete para os cursos de graduação presencial e EAD no semestre 2026.1",
+      "data": "09/09/2026",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/proen/noticias/nota-da-proen-sobre-as-colacoes-de-grau-em-gabinete-para-os-cursos-de-graduacao-presencial-e-ead-no-semestre-2026.1"
+    },
+    {
+      "setor": "PROEN",
+      "titulo": "Seleção de propostas para concessão de auxílio financeiro a discentes em atividades de campo e visitas técnicas - Semestre Letivo 2026.2",
+      "data": "09/09/2026",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/proen/noticias/selecao-de-propostas-para-concessao-de-auxilio-financeiro-a-discentes-em-atividades-de-campo-e-visitas-tecnicas-semestre-letivo-2026.2"
+    },
+    {
+      "setor": "PROEN",
+      "titulo": "Estão disponíveis os certificados do PET- Saúde Equidade!",
+      "data": "09/09/2026",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/proen/noticias/estao-disponiveis-os-certificados-do-pet-saude-equidade"
+    },
+    {
+      "setor": "PROEN",
+      "titulo": "Lançamento do Guia de Orientações sobre Atendimento a Estudantes com Necessidades Educacionais Específicas",
+      "data": "13/08/2026",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/proen/noticias/lancamento-do-guia-de-orientacoes-sobre-atendimento-a-estudantes-com-necessidades-educacionais-especificas"
+    },
+    {
+      "setor": "PROEN",
+      "titulo": "Nota da Proen sobre as colações de grau extemporânea antecipada para os discentes dos cursos habilitados para o ENADE 2026",
+      "data": "13/05/2026",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/proen/noticias/nota-da-proen-sobre-as-colacoes-de-grau-extemporanea-antecipada-para-os-discentes-dos-cursos-habilitados-para-o-enade-2026"
+    },
+    {
+      "setor": "PROEN",
+      "titulo": "Cronograma das colações de grau em gabinete - Semestre 2025.2",
+      "data": "11/02/2026",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/proen/noticias/cronograma-das-colacoes-de-grau-em-gabinete-2025.2"
+    },
+    {
+      "setor": "PROEN",
+      "titulo": "CHAMADA PARA CONSULTA PÚBLICA SOBRE O PROJETO PEDAGÓGICO INSTITUCIONAL (PPI) DA UNIVASF",
+      "data": "10/02/2026",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/proen/noticias/chamada-para-consulta-publica-sobre-o-projeto-pedagogico-institucional-ppi-da-univasf"
+    },
+    {
+      "setor": "PROEN",
+      "titulo": "A PROAE divulga informações para cadastro no Programa de Bolsa Permanência para estudantes de Medicina do Campus Paulo Afonso vinculados ao Programa Mais Médicos (PBP-PMM)",
+      "data": "03/02/2026",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/proen/noticias/a-proae-divulga-informacoes-para-cadastro-no-programa-de-bolsa-permanencia-para-estudantes-de-medicina-do-campus-paulo-afonso-vinculados-ao-programa-mais-medicos-pbp-pmm"
+    },
+    {
+      "setor": "PROEN",
+      "titulo": "Abertas inscrições do Programa de Mobilidade Estudantil para a FACAPE",
+      "data": "26/01/2026",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/proen/noticias/abertas-inscricoes-do-programa-de-mobilidade-estudantil-para-a-facape"
+    },
+    {
+      "setor": "PROEN",
+      "titulo": "Nota da Proen sobre as colações de grau em gabinete para os cursos de graduação presenciais no semestre 2025.2",
+      "data": "03/12/2025",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/proen/noticias/nota-da-proen-sobre-as-colacoes-de-grau-em-gabinete-para-os-cursos-de-graduacao-presenciais-no-semestre-2025.2"
+    },
+    {
+      "setor": "PROEN",
+      "titulo": "Nota da Proen sobre as colações de grau em gabinete para os cursos de graduação EAD no semestre 2025.2",
+      "data": "03/12/2025",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/proen/noticias/nota-da-proen-sobre-as-colacoes-de-grau-em-gabinete-para-os-cursos-de-graduacao-ead-no-semestre-2025.2"
+    },
+    {
+      "setor": "PROEN",
+      "titulo": "CHAMADA para E-BOOK da PROEN (Retificação)",
+      "data": "01/09/2025",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/proen/noticias/edital-e-book-proen-1-1-pdf.pdf/view"
+    },
+    {
+      "setor": "PROEN",
+      "titulo": "Edital de Seleção - Monitoria 2025.2",
+      "data": "31/08/2025",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/proen/noticias/monitoria-2025-2.pdf/view"
+    },
+    {
+      "setor": "PROEN",
+      "titulo": "Edital de Seleção - Tutoria 2025.2",
+      "data": "31/08/2025",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/proen/noticias/tutoria-2025-2.pdf/view"
+    },
+    {
+      "setor": "PROEN",
+      "titulo": "Novo Edital Empréstimo Chromebooks - PROEN",
+      "data": "20/08/2025",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/proen/noticias/novo-edital-emprestimo-chromebooks-copia.pdf/view"
+    },
+    {
+      "setor": "PROEN",
+      "titulo": "Nota da Proen sobre as colações de grau em gabinete para os cursos de graduação EAD no semestre 2025.1",
+      "data": "11/08/2025",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/proen/noticias/nota-da-proen-sobre-as-colacoes-de-grau-em-gabinete-para-os-cursos-de-graduacao-ead-no-semestre-2025.1"
+    },
+    {
+      "setor": "PROEN",
+      "titulo": "Nota da Proen sobre as colações de grau em gabinete para os cursos de graduação presenciais no semestre 2025.1",
+      "data": "11/08/2025",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/proen/noticias/nota-da-proen-sobre-as-colacoes-de-grau-em-gabinete-para-os-cursos-de-graduacao-presenciais-no-semestre-2025.1"
+    },
+    {
+      "setor": "PROEN",
+      "titulo": "Edital Mobilidade Estudantil FACAPE 2025.2",
+      "data": "05/08/2025",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/proen/noticias/edital_mobilidade-estudantil_facape-2025-2-30-07-2025.pdf/view"
+    },
+    {
+      "setor": "PROEN",
+      "titulo": "Edital E-Book Proen",
+      "data": "25/07/2025",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/proen/noticias/edital-e-book-proen-1-1.pdf/view"
+    },
+    {
+      "setor": "PROEN",
+      "titulo": "UNEB - Edital Mobilidade Discente INTERINSTITUCIONAL",
+      "data": "04/07/2025",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/proen/noticias/edital_074_2025_aviso_110_2025_mobilidade_discente_interinstitucional-publicado-1.pdf/view"
+    },
+    {
+      "setor": "UNIVASF",
+      "titulo": "II Seminário Integrado das Licenciaturas da Univasf debateu ações para fortalecer os cursos",
+      "data": "18/09/2026",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/noticias/ii-seminario-integrado-das-licenciaturas-da-univasf-debateu-acoes-para-fortalecer-os-cursos"
+    },
+    {
+      "setor": "UNIVASF",
+      "titulo": "Univasf lança pesquisa sobre diversidade e começa aplicação com servidores TAEs",
+      "data": "18/09/2026",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/noticias/univasf-lanca-pesquisa-sobre-diversidade-e-comeca-aplicacao-com-servidores-taes"
+    },
+    {
+      "setor": "UNIVASF",
+      "titulo": "Estudo desenvolvido na Univasf analisa uso de células-tronco no tratamento de úlceras crônicas",
+      "data": "18/09/2026",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/noticias/estudo-desenvolvido-na-univasf-analisa-uso-de-celulas-tronco-no-tratamento-de-ulceras-cronicas"
+    },
+    {
+      "setor": "UNIVASF",
+      "titulo": "Semana do Reitor – 3 a 14/08/2026",
+      "data": "17/09/2026",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/noticias/semana-do-reitor-2013-3-a-14-08-2026"
+    },
+    {
+      "setor": "UNIVASF",
+      "titulo": "Inscrições para o Mestrado Profissional em Matemática em Rede Nacional (Profmat) na Univasf terminam nesta segunda-feira (21)",
+      "data": "17/09/2026",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/noticias/inscricoes-para-o-mestrado-profissional-em-matematica-em-rede-nacional-profmat-na-univasf-terminam-nesta-segunda-feira-21"
+    },
+    {
+      "setor": "UNIVASF",
+      "titulo": "Exposição “Sementes Originárias” em cartaz na Univasf apresenta obras do 1º Acervo de Artes Visuais do Vale do São Francisco",
+      "data": "16/09/2026",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/noticias/exposicao-201csementes-originarias201d-em-cartaz-na-univasf-apresenta-obras-do-1o-acervo-de-artes-visuais-do-vale-do-sao-francisco"
+    },
+    {
+      "setor": "UNIVASF",
+      "titulo": "XI Semana Farmacêutica da Univasf (XI Sefarm) abordará ciências e novas tecnologias na saúde",
+      "data": "16/09/2026",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/noticias/xi-semana-farmaceutica-da-univasf-xi-sefarm-abordara-ciencias-e-novas-tecnologias-na-saude"
+    },
+    {
+      "setor": "UNIVASF",
+      "titulo": "Inscrições abertas para seleção da turma 2027 do Mestrado Nacional Profissional em Ensino de Física",
+      "data": "15/09/2026",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/noticias/inscricoes-abertas-para-selecao-da-turma-2027-do-mestrado-nacional-profissional-em-ensino-de-fisica"
+    },
+    {
+      "setor": "UNIVASF",
+      "titulo": "Prazo para solicitar Colação de Grau 2026.2 com solenidade termina em 30 de setembro",
+      "data": "15/09/2026",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/noticias/prazo-para-solicitar-colacao-de-grau-2026-2-com-solenidade-termina-em-30-de-setembro"
+    },
+    {
+      "setor": "UNIVASF",
+      "titulo": "Univasf oferta 1.626 vagas em etapa externa do Processo Seletivo para Preenchimento de Vagas Ociosas (PS-PVO 2027)",
+      "data": "14/09/2026",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/noticias/univasf-oferta-1-626-vagas-em-etapa-externa-do-processo-seletivo-para-preenchimento-de-vagas-ociosas-ps-pvo-2027"
+    },
+    {
+      "setor": "UNIVASF",
+      "titulo": "Edição especial do Canteiro de Antropologia comemora os 10 anos do curso com palestras e discussões",
+      "data": "14/09/2026",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/noticias/edicao-especial-do-canteiro-de-antropologia-comemora-os-10-anos-do-curso-com-palestras-e-discussoes"
+    },
+    {
+      "setor": "UNIVASF",
+      "titulo": "Univasf concede acesso subsidiado provisório aos RUs aos ingressantes de 2026 com perfil de vulnerabilidade da ampla concorrência e das cotas que independem de renda",
+      "data": "11/09/2026",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/noticias/univasf-concede-acesso-subsidiado-provisorio-aos-rus-aos-ingressantes-de-2026-com-perfil-de-vulnerabilidade-da-ampla-concorrencia-e-das-cotas-que-independem-de-renda"
+    },
+    {
+      "setor": "UNIVASF",
+      "titulo": "Programa Institucional de Bolsas de Incentivo Acadêmico (BIA) está com inscrições abertas para seleção de estudantes",
+      "data": "11/09/2026",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/noticias/programa-institucional-de-bolsas-de-incentivo-academico-bia-esta-com-inscricoes-abertas-para-selecao-de-estudantes"
+    },
+    {
+      "setor": "UNIVASF",
+      "titulo": "Univasf sedia a IX Reunião Nordestina de Ciência do Solo (RNCS) e o VII Simpósio de Mudança Climática e Desertificação (SMUD)",
+      "data": "10/09/2026",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/noticias/univasf-sedia-a-ix-reuniao-nordestina-de-ciencia-do-solo-rncs-e-o-vii-simposio-de-mudanca-climatica-e-desertificacao-smud"
+    },
+    {
+      "setor": "UNIVASF",
+      "titulo": "Univasf realiza seleção para mestrado e doutorado em Ciências da Saúde e Biológicas com 59 vagas",
+      "data": "10/09/2026",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/noticias/univasf-realiza-selecao-para-mestrado-e-doutorado-em-ciencias-da-saude-e-biologicas-com-59-vagas"
+    },
+    {
+      "setor": "UNIVASF",
+      "titulo": "NGPS da Univasf abre seleção para bolsistas de graduação de pesquisa e extensão",
+      "data": "10/09/2026",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/noticias/ngps-da-univasf-abre-selecao-para-bolsistas-de-graduacao-de-pesquisa-e-extensao"
+    },
+    {
+      "setor": "UNIVASF",
+      "titulo": "Univasf seleciona propostas para auxílio financeiro a estudantes em atividades de campo e visitas técnicas",
+      "data": "10/09/2026",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/noticias/univasf-seleciona-propostas-para-auxilio-financeiro-a-estudantes-em-atividades-de-campo-e-visitas-tecnicas"
+    },
+    {
+      "setor": "UNIVASF",
+      "titulo": "Prevenção ao suicídio – protocolo do HU-Univasf envolve equipe multiprofissional para acolhimento a vítimas",
+      "data": "09/09/2026",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/noticias/prevencao-ao-suicidio-2013-protocolo-do-hu-univasf-envolve-equipe-multiprofissional-para-acolhimento-a-vitimas"
+    },
+    {
+      "setor": "UNIVASF",
+      "titulo": "Estudantes da Univasf podem se inscrever para mobilidade acadêmica na UFRB no período 2027.1",
+      "data": "09/09/2026",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/noticias/estudantes-da-univasf-podem-se-inscrever-para-mobilidade-academica-na-ufrb-no-periodo-2027.1"
+    },
+    {
+      "setor": "UNIVASF",
+      "titulo": "Univasf participa do I Seminário Nacional de Modelos de Financiamento das Universidades Federais",
+      "data": "08/09/2026",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/noticias/univasf-participa-do-i-seminario-nacional-de-modelos-de-financiamento-das-universidades-federais"
+    },
+    {
+      "setor": "UNIVASF",
+      "titulo": "Univasf realizará 19ª Scientex entre os dias 25 e 27 de novembro",
+      "data": "08/09/2026",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/noticias/univasf-realizara-19a-scientex-entre-os-dias-25-e-27-de-novembro"
+    },
+    {
+      "setor": "UNIVASF",
+      "titulo": "Univasf promove II Simpósio de Medicamentos Inovadores do Vale do São Francisco em outubro e prorroga prazo para submissão de trabalhos",
+      "data": "04/09/2026",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/noticias/univasf-promove-ii-simposio-de-medicamentos-inovadores-do-vale-do-sao-francisco-em-outubro-e-prorroga-prazo-para-submissao-de-trabalhos"
+    },
+    {
+      "setor": "UNIVASF",
+      "titulo": "XXVII Encontro Semestral de Carreiras Univasf e XI Simpósio de Administração do Vale do São Francisco acontecem na Univasf a partir de terça-feira (8)",
+      "data": "04/09/2026",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/noticias/xxvii-encontro-semestral-de-carreiras-univasf-e-xi-simposio-de-administracao-do-vale-do-sao-francisco-acontecem-na-univasf-a-partir-de-terca-feira-8"
+    },
+    {
+      "setor": "UNIVASF",
+      "titulo": "Univasf seleciona estudantes do Campus Salgueiro para formação em Inteligência Artificial do projeto LAB-IA Sertão Twin",
+      "data": "03/09/2026",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/noticias/univasf-seleciona-estudantes-do-campus-salgueiro-para-formacao-em-inteligencia-artificial-do-projeto-lab-ia-sertao-twin"
+    },
+    {
+      "setor": "UNIVASF",
+      "titulo": "Especialista do HU-Univasf explica novos critérios para doação de sangue",
+      "data": "03/09/2026",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/noticias/especialista-do-hu-univasf-explica-novos-criterios-para-doacao-de-sangue"
+    },
+    {
+      "setor": "UNIVASF",
+      "titulo": "Univasf realiza defesa de memorial para promoção de professor de Farmácia à classe de Titular",
+      "data": "02/09/2026",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/noticias/univasf-realiza-defesa-de-memorial-para-promocao-de-professor-de-farmacia-a-classe-de-titular"
+    },
+    {
+      "setor": "UNIVASF",
+      "titulo": "Univasf inaugura Sala de Autorregulação para estudantes com TEA no Campus Ciências Agrárias",
+      "data": "02/09/2026",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/noticias/univasf-inaugura-sala-de-autorregulacao-para-estudantes-com-tea-no-campus-ciencias-agrarias"
+    },
+    {
+      "setor": "UNIVASF",
+      "titulo": "Estão abertas as inscrições para o 11° Fórum de Mobilização Antimanicomial que será realizado na Univasf",
+      "data": "31/08/2026",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/noticias/estao-abertas-as-inscricoes-para-o-11deg-forum-de-mobilizacao-antimanicomial-que-sera-realizado-na-univasf"
+    },
+    {
+      "setor": "UNIVASF",
+      "titulo": "Nota sobre interdição do Centro de Convivência do Campus Juazeiro",
+      "data": "29/08/2026",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/noticias/nota-sobre-interdicao-do-centro-de-convivencia-do-campus-juazeiro"
+    },
+    {
+      "setor": "UNIVASF",
+      "titulo": "Professor da Univasf debate restauração da Caatinga e combate à desertificação em painéis na COP17, na Mongólia",
+      "data": "28/08/2026",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/noticias/professor-da-univasf-debate-restauracao-da-caatinga-e-combate-a-desertificacao-em-paineis-na-cop17-na-mongolia"
+    },
+    {
+      "setor": "UNIVASF",
+      "titulo": "HU-Univasf fortalece o enfrentamento da violência contra a mulher com acolhimento, escuta e acesso aos direitos",
+      "data": "28/08/2026",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/noticias/hu-univasf-fortalece-o-enfrentamento-da-violencia-contra-a-mulher-com-acolhimento-escuta-e-acesso-aos-direitos"
+    },
+    {
+      "setor": "UNIVASF",
+      "titulo": "I Seminário Franco-Brasileiro de Tecnologia Lítica será realizado em outubro na Univasf",
+      "data": "27/08/2026",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/noticias/i-seminario-franco-brasileiro-de-tecnologia-litica-sera-realizado-em-outubro-na-univasf"
+    },
+    {
+      "setor": "UNIVASF",
+      "titulo": "Univasf realiza defesa de memorial para promoção de professora de Engenharia Mecânica à classe de Titular",
+      "data": "27/08/2026",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/noticias/univasf-realiza-defesa-de-memorial-para-promocao-de-professora-de-engenharia-mecanica-a-classe-de-titular"
+    },
+    {
+      "setor": "UNIVASF",
+      "titulo": "Tempo seco: especialista do HU-Univasf alerta para cuidados com a saúde da pele",
+      "data": "26/08/2026",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/noticias/tempo-seco-especialista-do-hu-univasf-alerta-para-cuidados-com-a-saude-da-pele"
+    },
+    {
+      "setor": "UNIVASF",
+      "titulo": "Exposição Terra-Mar mostra na Univasf a biodiversidade dos manguezais às profundezas do oceano",
+      "data": "25/08/2026",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/noticias/exposicao-terra-mar-mostra-na-univasf-a-biodiversidade-dos-manguezais-as-profundezas-do-oceano"
+    },
+    {
+      "setor": "UNIVASF",
+      "titulo": "Univasf realiza Sarau Intercultural no Campus Sede na próxima segunda-feira (24)",
+      "data": "21/08/2026",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/noticias/univasf-realiza-sarau-intercultural-no-campus-sede-na-proxima-segunda-feira-24"
+    },
+    {
+      "setor": "UNIVASF",
+      "titulo": "Nota em Defesa das Políticas Afirmativas para Negros nos Concursos Docentes e Solidariedade à Autonomia Universitária",
+      "data": "21/08/2026",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/noticias/nota-em-defesa-das-politicas-afirmativas-para-negros-nos-concursos-docentes-e-solidariedade-a-autonomia-universitaria"
+    },
+    {
+      "setor": "UNIVASF",
+      "titulo": "XX Congresso Brasileiro de Fisiologia Vegetal promove integração entre ciência, inovação e ensino na Univasf",
+      "data": "20/08/2026",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/noticias/xx-congresso-brasileiro-de-fisiologia-vegetal-promove-integracao-entre-ciencia-inovacao-e-ensino-na-univasf"
+    },
+    {
+      "setor": "UNIVASF",
+      "titulo": "Univasf lança seleção para o Programa Institucional de Bolsas de Incentivo Acadêmico (BIA)",
+      "data": "19/08/2026",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/noticias/univasf-lanca-selecao-para-o-programa-institucional-de-bolsas-de-incentivo-academico-bia"
+    },
+    {
+      "setor": "UNIVASF",
+      "titulo": "Restaurantes Universitários da Univasf estão reabertos para atender comunidade acadêmica e público externo",
+      "data": "18/08/2026",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/noticias/restaurantes-universitarios-da-univasf-estao-reabertos-para-atender-comunidade-academica-e-publico-externo"
+    }
+  ],
+  "ru_cardapio": {
+    "periodo": "Cardápio Semana 14/09 a 18/09",
+    "refeicoes": [
+      {
+        "dia": "Segunda",
+        "periodo": "Café da Manhã",
+        "itens": [
+          {
+            "categoria": "Proteína",
+            "prato": "Ovos mexidos temperados"
+          },
+          {
+            "categoria": "Vegetariano",
+            "prato": "Salpicão vegano com lentilhas"
+          },
+          {
+            "categoria": "Acompanhamento",
+            "prato": "Cuscuz com tomate"
+          },
+          {
+            "categoria": "Acompanhamento",
+            "prato": "Mingau de aveia * ** ***"
+          },
+          {
+            "categoria": "Fruta",
+            "prato": "Banana"
+          },
+          {
+            "categoria": "Bebida",
+            "prato": "Café / Leite * ** / Suco de caju"
+          }
+        ]
+      },
+      {
+        "dia": "Terça",
+        "periodo": "Café da Manhã",
+        "itens": [
+          {
+            "categoria": "Proteína",
+            "prato": "Cubos de frango ao molho sugo"
+          },
+          {
+            "categoria": "Vegetariano",
+            "prato": "Almôndegas de grão de bico ao sugo"
+          },
+          {
+            "categoria": "Acompanhamento",
+            "prato": "Cuscuz refogado com cenoura"
+          },
+          {
+            "categoria": "Acompanhamento",
+            "prato": "Pão com queijo * ** ***"
+          },
+          {
+            "categoria": "Fruta",
+            "prato": "Laranja"
+          },
+          {
+            "categoria": "Bebida",
+            "prato": "Café / Leite * ** / Suco de goiaba"
+          }
+        ]
+      },
+      {
+        "dia": "Quarta",
+        "periodo": "Café da Manhã",
+        "itens": [
+          {
+            "categoria": "Proteína",
+            "prato": "Carne desfiadada acebolada"
+          },
+          {
+            "categoria": "Vegetariano",
+            "prato": "Cozido de soja"
+          },
+          {
+            "categoria": "Acompanhamento",
+            "prato": "Macaxeira"
+          },
+          {
+            "categoria": "Acompanhamento",
+            "prato": "Pão com requeijão* ** ***"
+          },
+          {
+            "categoria": "Fruta",
+            "prato": "Melancia"
+          },
+          {
+            "categoria": "Bebida",
+            "prato": "Café / Leite * ** / Suco de abacaxi"
+          }
+        ]
+      },
+      {
+        "dia": "Quinta",
+        "periodo": "Café da Manhã",
+        "itens": [
+          {
+            "categoria": "Proteína",
+            "prato": "Frango guisado"
+          },
+          {
+            "categoria": "Vegetariano",
+            "prato": "Guisado de lentilhas"
+          },
+          {
+            "categoria": "Acompanhamento",
+            "prato": "Cuscuz com cheiro verde"
+          },
+          {
+            "categoria": "Acompanhamento",
+            "prato": "Bolo formigueiro* ** ***"
+          },
+          {
+            "categoria": "Fruta",
+            "prato": "Melão"
+          },
+          {
+            "categoria": "Bebida",
+            "prato": "Café / Leite * ** / Suco de manga"
+          }
+        ]
+      },
+      {
+        "dia": "Sexta",
+        "periodo": "Café da Manhã",
+        "itens": [
+          {
+            "categoria": "Proteína",
+            "prato": "Carne moida ao sugo"
+          },
+          {
+            "categoria": "Vegetariano",
+            "prato": "Hambúrguer de soja ao sugo***"
+          },
+          {
+            "categoria": "Acompanhamento",
+            "prato": "Cuscuz temperado"
+          },
+          {
+            "categoria": "Acompanhamento",
+            "prato": "Chocolate quente*"
+          },
+          {
+            "categoria": "Fruta",
+            "prato": "Mamão"
+          },
+          {
+            "categoria": "Bebida",
+            "prato": "Café / Leite * ** / Suco de cajá"
+          }
+        ]
+      },
+      {
+        "dia": "Segunda",
+        "periodo": "Almoço",
+        "itens": [
+          {
+            "categoria": "Proteína 1",
+            "prato": "Frango empanado"
+          },
+          {
+            "categoria": "Proteína 2",
+            "prato": "Torta Madalena de carne moída"
+          },
+          {
+            "categoria": "Vegetariano",
+            "prato": "Bolinho de ervilha"
+          },
+          {
+            "categoria": "Salada",
+            "prato": "Alface, beterraba e tomate"
+          },
+          {
+            "categoria": "Acompanhamento 01",
+            "prato": "Arroz c/ açafrão"
+          },
+          {
+            "categoria": "Acompanhamento 02",
+            "prato": "Arroz integral"
+          },
+          {
+            "categoria": "Acompanhamento 03",
+            "prato": "Feijão carioca"
+          },
+          {
+            "categoria": "Guarnição",
+            "prato": "Macarrão ao alho e óleo"
+          },
+          {
+            "categoria": "Molho",
+            "prato": "Ervas"
+          },
+          {
+            "categoria": "Bebida",
+            "prato": "Suco de acerola"
+          },
+          {
+            "categoria": "Sobremesa",
+            "prato": "Melancia"
+          }
+        ]
+      },
+      {
+        "dia": "Terça",
+        "periodo": "Almoço",
+        "itens": [
+          {
+            "categoria": "Proteína 1",
+            "prato": "Iscas de Frango acebolado"
+          },
+          {
+            "categoria": "Proteína 2",
+            "prato": "Cubos de carne ao molho madeira"
+          },
+          {
+            "categoria": "Vegetariano",
+            "prato": "Moqueca de banana com grão de bico"
+          },
+          {
+            "categoria": "Salada",
+            "prato": "Batata inglesa, cenoura e chuchu"
+          },
+          {
+            "categoria": "Acompanhamento 01",
+            "prato": "Arroz branco"
+          },
+          {
+            "categoria": "Acompanhamento 02",
+            "prato": "Arroz integral colorido"
+          },
+          {
+            "categoria": "Acompanhamento 03",
+            "prato": "Feijão preto"
+          },
+          {
+            "categoria": "Guarnição",
+            "prato": "Farofa de cebola"
+          },
+          {
+            "categoria": "Molho",
+            "prato": "Tártaro*"
+          },
+          {
+            "categoria": "Bebida",
+            "prato": "Suco de caju"
+          },
+          {
+            "categoria": "Sobremesa",
+            "prato": "Doce Coxa de Moça"
+          }
+        ]
+      },
+      {
+        "dia": "Quarta",
+        "periodo": "Almoço",
+        "itens": [
+          {
+            "categoria": "Proteína 1",
+            "prato": "Frango assado"
+          },
+          {
+            "categoria": "Proteína 2",
+            "prato": "Bife ao molho ferrugem"
+          },
+          {
+            "categoria": "Vegetariano",
+            "prato": "Bife de soja ao molho escuro"
+          },
+          {
+            "categoria": "Salada",
+            "prato": "Alface, cenoura e repolho"
+          },
+          {
+            "categoria": "Acompanhamento 01",
+            "prato": "Arroz c/ ervilha"
+          },
+          {
+            "categoria": "Acompanhamento 02",
+            "prato": "Arroz integral"
+          },
+          {
+            "categoria": "Acompanhamento 03",
+            "prato": "Feijão carioca"
+          },
+          {
+            "categoria": "Guarnição",
+            "prato": "Purê de macaxeira*"
+          },
+          {
+            "categoria": "Molho",
+            "prato": "Agridoce"
+          },
+          {
+            "categoria": "Bebida",
+            "prato": "Suco de cajá"
+          },
+          {
+            "categoria": "Sobremesa",
+            "prato": "Melão"
+          }
+        ]
+      },
+      {
+        "dia": "Quinta",
+        "periodo": "Almoço",
+        "itens": [
+          {
+            "categoria": "Proteína 1",
+            "prato": "Frango acebolado"
+          },
+          {
+            "categoria": "Proteína 2",
+            "prato": "Estrogonofe de carne * **"
+          },
+          {
+            "categoria": "Vegetariano",
+            "prato": "Lasanha de abobrinha com soja*"
+          },
+          {
+            "categoria": "Salada",
+            "prato": "Acelga, alface, beterraba e tomate"
+          },
+          {
+            "categoria": "Acompanhamento 01",
+            "prato": "Arroz colorido"
+          },
+          {
+            "categoria": "Acompanhamento 02",
+            "prato": "Arroz integral"
+          },
+          {
+            "categoria": "Acompanhamento 03",
+            "prato": "Feijão preto"
+          },
+          {
+            "categoria": "Guarnição",
+            "prato": "Macarrão com cebolinha"
+          },
+          {
+            "categoria": "Molho",
+            "prato": "Laranja"
+          },
+          {
+            "categoria": "Bebida",
+            "prato": "Suco de manga"
+          },
+          {
+            "categoria": "Sobremesa",
+            "prato": "Doce de goiaba"
+          }
+        ]
+      },
+      {
+        "dia": "Sexta",
+        "periodo": "Almoço",
+        "itens": [
+          {
+            "categoria": "Proteína 1",
+            "prato": "Peixe à dorê* **"
+          },
+          {
+            "categoria": "Proteína 2",
+            "prato": "Feijoada"
+          },
+          {
+            "categoria": "Vegetariano",
+            "prato": "Lentilha refogada"
+          },
+          {
+            "categoria": "Salada",
+            "prato": "Vinagrete"
+          },
+          {
+            "categoria": "Acompanhamento 01",
+            "prato": "Arroz branco"
+          },
+          {
+            "categoria": "Acompanhamento 02",
+            "prato": "Arroz integralc/ dueto"
+          },
+          {
+            "categoria": "Acompanhamento 03",
+            "prato": "Feijão de corda"
+          },
+          {
+            "categoria": "Guarnição",
+            "prato": "Farofa dourada"
+          },
+          {
+            "categoria": "Molho",
+            "prato": "Limão"
+          },
+          {
+            "categoria": "Bebida",
+            "prato": "Suco de abacaxi"
+          },
+          {
+            "categoria": "Sobremesa",
+            "prato": "Laranja"
+          }
+        ]
+      },
+      {
+        "dia": "Segunda",
+        "periodo": "Jantar",
+        "itens": [
+          {
+            "categoria": "Proteína 1",
+            "prato": "Guisado de frango"
+          },
+          {
+            "categoria": "Proteína 2",
+            "prato": "Cubos bovinos assados com batatas"
+          },
+          {
+            "categoria": "Vegetariano",
+            "prato": "Soja à primavera"
+          },
+          {
+            "categoria": "Salada",
+            "prato": "Batata, cenoura e chuchu"
+          },
+          {
+            "categoria": "Acompanhamento 01",
+            "prato": "Sopa de feijão"
+          },
+          {
+            "categoria": "Acompanhamento 02",
+            "prato": "Cuscuz com ovo**"
+          },
+          {
+            "categoria": "Acompanhamento 03",
+            "prato": "Batata doce"
+          },
+          {
+            "categoria": "Guarnição",
+            "prato": "Torrada***"
+          },
+          {
+            "categoria": "Molho",
+            "prato": "Limão"
+          },
+          {
+            "categoria": "Bebida",
+            "prato": "Café/Leite* ** / Suco de caju"
+          }
+        ]
+      },
+      {
+        "dia": "Terça",
+        "periodo": "Jantar",
+        "itens": [
+          {
+            "categoria": "Proteína 1",
+            "prato": "Cubos de frango à milanesa"
+          },
+          {
+            "categoria": "Proteína 2",
+            "prato": "Carne xadrez"
+          },
+          {
+            "categoria": "Vegetariano",
+            "prato": "Bolinho de abóbora com ervilha"
+          },
+          {
+            "categoria": "Salada",
+            "prato": "Acelga, beterraba e cenoura"
+          },
+          {
+            "categoria": "Acompanhamento 01",
+            "prato": "Mungunzá*"
+          },
+          {
+            "categoria": "Acompanhamento 02",
+            "prato": "Macarrão ao alho e óleo***"
+          },
+          {
+            "categoria": "Acompanhamento 03",
+            "prato": "Macaxeira"
+          },
+          {
+            "categoria": "Guarnição",
+            "prato": "Pão***"
+          },
+          {
+            "categoria": "Molho",
+            "prato": "Verde"
+          },
+          {
+            "categoria": "Bebida",
+            "prato": "Café/Leite* ** / Suco de goiaba"
+          }
+        ]
+      },
+      {
+        "dia": "Quarta",
+        "periodo": "Jantar",
+        "itens": [
+          {
+            "categoria": "Proteína 1",
+            "prato": "Cubos de frango na chapa"
+          },
+          {
+            "categoria": "Proteína 2",
+            "prato": "Jardineira de carne moida"
+          },
+          {
+            "categoria": "Vegetariano",
+            "prato": "Grão de brico ao alho e cheiro verde"
+          },
+          {
+            "categoria": "Salada",
+            "prato": "Abóbora, cenoura e chuchu"
+          },
+          {
+            "categoria": "Acompanhamento 01",
+            "prato": "Caldo verde"
+          },
+          {
+            "categoria": "Acompanhamento 02",
+            "prato": "Cuscuz temperado"
+          },
+          {
+            "categoria": "Acompanhamento 03",
+            "prato": "Cará"
+          },
+          {
+            "categoria": "Guarnição",
+            "prato": "Torrada***"
+          },
+          {
+            "categoria": "Molho",
+            "prato": "Ervas"
+          },
+          {
+            "categoria": "Bebida",
+            "prato": "Café/Leite* ** / Suco de abacaxi"
+          }
+        ]
+      },
+      {
+        "dia": "Quinta",
+        "periodo": "Jantar",
+        "itens": [
+          {
+            "categoria": "Proteína 1",
+            "prato": "Lasanha de frango* ***"
+          },
+          {
+            "categoria": "Proteína 2",
+            "prato": "Carne de panela"
+          },
+          {
+            "categoria": "Vegetariano",
+            "prato": "Lentilhas ao molho branco*"
+          },
+          {
+            "categoria": "Salada",
+            "prato": "Acelga, cenoura e repolho"
+          },
+          {
+            "categoria": "Acompanhamento 01",
+            "prato": "Creme de abóbora"
+          },
+          {
+            "categoria": "Acompanhamento 02",
+            "prato": "Arroz com brócolis"
+          },
+          {
+            "categoria": "Acompanhamento 03",
+            "prato": "Batata doce"
+          },
+          {
+            "categoria": "Guarnição",
+            "prato": "Torrada***"
+          },
+          {
+            "categoria": "Molho",
+            "prato": "Oriental"
+          },
+          {
+            "categoria": "Bebida",
+            "prato": "Café/Leite* ** / Suco de acerola"
+          }
+        ]
+      },
+      {
+        "dia": "Sexta",
+        "periodo": "Jantar",
+        "itens": [
+          {
+            "categoria": "Proteína 1",
+            "prato": "Empadão de frango* ***"
+          },
+          {
+            "categoria": "Proteína 2",
+            "prato": "Picadinho de carne com legumes"
+          },
+          {
+            "categoria": "Vegetariano",
+            "prato": "Soja ao vinagrete"
+          },
+          {
+            "categoria": "Salada",
+            "prato": "Abobrinha, batata e beterraba"
+          },
+          {
+            "categoria": "Acompanhamento 01",
+            "prato": "Arroz doce"
+          },
+          {
+            "categoria": "Acompanhamento 02",
+            "prato": "Cuscuz com tomate"
+          },
+          {
+            "categoria": "Acompanhamento 03",
+            "prato": "Macaxeira"
+          },
+          {
+            "categoria": "Guarnição",
+            "prato": "Pão***"
+          },
+          {
+            "categoria": "Molho",
+            "prato": "Mostarda*"
+          },
+          {
+            "categoria": "Bebida",
+            "prato": "Café/Leite* ** / Suco de manga"
+          }
+        ]
+      }
+    ],
+    "legenda": "*Contém lactose ** Contém produtos de origem animal ***Contém glúten"
+  },
+  "calendario": [
+    {
+      "dia": "21",
+      "mes": "Set",
+      "ano": 2026,
+      "titulo": "Feriado Municipal para o campus Petrolina – Aniversário da cidade de Petrolina/PE.",
+      "tag": "feriado"
+    },
+    {
+      "dia": "04",
+      "mes": "Out",
+      "ano": 2026,
+      "titulo": "Feriado Municipal para o campus Paulo Afonso – Padroeiro de Paulo Afonso/BA.",
+      "tag": "feriado"
+    },
+    {
+      "dia": "05",
+      "mes": "Out",
+      "ano": 2026,
+      "titulo": "Prazo para abertura de processo de atividades complementares para registro no Período 2026.2.",
+      "tag": "outro"
+    },
+    {
+      "dia": "12",
+      "mes": "Out",
+      "ano": 2026,
+      "titulo": "Feriado Nacional para todos os campi – Padroeira do Brasil.",
+      "tag": "feriado"
+    },
+    {
+      "dia": "19",
+      "mes": "Out",
+      "ano": 2026,
+      "titulo": "Feriado Estadual para o campus Serra da Capivara – Constituição do Piauí.",
+      "tag": "feriado"
+    },
+    {
+      "dia": "28",
+      "mes": "Out",
+      "ano": 2026,
+      "titulo": "Feriado Nacional para todos os campi – Dia do Servidor Público.",
+      "tag": "feriado"
+    },
+    {
+      "dia": "02",
+      "mes": "Nov",
+      "ano": 2026,
+      "titulo": "Feriado Nacional para todos os campi – Finados.",
+      "tag": "feriado"
+    },
+    {
+      "dia": "11",
+      "mes": "Nov",
+      "ano": 2026,
+      "titulo": "disciplina; emissão de parecer consubstanciado do NDE; aprovação pelo Colegiado Acadêmico e",
+      "tag": "outro"
+    },
+    {
+      "dia": "15",
+      "mes": "Nov",
+      "ano": 2026,
+      "titulo": "Feriado Nacional para todos os campi – Proclamação da República.",
+      "tag": "feriado"
+    },
+    {
+      "dia": "18",
+      "mes": "Nov",
+      "ano": 2026,
+      "titulo": "a requisitos para o Período 2027.1. Emissão de parecer fundamentado do docente responsável pela",
+      "tag": "outro"
+    }
+  ],
+  "colegiado_cecomp": [
+    {
+      "colegiado": "CECOMP",
+      "titulo": "Encontre aquiinformações",
+      "url": "https://cecomp.univasf.edu.br/index.php/vale-do-sao-francisco/"
+    }
+  ],
   "itinerario_onibus": {
     "vigencia": "10/08/2026 a 30/12/2026",
     "publicado_em": "06/08/2026 16:15",
