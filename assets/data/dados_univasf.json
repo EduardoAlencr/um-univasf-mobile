@@ -1,5 +1,5 @@
 {
-  "gerado_em": "2026-09-19T12:48:30",
+  "gerado_em": "2026-09-20T13:21:57",
   "noticias_setores": [
     {
       "setor": "PROAE",
@@ -423,6 +423,13 @@
     },
     {
       "setor": "UNIVASF",
+      "titulo": "Nota de Repúdio à tentativa de homicídio sofrida por estudante de História",
+      "data": "19/09/2026",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/noticias/nota-de-repudio-a-tentativa-de-homicidio-sofrida-por-estudante-de-historia"
+    },
+    {
+      "setor": "UNIVASF",
       "titulo": "II Seminário Integrado das Licenciaturas da Univasf debateu ações para fortalecer os cursos",
       "data": "18/09/2026",
       "resumo": "",
@@ -693,13 +700,6 @@
       "data": "19/08/2026",
       "resumo": "",
       "url": "https://portais.univasf.edu.br/noticias/univasf-lanca-selecao-para-o-programa-institucional-de-bolsas-de-incentivo-academico-bia"
-    },
-    {
-      "setor": "UNIVASF",
-      "titulo": "Restaurantes Universitários da Univasf estão reabertos para atender comunidade acadêmica e público externo",
-      "data": "18/08/2026",
-      "resumo": "",
-      "url": "https://portais.univasf.edu.br/noticias/restaurantes-universitarios-da-univasf-estao-reabertos-para-atender-comunidade-academica-e-publico-externo"
     }
   ],
   "ru_cardapio": {
@@ -3611,7 +3611,5 @@
       }
     ]
   },
-  "avisos_siga": [
-    "BLOQUEIO DE ACESSO/SENHA BLOQUEADA — A funcionalidade ESQUECEU SUA SENHA não funciona, para DESBLOQUEIO: * se for discente, solicite ao SIC do seu campus; * se for docente/técnico, solicite à SRCA. Verifique os contatos na página da SRCA (https://portais.univasf.edu.br/srca)"
-  ]
+  "avisos_siga": []
 }
