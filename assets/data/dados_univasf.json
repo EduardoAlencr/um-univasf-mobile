@@ -1,5 +1,5 @@
 {
-  "gerado_em": "2026-09-20T13:21:57",
+  "gerado_em": "2026-09-21T15:31:12",
   "noticias_setores": [
     {
       "setor": "PROAE",
@@ -1408,6 +1408,13 @@
       "ano": 2026,
       "titulo": "a requisitos para o Período 2027.1. Emissão de parecer fundamentado do docente responsável pela",
       "tag": "outro"
+    },
+    {
+      "dia": "20",
+      "mes": "Nov",
+      "ano": 2026,
+      "titulo": "Feriado Nacional para todos os campi – Dia Nacional de Zumbi e da Consciência Negra.",
+      "tag": "feriado"
     }
   ],
   "colegiado_cecomp": [
@@ -3611,5 +3618,7 @@
       }
     ]
   },
-  "avisos_siga": []
+  "avisos_siga": [
+    "BLOQUEIO DE ACESSO/SENHA BLOQUEADA — A funcionalidade ESQUECEU SUA SENHA não funciona, para DESBLOQUEIO: * se for discente, solicite ao SIC do seu campus; * se for docente/técnico, solicite à SRCA. Verifique os contatos na página da SRCA (https://portais.univasf.edu.br/srca)"
+  ]
 }
