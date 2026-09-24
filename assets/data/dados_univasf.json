@@ -1,5 +1,5 @@
 {
-  "gerado_em": "2026-09-23T14:00:37",
+  "gerado_em": "2026-09-24T13:57:14",
   "noticias_setores": [
     {
       "setor": "PROAE",
@@ -423,6 +423,27 @@
     },
     {
       "setor": "UNIVASF",
+      "titulo": "Univasf oferta três bolsas de pós-doutorado para pesquisas com povos e comunidades tradicionais",
+      "data": "23/09/2026",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/noticias/univasf-oferta-tres-bolsas-de-pos-doutorado-para-pesquisas-com-povos-e-comunidades-tradicionais"
+    },
+    {
+      "setor": "UNIVASF",
+      "titulo": "Mestrado em Educação Física da Univasf oferta 34 vagas para ingresso em 2027",
+      "data": "23/09/2026",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/noticias/mestrado-em-educacao-fisica-da-univasf-oferta-34-vagas-para-ingresso-em-2027"
+    },
+    {
+      "setor": "UNIVASF",
+      "titulo": "Proae divulga formulário para solicitação de transporte, alojamento e acesso ao Restaurante Universitário durante a 19ª Scientex",
+      "data": "23/09/2026",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/noticias/proae-divulga-formulario-para-solicitacao-de-transporte-alojamento-e-acesso-ao-restaurante-universitario-durante-a-19a-scientex"
+    },
+    {
+      "setor": "UNIVASF",
       "titulo": "XVIII Simpósio Nordestino de Atividade Física e Saúde acontece na Univasf e está com inscrições abertas",
       "data": "22/09/2026",
       "resumo": "",
@@ -679,27 +700,6 @@
       "data": "26/08/2026",
       "resumo": "",
       "url": "https://portais.univasf.edu.br/noticias/tempo-seco-especialista-do-hu-univasf-alerta-para-cuidados-com-a-saude-da-pele"
-    },
-    {
-      "setor": "UNIVASF",
-      "titulo": "Exposição Terra-Mar mostra na Univasf a biodiversidade dos manguezais às profundezas do oceano",
-      "data": "25/08/2026",
-      "resumo": "",
-      "url": "https://portais.univasf.edu.br/noticias/exposicao-terra-mar-mostra-na-univasf-a-biodiversidade-dos-manguezais-as-profundezas-do-oceano"
-    },
-    {
-      "setor": "UNIVASF",
-      "titulo": "Univasf realiza Sarau Intercultural no Campus Sede na próxima segunda-feira (24)",
-      "data": "21/08/2026",
-      "resumo": "",
-      "url": "https://portais.univasf.edu.br/noticias/univasf-realiza-sarau-intercultural-no-campus-sede-na-proxima-segunda-feira-24"
-    },
-    {
-      "setor": "UNIVASF",
-      "titulo": "Nota em Defesa das Políticas Afirmativas para Negros nos Concursos Docentes e Solidariedade à Autonomia Universitária",
-      "data": "21/08/2026",
-      "resumo": "",
-      "url": "https://portais.univasf.edu.br/noticias/nota-em-defesa-das-politicas-afirmativas-para-negros-nos-concursos-docentes-e-solidariedade-a-autonomia-universitaria"
     }
   ],
   "ru_cardapio": {
@@ -3329,7 +3329,5 @@
       }
     ]
   },
-  "avisos_siga": [
-    "BLOQUEIO DE ACESSO/SENHA BLOQUEADA — A funcionalidade ESQUECEU SUA SENHA não funciona, para DESBLOQUEIO: * se for discente, solicite ao SIC do seu campus; * se for docente/técnico, solicite à SRCA. Verifique os contatos na página da SRCA (https://portais.univasf.edu.br/srca)"
-  ]
+  "avisos_siga": []
 }
