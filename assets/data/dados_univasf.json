@@ -1,5 +1,5 @@
 {
-  "gerado_em": "2026-09-24T13:57:14",
+  "gerado_em": "2026-09-25T14:20:27",
   "noticias_setores": [
     {
       "setor": "PROAE",
@@ -423,6 +423,27 @@
     },
     {
       "setor": "UNIVASF",
+      "titulo": "Programa Andifes de Mobilidade Acadêmica está com inscrições abertas para UFVJM e UFSCar",
+      "data": "25/09/2026",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/noticias/programa-andifes-de-mobilidade-academica-esta-com-inscricoes-abertas-para-ufvjm-e-ufscar"
+    },
+    {
+      "setor": "UNIVASF",
+      "titulo": "Mestrado Profissional em Administração Pública abre seleção para turma 2027.1 com 11 vagas para a Univasf",
+      "data": "24/09/2026",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/noticias/mestrado-profissional-em-administracao-publica-abre-selecao-para-turma-2027-1-com-11-vagas-para-a-univasf"
+    },
+    {
+      "setor": "UNIVASF",
+      "titulo": "Prorrogadas até 28 de setembro as inscrições para o Mestrado Profissional em Matemática em Rede Nacional (Profmat)",
+      "data": "24/09/2026",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/noticias/prorrogadas-ate-28-de-setembro-as-inscricoes-para-o-mestrado-profissional-em-matematica-em-rede-nacional-profmat"
+    },
+    {
+      "setor": "UNIVASF",
       "titulo": "Univasf oferta três bolsas de pós-doutorado para pesquisas com povos e comunidades tradicionais",
       "data": "23/09/2026",
       "resumo": "",
@@ -679,27 +700,6 @@
       "data": "28/08/2026",
       "resumo": "",
       "url": "https://portais.univasf.edu.br/noticias/hu-univasf-fortalece-o-enfrentamento-da-violencia-contra-a-mulher-com-acolhimento-escuta-e-acesso-aos-direitos"
-    },
-    {
-      "setor": "UNIVASF",
-      "titulo": "I Seminário Franco-Brasileiro de Tecnologia Lítica será realizado em outubro na Univasf",
-      "data": "27/08/2026",
-      "resumo": "",
-      "url": "https://portais.univasf.edu.br/noticias/i-seminario-franco-brasileiro-de-tecnologia-litica-sera-realizado-em-outubro-na-univasf"
-    },
-    {
-      "setor": "UNIVASF",
-      "titulo": "Univasf realiza defesa de memorial para promoção de professora de Engenharia Mecânica à classe de Titular",
-      "data": "27/08/2026",
-      "resumo": "",
-      "url": "https://portais.univasf.edu.br/noticias/univasf-realiza-defesa-de-memorial-para-promocao-de-professora-de-engenharia-mecanica-a-classe-de-titular"
-    },
-    {
-      "setor": "UNIVASF",
-      "titulo": "Tempo seco: especialista do HU-Univasf alerta para cuidados com a saúde da pele",
-      "data": "26/08/2026",
-      "resumo": "",
-      "url": "https://portais.univasf.edu.br/noticias/tempo-seco-especialista-do-hu-univasf-alerta-para-cuidados-com-a-saude-da-pele"
     }
   ],
   "ru_cardapio": {
@@ -3329,5 +3329,7 @@
       }
     ]
   },
-  "avisos_siga": []
+  "avisos_siga": [
+    "BLOQUEIO DE ACESSO/SENHA BLOQUEADA — A funcionalidade ESQUECEU SUA SENHA não funciona, para DESBLOQUEIO: * se for discente, solicite ao SIC do seu campus; * se for docente/técnico, solicite à SRCA. Verifique os contatos na página da SRCA (https://portais.univasf.edu.br/srca)"
+  ]
 }
