@@ -1,5 +1,5 @@
 {
-  "gerado_em": "2026-09-27T14:27:19",
+  "gerado_em": "2026-09-28T17:13:01",
   "noticias_setores": [
     {
       "setor": "PROAE",
@@ -423,6 +423,20 @@
     },
     {
       "setor": "UNIVASF",
+      "titulo": "Univasf reabre seleção para estudante bolsista do PET-Saúde/Informação e Saúde Digital",
+      "data": "28/09/2026",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/noticias/univasf-reabre-selecao-para-estudante-bolsista-do-pet-saude-informacao-e-saude-digital"
+    },
+    {
+      "setor": "UNIVASF",
+      "titulo": "Univasf disponibiliza 135 vagas para oficinas de artes gratuitas",
+      "data": "28/09/2026",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/noticias/univasf-disponibiliza-135-vagas-para-oficinas-de-artes-gratuitas"
+    },
+    {
+      "setor": "UNIVASF",
       "titulo": "NAI leva orientações sobre inclusão e acessibilidade aos Colegiados da Univasf",
       "data": "25/09/2026",
       "resumo": "",
@@ -686,20 +700,6 @@
       "data": "31/08/2026",
       "resumo": "",
       "url": "https://portais.univasf.edu.br/noticias/estao-abertas-as-inscricoes-para-o-11deg-forum-de-mobilizacao-antimanicomial-que-sera-realizado-na-univasf"
-    },
-    {
-      "setor": "UNIVASF",
-      "titulo": "Nota sobre interdição do Centro de Convivência do Campus Juazeiro",
-      "data": "29/08/2026",
-      "resumo": "",
-      "url": "https://portais.univasf.edu.br/noticias/nota-sobre-interdicao-do-centro-de-convivencia-do-campus-juazeiro"
-    },
-    {
-      "setor": "UNIVASF",
-      "titulo": "Professor da Univasf debate restauração da Caatinga e combate à desertificação em painéis na COP17, na Mongólia",
-      "data": "28/08/2026",
-      "resumo": "",
-      "url": "https://portais.univasf.edu.br/noticias/professor-da-univasf-debate-restauracao-da-caatinga-e-combate-a-desertificacao-em-paineis-na-cop17-na-mongolia"
     }
   ],
   "ru_cardapio": {
@@ -3329,5 +3329,7 @@
       }
     ]
   },
-  "avisos_siga": []
+  "avisos_siga": [
+    "BLOQUEIO DE ACESSO/SENHA BLOQUEADA — A funcionalidade ESQUECEU SUA SENHA não funciona, para DESBLOQUEIO: * se for discente, solicite ao SIC do seu campus; * se for docente/técnico, solicite à SRCA. Verifique os contatos na página da SRCA (https://portais.univasf.edu.br/srca)"
+  ]
 }
