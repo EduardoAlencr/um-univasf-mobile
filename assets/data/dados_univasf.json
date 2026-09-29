@@ -1,6 +1,13 @@
 {
-  "gerado_em": "2026-09-28T17:13:01",
+  "gerado_em": "2026-09-29T15:16:52",
   "noticias_setores": [
+    {
+      "setor": "PROAE",
+      "titulo": "PROAE divulga Resultado Final da Reabertura do Processo Seletivo para Residências Estudantis 2026.2",
+      "data": "28/09/2026",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/proae/noticias/28-09-2026-2013-proae-divulga-resultado-final-da-reabertura-do-processo-seletivo-para-residencias-estudantis-2026.2"
+    },
     {
       "setor": "PROAE",
       "titulo": "PROAE divulga Resultado Parcial da Reabertura do Processo Seletivo para Residências Estudantis 2026.2",
@@ -133,13 +140,6 @@
       "data": "03/07/2026",
       "resumo": "",
       "url": "https://portais.univasf.edu.br/proae/noticias/03-07-2026-a-proae-informa-itinerario-do-transporte-estudantil"
-    },
-    {
-      "setor": "PROAE",
-      "titulo": "PROAE INFORMA: Itinerários do Transporte Estudantil serão mantidos na segunda-feira (29/06)",
-      "data": "25/06/2026",
-      "resumo": "",
-      "url": "https://portais.univasf.edu.br/proae/noticias/25-06-2026-proae-informa-itinerarios-do-transporte-estudantil-serao-mantidos-na-segunda-feira-29-06"
     },
     {
       "setor": "PROEX",
@@ -423,6 +423,13 @@
     },
     {
       "setor": "UNIVASF",
+      "titulo": "Estudante de Administração da Univasf vence etapa baiana do Prêmio IEL de Talentos com projeto de inclusão",
+      "data": "29/09/2026",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/noticias/estudante-de-administracao-da-univasf-vence-etapa-baiana-do-premio-iel-de-talentos-com-projeto-de-inclusao"
+    },
+    {
+      "setor": "UNIVASF",
       "titulo": "Univasf reabre seleção para estudante bolsista do PET-Saúde/Informação e Saúde Digital",
       "data": "28/09/2026",
       "resumo": "",
@@ -693,33 +700,26 @@
       "data": "02/09/2026",
       "resumo": "",
       "url": "https://portais.univasf.edu.br/noticias/univasf-inaugura-sala-de-autorregulacao-para-estudantes-com-tea-no-campus-ciencias-agrarias"
-    },
-    {
-      "setor": "UNIVASF",
-      "titulo": "Estão abertas as inscrições para o 11° Fórum de Mobilização Antimanicomial que será realizado na Univasf",
-      "data": "31/08/2026",
-      "resumo": "",
-      "url": "https://portais.univasf.edu.br/noticias/estao-abertas-as-inscricoes-para-o-11deg-forum-de-mobilizacao-antimanicomial-que-sera-realizado-na-univasf"
     }
   ],
   "ru_cardapio": {
-    "periodo": "Cardápio Semana 21/09 a 25/09",
+    "periodo": "Cardápio Semanal 28/09 a 02/10",
     "refeicoes": [
       {
-        "dia": "Quinta",
+        "dia": "Quarta",
         "periodo": "Café da Manhã",
         "itens": [
           {
             "categoria": "Proteína",
-            "prato": "Coxa e sobrecoxa ao sugo"
+            "prato": "Ovo cozido ao sugo"
           },
           {
             "categoria": "Vegetariano",
-            "prato": "Ervilha salteada com azeitona e orégano"
+            "prato": "Salpicão vegano com lentilhas"
           },
           {
             "categoria": "Acompanhamento",
-            "prato": "Cuscuz temperado"
+            "prato": "Cuscuz com tomate"
           },
           {
             "categoria": "Acompanhamento",
@@ -731,7 +731,37 @@
           },
           {
             "categoria": "Bebida",
-            "prato": "Café / Leite * ** / Suco de manga"
+            "prato": "Café / Leite * ** / Suco de caju"
+          }
+        ]
+      },
+      {
+        "dia": "Quinta",
+        "periodo": "Café da Manhã",
+        "itens": [
+          {
+            "categoria": "Proteína",
+            "prato": "Cubos de frango ao sugo"
+          },
+          {
+            "categoria": "Vegetariano",
+            "prato": "Almôndegas de grão de bico ao sugo"
+          },
+          {
+            "categoria": "Acompanhamento",
+            "prato": "Cuscuz refogado com cenoura"
+          },
+          {
+            "categoria": "Acompanhamento",
+            "prato": "Pão com queijo * ** ***"
+          },
+          {
+            "categoria": "Fruta",
+            "prato": "Laranja"
+          },
+          {
+            "categoria": "Bebida",
+            "prato": "Café / Leite * ** / Suco de goiaba"
           }
         ]
       },
@@ -741,15 +771,15 @@
         "itens": [
           {
             "categoria": "Proteína",
-            "prato": "Carne moída com manjericão"
+            "prato": "Carne de sol desfiada e acebolada"
           },
           {
             "categoria": "Vegetariano",
-            "prato": "Lentilha ao sugo"
+            "prato": "Nuggets de soja"
           },
           {
             "categoria": "Acompanhamento",
-            "prato": "Cuscuz com cheiro verde"
+            "prato": "Macaxeira"
           },
           {
             "categoria": "Acompanhamento",
@@ -761,7 +791,7 @@
           },
           {
             "categoria": "Bebida",
-            "prato": "Café / Leite * ** / Suco de cajá"
+            "prato": "Café / Leite * ** / Suco de acerola"
           }
         ]
       },
@@ -771,23 +801,23 @@
         "itens": [
           {
             "categoria": "Proteína 1",
-            "prato": "Strogonoff de frango* ** ***"
+            "prato": "Frango à parmegiana*"
           },
           {
             "categoria": "Proteína 2",
-            "prato": "Isca de carne com pimentão"
+            "prato": "Iscas de carne à chinesa"
           },
           {
             "categoria": "Vegetariano",
-            "prato": "Quibe de abóbora com lentilha"
+            "prato": "Bolinho de ervilha"
           },
           {
             "categoria": "Salada",
-            "prato": "Alface, acelga e abacaxi"
+            "prato": "Alface, beterraba e tomate"
           },
           {
             "categoria": "Acompanhamento 01",
-            "prato": "Arroz c/ cenoura"
+            "prato": "Arroz c/ açafrão"
           },
           {
             "categoria": "Acompanhamento 02",
@@ -795,11 +825,11 @@
           },
           {
             "categoria": "Acompanhamento 03",
-            "prato": "Feijão preto"
+            "prato": "Feijão carioca"
           },
           {
             "categoria": "Guarnição",
-            "prato": "Purê de batata*"
+            "prato": "Macarrão ao alho e óleo"
           },
           {
             "categoria": "Molho",
@@ -821,19 +851,19 @@
         "itens": [
           {
             "categoria": "Proteína 1",
-            "prato": "Moqueca de peixe"
+            "prato": "Escondidinho de frango*"
           },
           {
             "categoria": "Proteína 2",
-            "prato": "Iscas de carne acebolada"
+            "prato": "Cubos de carne ao molho madeira"
           },
           {
             "categoria": "Vegetariano",
-            "prato": "Moqueca de banana com grão de bico"
+            "prato": "Bife de soja ao molho escuro***"
           },
           {
             "categoria": "Salada",
-            "prato": "Mix de batatas e cenoura"
+            "prato": "Batata inglesa, cenoura e chuchu"
           },
           {
             "categoria": "Acompanhamento 01",
@@ -845,11 +875,11 @@
           },
           {
             "categoria": "Acompanhamento 03",
-            "prato": "Feijão carioca"
+            "prato": "Feijão preto"
           },
           {
             "categoria": "Guarnição",
-            "prato": "Quibebe"
+            "prato": "Farofa de cenoura"
           },
           {
             "categoria": "Molho",
@@ -861,7 +891,7 @@
           },
           {
             "categoria": "Sobremesa",
-            "prato": "Quebra queixo"
+            "prato": "Doce coxa de moça"
           }
         ]
       },
@@ -871,19 +901,19 @@
         "itens": [
           {
             "categoria": "Proteína 1",
-            "prato": "Isca de frango a juliene na chapa"
+            "prato": "Frango assado"
           },
           {
             "categoria": "Proteína 2",
-            "prato": "Vaca atolada"
+            "prato": "Estrogonofe de carne * **"
           },
           {
             "categoria": "Vegetariano",
-            "prato": "Bolinho de batata com ervilha ***"
+            "prato": "Quibe de abóbora com lentilha"
           },
           {
             "categoria": "Salada",
-            "prato": "Alface, tomate e pepino"
+            "prato": "Alface, cenoura e repolho"
           },
           {
             "categoria": "Acompanhamento 01",
@@ -895,15 +925,15 @@
           },
           {
             "categoria": "Acompanhamento 03",
-            "prato": "Feijão tropeiro"
+            "prato": "Feijão carioca"
           },
           {
             "categoria": "Guarnição",
-            "prato": "Pirão de carne**/Pirão de legumes"
+            "prato": "Purê misto*"
           },
           {
             "categoria": "Molho",
-            "prato": "Verde"
+            "prato": "Agridoce"
           },
           {
             "categoria": "Bebida",
@@ -921,27 +951,27 @@
         "itens": [
           {
             "categoria": "Proteína 1",
-            "prato": "Isca de frango acebolada"
+            "prato": "Guisado de frango"
           },
           {
             "categoria": "Proteína 2",
-            "prato": "Panqueca de carne moída* ***"
+            "prato": "Carne desfiada gratinada*"
           },
           {
             "categoria": "Vegetariano",
-            "prato": "Panqueca de soja ao sugo* ***"
+            "prato": "Soja à primavera"
           },
           {
             "categoria": "Salada",
-            "prato": "Batata inglesa, cenoura e chuchu"
+            "prato": "Mix de repolhos e couve refogados"
           },
           {
             "categoria": "Acompanhamento 01",
-            "prato": "Caldo de macaxeira"
+            "prato": "Sopa de feijão"
           },
           {
             "categoria": "Acompanhamento 02",
-            "prato": "Cuscuz com ovos"
+            "prato": "Cuscuz com ovo**"
           },
           {
             "categoria": "Acompanhamento 03",
@@ -957,7 +987,7 @@
           },
           {
             "categoria": "Bebida",
-            "prato": "Café/Leite* ** / Suco de caju"
+            "prato": "Café/Leite* ** / Suco de manga"
           }
         ]
       },
@@ -967,27 +997,27 @@
         "itens": [
           {
             "categoria": "Proteína 1",
-            "prato": "Frango guisado com legumes"
+            "prato": "Cubos de frango à milanesa"
           },
           {
             "categoria": "Proteína 2",
-            "prato": "Assado de panela com batata"
+            "prato": "Carne xadrez"
           },
           {
             "categoria": "Vegetariano",
-            "prato": "Bobó de ervilhas*"
+            "prato": "Ervilha salteada com azeitona"
           },
           {
             "categoria": "Salada",
-            "prato": "Acelga, rúcula e tomate"
+            "prato": "Alface, manga e pepino"
           },
           {
             "categoria": "Acompanhamento 01",
-            "prato": "Creme de batata com calabresa/Creme de batata"
+            "prato": "Mungunzá*"
           },
           {
             "categoria": "Acompanhamento 02",
-            "prato": "Cuscuz com cheiro verde"
+            "prato": "Macarrão ao alho e óleo"
           },
           {
             "categoria": "Acompanhamento 03",
@@ -995,15 +1025,15 @@
           },
           {
             "categoria": "Guarnição",
-            "prato": "Torrada***"
+            "prato": "Pão***"
           },
           {
             "categoria": "Molho",
-            "prato": "Agridoce"
+            "prato": "Verde"
           },
           {
             "categoria": "Bebida",
-            "prato": "Café/Leite* ** / Suco de goiaba"
+            "prato": "Café/Leite* ** / Suco de cajá"
           }
         ]
       },
@@ -1013,27 +1043,27 @@
         "itens": [
           {
             "categoria": "Proteína 1",
-            "prato": "Cubos de frango na chapa"
+            "prato": "Frango à pizzaiolo"
           },
           {
             "categoria": "Proteína 2",
-            "prato": "Escondidinho de carne moída*"
+            "prato": "Jardineira de carne moida"
           },
           {
             "categoria": "Vegetariano",
-            "prato": "Escondidinho de soja * **"
+            "prato": "Grão de bico refogado"
           },
           {
             "categoria": "Salada",
-            "prato": "Mix de batatas e abóbora"
+            "prato": "Chuchu, vagem e abóbora"
           },
           {
             "categoria": "Acompanhamento 01",
-            "prato": "Canjica*"
+            "prato": "Caldo verde"
           },
           {
             "categoria": "Acompanhamento 02",
-            "prato": "Macarrão ao alho e óleo***"
+            "prato": "Cuscuz com tomate"
           },
           {
             "categoria": "Acompanhamento 03",
@@ -1049,7 +1079,7 @@
           },
           {
             "categoria": "Bebida",
-            "prato": "Café/Leite* ** / Suco de abacaxi"
+            "prato": "Café/Leite* ** / Suco de caju"
           }
         ]
       }
