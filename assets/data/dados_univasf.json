@@ -1,5 +1,5 @@
 {
-  "gerado_em": "2026-09-29T15:16:52",
+  "gerado_em": "2026-09-30T15:30:57",
   "noticias_setores": [
     {
       "setor": "PROAE",
@@ -423,6 +423,20 @@
     },
     {
       "setor": "UNIVASF",
+      "titulo": "Evento na Univasf discute atualidades da psicanálise e o inconsciente",
+      "data": "30/09/2026",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/noticias/evento-na-univasf-discute-atualidades-da-psicanalise-e-o-inconsciente"
+    },
+    {
+      "setor": "UNIVASF",
+      "titulo": "Univasf promove II Mostra de Startups nesta quarta-feira (30)",
+      "data": "29/09/2026",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/noticias/univasf-promove-ii-mostra-de-startups-nesta-quarta-feira-30"
+    },
+    {
+      "setor": "UNIVASF",
       "titulo": "Estudante de Administração da Univasf vence etapa baiana do Prêmio IEL de Talentos com projeto de inclusão",
       "data": "29/09/2026",
       "resumo": "",
@@ -686,20 +700,6 @@
       "data": "03/09/2026",
       "resumo": "",
       "url": "https://portais.univasf.edu.br/noticias/especialista-do-hu-univasf-explica-novos-criterios-para-doacao-de-sangue"
-    },
-    {
-      "setor": "UNIVASF",
-      "titulo": "Univasf realiza defesa de memorial para promoção de professor de Farmácia à classe de Titular",
-      "data": "02/09/2026",
-      "resumo": "",
-      "url": "https://portais.univasf.edu.br/noticias/univasf-realiza-defesa-de-memorial-para-promocao-de-professor-de-farmacia-a-classe-de-titular"
-    },
-    {
-      "setor": "UNIVASF",
-      "titulo": "Univasf inaugura Sala de Autorregulação para estudantes com TEA no Campus Ciências Agrárias",
-      "data": "02/09/2026",
-      "resumo": "",
-      "url": "https://portais.univasf.edu.br/noticias/univasf-inaugura-sala-de-autorregulacao-para-estudantes-com-tea-no-campus-ciencias-agrarias"
     }
   ],
   "ru_cardapio": {
@@ -1161,8 +1161,33 @@
   "colegiado_cecomp": [
     {
       "colegiado": "CECOMP",
-      "titulo": "Encontre aquiinformações",
-      "url": "https://cecomp.univasf.edu.br/index.php/vale-do-sao-francisco/"
+      "titulo": "No último sábado (29/08), o CECOMP sediou etapa regional da 31ª Maratona de Programação da SBC",
+      "url": "https://cecomp.univasf.edu.br/index.php/cecomp-sedia-etapa-regional-da-1a-fase-da-31a-maratona-de-programacao-da-sbc/"
+    },
+    {
+      "colegiado": "CECOMP",
+      "titulo": "Ler notícia",
+      "url": "https://cecomp.univasf.edu.br/index.php/cecomp-sedia-etapa-regional-da-1a-fase-da-31a-maratona-de-programacao-da-sbc/"
+    },
+    {
+      "colegiado": "CECOMP",
+      "titulo": "Fluxograma curricular do curso de Engenharia da Computação de agora está disponível em formato interativo",
+      "url": "https://cecomp.univasf.edu.br/index.php/fluxograma-curricular-do-curso-de-engenharia-da-computacao-de-agora-esta-disponivel-em-formato-interativo/"
+    },
+    {
+      "colegiado": "CECOMP",
+      "titulo": "Ler notícia",
+      "url": "https://cecomp.univasf.edu.br/index.php/fluxograma-curricular-do-curso-de-engenharia-da-computacao-de-agora-esta-disponivel-em-formato-interativo/"
+    },
+    {
+      "colegiado": "CECOMP",
+      "titulo": "Professor do Cecomp é promovido à classe de Professor Titular",
+      "url": "https://cecomp.univasf.edu.br/index.php/professor-do-cecomp-e-promovido-a-classe-de-professor-titular/"
+    },
+    {
+      "colegiado": "CECOMP",
+      "titulo": "Ler notícia",
+      "url": "https://cecomp.univasf.edu.br/index.php/professor-do-cecomp-e-promovido-a-classe-de-professor-titular/"
     }
   ],
   "itinerario_onibus": {
