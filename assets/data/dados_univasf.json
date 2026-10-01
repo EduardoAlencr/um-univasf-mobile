@@ -1,5 +1,5 @@
 {
-  "gerado_em": "2026-09-30T15:30:57",
+  "gerado_em": "2026-10-01T15:53:08",
   "noticias_setores": [
     {
       "setor": "PROAE",
@@ -423,6 +423,13 @@
     },
     {
       "setor": "UNIVASF",
+      "titulo": "XI Semana Farmacêutica da Univasf discute inovação e desenvolvimento de medicamentos",
+      "data": "01/10/2026",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/noticias/xi-semana-farmaceutica-da-univasf-discute-inovacao-e-desenvolvimento-de-medicamentos"
+    },
+    {
+      "setor": "UNIVASF",
       "titulo": "Evento na Univasf discute atualidades da psicanálise e o inconsciente",
       "data": "30/09/2026",
       "resumo": "",
@@ -693,13 +700,6 @@
       "data": "03/09/2026",
       "resumo": "",
       "url": "https://portais.univasf.edu.br/noticias/univasf-seleciona-estudantes-do-campus-salgueiro-para-formacao-em-inteligencia-artificial-do-projeto-lab-ia-sertao-twin"
-    },
-    {
-      "setor": "UNIVASF",
-      "titulo": "Especialista do HU-Univasf explica novos critérios para doação de sangue",
-      "data": "03/09/2026",
-      "resumo": "",
-      "url": "https://portais.univasf.edu.br/noticias/especialista-do-hu-univasf-explica-novos-criterios-para-doacao-de-sangue"
     }
   ],
   "ru_cardapio": {
@@ -1171,7 +1171,7 @@
     },
     {
       "colegiado": "CECOMP",
-      "titulo": "Fluxograma curricular do curso de Engenharia da Computação de agora está disponível em formato interativo",
+      "titulo": "Matriz curricular de Engenharia da Computação ganha versão interativa",
       "url": "https://cecomp.univasf.edu.br/index.php/fluxograma-curricular-do-curso-de-engenharia-da-computacao-de-agora-esta-disponivel-em-formato-interativo/"
     },
     {
