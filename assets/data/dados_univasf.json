@@ -1,5 +1,5 @@
 {
-  "gerado_em": "2026-10-01T15:53:08",
+  "gerado_em": "2026-10-02T15:14:08",
   "noticias_setores": [
     {
       "setor": "PROAE",
@@ -423,6 +423,20 @@
     },
     {
       "setor": "UNIVASF",
+      "titulo": "PET-Biomecânica da Univasf apresenta pesquisas em eventos internacionais e nacional",
+      "data": "02/10/2026",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/noticias/pet-biomecanica-da-univasf-apresenta-pesquisas-em-eventos-internacionais-e-nacional"
+    },
+    {
+      "setor": "UNIVASF",
+      "titulo": "XVI Mês das Consciências Negras da Univasf debaterá assédio, discriminação, relações étnico-raciais e heteroidentificação",
+      "data": "01/10/2026",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/noticias/xvi-mes-das-consciencias-negras-da-univasf-debatera-assedio-discriminacao-relacoes-etnico-raciais-e-heteroidentificacao"
+    },
+    {
+      "setor": "UNIVASF",
       "titulo": "XI Semana Farmacêutica da Univasf discute inovação e desenvolvimento de medicamentos",
       "data": "01/10/2026",
       "resumo": "",
@@ -686,20 +700,6 @@
       "data": "04/09/2026",
       "resumo": "",
       "url": "https://portais.univasf.edu.br/noticias/univasf-promove-ii-simposio-de-medicamentos-inovadores-do-vale-do-sao-francisco-em-outubro-e-prorroga-prazo-para-submissao-de-trabalhos"
-    },
-    {
-      "setor": "UNIVASF",
-      "titulo": "XXVII Encontro Semestral de Carreiras Univasf e XI Simpósio de Administração do Vale do São Francisco acontecem na Univasf a partir de terça-feira (8)",
-      "data": "04/09/2026",
-      "resumo": "",
-      "url": "https://portais.univasf.edu.br/noticias/xxvii-encontro-semestral-de-carreiras-univasf-e-xi-simposio-de-administracao-do-vale-do-sao-francisco-acontecem-na-univasf-a-partir-de-terca-feira-8"
-    },
-    {
-      "setor": "UNIVASF",
-      "titulo": "Univasf seleciona estudantes do Campus Salgueiro para formação em Inteligência Artificial do projeto LAB-IA Sertão Twin",
-      "data": "03/09/2026",
-      "resumo": "",
-      "url": "https://portais.univasf.edu.br/noticias/univasf-seleciona-estudantes-do-campus-salgueiro-para-formacao-em-inteligencia-artificial-do-projeto-lab-ia-sertao-twin"
     }
   ],
   "ru_cardapio": {
@@ -1156,12 +1156,29 @@
       "ano": 2026,
       "titulo": "Feriado Nacional para todos os campi – Dia Nacional de Zumbi e da Consciência Negra.",
       "tag": "feriado"
+    },
+    {
+      "dia": "01",
+      "mes": "Dez",
+      "ano": 2026,
+      "titulo": "º a 11 Oferta de componentes curriculares para o Período 2027.1 pelas Coordenações de Curso no SIG@.",
+      "tag": "outro"
     }
   ],
   "colegiado_cecomp": [
     {
       "colegiado": "CECOMP",
-      "titulo": "No último sábado (29/08), o CECOMP sediou etapa regional da 31ª Maratona de Programação da SBC",
+      "titulo": "Site do CECOMP ganha nova identidade visual e reorganiza acesso às informações do curso",
+      "url": "https://cecomp.univasf.edu.br/index.php/site-do-cecomp-ganha-nova-identidade-visual-e-reorganiza-acesso-as-informacoes-do-curso/"
+    },
+    {
+      "colegiado": "CECOMP",
+      "titulo": "Ler notícia",
+      "url": "https://cecomp.univasf.edu.br/index.php/site-do-cecomp-ganha-nova-identidade-visual-e-reorganiza-acesso-as-informacoes-do-curso/"
+    },
+    {
+      "colegiado": "CECOMP",
+      "titulo": "CECOMP sedia etapa regional da 31ª Maratona de Programação da SBC",
       "url": "https://cecomp.univasf.edu.br/index.php/cecomp-sedia-etapa-regional-da-1a-fase-da-31a-maratona-de-programacao-da-sbc/"
     },
     {
@@ -1178,16 +1195,6 @@
       "colegiado": "CECOMP",
       "titulo": "Ler notícia",
       "url": "https://cecomp.univasf.edu.br/index.php/fluxograma-curricular-do-curso-de-engenharia-da-computacao-de-agora-esta-disponivel-em-formato-interativo/"
-    },
-    {
-      "colegiado": "CECOMP",
-      "titulo": "Professor do Cecomp é promovido à classe de Professor Titular",
-      "url": "https://cecomp.univasf.edu.br/index.php/professor-do-cecomp-e-promovido-a-classe-de-professor-titular/"
-    },
-    {
-      "colegiado": "CECOMP",
-      "titulo": "Ler notícia",
-      "url": "https://cecomp.univasf.edu.br/index.php/professor-do-cecomp-e-promovido-a-classe-de-professor-titular/"
     }
   ],
   "itinerario_onibus": {
