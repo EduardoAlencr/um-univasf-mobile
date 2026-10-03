@@ -1,5 +1,5 @@
 {
-  "gerado_em": "2026-10-02T15:14:08",
+  "gerado_em": "2026-10-03T14:06:26",
   "noticias_setores": [
     {
       "setor": "PROAE",
@@ -423,6 +423,20 @@
     },
     {
       "setor": "UNIVASF",
+      "titulo": "Semana do Reitor – 17 a 28/08/2026",
+      "data": "02/10/2026",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/noticias/semana-do-reitor-2013-17-a-28-08-2026"
+    },
+    {
+      "setor": "UNIVASF",
+      "titulo": "Pesquisa do Cemafauna amplia conhecimento sobre espécie de ave ameaçada na Caatinga",
+      "data": "02/10/2026",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/noticias/pesquisa-do-cemafauna-amplia-conhecimento-sobre-especie-de-ave-ameacada-na-caatinga"
+    },
+    {
+      "setor": "UNIVASF",
       "titulo": "PET-Biomecânica da Univasf apresenta pesquisas em eventos internacionais e nacional",
       "data": "02/10/2026",
       "resumo": "",
@@ -686,20 +700,6 @@
       "data": "08/09/2026",
       "resumo": "",
       "url": "https://portais.univasf.edu.br/noticias/univasf-participa-do-i-seminario-nacional-de-modelos-de-financiamento-das-universidades-federais"
-    },
-    {
-      "setor": "UNIVASF",
-      "titulo": "Univasf realizará 19ª Scientex entre os dias 25 e 27 de novembro",
-      "data": "08/09/2026",
-      "resumo": "",
-      "url": "https://portais.univasf.edu.br/noticias/univasf-realizara-19a-scientex-entre-os-dias-25-e-27-de-novembro"
-    },
-    {
-      "setor": "UNIVASF",
-      "titulo": "Univasf promove II Simpósio de Medicamentos Inovadores do Vale do São Francisco em outubro e prorroga prazo para submissão de trabalhos",
-      "data": "04/09/2026",
-      "resumo": "",
-      "url": "https://portais.univasf.edu.br/noticias/univasf-promove-ii-simposio-de-medicamentos-inovadores-do-vale-do-sao-francisco-em-outubro-e-prorroga-prazo-para-submissao-de-trabalhos"
     }
   ],
   "ru_cardapio": {
@@ -1162,6 +1162,13 @@
       "mes": "Dez",
       "ano": 2026,
       "titulo": "º a 11 Oferta de componentes curriculares para o Período 2027.1 pelas Coordenações de Curso no SIG@.",
+      "tag": "outro"
+    },
+    {
+      "dia": "02",
+      "mes": "Dez",
+      "ano": 2026,
+      "titulo": "Confraternização Universal.",
       "tag": "outro"
     }
   ],
@@ -3391,7 +3398,5 @@
       }
     ]
   },
-  "avisos_siga": [
-    "BLOQUEIO DE ACESSO/SENHA BLOQUEADA — A funcionalidade ESQUECEU SUA SENHA não funciona, para DESBLOQUEIO: * se for discente, solicite ao SIC do seu campus; * se for docente/técnico, solicite à SRCA. Verifique os contatos na página da SRCA (https://portais.univasf.edu.br/srca)"
-  ]
+  "avisos_siga": []
 }
