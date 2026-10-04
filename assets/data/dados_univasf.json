@@ -1,5 +1,5 @@
 {
-  "gerado_em": "2026-10-03T14:06:26",
+  "gerado_em": "2026-10-04T14:32:26",
   "noticias_setores": [
     {
       "setor": "PROAE",
@@ -3398,5 +3398,7 @@
       }
     ]
   },
-  "avisos_siga": []
+  "avisos_siga": [
+    "BLOQUEIO DE ACESSO/SENHA BLOQUEADA — A funcionalidade ESQUECEU SUA SENHA não funciona, para DESBLOQUEIO: * se for discente, solicite ao SIC do seu campus; * se for docente/técnico, solicite à SRCA. Verifique os contatos na página da SRCA (https://portais.univasf.edu.br/srca)"
+  ]
 }
