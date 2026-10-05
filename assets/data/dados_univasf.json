@@ -1,5 +1,5 @@
 {
-  "gerado_em": "2026-10-04T14:32:26",
+  "gerado_em": "2026-10-05T17:38:15",
   "noticias_setores": [
     {
       "setor": "PROAE",
@@ -423,6 +423,13 @@
     },
     {
       "setor": "UNIVASF",
+      "titulo": "Univasf realiza seleção para mestrado em Arqueologia com ingresso em 2027.1",
+      "data": "05/10/2026",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/noticias/univasf-realiza-selecao-para-mestrado-em-arqueologia-com-ingresso-em-2027.1"
+    },
+    {
+      "setor": "UNIVASF",
       "titulo": "Semana do Reitor – 17 a 28/08/2026",
       "data": "02/10/2026",
       "resumo": "",
@@ -693,13 +700,6 @@
       "data": "09/09/2026",
       "resumo": "",
       "url": "https://portais.univasf.edu.br/noticias/estudantes-da-univasf-podem-se-inscrever-para-mobilidade-academica-na-ufrb-no-periodo-2027.1"
-    },
-    {
-      "setor": "UNIVASF",
-      "titulo": "Univasf participa do I Seminário Nacional de Modelos de Financiamento das Universidades Federais",
-      "data": "08/09/2026",
-      "resumo": "",
-      "url": "https://portais.univasf.edu.br/noticias/univasf-participa-do-i-seminario-nacional-de-modelos-de-financiamento-das-universidades-federais"
     }
   ],
   "ru_cardapio": {
@@ -1087,13 +1087,6 @@
     "legenda": "*Contém lactose ** Contém produtos de origem animal ***Contém glúten"
   },
   "calendario": [
-    {
-      "dia": "04",
-      "mes": "Out",
-      "ano": 2026,
-      "titulo": "Feriado Municipal para o campus Paulo Afonso – Padroeiro de Paulo Afonso/BA.",
-      "tag": "feriado"
-    },
     {
       "dia": "05",
       "mes": "Out",
