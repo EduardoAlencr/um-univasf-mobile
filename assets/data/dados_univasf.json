@@ -1,5 +1,5 @@
 {
-  "gerado_em": "2026-10-05T17:38:15",
+  "gerado_em": "2026-10-06T15:35:52",
   "noticias_setores": [
     {
       "setor": "PROAE",
@@ -423,6 +423,34 @@
     },
     {
       "setor": "UNIVASF",
+      "titulo": "Pesquisas sobre maracujás desenvolvidas por estudantes da Univasf são premiadas em evento científico",
+      "data": "06/10/2026",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/noticias/pesquisas-sobre-maracujas-desenvolvidas-por-estudantes-da-univasf-sao-premiadas-em-evento-cientifico"
+    },
+    {
+      "setor": "UNIVASF",
+      "titulo": "Campus Juazeiro da Univasf recebe XII Semana de Ciências Sociais e Encontro da ABCP Regional Nordeste",
+      "data": "06/10/2026",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/noticias/campus-juazeiro-da-univasf-recebe-xii-semana-de-ciencias-sociais-e-encontro-da-abcp-regional-nordeste"
+    },
+    {
+      "setor": "UNIVASF",
+      "titulo": "Univasf realiza consulta pública para definir prioridades do Plano de Dados Abertos 2027–2028",
+      "data": "05/10/2026",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/noticias/univasf-realiza-consulta-publica-para-definir-prioridades-do-plano-de-dados-abertos-202720132028"
+    },
+    {
+      "setor": "UNIVASF",
+      "titulo": "Pesquisa “Perfil Diversidade Univasf 2026” recebe participação de docentes de 5 a 18 de outubro",
+      "data": "05/10/2026",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/noticias/pesquisa-201cperfil-diversidade-univasf-2026201d-recebe-participacao-de-docentes-de-5-a-18-de-outubro"
+    },
+    {
+      "setor": "UNIVASF",
       "titulo": "Univasf realiza seleção para mestrado em Arqueologia com ingresso em 2027.1",
       "data": "05/10/2026",
       "resumo": "",
@@ -672,34 +700,6 @@
       "data": "10/09/2026",
       "resumo": "",
       "url": "https://portais.univasf.edu.br/noticias/univasf-realiza-selecao-para-mestrado-e-doutorado-em-ciencias-da-saude-e-biologicas-com-59-vagas"
-    },
-    {
-      "setor": "UNIVASF",
-      "titulo": "NGPS da Univasf abre seleção para bolsistas de graduação de pesquisa e extensão",
-      "data": "10/09/2026",
-      "resumo": "",
-      "url": "https://portais.univasf.edu.br/noticias/ngps-da-univasf-abre-selecao-para-bolsistas-de-graduacao-de-pesquisa-e-extensao"
-    },
-    {
-      "setor": "UNIVASF",
-      "titulo": "Univasf seleciona propostas para auxílio financeiro a estudantes em atividades de campo e visitas técnicas",
-      "data": "10/09/2026",
-      "resumo": "",
-      "url": "https://portais.univasf.edu.br/noticias/univasf-seleciona-propostas-para-auxilio-financeiro-a-estudantes-em-atividades-de-campo-e-visitas-tecnicas"
-    },
-    {
-      "setor": "UNIVASF",
-      "titulo": "Prevenção ao suicídio – protocolo do HU-Univasf envolve equipe multiprofissional para acolhimento a vítimas",
-      "data": "09/09/2026",
-      "resumo": "",
-      "url": "https://portais.univasf.edu.br/noticias/prevencao-ao-suicidio-2013-protocolo-do-hu-univasf-envolve-equipe-multiprofissional-para-acolhimento-a-vitimas"
-    },
-    {
-      "setor": "UNIVASF",
-      "titulo": "Estudantes da Univasf podem se inscrever para mobilidade acadêmica na UFRB no período 2027.1",
-      "data": "09/09/2026",
-      "resumo": "",
-      "url": "https://portais.univasf.edu.br/noticias/estudantes-da-univasf-podem-se-inscrever-para-mobilidade-academica-na-ufrb-no-periodo-2027.1"
     }
   ],
   "ru_cardapio": {
@@ -1087,13 +1087,6 @@
     "legenda": "*Contém lactose ** Contém produtos de origem animal ***Contém glúten"
   },
   "calendario": [
-    {
-      "dia": "05",
-      "mes": "Out",
-      "ano": 2026,
-      "titulo": "Prazo para abertura de processo de atividades complementares para registro no Período 2026.2.",
-      "tag": "outro"
-    },
     {
       "dia": "12",
       "mes": "Out",
