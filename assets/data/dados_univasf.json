@@ -1,5 +1,5 @@
 {
-  "gerado_em": "2026-10-06T15:35:52",
+  "gerado_em": "2026-10-07T15:57:17",
   "noticias_setores": [
     {
       "setor": "PROAE",
@@ -423,6 +423,13 @@
     },
     {
       "setor": "UNIVASF",
+      "titulo": "Inscrições abertas para o Mestrado em Política, Cultura e Ambiente da Univasf",
+      "data": "07/10/2026",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/noticias/inscricoes-abertas-para-o-mestrado-em-politica-cultura-e-ambiente-da-univasf"
+    },
+    {
+      "setor": "UNIVASF",
       "titulo": "Pesquisas sobre maracujás desenvolvidas por estudantes da Univasf são premiadas em evento científico",
       "data": "06/10/2026",
       "resumo": "",
@@ -693,13 +700,6 @@
       "data": "10/09/2026",
       "resumo": "",
       "url": "https://portais.univasf.edu.br/noticias/univasf-sedia-a-ix-reuniao-nordestina-de-ciencia-do-solo-rncs-e-o-vii-simposio-de-mudanca-climatica-e-desertificacao-smud"
-    },
-    {
-      "setor": "UNIVASF",
-      "titulo": "Univasf realiza seleção para mestrado e doutorado em Ciências da Saúde e Biológicas com 59 vagas",
-      "data": "10/09/2026",
-      "resumo": "",
-      "url": "https://portais.univasf.edu.br/noticias/univasf-realiza-selecao-para-mestrado-e-doutorado-em-ciencias-da-saude-e-biologicas-com-59-vagas"
     }
   ],
   "ru_cardapio": {
@@ -3384,7 +3384,5 @@
       }
     ]
   },
-  "avisos_siga": [
-    "BLOQUEIO DE ACESSO/SENHA BLOQUEADA — A funcionalidade ESQUECEU SUA SENHA não funciona, para DESBLOQUEIO: * se for discente, solicite ao SIC do seu campus; * se for docente/técnico, solicite à SRCA. Verifique os contatos na página da SRCA (https://portais.univasf.edu.br/srca)"
-  ]
+  "avisos_siga": []
 }
