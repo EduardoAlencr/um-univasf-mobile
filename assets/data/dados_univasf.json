@@ -1,5 +1,5 @@
 {
-  "gerado_em": "2026-10-12T18:24:50",
+  "gerado_em": "2026-10-13T16:37:17",
   "noticias_setores": [
     {
       "setor": "PROAE",
@@ -1214,13 +1214,6 @@
   },
   "calendario": [
     {
-      "dia": "12",
-      "mes": "Out",
-      "ano": 2026,
-      "titulo": "Feriado Nacional para todos os campi – Padroeira do Brasil.",
-      "tag": "feriado"
-    },
-    {
       "dia": "19",
       "mes": "Out",
       "ano": 2026,
@@ -1281,6 +1274,13 @@
       "mes": "Dez",
       "ano": 2026,
       "titulo": "Confraternização Universal.",
+      "tag": "outro"
+    },
+    {
+      "dia": "12",
+      "mes": "Dez",
+      "ano": 2026,
+      "titulo": "Último dia de aulas do Período 2026.2.",
       "tag": "outro"
     }
   ],
