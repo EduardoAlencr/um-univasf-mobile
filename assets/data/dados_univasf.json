@@ -1,5 +1,5 @@
 {
-  "gerado_em": "2026-10-13T16:37:17",
+  "gerado_em": "2026-10-14T14:14:20",
   "noticias_setores": [
     {
       "setor": "PROAE",
@@ -423,6 +423,13 @@
     },
     {
       "setor": "UNIVASF",
+      "titulo": "Atendimento multiprofissional à mulher vítima de violência é tema de roda de conversa no HU-Univasf",
+      "data": "14/10/2026",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/noticias/atendimento-multiprofissional-a-mulher-vitima-de-violencia-e-tema-de-roda-de-conversa-no-hu-univasf"
+    },
+    {
+      "setor": "UNIVASF",
       "titulo": "XVI Mês das Consciências Negras promove debates sobre antirracismo, diversidade e enfrentamento ao assédio na Univasf",
       "data": "09/10/2026",
       "resumo": "",
@@ -693,13 +700,6 @@
       "data": "17/09/2026",
       "resumo": "",
       "url": "https://portais.univasf.edu.br/noticias/inscricoes-para-o-mestrado-profissional-em-matematica-em-rede-nacional-profmat-na-univasf-terminam-nesta-segunda-feira-21"
-    },
-    {
-      "setor": "UNIVASF",
-      "titulo": "Exposição “Sementes Originárias” em cartaz na Univasf apresenta obras do 1º Acervo de Artes Visuais do Vale do São Francisco",
-      "data": "16/09/2026",
-      "resumo": "",
-      "url": "https://portais.univasf.edu.br/noticias/exposicao-201csementes-originarias201d-em-cartaz-na-univasf-apresenta-obras-do-1o-acervo-de-artes-visuais-do-vale-do-sao-francisco"
     }
   ],
   "ru_cardapio": {
@@ -3511,6 +3511,7 @@
     ]
   },
   "avisos_siga": [
+    "ATENÇÃO! CADERNETAS ELETRÔNICAS REABERTAS PARA REGISTRO — - As cadernetas eletrônicas dos períodos 2025.2 e 2026.1 estão disponíveis para possíveis alterações até o dia19/10/2026.",
     "BLOQUEIO DE ACESSO/SENHA BLOQUEADA — A funcionalidade ESQUECEU SUA SENHA não funciona, para DESBLOQUEIO: * se for discente, solicite ao SIC do seu campus; * se for docente/técnico, solicite à SRCA. Verifique os contatos na página da SRCA (https://portais.univasf.edu.br/srca)"
   ]
 }
