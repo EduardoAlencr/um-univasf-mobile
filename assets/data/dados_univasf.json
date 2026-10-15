@@ -1,5 +1,5 @@
 {
-  "gerado_em": "2026-10-14T14:14:20",
+  "gerado_em": "2026-10-15T13:50:11",
   "noticias_setores": [
     {
       "setor": "PROAE",
@@ -423,6 +423,27 @@
     },
     {
       "setor": "UNIVASF",
+      "titulo": "Univasf abre seleção para mestrado em Agronomia – Produção Vegetal",
+      "data": "14/10/2026",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/noticias/univasf-abre-selecao-para-mestrado-em-agronomia-2013-producao-vegetal-1"
+    },
+    {
+      "setor": "UNIVASF",
+      "titulo": "Univasf tem três docentes no ranking Stanford Elsevier Top 2% Scientists 2026",
+      "data": "14/10/2026",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/noticias/univasf-tem-tres-docentes-no-ranking-stanford-elsevier-top-2-scientists-2026"
+    },
+    {
+      "setor": "UNIVASF",
+      "titulo": "Proae abre seleção para concessão de auxílio financeiro a estudantes estrangeiros vinculados ao PEC-G",
+      "data": "14/10/2026",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/noticias/proae-abre-selecao-para-concessao-de-auxilio-financeiro-a-estudantes-estrangeiros-vinculados-ao-pec-g"
+    },
+    {
+      "setor": "UNIVASF",
       "titulo": "Atendimento multiprofissional à mulher vítima de violência é tema de roda de conversa no HU-Univasf",
       "data": "14/10/2026",
       "resumo": "",
@@ -679,27 +700,6 @@
       "data": "18/09/2026",
       "resumo": "",
       "url": "https://portais.univasf.edu.br/noticias/univasf-lanca-pesquisa-sobre-diversidade-e-comeca-aplicacao-com-servidores-taes"
-    },
-    {
-      "setor": "UNIVASF",
-      "titulo": "Estudo desenvolvido na Univasf analisa uso de células-tronco no tratamento de úlceras crônicas",
-      "data": "18/09/2026",
-      "resumo": "",
-      "url": "https://portais.univasf.edu.br/noticias/estudo-desenvolvido-na-univasf-analisa-uso-de-celulas-tronco-no-tratamento-de-ulceras-cronicas"
-    },
-    {
-      "setor": "UNIVASF",
-      "titulo": "Semana do Reitor – 3 a 14/08/2026",
-      "data": "17/09/2026",
-      "resumo": "",
-      "url": "https://portais.univasf.edu.br/noticias/semana-do-reitor-2013-3-a-14-08-2026"
-    },
-    {
-      "setor": "UNIVASF",
-      "titulo": "Inscrições para o Mestrado Profissional em Matemática em Rede Nacional (Profmat) na Univasf terminam nesta segunda-feira (21)",
-      "data": "17/09/2026",
-      "resumo": "",
-      "url": "https://portais.univasf.edu.br/noticias/inscricoes-para-o-mestrado-profissional-em-matematica-em-rede-nacional-profmat-na-univasf-terminam-nesta-segunda-feira-21"
     }
   ],
   "ru_cardapio": {
@@ -1281,6 +1281,20 @@
       "mes": "Dez",
       "ano": 2026,
       "titulo": "Último dia de aulas do Período 2026.2.",
+      "tag": "outro"
+    },
+    {
+      "dia": "14",
+      "mes": "Dez",
+      "ano": 2026,
+      "titulo": "Exames Finais do Período 2026.2.",
+      "tag": "avaliacao"
+    },
+    {
+      "dia": "14",
+      "mes": "Dez",
+      "ano": 2026,
+      "titulo": "2027.1 às Coordenações de Curso (o discente deve indicar o nome, o código, a turma e o colegiado",
       "tag": "outro"
     }
   ],
@@ -3511,7 +3525,7 @@
     ]
   },
   "avisos_siga": [
-    "ATENÇÃO! CADERNETAS ELETRÔNICAS REABERTAS PARA REGISTRO — - As cadernetas eletrônicas dos períodos 2025.2 e 2026.1 estão disponíveis para possíveis alterações até o dia19/10/2026.",
+    "ATENÇÃO! CADERNETAS ELETRÔNICAS REABERTAS PARA REGISTRO — - As cadernetas eletrônicas dos períodos 2020.2 até 2026.1 estão disponíveis para possíveis alterações até o dia19/10/2026.",
     "BLOQUEIO DE ACESSO/SENHA BLOQUEADA — A funcionalidade ESQUECEU SUA SENHA não funciona, para DESBLOQUEIO: * se for discente, solicite ao SIC do seu campus; * se for docente/técnico, solicite à SRCA. Verifique os contatos na página da SRCA (https://portais.univasf.edu.br/srca)"
   ]
 }
