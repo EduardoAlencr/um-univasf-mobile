@@ -1,5 +1,5 @@
 {
-  "gerado_em": "2026-10-15T13:50:11",
+  "gerado_em": "2026-10-16T13:39:59",
   "noticias_setores": [
     {
       "setor": "PROAE",
@@ -423,6 +423,41 @@
     },
     {
       "setor": "UNIVASF",
+      "titulo": "Nota da Pró-Reitoria de Ensino sobre aulas remotas para o CCA nesta sexta-feira (16)",
+      "data": "16/10/2026",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/noticias/nota-da-pro-reitoria-de-ensino-sobre-aulas-remotas-para-o-cca-nesta-sexta-feira-16"
+    },
+    {
+      "setor": "UNIVASF",
+      "titulo": "Univasf e Incra iniciam projeto para a regularização fundiária de 12 comunidades quilombolas de Pernambuco e Bahia",
+      "data": "15/10/2026",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/noticias/univasf-e-incra-iniciam-projeto-para-a-regularizacao-fundiaria-de-12-comunidades-quilombolas-de-pernambuco-e-bahia"
+    },
+    {
+      "setor": "UNIVASF",
+      "titulo": "Nota de Repúdio do Colegiado de História aos ataques a docentes da Univasf",
+      "data": "15/10/2026",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/noticias/nota-de-repudio-do-colegiado-de-historia-aos-ataques-a-docentes-da-univasf"
+    },
+    {
+      "setor": "UNIVASF",
+      "titulo": "Programa de Pós-Graduação em Ciência Animal da Univasf realiza seleção para mestrado e doutorado",
+      "data": "15/10/2026",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/noticias/programa-de-pos-graduacao-em-ciencia-animal-da-univasf-realiza-selecao-para-mestrado-e-doutorado"
+    },
+    {
+      "setor": "UNIVASF",
+      "titulo": "HU-Univasf realiza painel sobre cuidado, educação e saúde pública na próxima quinta-feira",
+      "data": "15/10/2026",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/noticias/hu-univasf-realiza-painel-sobre-cuidado-educacao-e-saude-publica-na-proxima-quinta-feira"
+    },
+    {
+      "setor": "UNIVASF",
       "titulo": "Univasf abre seleção para mestrado em Agronomia – Produção Vegetal",
       "data": "14/10/2026",
       "resumo": "",
@@ -665,41 +700,6 @@
       "data": "23/09/2026",
       "resumo": "",
       "url": "https://portais.univasf.edu.br/noticias/proae-divulga-formulario-para-solicitacao-de-transporte-alojamento-e-acesso-ao-restaurante-universitario-durante-a-19a-scientex"
-    },
-    {
-      "setor": "UNIVASF",
-      "titulo": "XVIII Simpósio Nordestino de Atividade Física e Saúde acontece na Univasf e está com inscrições abertas",
-      "data": "22/09/2026",
-      "resumo": "",
-      "url": "https://portais.univasf.edu.br/noticias/xviii-simposio-nordestino-de-atividade-fisica-e-saude-acontece-na-univasf-e-esta-com-inscricoes-abertas"
-    },
-    {
-      "setor": "UNIVASF",
-      "titulo": "Abertas as inscrições para a etapa externa do Processo Seletivo para Preenchimento de Vagas Ociosas da Univasf",
-      "data": "22/09/2026",
-      "resumo": "",
-      "url": "https://portais.univasf.edu.br/noticias/abertas-as-inscricoes-para-a-etapa-externa-do-processo-seletivo-para-preenchimento-de-vagas-ociosas-da-univasf"
-    },
-    {
-      "setor": "UNIVASF",
-      "titulo": "Nota de Repúdio à tentativa de homicídio sofrida por estudante de História",
-      "data": "19/09/2026",
-      "resumo": "",
-      "url": "https://portais.univasf.edu.br/noticias/nota-de-repudio-a-tentativa-de-homicidio-sofrida-por-estudante-de-historia"
-    },
-    {
-      "setor": "UNIVASF",
-      "titulo": "II Seminário Integrado das Licenciaturas da Univasf debateu ações para fortalecer os cursos",
-      "data": "18/09/2026",
-      "resumo": "",
-      "url": "https://portais.univasf.edu.br/noticias/ii-seminario-integrado-das-licenciaturas-da-univasf-debateu-acoes-para-fortalecer-os-cursos"
-    },
-    {
-      "setor": "UNIVASF",
-      "titulo": "Univasf lança pesquisa sobre diversidade e começa aplicação com servidores TAEs",
-      "data": "18/09/2026",
-      "resumo": "",
-      "url": "https://portais.univasf.edu.br/noticias/univasf-lanca-pesquisa-sobre-diversidade-e-comeca-aplicacao-com-servidores-taes"
     }
   ],
   "ru_cardapio": {
@@ -1301,6 +1301,16 @@
   "colegiado_cecomp": [
     {
       "colegiado": "CECOMP",
+      "titulo": "Revista RICA, criada a partir de iniciativa de docentes do CECOMP, lança primeira edição",
+      "url": "https://cecomp.univasf.edu.br/index.php/revista-rica-lanca-primeira-edicao-2026/"
+    },
+    {
+      "colegiado": "CECOMP",
+      "titulo": "Ler notícia",
+      "url": "https://cecomp.univasf.edu.br/index.php/revista-rica-lanca-primeira-edicao-2026/"
+    },
+    {
+      "colegiado": "CECOMP",
       "titulo": "Site do CECOMP ganha nova identidade visual e reorganiza acesso às informações do curso",
       "url": "https://cecomp.univasf.edu.br/index.php/site-do-cecomp-ganha-nova-identidade-visual-e-reorganiza-acesso-as-informacoes-do-curso/"
     },
@@ -1318,16 +1328,6 @@
       "colegiado": "CECOMP",
       "titulo": "Ler notícia",
       "url": "https://cecomp.univasf.edu.br/index.php/cecomp-sedia-etapa-regional-da-1a-fase-da-31a-maratona-de-programacao-da-sbc/"
-    },
-    {
-      "colegiado": "CECOMP",
-      "titulo": "Matriz curricular de Engenharia da Computação ganha versão interativa",
-      "url": "https://cecomp.univasf.edu.br/index.php/fluxograma-curricular-do-curso-de-engenharia-da-computacao-de-agora-esta-disponivel-em-formato-interativo/"
-    },
-    {
-      "colegiado": "CECOMP",
-      "titulo": "Ler notícia",
-      "url": "https://cecomp.univasf.edu.br/index.php/fluxograma-curricular-do-curso-de-engenharia-da-computacao-de-agora-esta-disponivel-em-formato-interativo/"
     }
   ],
   "itinerario_onibus": {
@@ -3524,8 +3524,5 @@
       }
     ]
   },
-  "avisos_siga": [
-    "ATENÇÃO! CADERNETAS ELETRÔNICAS REABERTAS PARA REGISTRO — - As cadernetas eletrônicas dos períodos 2020.2 até 2026.1 estão disponíveis para possíveis alterações até o dia19/10/2026.",
-    "BLOQUEIO DE ACESSO/SENHA BLOQUEADA — A funcionalidade ESQUECEU SUA SENHA não funciona, para DESBLOQUEIO: * se for discente, solicite ao SIC do seu campus; * se for docente/técnico, solicite à SRCA. Verifique os contatos na página da SRCA (https://portais.univasf.edu.br/srca)"
-  ]
+  "avisos_siga": []
 }
