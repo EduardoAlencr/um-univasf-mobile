@@ -1,5 +1,5 @@
 {
-  "gerado_em": "2026-10-16T13:39:59",
+  "gerado_em": "2026-10-17T12:37:16",
   "noticias_setores": [
     {
       "setor": "PROAE",
@@ -1296,9 +1296,26 @@
       "ano": 2026,
       "titulo": "2027.1 às Coordenações de Curso (o discente deve indicar o nome, o código, a turma e o colegiado",
       "tag": "outro"
+    },
+    {
+      "dia": "16",
+      "mes": "Dez",
+      "ano": 2026,
+      "titulo": "21 - Conuni.",
+      "tag": "outro"
     }
   ],
   "colegiado_cecomp": [
+    {
+      "colegiado": "CECOMP",
+      "titulo": "Software educativo Gerard, criado na UNIVASF, é publicado no Repositório Institucional",
+      "url": "https://cecomp.univasf.edu.br/index.php/software-educativo-gerard-criado-na-univasf-e-publicado-no-repositorio-institucional/"
+    },
+    {
+      "colegiado": "CECOMP",
+      "titulo": "Ler notícia",
+      "url": "https://cecomp.univasf.edu.br/index.php/software-educativo-gerard-criado-na-univasf-e-publicado-no-repositorio-institucional/"
+    },
     {
       "colegiado": "CECOMP",
       "titulo": "Revista RICA, criada a partir de iniciativa de docentes do CECOMP, lança primeira edição",
@@ -1318,16 +1335,6 @@
       "colegiado": "CECOMP",
       "titulo": "Ler notícia",
       "url": "https://cecomp.univasf.edu.br/index.php/site-do-cecomp-ganha-nova-identidade-visual-e-reorganiza-acesso-as-informacoes-do-curso/"
-    },
-    {
-      "colegiado": "CECOMP",
-      "titulo": "CECOMP sedia etapa regional da 31ª Maratona de Programação da SBC",
-      "url": "https://cecomp.univasf.edu.br/index.php/cecomp-sedia-etapa-regional-da-1a-fase-da-31a-maratona-de-programacao-da-sbc/"
-    },
-    {
-      "colegiado": "CECOMP",
-      "titulo": "Ler notícia",
-      "url": "https://cecomp.univasf.edu.br/index.php/cecomp-sedia-etapa-regional-da-1a-fase-da-31a-maratona-de-programacao-da-sbc/"
     }
   ],
   "itinerario_onibus": {
