@@ -117,6 +117,7 @@ void _aplicarNoticias(dynamic lista) {
       desc: 'Notícia oficial do setor $setor.',
       when: data != null ? '$data · coletado do site da $setor' : 'coletado do site da $setor',
       url: item['url'] as String?,
+      setor: setor,
     );
     comData.add(MapEntry(notice, _parseDataBr(data)));
   }
@@ -279,7 +280,12 @@ void _aplicarCardapio(dynamic cardapio) {
 }
 
 void _aplicarCalendario(dynamic lista) {
-  if (lista is! List || lista.isEmpty) return;
+  // Só desiste de vez (mantendo os mocks) se o JSON vier malformado — uma
+  // lista real, mesmo vazia, é um resultado válido e precisa ser refletido,
+  // principalmente em `eventosMatricula` (nunca deixar o mock do protótipo
+  // vazar pros cards de status da Área do Discente quando o scraper não
+  // encontrar nenhum evento de matrícula na janela de 60 dias).
+  if (lista is! List) return;
 
   final eventos = <CalendarEvent>[];
   for (final item in lista) {
@@ -294,12 +300,21 @@ void _aplicarCalendario(dynamic lista) {
         month: mes,
         title: titulo.length > 70 ? '${titulo.substring(0, 67)}...' : titulo,
         desc: 'Calendário acadêmico oficial',
+        tag: (item['tag'] as String?) ?? 'outro',
+        year: item['ano'] as int?,
       ),
     );
   }
-  if (eventos.isEmpty) return;
 
-  calendarEvents = eventos.take(6).toList();
+  // A lista de destaque do Calendário (limitada a 6) só é substituída se
+  // vieram eventos de verdade — uma busca vazia não deve esvaziar a prévia.
+  if (eventos.isNotEmpty) {
+    calendarEvents = eventos.take(6).toList();
+  }
+  // `eventosMatricula`, porém, reflete sempre o resultado real da busca mais
+  // recente (inclusive vazio) — é o que alimenta um status que precisa ser
+  // confiável, não uma prévia qualquer.
+  eventosMatricula = eventos.where((e) => e.tag == 'matricula').toList();
 }
 
 void _aplicarAvisosSiga(dynamic lista) {

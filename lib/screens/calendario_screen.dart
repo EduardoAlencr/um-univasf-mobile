@@ -193,6 +193,10 @@ class _CalendarioScreenState extends State<CalendarioScreen> {
       for (final e in todosItens)
         if (e.mes.toLowerCase() == abrevMes.toLowerCase()) e.dia,
     }..remove(0);
+    final diasPessoais = <int>{
+      for (final e in itensPessoais)
+        if (e.mes.toLowerCase() == abrevMes.toLowerCase()) e.dia,
+    }..remove(0);
     final eventosDoMes = todosItens.where((e) => e.mes.toLowerCase() == abrevMes.toLowerCase()).toList()
       ..sort((a, b) => a.dia.compareTo(b.dia));
 
@@ -201,39 +205,14 @@ class _CalendarioScreenState extends State<CalendarioScreen> {
     final offsetInicial = primeiroDoMes.weekday - 1; // 0=Seg
     final totalCelulas = ((offsetInicial + diasNoMes + 6) ~/ 7) * 7;
 
-    return SingleChildScrollView(
+    final conteudo = SingleChildScrollView(
       padding: const EdgeInsets.fromLTRB(20, 6, 20, 110),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text('Calendário Acadêmico', style: Theme.of(context).textTheme.headlineMedium),
-                    const SizedBox(height: 4),
-                    const Text('Semestre 2026.2 · azul = oficial, amarelo = seus lembretes', style: TextStyle(fontSize: 12.5, color: AppColors.ink2)),
-                  ],
-                ),
-              ),
-              if (uid != null)
-                Material(
-                  color: AppColors.blue,
-                  shape: const CircleBorder(),
-                  child: InkWell(
-                    customBorder: const CircleBorder(),
-                    onTap: () => _adicionarEvento(uid),
-                    child: const Padding(
-                      padding: EdgeInsets.all(10),
-                      child: Icon(Icons.add_rounded, color: Colors.white, size: 22),
-                    ),
-                  ),
-                ),
-            ],
-          ),
+          Text('Calendário Acadêmico', style: Theme.of(context).textTheme.headlineMedium),
+          const SizedBox(height: 4),
+          const Text('Semestre 2026.2 · azul = oficial, amarelo = seus lembretes', style: TextStyle(fontSize: 12.5, color: AppColors.ink2)),
           const SizedBox(height: 18),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -267,6 +246,7 @@ class _CalendarioScreenState extends State<CalendarioScreen> {
                     day: i - offsetInicial + 1,
                     isToday: _mesExibido.year == _hoje.year && _mesExibido.month == _hoje.month && (i - offsetInicial + 1) == _hoje.day,
                     hasEvent: diasComEvento.contains(i - offsetInicial + 1),
+                    isPessoal: diasPessoais.contains(i - offsetInicial + 1),
                   ),
             ],
           ),
@@ -333,6 +313,52 @@ class _CalendarioScreenState extends State<CalendarioScreen> {
         ],
       ),
     );
+
+    if (uid == null) return conteudo;
+
+    return Stack(
+      children: [
+        conteudo,
+        Positioned(
+          right: 20,
+          bottom: 90,
+          child: _NovoLembreteFab(onTap: () => _adicionarEvento(uid)),
+        ),
+      ],
+    );
+  }
+}
+
+class _NovoLembreteFab extends StatelessWidget {
+  const _NovoLembreteFab({required this.onTap});
+  final VoidCallback onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    return Material(
+      color: AppColors.yellow,
+      borderRadius: BorderRadius.circular(AppRadius.pill),
+      elevation: 4,
+      shadowColor: Colors.black.withValues(alpha: 0.3),
+      child: InkWell(
+        borderRadius: BorderRadius.circular(AppRadius.pill),
+        onTap: onTap,
+        child: const Padding(
+          padding: EdgeInsets.symmetric(horizontal: 18, vertical: 14),
+          child: Row(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Icon(Icons.add_rounded, color: AppColors.ink, size: 20),
+              SizedBox(width: 8),
+              Text(
+                'Adicionar lembrete',
+                style: TextStyle(fontSize: 13, fontWeight: FontWeight.w800, color: AppColors.ink),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
   }
 }
 
@@ -361,10 +387,11 @@ class _MonthNavButton extends StatelessWidget {
 }
 
 class _DayCell extends StatelessWidget {
-  const _DayCell({required this.day, required this.isToday, required this.hasEvent});
+  const _DayCell({required this.day, required this.isToday, required this.hasEvent, this.isPessoal = false});
   final int day;
   final bool isToday;
   final bool hasEvent;
+  final bool isPessoal;
 
   @override
   Widget build(BuildContext context) {
@@ -381,6 +408,10 @@ class _DayCell extends StatelessWidget {
       fg = Colors.white;
       weight = FontWeight.w900;
       shadow = null;
+    } else if (isPessoal) {
+      bg = AppColors.yellowSoft;
+      fg = AppColors.yellowText;
+      weight = FontWeight.w800;
     } else if (hasEvent) {
       bg = AppColors.blueSoft;
       fg = AppColors.blueDark;
@@ -405,7 +436,10 @@ class _DayCell extends StatelessWidget {
               child: Container(
                 width: 4,
                 height: 4,
-                decoration: BoxDecoration(color: isToday ? Colors.white : AppColors.blue, shape: BoxShape.circle),
+                decoration: BoxDecoration(
+                  color: isToday ? Colors.white : (isPessoal ? AppColors.yellow : AppColors.blue),
+                  shape: BoxShape.circle,
+                ),
               ),
             ),
         ],

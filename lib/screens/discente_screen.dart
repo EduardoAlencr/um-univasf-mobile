@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import '../data/mock_data.dart';
 import '../state/auth_scope.dart';
 import '../theme/app_theme.dart';
+import '../util/data_pt.dart';
 import '../widgets/app_badge.dart';
 import '../widgets/app_card.dart';
 import '../widgets/um_app_bar.dart';
@@ -13,11 +14,70 @@ import 'login_screen.dart';
 import 'redirect_notas_screen.dart';
 import 'redirect_historico_screen.dart';
 
+const _palavrasAjuste = ['ajuste', 'modificaç', 'trancamento'];
+const _descSemPeriodo = 'Consulte o período vigente no SIG@.';
+
+class _StatusMatricula {
+  const _StatusMatricula({required this.desc, required this.badge, required this.disponivel});
+  final String desc;
+  final Widget badge;
+  final bool disponivel;
+}
+
+/// Procura, entre os eventos de calendário com `tag == 'matricula'`, o mais
+/// próximo cujo título bata com [eventos] (já filtrado por palavra-chave).
+/// Nunca inventa datas: se não houver evento real na janela do scraper
+/// (~60 dias), cai no estado honesto "Indisponível".
+_StatusMatricula _statusDoEvento(List<CalendarEvent> eventos) {
+  final hoje = DateTime.now();
+  final hojeSemHora = DateTime(hoje.year, hoje.month, hoje.day);
+  CalendarEvent? melhor;
+  DateTime? melhorData;
+  for (final e in eventos) {
+    // Evento real do calendário sempre vem com ano (extraído do PDF
+    // oficial); sem ano, não há como saber se já passou ou não, então não
+    // arriscamos "adivinhar" rolando pro próximo ano — é descartado.
+    if (e.year == null) continue;
+    final mesIndex = mesesAbrevPt.indexWhere((m) => m.toLowerCase() == e.month.toLowerCase());
+    if (mesIndex == -1) continue;
+    final dia = int.tryParse(e.day);
+    if (dia == null) continue;
+    final data = DateTime(e.year!, mesIndex + 1, dia);
+    if (data.isBefore(hojeSemHora)) continue; // prazo já passou: não lista
+    if (melhor == null || data.isBefore(melhorData!)) {
+      melhor = e;
+      melhorData = data;
+    }
+  }
+  if (melhor == null || melhorData == null) {
+    return const _StatusMatricula(
+      desc: _descSemPeriodo,
+      badge: AppBadge(label: 'Indisponível', color: BadgeColor.gray),
+      disponivel: false,
+    );
+  }
+  final diasRestantes = DateTime(melhorData.year, melhorData.month, melhorData.day)
+      .difference(DateTime(hoje.year, hoje.month, hoje.day))
+      .inDays;
+  final badge = diasRestantes <= 7
+      ? const AppBadge(label: 'Últimos dias', color: BadgeColor.yellow)
+      : const AppBadge(label: 'Em breve', color: BadgeColor.blue);
+  return _StatusMatricula(
+    desc: '${melhor.title} · ${descreverPrazo(melhorData, hoje)}',
+    badge: badge,
+    disponivel: true,
+  );
+}
+
 class DiscenteScreen extends StatelessWidget {
   const DiscenteScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final eventosAjuste = eventosMatricula.where((e) => _palavrasAjuste.any((p) => e.title.toLowerCase().contains(p))).toList();
+    final eventosGeral = eventosMatricula.where((e) => !_palavrasAjuste.any((p) => e.title.toLowerCase().contains(p))).toList();
+    final statusMatricula = _statusDoEvento(eventosGeral);
+    final statusAjuste = _statusDoEvento(eventosAjuste);
     return Scaffold(
       appBar: UmAppBar(onAvatarTap: () => goProfile(context)),
       body: SingleChildScrollView(
@@ -73,22 +133,26 @@ class DiscenteScreen extends StatelessWidget {
               icon: '✏️',
               iconBg: AppColors.soft2,
               title: 'Matrícula',
-              desc: 'Período oficial: 01/09 a 05/09',
-              trailing: const AppBadge(label: 'Indisponível', color: BadgeColor.gray),
+              desc: statusMatricula.desc,
+              trailing: statusMatricula.badge,
               onTap: () => showUmToast(
                 context,
-                'A matrícula abre em 01/09/2026. O app avisa você quando o período começar e direciona para o SIG@.',
+                statusMatricula.disponivel
+                    ? '${statusMatricula.desc}. Faça a solicitação pelo SIG@.'
+                    : 'Consulte o período de matrícula vigente diretamente no SIG@.',
               ),
             ),
             _SigaItem(
               icon: '🔀',
               iconBg: AppColors.yellowSoft,
               title: 'Modificação de Matrícula',
-              desc: 'Ajuste encerra em 29/08',
-              trailing: const AppBadge(label: 'Últimos dias', color: BadgeColor.yellow),
+              desc: statusAjuste.desc,
+              trailing: statusAjuste.badge,
               onTap: () => showUmToast(
                 context,
-                'O ajuste de matrícula encerra em 29/08. Faça a solicitação pelo SIG@ ou presencialmente na SRCA.',
+                statusAjuste.disponivel
+                    ? '${statusAjuste.desc}. Faça a solicitação pelo SIG@ ou presencialmente na SRCA.'
+                    : 'Consulte o período de ajuste de matrícula vigente diretamente no SIG@.',
               ),
             ),
             if (sigaAvisos.isNotEmpty) ...[

@@ -2,13 +2,22 @@
 // exatamente os exemplos do protótipo HTML de referência.
 
 class Notice {
-  const Notice({required this.icon, required this.iconBg, required this.title, required this.desc, required this.when, this.url});
+  const Notice({
+    required this.icon,
+    required this.iconBg,
+    required this.title,
+    required this.desc,
+    required this.when,
+    this.url,
+    this.setor = 'UNIVASF',
+  });
   final String icon;
   final int iconBg; // índice de cor suave (ver AppColors soft variants)
   final String title;
   final String desc;
   final String when;
   final String? url;
+  final String setor;
 }
 
 /// Avisos públicos da página inicial do SIG@ (sem login), coletados pelo
@@ -214,18 +223,26 @@ List<Edital> editais = [
 ];
 
 class CalendarEvent {
-  const CalendarEvent({required this.day, required this.month, required this.title, required this.desc});
+  const CalendarEvent({required this.day, required this.month, required this.title, required this.desc, this.tag = 'outro', this.year});
   final String day;
   final String month;
   final String title;
   final String desc;
+  final String tag; // 'feriado' | 'recesso' | 'matricula' | 'avaliacao' | 'outro'
+  final int? year;
 }
 
 List<CalendarEvent> calendarEvents = [
-  CalendarEvent(day: '29', month: 'Ago', title: 'Fim do ajuste de matrícula', desc: 'SRCA · solicitações pelo SIG@ até 23h59'),
-  CalendarEvent(day: '01', month: 'Set', title: 'Início da matrícula 2026.2', desc: 'Período oficial: 01/09 a 05/09'),
+  CalendarEvent(day: '29', month: 'Ago', title: 'Fim do ajuste de matrícula', desc: 'SRCA · solicitações pelo SIG@ até 23h59', tag: 'matricula'),
+  CalendarEvent(day: '01', month: 'Set', title: 'Início da matrícula 2026.2', desc: 'Período oficial: 01/09 a 05/09', tag: 'matricula'),
   CalendarEvent(day: '07', month: 'Set', title: 'Feriado — Independência', desc: 'Sem aulas · RU fechado'),
 ];
+
+/// Eventos de calendário com `tag == 'matricula'` (matrícula, ajuste,
+/// trancamento), usados pelos cards de status na Área do Discente. Vazio
+/// (não "indisponível" hardcoded) sempre que não houver período de
+/// matrícula publicado no calendário oficial dentro da janela do scraper.
+List<CalendarEvent> eventosMatricula = calendarEvents.where((e) => e.tag == 'matricula').toList();
 
 /// Dias com eventos no mês exibido (agosto/2026), usados para marcar o grid.
 const calendarEventDays = {29};

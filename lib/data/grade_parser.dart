@@ -37,10 +37,10 @@ class GradeParseada {
   bool get temAulas => grade.values.any((linha) => linha.any((c) => c != null));
 }
 
-final _regexAula = RegExp(r'CCMP\d{4}\s*-\s*\S+');
+final _regexAula = RegExp(r'[A-Z]{4}\d{4}\s*-\s*\S+');
 final _regexHora = RegExp(r'\b\d{2}:00:');
 final _regexDisciplinaLinha = RegExp(
-  r'CCMP(\d{4})\s+(.+?)\s+([A-Z0-9]{1,3})\s*-\s*(.+?)\s+(CONFIRMADA|CANCELADA|PENDENTE|AGUARDANDO[\s\S]{0,20}?)\b',
+  r'([A-Z]{4})(\d{4})\s+(.+?)\s+([A-Z0-9]{1,3})\s*-\s*(.+?)\s+(CONFIRMADA|CANCELADA|PENDENTE|AGUARDANDO[\s\S]{0,20}?)\b',
   dotAll: true,
 );
 
@@ -126,10 +126,10 @@ Future<GradeParseada?> parsearGradePdf(Uint8List bytes) async {
 
     final disciplinas = <String, GradeDisciplina>{};
     for (final m in _regexDisciplinaLinha.allMatches(blocoDisciplinas)) {
-      final codigo = 'CCMP${m.group(1)}';
-      final nome = _limparEspacos(m.group(2)!);
-      final turma = m.group(3)!;
-      final sala = _limparEspacos(m.group(4)!);
+      final codigo = '${m.group(1)}${m.group(2)}';
+      final nome = _limparEspacos(m.group(3)!);
+      final turma = m.group(4)!;
+      final sala = _limparEspacos(m.group(5)!);
       disciplinas['$codigo-$turma'] = GradeDisciplina(nome: nome, sala: sala);
     }
     if (disciplinas.isEmpty) return null;
@@ -149,7 +149,7 @@ Future<GradeParseada?> parsearGradePdf(Uint8List bytes) async {
 }
 
 String? _normalizarChave(String texto) {
-  final m = RegExp(r'(CCMP\d{4})\s*-\s*(\S+)').firstMatch(texto);
+  final m = RegExp(r'([A-Z]{4}\d{4})\s*-\s*(\S+)').firstMatch(texto);
   if (m == null) return null;
   return '${m.group(1)}-${m.group(2)}';
 }

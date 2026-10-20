@@ -20,6 +20,10 @@ class _NotificacoesScreenState extends State<NotificacoesScreen> {
 
   final _scrollController = ScrollController();
   int _visivel = _lote;
+  String? _filtroSetor;
+
+  List<Notice> get _itensFiltrados =>
+      _filtroSetor == null ? allNotices : allNotices.where((n) => n.setor == _filtroSetor).toList();
 
   @override
   void initState() {
@@ -35,17 +39,27 @@ class _NotificacoesScreenState extends State<NotificacoesScreen> {
   }
 
   void _onScroll() {
-    if (_visivel >= allNotices.length) return;
+    final total = _itensFiltrados.length;
+    if (_visivel >= total) return;
     final proximoDoFim = _scrollController.position.maxScrollExtent - _scrollController.position.pixels < 300;
     if (proximoDoFim) {
-      setState(() => _visivel = (_visivel + _lote).clamp(0, allNotices.length));
+      setState(() => _visivel = (_visivel + _lote).clamp(0, total));
     }
+  }
+
+  void _selecionarFiltro(String? setor) {
+    setState(() {
+      _filtroSetor = setor;
+      _visivel = _lote;
+    });
   }
 
   @override
   Widget build(BuildContext context) {
-    final itens = allNotices.take(_visivel).toList();
-    final temMais = _visivel < allNotices.length;
+    final filtrados = _itensFiltrados;
+    final itens = filtrados.take(_visivel).toList();
+    final temMais = _visivel < filtrados.length;
+    final setores = allNotices.map((n) => n.setor).toSet().toList()..sort();
 
     return ListView.builder(
       controller: _scrollController,
@@ -68,8 +82,29 @@ class _NotificacoesScreenState extends State<NotificacoesScreen> {
                   const SizedBox(height: 6),
                   Text(_formatarAtualizacao(dadosAtualizadosEm!), style: const TextStyle(fontSize: 11, color: AppColors.ink2)),
                 ],
+                const SizedBox(height: 14),
+                SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: Row(
+                    children: [
+                      _FiltroChip(label: 'Todos', selecionado: _filtroSetor == null, onTap: () => _selecionarFiltro(null)),
+                      for (final s in setores)
+                        Padding(
+                          padding: const EdgeInsets.only(left: 8),
+                          child: _FiltroChip(label: s, selecionado: _filtroSetor == s, onTap: () => _selecionarFiltro(s)),
+                        ),
+                    ],
+                  ),
+                ),
               ],
             ),
+          );
+        }
+
+        if (itens.isEmpty && index == 1) {
+          return const Padding(
+            padding: EdgeInsets.symmetric(vertical: 20),
+            child: Text('Nenhuma notícia encontrada para esse setor.', style: TextStyle(fontSize: 12.5, color: AppColors.ink2)),
           );
         }
 
@@ -128,4 +163,39 @@ String _formatarAtualizacao(DateTime data) {
   final hh = local.hour.toString().padLeft(2, '0');
   final min = local.minute.toString().padLeft(2, '0');
   return 'Dados públicos atualizados em $dd/$mm às $hh:${min}h';
+}
+
+class _FiltroChip extends StatelessWidget {
+  const _FiltroChip({required this.label, required this.selecionado, required this.onTap});
+
+  final String label;
+  final bool selecionado;
+  final VoidCallback onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    return Material(
+      color: selecionado ? AppColors.blue : AppColors.card,
+      borderRadius: BorderRadius.circular(AppRadius.pill),
+      child: InkWell(
+        borderRadius: BorderRadius.circular(AppRadius.pill),
+        onTap: onTap,
+        child: Container(
+          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 9),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(AppRadius.pill),
+            border: Border.all(color: selecionado ? Colors.transparent : AppColors.border),
+          ),
+          child: Text(
+            label,
+            style: TextStyle(
+              fontSize: 12.5,
+              fontWeight: FontWeight.w800,
+              color: selecionado ? Colors.white : AppColors.ink2,
+            ),
+          ),
+        ),
+      ),
+    );
+  }
 }
