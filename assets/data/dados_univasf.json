@@ -1,5 +1,5 @@
 {
-  "gerado_em": "2026-10-20T12:24:25",
+  "gerado_em": "2026-10-20T13:59:00",
   "noticias_setores": [
     {
       "setor": "PROAE",
@@ -423,6 +423,13 @@
     },
     {
       "setor": "UNIVASF",
+      "titulo": "Univasf está com inscrições abertas para o Programa de Mobilidade Estudantil InterIES",
+      "data": "20/10/2026",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/noticias/univasf-esta-com-inscricoes-abertas-para-o-programa-de-mobilidade-estudantil-interies"
+    },
+    {
+      "setor": "UNIVASF",
       "titulo": "Defesa de memorial do docente Julianeli Tolentino de Lima para promoção à classe de Professor Titular acontece nesta quarta-feira (21)",
       "data": "19/10/2026",
       "resumo": "",
@@ -693,13 +700,6 @@
       "data": "24/09/2026",
       "resumo": "",
       "url": "https://portais.univasf.edu.br/noticias/prorrogadas-ate-28-de-setembro-as-inscricoes-para-o-mestrado-profissional-em-matematica-em-rede-nacional-profmat"
-    },
-    {
-      "setor": "UNIVASF",
-      "titulo": "Univasf oferta três bolsas de pós-doutorado para pesquisas com povos e comunidades tradicionais",
-      "data": "23/09/2026",
-      "resumo": "",
-      "url": "https://portais.univasf.edu.br/noticias/univasf-oferta-tres-bolsas-de-pos-doutorado-para-pesquisas-com-povos-e-comunidades-tradicionais"
     }
   ],
   "ru_cardapio": {
