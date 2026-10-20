@@ -18,6 +18,8 @@ from datetime import date, timedelta
 
 import pdfplumber
 import requests
+
+import robots
 from bs4 import BeautifulSoup
 
 BASE_URL = "https://portais.univasf.edu.br"
@@ -70,7 +72,7 @@ class EventoCalendario:
 
 def _achar_pdf_calendario() -> str | None:
     try:
-        resp = requests.get(PAGINA_CALENDARIO, headers=HEADERS, timeout=TIMEOUT)
+        resp = robots.get(PAGINA_CALENDARIO, headers=HEADERS, timeout=TIMEOUT)
         resp.raise_for_status()
     except requests.RequestException as exc:
         print(f"[calendario] falha ao abrir página do calendário: {exc}")
@@ -180,7 +182,7 @@ def raspar_calendario(janela_dias: int = 60) -> list[dict]:
         return []
 
     try:
-        resp = requests.get(pdf_url, headers=HEADERS, timeout=TIMEOUT)
+        resp = robots.get(pdf_url, headers=HEADERS, timeout=TIMEOUT)
         resp.raise_for_status()
     except requests.RequestException as exc:
         print(f"[calendario] falha ao baixar PDF: {exc}")

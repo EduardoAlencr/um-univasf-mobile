@@ -18,6 +18,8 @@ import re
 from dataclasses import dataclass, asdict
 
 import requests
+
+import robots
 from bs4 import BeautifulSoup
 
 BASE_URL = "https://portais.univasf.edu.br"
@@ -40,6 +42,15 @@ class NoticiaSetor:
 
 
 _SELETOR_LINK_TITULO = "h2.headline a.summary, h2.tileHeadline a, article a.summary, span.summary a.url"
+
+# Exceções ao padrão de URL `/<setor>/noticias/ultimas-noticias`: a PROEX
+# migrou sua listagem para `/proex/ultimas-noticias` (sem o segmento
+# "noticias"); o caminho antigo ainda responde 200, mas é uma página órfã
+# do Plone com busca alfabética cheia de itens de 2013-2017 e até conteúdo
+# de template/placeholder do CMS, não a listagem real e atual.
+_URL_PATH_POR_SETOR = {
+    "proex": "ultimas-noticias",
+}
 
 
 def _extrair_data_do_titulo(texto: str) -> tuple[str, str | None]:
@@ -69,7 +80,7 @@ def _buscar_data_no_artigo(url: str) -> str | None:
     a página do artigo em si sempre tem a data em `documentByLine`, então
     buscamos lá — custa 1 requisição extra por notícia sem data."""
     try:
-        resp = requests.get(url, headers=HEADERS, timeout=TIMEOUT)
+        resp = robots.get(url, headers=HEADERS, timeout=TIMEOUT)
         resp.raise_for_status()
     except requests.RequestException:
         return None
@@ -119,7 +130,8 @@ def raspar_noticias_setor(
     `buscar_data_no_artigo`: quando a listagem não expõe data por item (ex.
     PROEX, feed geral), busca a data direto na página de cada notícia — mais
     lento (1 requisição extra por item sem data), mas evita ficar sem data."""
-    url_base = f"{BASE_URL}/{setor_slug}/noticias/ultimas-noticias"
+    url_path = _URL_PATH_POR_SETOR.get(setor_slug, "noticias/ultimas-noticias")
+    url_base = f"{BASE_URL}/{setor_slug}/{url_path}"
     noticias: list[NoticiaSetor] = []
     vistos: set[str] = set()
 
@@ -127,7 +139,7 @@ def raspar_noticias_setor(
         b_start = pagina * ITENS_POR_PAGINA
         url = url_base if b_start == 0 else f"{url_base}?b_start:int={b_start}"
         try:
-            resp = requests.get(url, headers=HEADERS, timeout=TIMEOUT)
+            resp = robots.get(url, headers=HEADERS, timeout=TIMEOUT)
             resp.raise_for_status()
         except requests.RequestException as exc:
             print(f"[setor_noticias] falha ao buscar {url}: {exc}")
@@ -136,11 +148,12 @@ def raspar_noticias_setor(
         soup = BeautifulSoup(resp.text, "lxml")
         # O template de notícias da UNIVASF (Plone) varia por setor: a maioria
         # agrupa cada notícia num <div class="item">, com a data em algum
-        # lugar dentro desse bloco (no título ou numa "byline" separada).
-        # Alguns feeds (ex. PROEX, "Últimas notícias" geral) usam outro
-        # template de busca sem esse agrupamento — nesses, cada link vira
-        # uma notícia sem data (a página não expõe isso por item).
-        blocos = soup.select("div.item")
+        # lugar dentro desse bloco (no título ou numa "byline" separada). A
+        # listagem real da PROEX (e o feed geral "Últimas notícias") usa
+        # `div.tileItem` em vez de `div.item`, mas com a mesma estrutura
+        # interna (título em `h2.tileHeadline a`, data em `span.documentByLine`),
+        # então também é tratada pelo mesmo `_parse_item_div`.
+        blocos = soup.select("div.item, div.tileItem")
         if blocos:
             itens_pagina = [_parse_item_div(b, setor_label) for b in blocos]
         else:

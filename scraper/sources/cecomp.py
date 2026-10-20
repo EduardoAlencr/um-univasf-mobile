@@ -11,6 +11,8 @@ from __future__ import annotations
 from dataclasses import dataclass, asdict
 
 import requests
+
+import robots
 import urllib3
 from bs4 import BeautifulSoup
 
@@ -30,7 +32,7 @@ class NoticiaColegiado:
 
 def raspar_cecomp(limite: int = 6) -> list[dict]:
     try:
-        resp = requests.get(URL, headers=HEADERS, timeout=TIMEOUT)
+        resp = robots.get(URL, headers=HEADERS, timeout=TIMEOUT)
         resp.raise_for_status()
     except requests.exceptions.SSLError:
         # O certificado do cecomp.univasf.edu.br está mal configurado
@@ -39,7 +41,7 @@ def raspar_cecomp(limite: int = 6) -> list[dict]:
         # trafegando), aceitamos pular a verificação aqui como fallback
         # pragmático — não fazer isso para nenhuma outra fonte.
         try:
-            resp = requests.get(URL, headers=HEADERS, timeout=TIMEOUT, verify=False)
+            resp = robots.get(URL, headers=HEADERS, timeout=TIMEOUT, verify=False)
             resp.raise_for_status()
         except requests.RequestException as exc:
             print(f"[cecomp] falha ao buscar {URL} mesmo sem verificar SSL: {exc}")

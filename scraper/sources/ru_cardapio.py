@@ -23,6 +23,8 @@ from dataclasses import dataclass, asdict
 
 import pdfplumber
 import requests
+
+import robots
 from bs4 import BeautifulSoup
 
 BASE_URL = "https://portais.univasf.edu.br"
@@ -66,7 +68,7 @@ class RefeicaoDia:
 def _achar_pdf_vigente() -> tuple[str, str] | None:
     """Retorna (url_pdf, titulo) do cardápio vigente, ou None se não achar."""
     try:
-        resp = requests.get(BUSCA_URL, headers=HEADERS, timeout=TIMEOUT)
+        resp = robots.get(BUSCA_URL, headers=HEADERS, timeout=TIMEOUT)
         resp.raise_for_status()
     except requests.RequestException as exc:
         print(f"[ru_cardapio] falha na busca: {exc}")
@@ -179,7 +181,7 @@ def raspar_cardapio_ru() -> dict:
     pdf_url, titulo = achado
 
     try:
-        resp = requests.get(pdf_url, headers=HEADERS, timeout=TIMEOUT)
+        resp = robots.get(pdf_url, headers=HEADERS, timeout=TIMEOUT)
         resp.raise_for_status()
     except requests.RequestException as exc:
         print(f"[ru_cardapio] falha ao baixar PDF: {exc}")

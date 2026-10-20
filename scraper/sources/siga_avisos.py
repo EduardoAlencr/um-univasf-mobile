@@ -14,6 +14,8 @@ pessoal algum.
 from __future__ import annotations
 
 import requests
+
+import robots
 from bs4 import BeautifulSoup
 
 URL = "https://siga.univasf.edu.br/univasf/jsp/acesso/pages/inicio.jsf"
@@ -30,7 +32,7 @@ def raspar_avisos_siga(limite: int = LIMITE) -> list[str]:
     """Busca os avisos públicos da tela inicial do SIG@. Retorna lista vazia
     em caso de erro (nunca lança exceção)."""
     try:
-        resp = requests.get(URL, headers=HEADERS, timeout=TIMEOUT)
+        resp = robots.get(URL, headers=HEADERS, timeout=TIMEOUT)
         resp.raise_for_status()
     except requests.RequestException as exc:
         print(f"[siga_avisos] falha ao buscar {URL}: {exc}")

@@ -22,14 +22,22 @@ from sources.siga_avisos import raspar_avisos_siga
 
 OUTPUT_DIR = Path(__file__).parent / "output"
 OUTPUT_FILE = OUTPUT_DIR / "dados_univasf.json"
+# Arquivo de verdade publicado pro app (via GitHub raw) — ao contrário de
+# OUTPUT_FILE (que está no .gitignore e não existe num checkout limpo do
+# GitHub Actions), este sempre existe no checkout, pois é versionado.
+ASSETS_FILE = Path(__file__).parent.parent / "assets" / "data" / "dados_univasf.json"
 
 
 def _dados_anteriores() -> dict:
-    if OUTPUT_FILE.exists():
-        try:
-            return json.loads(OUTPUT_FILE.read_text(encoding="utf-8"))
-        except (json.JSONDecodeError, OSError):
-            pass
+    # Prioriza o arquivo publicado (ASSETS_FILE): é ele que reflete o último
+    # estado realmente em produção. OUTPUT_FILE só existe em execuções
+    # locais manuais e serve como fallback pra desenvolvimento.
+    for candidato in (ASSETS_FILE, OUTPUT_FILE):
+        if candidato.exists():
+            try:
+                return json.loads(candidato.read_text(encoding="utf-8"))
+            except (json.JSONDecodeError, OSError):
+                continue
     return {}
 
 
