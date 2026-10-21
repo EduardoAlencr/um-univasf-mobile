@@ -1,6 +1,13 @@
 {
-  "gerado_em": "2026-10-20T13:59:00",
+  "gerado_em": "2026-10-21T14:15:13",
   "noticias_setores": [
+    {
+      "setor": "PROAE",
+      "titulo": "A PROAE Informa Sobre o Ajuste do Itinerário, nesta Terça-feira, do Transporte Estudantil",
+      "data": "20/10/2026",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/proae/noticias/20-10-2026-a-proae-informa-sobre-o-ajuste-do-itinerario-nesta-terca-feira-do-transporte-estudantil"
+    },
     {
       "setor": "PROAE",
       "titulo": "PROAE amplia acesso temporário aos Restaurantes Universitários com inclusão de 21 novos estudantes do CadÚnico",
@@ -133,13 +140,6 @@
       "data": "17/07/2026",
       "resumo": "",
       "url": "https://portais.univasf.edu.br/proae/noticias/17-07-2026-resultado-final-da-selecao-para-estagiarios-dos-rus"
-    },
-    {
-      "setor": "PROAE",
-      "titulo": "Resultado Parcial da Seleção para estagiários dos RUs",
-      "data": "10/07/2026",
-      "resumo": "",
-      "url": "https://portais.univasf.edu.br/proae/noticias/10-07-2026-resultado-parcial-da-selecao-para-estagiarios-dos-rus"
     },
     {
       "setor": "PROEX",
@@ -423,6 +423,41 @@
     },
     {
       "setor": "UNIVASF",
+      "titulo": "HU-Univasf oferece única residência médica em cuidados paliativos no interior do Nordeste",
+      "data": "21/10/2026",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/noticias/hu-univasf-oferece-unica-residencia-medica-em-cuidados-paliativos-no-interior-do-nordeste"
+    },
+    {
+      "setor": "UNIVASF",
+      "titulo": "Univasf flexibiliza presença dos estudantes nos dias 23 e 26 de outubro de 2026",
+      "data": "20/10/2026",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/noticias/univasf-flexibiliza-presenca-dos-estudantes-nos-dias-23-e-26-de-outubro-de-2026"
+    },
+    {
+      "setor": "UNIVASF",
+      "titulo": "Conselho Universitário da Univasf lança nota em defesa da autonomia universitária, da democracia e do exercício da cidadania",
+      "data": "20/10/2026",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/noticias/conselho-universitario-da-univasf-lanca-nota-em-defesa-da-autonomia-universitaria-da-democracia-e-do-exercicio-da-cidadania"
+    },
+    {
+      "setor": "UNIVASF",
+      "titulo": "Mensagem do reitor pelos 22 anos da Univasf",
+      "data": "20/10/2026",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/noticias/mensagem-do-reitor-pelos-122-anos-da-univasf"
+    },
+    {
+      "setor": "UNIVASF",
+      "titulo": "Univasf realiza 11º Fórum de Mobilização Antimanicomial com programação sobre cuidado em liberdade",
+      "data": "20/10/2026",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/noticias/univasf-realiza-11o-forum-de-mobilizacao-antimanicomial-com-programacao-sobre-cuidado-em-liberdade"
+    },
+    {
+      "setor": "UNIVASF",
       "titulo": "Univasf está com inscrições abertas para o Programa de Mobilidade Estudantil InterIES",
       "data": "20/10/2026",
       "resumo": "",
@@ -665,41 +700,6 @@
       "data": "28/09/2026",
       "resumo": "",
       "url": "https://portais.univasf.edu.br/noticias/univasf-reabre-selecao-para-estudante-bolsista-do-pet-saude-informacao-e-saude-digital"
-    },
-    {
-      "setor": "UNIVASF",
-      "titulo": "Univasf disponibiliza 135 vagas para oficinas de artes gratuitas",
-      "data": "28/09/2026",
-      "resumo": "",
-      "url": "https://portais.univasf.edu.br/noticias/univasf-disponibiliza-135-vagas-para-oficinas-de-artes-gratuitas"
-    },
-    {
-      "setor": "UNIVASF",
-      "titulo": "NAI leva orientações sobre inclusão e acessibilidade aos Colegiados da Univasf",
-      "data": "25/09/2026",
-      "resumo": "",
-      "url": "https://portais.univasf.edu.br/noticias/nai-leva-orientacoes-sobre-inclusao-e-acessibilidade-aos-colegiados-da-univasf"
-    },
-    {
-      "setor": "UNIVASF",
-      "titulo": "Inscrições abertas para mobilidade acadêmica na UFVJM e na UFSCar pelo Programa Andifes de Mobilidade",
-      "data": "25/09/2026",
-      "resumo": "",
-      "url": "https://portais.univasf.edu.br/noticias/inscricoes-abertas-para-mobilidade-academica-na-ufvjm-e-na-ufscar-pelo-programa-andifes-de-mobilidade"
-    },
-    {
-      "setor": "UNIVASF",
-      "titulo": "Mestrado Profissional em Administração Pública abre seleção para turma 2027.1 com 11 vagas para a Univasf",
-      "data": "24/09/2026",
-      "resumo": "",
-      "url": "https://portais.univasf.edu.br/noticias/mestrado-profissional-em-administracao-publica-abre-selecao-para-turma-2027-1-com-11-vagas-para-a-univasf"
-    },
-    {
-      "setor": "UNIVASF",
-      "titulo": "Prorrogadas até 28 de setembro as inscrições para o Mestrado Profissional em Matemática em Rede Nacional (Profmat)",
-      "data": "24/09/2026",
-      "resumo": "",
-      "url": "https://portais.univasf.edu.br/noticias/prorrogadas-ate-28-de-setembro-as-inscricoes-para-o-mestrado-profissional-em-matematica-em-rede-nacional-profmat"
     }
   ],
   "ru_cardapio": {
