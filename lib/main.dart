@@ -1,5 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:pdfrx/pdfrx.dart';
 import 'data/remote_data_loader.dart';
 import 'firebase_options.dart';
@@ -45,6 +46,13 @@ class _UmUnivasfAppState extends State<UmUnivasfApp> {
         title: 'UM · UNIVASF Mobile',
         debugShowCheckedModeBanner: false,
         theme: buildAppTheme(),
+        locale: const Locale('pt', 'BR'),
+        supportedLocales: const [Locale('pt', 'BR')],
+        localizationsDelegates: const [
+          GlobalMaterialLocalizations.delegate,
+          GlobalWidgetsLocalizations.delegate,
+          GlobalCupertinoLocalizations.delegate,
+        ],
         home: AnimatedBuilder(
           animation: _authState,
           builder: (context, _) {

@@ -116,7 +116,11 @@ class _Hero extends StatelessWidget {
     final hoje = DateTime.now();
     CalendarEvent? proximoEvento;
     DateTime? proximaData;
+    // Feriados e recessos não são "prazos" — mostrar um feriado aqui como
+    // se fosse um prazo confunde o usuário, então só consideramos eventos
+    // que de fato representam um compromisso/data-limite.
     for (final e in calendarEvents) {
+      if (e.tag == 'feriado' || e.tag == 'recesso') continue;
       final data = proximaOcorrencia(e.day, e.month, hoje);
       if (data == null) continue;
       if (proximaData == null || data.isBefore(proximaData)) {

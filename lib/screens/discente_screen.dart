@@ -97,7 +97,7 @@ class DiscenteScreen extends StatelessWidget {
               icon: '🗓️',
               iconBg: AppColors.blueSoft,
               title: 'Minha Grade de Horários',
-              desc: 'Envie o print do SIG@ e o app organiza sua agenda',
+              desc: 'Envie o PDF da grade do SIG@ e o app organiza sua agenda',
               trailing: const AppBadge(label: 'No app', color: BadgeColor.blue),
               onTap: () {
                 final auth = AuthScope.of(context);

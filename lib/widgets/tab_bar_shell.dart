@@ -107,26 +107,35 @@ class _Fab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 4),
-      child: Material(
-        color: Colors.transparent,
-        shape: const CircleBorder(),
-        child: InkWell(
-          onTap: onTap,
-          customBorder: const CircleBorder(),
-          child: Container(
-            width: 56,
-            height: 56,
-            decoration: BoxDecoration(
-              gradient: AppColors.gradient,
-              shape: BoxShape.circle,
-              boxShadow: [
-                BoxShadow(color: AppColors.blue.withValues(alpha: 0.45), blurRadius: 18, offset: const Offset(0, 8)),
+    return Expanded(
+      child: Semantics(
+        label: 'Discente',
+        button: true,
+        child: Material(
+          color: Colors.transparent,
+          child: InkWell(
+            onTap: onTap,
+            borderRadius: BorderRadius.circular(AppRadius.pill),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Container(
+                  width: 46,
+                  height: 46,
+                  decoration: BoxDecoration(
+                    gradient: AppColors.gradient,
+                    shape: BoxShape.circle,
+                    boxShadow: [
+                      BoxShadow(color: AppColors.blue.withValues(alpha: 0.45), blurRadius: 14, offset: const Offset(0, 6)),
+                    ],
+                  ),
+                  alignment: Alignment.center,
+                  child: const Text('🎓', style: TextStyle(fontSize: 19)),
+                ),
+                const SizedBox(height: 2),
+                const Text('Discente', style: TextStyle(fontSize: 9, fontWeight: FontWeight.w700, color: AppColors.blueDark)),
               ],
             ),
-            alignment: Alignment.center,
-            child: const Text('🎓', style: TextStyle(fontSize: 22)),
           ),
         ),
       ),

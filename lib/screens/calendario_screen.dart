@@ -58,9 +58,9 @@ class _CalendarioScreenState extends State<CalendarioScreen> {
     setState(() => _mesExibido = DateTime(_mesExibido.year, _mesExibido.month + delta));
   }
 
-  Future<void> _adicionarEvento(String uid) async {
+  Future<void> _adicionarEvento(String uid, {DateTime? dataInicial}) async {
     final tituloCtrl = TextEditingController();
-    var dataEscolhida = DateTime(_mesExibido.year, _mesExibido.month, _hoje.day);
+    var dataEscolhida = dataInicial ?? DateTime(_mesExibido.year, _mesExibido.month, _hoje.day);
 
     final confirmou = await showDialog<bool>(
       context: context,
@@ -205,6 +205,14 @@ class _CalendarioScreenState extends State<CalendarioScreen> {
     final offsetInicial = primeiroDoMes.weekday - 1; // 0=Seg
     final totalCelulas = ((offsetInicial + diasNoMes + 6) ~/ 7) * 7;
 
+    final hojeSemHora = DateTime(_hoje.year, _hoje.month, _hoje.day);
+    EventoPessoal? proximoLembrete;
+    for (final e in pessoais) {
+      if (DateTime(e.data.year, e.data.month, e.data.day).isBefore(hojeSemHora)) continue;
+      proximoLembrete = e;
+      break; // streamEventosPessoais já vem ordenado por data
+    }
+
     final conteudo = SingleChildScrollView(
       padding: const EdgeInsets.fromLTRB(20, 6, 20, 110),
       child: Column(
@@ -213,6 +221,10 @@ class _CalendarioScreenState extends State<CalendarioScreen> {
           Text('Calendário Acadêmico', style: Theme.of(context).textTheme.headlineMedium),
           const SizedBox(height: 4),
           const Text('Semestre 2026.2 · azul = oficial, amarelo = seus lembretes', style: TextStyle(fontSize: 12.5, color: AppColors.ink2)),
+          if (proximoLembrete != null) ...[
+            const SizedBox(height: 14),
+            _LembreteDestaque(evento: proximoLembrete, hoje: _hoje),
+          ],
           const SizedBox(height: 18),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -247,6 +259,12 @@ class _CalendarioScreenState extends State<CalendarioScreen> {
                     isToday: _mesExibido.year == _hoje.year && _mesExibido.month == _hoje.month && (i - offsetInicial + 1) == _hoje.day,
                     hasEvent: diasComEvento.contains(i - offsetInicial + 1),
                     isPessoal: diasPessoais.contains(i - offsetInicial + 1),
+                    onTap: uid == null
+                        ? null
+                        : () => _adicionarEvento(
+                              uid,
+                              dataInicial: DateTime(_mesExibido.year, _mesExibido.month, i - offsetInicial + 1),
+                            ),
                   ),
             ],
           ),
@@ -329,6 +347,49 @@ class _CalendarioScreenState extends State<CalendarioScreen> {
   }
 }
 
+class _LembreteDestaque extends StatelessWidget {
+  const _LembreteDestaque({required this.evento, required this.hoje});
+  final EventoPessoal evento;
+  final DateTime hoje;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.all(20),
+      decoration: BoxDecoration(
+        color: AppColors.yellow,
+        borderRadius: BorderRadius.circular(AppRadius.hero),
+        boxShadow: [
+          BoxShadow(color: AppColors.yellow.withValues(alpha: 0.45), blurRadius: 28, offset: const Offset(0, 12)),
+        ],
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Container(
+            padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+            decoration: BoxDecoration(
+              color: Colors.black.withValues(alpha: 0.08),
+              borderRadius: BorderRadius.circular(AppRadius.pill),
+            ),
+            child: Text(
+              'SEU PRÓXIMO LEMBRETE · ${descreverPrazo(evento.data, hoje).toUpperCase()}',
+              style: const TextStyle(fontSize: 10, fontWeight: FontWeight.w800, letterSpacing: 0.8, color: AppColors.ink),
+            ),
+          ),
+          const SizedBox(height: 10),
+          Text(evento.titulo, style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w900, color: AppColors.ink)),
+          const SizedBox(height: 4),
+          Text(
+            formatarDataCompleta(evento.data),
+            style: const TextStyle(fontSize: 12.5, color: AppColors.ink, height: 1.45),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
 class _NovoLembreteFab extends StatelessWidget {
   const _NovoLembreteFab({required this.onTap});
   final VoidCallback onTap;
@@ -387,11 +448,12 @@ class _MonthNavButton extends StatelessWidget {
 }
 
 class _DayCell extends StatelessWidget {
-  const _DayCell({required this.day, required this.isToday, required this.hasEvent, this.isPessoal = false});
+  const _DayCell({required this.day, required this.isToday, required this.hasEvent, this.isPessoal = false, this.onTap});
   final int day;
   final bool isToday;
   final bool hasEvent;
   final bool isPessoal;
+  final VoidCallback? onTap;
 
   @override
   Widget build(BuildContext context) {
@@ -418,31 +480,38 @@ class _DayCell extends StatelessWidget {
       weight = FontWeight.w800;
     }
 
-    return Container(
-      decoration: BoxDecoration(
-        color: gradient == null ? bg : null,
-        gradient: gradient,
+    return Material(
+      color: gradient == null ? bg : Colors.transparent,
+      borderRadius: BorderRadius.circular(12),
+      child: InkWell(
+        onTap: onTap,
         borderRadius: BorderRadius.circular(12),
-        boxShadow: shadow,
-      ),
-      alignment: Alignment.center,
-      child: Stack(
-        alignment: Alignment.center,
-        children: [
-          Text('$day', style: TextStyle(fontSize: 12.5, color: fg, fontWeight: weight)),
-          if (hasEvent)
-            Positioned(
-              bottom: 5,
-              child: Container(
-                width: 4,
-                height: 4,
-                decoration: BoxDecoration(
-                  color: isToday ? Colors.white : (isPessoal ? AppColors.yellow : AppColors.blue),
-                  shape: BoxShape.circle,
+        child: Container(
+          decoration: BoxDecoration(
+            gradient: gradient,
+            borderRadius: BorderRadius.circular(12),
+            boxShadow: shadow,
+          ),
+          alignment: Alignment.center,
+          child: Stack(
+            alignment: Alignment.center,
+            children: [
+              Text('$day', style: TextStyle(fontSize: 12.5, color: fg, fontWeight: weight)),
+              if (hasEvent)
+                Positioned(
+                  bottom: 5,
+                  child: Container(
+                    width: 4,
+                    height: 4,
+                    decoration: BoxDecoration(
+                      color: isToday ? Colors.white : (isPessoal ? AppColors.yellow : AppColors.blue),
+                      shape: BoxShape.circle,
+                    ),
+                  ),
                 ),
-              ),
-            ),
-        ],
+            ],
+          ),
+        ),
       ),
     );
   }

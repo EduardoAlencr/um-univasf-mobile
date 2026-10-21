@@ -141,7 +141,6 @@ class PerfilScreen extends StatelessWidget {
           AppCard(
             child: Column(
               children: [
-                _SettingRow(label: '🔔 Notificações de prazos', trailing: const AppBadge(label: 'Ativadas', color: BadgeColor.blue)),
                 _SettingRow(
                   label: '🔒 Excluir meus dados do app',
                   trailing: GestureDetector(
@@ -150,13 +149,15 @@ class PerfilScreen extends StatelessWidget {
                         context,
                         title: 'Excluir todos os seus dados?',
                         message:
-                            'Sua grade de horários, calendário pessoal e dados de conta serão apagados permanentemente. Essa ação não pode ser desfeita.',
+                            'Sua grade de horários, calendário pessoal e sua conta serão apagados permanentemente, agora mesmo. Essa ação não pode ser desfeita.',
                         confirmLabel: 'Excluir tudo',
                         destructive: true,
                       );
-                      if (confirmed && context.mounted) {
-                        showUmToast(context, 'Solicitação de exclusão registrada. Seus dados serão removidos em até 24h.');
-                      }
+                      if (!confirmed || !context.mounted) return;
+                      final resultado = await AuthScope.of(context).excluirDadosEConta();
+                      if (!context.mounted) return;
+                      Navigator.of(context).popUntil((r) => r.isFirst);
+                      showUmToast(context, resultado);
                     },
                     child: const Text('Excluir', style: TextStyle(color: Color(0xFFB3402F), fontWeight: FontWeight.w800, fontSize: 12)),
                   ),

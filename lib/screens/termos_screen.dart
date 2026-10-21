@@ -41,7 +41,7 @@ class TermosScreen extends StatelessWidget {
             const _Term(
               title: '4. Dados que coletamos',
               body:
-                  'Com conta: e-mail institucional e nome, apenas para identificar sua agenda.\nEnviados por você: o print da grade de horários, usado unicamente para montar sua agenda pessoal.\nNunca coletamos: senha do SIG@, notas, histórico ou qualquer dado acadêmico restrito.',
+                  'Com conta: e-mail institucional e nome, apenas para identificar sua agenda.\nEnviados por você: o PDF da grade de horários exportado do SIG@, usado unicamente para montar sua agenda pessoal.\nNunca coletamos: senha do SIG@, notas, histórico ou qualquer dado acadêmico restrito.',
             ),
             const _Term(
               title: '5. Como seus dados são protegidos',

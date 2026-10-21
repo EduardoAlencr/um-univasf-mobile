@@ -104,6 +104,43 @@ class AuthState extends ChangeNotifier {
     await _db.collection('users').doc(uid).set({'hasGrade': value}, SetOptions(merge: true));
   }
 
+  /// Apaga de verdade os dados pessoais do usuário: a subcoleção de
+  /// lembretes do calendário pessoal (Firestore não apaga subcoleções em
+  /// cascata ao apagar o documento pai, então cada item precisa ser
+  /// removido individualmente), o documento `users/{uid}` (grade enviada,
+  /// nome, curso, período) e, por fim, a própria conta no Firebase Auth.
+  ///
+  /// A exclusão da conta pode falhar com `requires-recent-login` (exigência
+  /// de segurança do Firebase para ações sensíveis) — nesse caso os dados já
+  /// foram apagados, mas a conta em si permanece até o usuário entrar de
+  /// novo e tentar excluir outra vez. Retorna uma mensagem que descreve
+  /// exatamente o que aconteceu, pra UI nunca prometer mais do que o que
+  /// realmente foi feito.
+  Future<String> excluirDadosEConta() async {
+    final user = _auth.currentUser;
+    if (user == null) return 'Nenhuma conta ativa.';
+    final uid = user.uid;
+
+    final lembretes = await _db.collection('users').doc(uid).collection('calendarioPessoal').get();
+    final batch = _db.batch();
+    for (final doc in lembretes.docs) {
+      batch.delete(doc.reference);
+    }
+    batch.delete(_db.collection('users').doc(uid));
+    await batch.commit();
+
+    try {
+      await user.delete();
+      return 'Seus dados e sua conta foram excluídos.';
+    } on FirebaseAuthException catch (e) {
+      await _auth.signOut();
+      if (e.code == 'requires-recent-login') {
+        return 'Seus dados foram excluídos. Por segurança, entre novamente e repita a exclusão pra remover também a conta.';
+      }
+      return 'Seus dados foram excluídos, mas não foi possível excluir a conta agora (${e.code}).';
+    }
+  }
+
   Future<bool> _lerHasGrade(String uid) async {
     try {
       final doc = await _db.collection('users').doc(uid).get();

@@ -73,10 +73,16 @@ class _LoginScreenState extends State<LoginScreen> {
                 children: [
                   _LoginHero(),
                   const SizedBox(height: 26),
-                  _EditableField(label: 'E-mail institucional', controller: _emailCtrl, hint: 'seu.nome@discente.univasf.edu.br'),
+                  _EditableField(label: 'E-mail', controller: _emailCtrl, hint: 'seu@email.com'),
                   const SizedBox(height: 12),
                   _EditableField(label: 'Senha do aplicativo', controller: _senhaCtrl, obscure: true, hint: '••••••••'),
-                  const SizedBox(height: 12),
+                  const SizedBox(height: 10),
+                  const Text(
+                    '🔒 Esta é uma senha própria do app, não a sua senha do SIG@.\nServiços acadêmicos restritos abrem no portal oficial.',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(fontSize: 11, color: AppColors.ink2, height: 1.55),
+                  ),
+                  const SizedBox(height: 14),
                   PillButton(
                     label: _carregando ? 'Entrando…' : 'Entrar',
                     onPressed: () {
@@ -89,12 +95,6 @@ class _LoginScreenState extends State<LoginScreen> {
                     onPressed: () => Navigator.of(context).push(
                       MaterialPageRoute(builder: (_) => const CadastroScreen()),
                     ),
-                  ),
-                  const SizedBox(height: 4),
-                  const Text(
-                    '🔒 O app não usa sua senha do SIG@.\nServiços acadêmicos restritos abrem no portal oficial.',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(fontSize: 11, color: AppColors.ink2, height: 1.55),
                   ),
                   const SizedBox(height: 14),
                   _TermsLink(),
