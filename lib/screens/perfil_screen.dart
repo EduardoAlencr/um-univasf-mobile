@@ -6,6 +6,7 @@ import '../widgets/app_card.dart';
 import '../widgets/confirm_dialog.dart';
 import '../widgets/pill_button.dart';
 import '../widgets/um_toast.dart';
+import 'sobre_screen.dart';
 import 'termos_screen.dart';
 
 class PerfilScreen extends StatelessWidget {
@@ -167,9 +168,14 @@ class PerfilScreen extends StatelessWidget {
             ),
           ),
           AppCard(
-            child: Column(
-              children: const [
-                _SettingRow(label: 'ℹ️ Sobre o UM · UNIVASF Mobile', trailing: Text('Protótipo acadêmico', style: TextStyle(color: AppColors.ink2)), showBorder: false),
+            onTap: () => Navigator.of(context).push(MaterialPageRoute(builder: (_) => const SobreScreen())),
+            child: const Column(
+              children: [
+                _SettingRow(
+                  label: 'ℹ️ Sobre o UM · UNIVASF Mobile',
+                  trailing: Icon(Icons.chevron_right_rounded, color: AppColors.ink2),
+                  showBorder: false,
+                ),
               ],
             ),
           ),
@@ -226,9 +232,11 @@ class _SettingRow extends StatelessWidget {
         border: showBorder ? const Border(bottom: BorderSide(color: AppColors.border)) : null,
       ),
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Text(label, style: const TextStyle(fontSize: 13.5)),
+          Expanded(
+            child: Text(label, style: const TextStyle(fontSize: 13.5), overflow: TextOverflow.ellipsis),
+          ),
+          const SizedBox(width: 10),
           trailing,
         ],
       ),

@@ -50,7 +50,7 @@ const _slides = [
   ),
 ];
 
-const _duracaoAuto = Duration(milliseconds: 3200);
+const _duracaoAuto = Duration(milliseconds: 6000);
 
 class _WelcomeScreenState extends State<WelcomeScreen> {
   int _atual = 0;
