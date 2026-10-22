@@ -1,5 +1,5 @@
 {
-  "gerado_em": "2026-10-21T14:15:13",
+  "gerado_em": "2026-10-22T14:14:36",
   "noticias_setores": [
     {
       "setor": "PROAE",
@@ -423,6 +423,27 @@
     },
     {
       "setor": "UNIVASF",
+      "titulo": "Univasf oferta 20 vagas para Doutorado Profissional em Agroecologia e Desenvolvimento Territorial",
+      "data": "22/10/2026",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/noticias/univasf-oferta-20-vagas-para-doutorado-profissional-em-agroecologia-e-desenvolvimento-territorial"
+    },
+    {
+      "setor": "UNIVASF",
+      "titulo": "Univasf e Ministério Público de Pernambuco firmam acordo de cooperação técnica para ações em inclusão e acessibilidade",
+      "data": "22/10/2026",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/noticias/univasf-e-ministerio-publico-de-pernambuco-firmam-acordo-de-cooperacao-tecnica-para-acoes-em-inclusao-e-acessibilidade"
+    },
+    {
+      "setor": "UNIVASF",
+      "titulo": "Exposição “O Tempo Entre as Coisas”, em cartaz na Univasf, reúne memória, natureza e materiais reaproveitados",
+      "data": "21/10/2026",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/noticias/exposicao-201co-tempo-entre-as-coisas201d-em-cartaz-na-univasf-reune-memoria-natureza-e-materiais-reaproveitados-1"
+    },
+    {
+      "setor": "UNIVASF",
       "titulo": "HU-Univasf oferece única residência médica em cuidados paliativos no interior do Nordeste",
       "data": "21/10/2026",
       "resumo": "",
@@ -679,27 +700,6 @@
       "data": "30/09/2026",
       "resumo": "",
       "url": "https://portais.univasf.edu.br/noticias/evento-na-univasf-discute-atualidades-da-psicanalise-e-o-inconsciente"
-    },
-    {
-      "setor": "UNIVASF",
-      "titulo": "Univasf promove II Mostra de Startups nesta quarta-feira (30)",
-      "data": "29/09/2026",
-      "resumo": "",
-      "url": "https://portais.univasf.edu.br/noticias/univasf-promove-ii-mostra-de-startups-nesta-quarta-feira-30"
-    },
-    {
-      "setor": "UNIVASF",
-      "titulo": "Estudante de Administração da Univasf vence etapa baiana do Prêmio IEL de Talentos com projeto de inclusão",
-      "data": "29/09/2026",
-      "resumo": "",
-      "url": "https://portais.univasf.edu.br/noticias/estudante-de-administracao-da-univasf-vence-etapa-baiana-do-premio-iel-de-talentos-com-projeto-de-inclusao"
-    },
-    {
-      "setor": "UNIVASF",
-      "titulo": "Univasf reabre seleção para estudante bolsista do PET-Saúde/Informação e Saúde Digital",
-      "data": "28/09/2026",
-      "resumo": "",
-      "url": "https://portais.univasf.edu.br/noticias/univasf-reabre-selecao-para-estudante-bolsista-do-pet-saude-informacao-e-saude-digital"
     }
   ],
   "ru_cardapio": {
