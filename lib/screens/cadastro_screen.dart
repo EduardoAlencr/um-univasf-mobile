@@ -3,6 +3,7 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import '../state/auth_scope.dart';
 import '../theme/app_theme.dart';
+import '../util/email_valido.dart';
 import '../widgets/pill_button.dart';
 import '../widgets/um_app_bar.dart';
 import '../widgets/um_toast.dart';
@@ -39,6 +40,10 @@ class _CadastroScreenState extends State<CadastroScreen> {
   Future<void> _criarConta() async {
     if (_nomeCtrl.text.trim().isEmpty || _emailCtrl.text.trim().isEmpty || _senhaCtrl.text.isEmpty) {
       showUmToast(context, 'Preencha nome, e-mail e senha.');
+      return;
+    }
+    if (!emailValido(_emailCtrl.text)) {
+      showUmToast(context, 'Digite um e-mail válido.');
       return;
     }
     if (_senhaCtrl.text != _confirmarCtrl.text) {

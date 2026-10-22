@@ -47,7 +47,7 @@ class _EditaisScreenState extends State<EditaisScreen> {
             Text('Editais e Programas', style: Theme.of(context).textTheme.headlineMedium),
             const SizedBox(height: 4),
             const Text(
-              'Agregador dos setores — sempre com link para a fonte oficial.',
+              'Mesmo agregador de notícias dos setores, visto aqui com foco em editais e programas — sempre com link para a fonte oficial.',
               style: TextStyle(fontSize: 13, color: AppColors.ink2, height: 1.45),
             ),
             const SizedBox(height: 14),

@@ -3,6 +3,7 @@ import '../data/mock_data.dart';
 import '../theme/app_theme.dart';
 import '../util/abrir_link.dart';
 import '../widgets/app_card.dart';
+import '../widgets/source_tag.dart';
 
 /// Feed de notícias agregando todos os setores (PROAE, PROEX, PROEN, ...),
 /// com scroll infinito: carrega um lote inicial e vai revelando mais itens
@@ -141,10 +142,11 @@ class _NotificacoesScreenState extends State<NotificacoesScreen> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(n.title, style: const TextStyle(fontSize: 13.5, fontWeight: FontWeight.w800, height: 1.35)),
-                    const SizedBox(height: 3),
-                    Text(n.desc, style: const TextStyle(fontSize: 12, color: AppColors.ink2, height: 1.45)),
-                    const SizedBox(height: 6),
-                    Text(n.when, style: const TextStyle(fontSize: 10.5, color: AppColors.ink2)),
+                    if (n.when.isNotEmpty) ...[
+                      const SizedBox(height: 3),
+                      Text(n.when, style: const TextStyle(fontSize: 11, color: AppColors.ink2)),
+                    ],
+                    SourceTag(text: 'Fonte oficial: ${n.setor}', dotColor: AppColors.blue, topPadding: 5),
                   ],
                 ),
               ),

@@ -114,8 +114,8 @@ void _aplicarNoticias(dynamic lista) {
       icon: _iconesPorSetor[setor] ?? '📰',
       iconBg: comData.length % 4,
       title: titulo,
-      desc: 'Notícia oficial do setor $setor.',
-      when: data != null ? '$data · coletado do site da $setor' : 'coletado do site da $setor',
+      desc: '',
+      when: data ?? '',
       url: item['url'] as String?,
       setor: setor,
     );

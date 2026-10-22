@@ -169,7 +169,7 @@ class PerfilScreen extends StatelessWidget {
           AppCard(
             child: Column(
               children: const [
-                _SettingRow(label: 'ℹ️ Sobre o UM · UNIVASF Mobile', trailing: Text('v0.3 (MVP)', style: TextStyle(color: AppColors.ink2)), showBorder: false),
+                _SettingRow(label: 'ℹ️ Sobre o UM · UNIVASF Mobile', trailing: Text('Protótipo acadêmico', style: TextStyle(color: AppColors.ink2)), showBorder: false),
               ],
             ),
           ),

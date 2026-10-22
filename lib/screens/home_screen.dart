@@ -1,20 +1,40 @@
 import 'package:flutter/material.dart';
+import '../data/home_modulos.dart';
 import '../data/mock_data.dart';
 import '../theme/app_theme.dart';
 import '../util/data_pt.dart';
 import '../widgets/app_card.dart';
+import '../widgets/reordenar_modulos_sheet.dart';
 import '../widgets/source_tag.dart';
-import 'discente_screen.dart';
-import 'ru_screen.dart';
-import 'bus_screen.dart';
-import 'editais_screen.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key, required this.onOpenNotif});
 
   final VoidCallback onOpenNotif;
 
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
   static const _softColors = [AppColors.orangeSoft, AppColors.yellowSoft, AppColors.redSoft, AppColors.blueSoft];
+
+  List<String> _ordemModulos = modulosDisponiveis.map((m) => m.key).toList();
+
+  @override
+  void initState() {
+    super.initState();
+    carregarOrdemModulos().then((ordem) {
+      if (mounted) setState(() => _ordemModulos = ordem);
+    });
+  }
+
+  Future<void> _reordenar() async {
+    final novaOrdem = await abrirReordenarModulos(context, _ordemModulos);
+    if (novaOrdem == null) return;
+    setState(() => _ordemModulos = novaOrdem);
+    await salvarOrdemModulos(novaOrdem);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +51,18 @@ class HomeScreen extends StatelessWidget {
           ),
           const SizedBox(height: 18),
           _Hero(),
-          const SectionHeader('Módulos'),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              const SectionHeader('Módulos'),
+              TextButton.icon(
+                onPressed: _reordenar,
+                icon: const Icon(Icons.edit_outlined, size: 15, color: AppColors.blueDark),
+                label: const Text('Reordenar', style: TextStyle(fontSize: 12, fontWeight: FontWeight.w800, color: AppColors.blueDark)),
+                style: TextButton.styleFrom(padding: const EdgeInsets.symmetric(horizontal: 4)),
+              ),
+            ],
+          ),
           GridView.count(
             crossAxisCount: 2,
             shrinkWrap: true,
@@ -40,40 +71,21 @@ class HomeScreen extends StatelessWidget {
             crossAxisSpacing: 12,
             childAspectRatio: 1.15,
             children: [
-              _Module(
-                icon: '🎓',
-                bg: AppColors.blueSoft,
-                title: 'Discente',
-                desc: 'Grade de horários e atalhos do SIG@',
-                onTap: () => Navigator.of(context).push(MaterialPageRoute(builder: (_) => const DiscenteScreen())),
-              ),
-              _Module(
-                icon: '🍽️',
-                bg: AppColors.yellowSoft,
-                title: 'Restaurante',
-                desc: 'Cardápio do RU atualizado',
-                onTap: () => Navigator.of(context).push(MaterialPageRoute(builder: (_) => const RuScreen())),
-              ),
-              _Module(
-                icon: '🚌',
-                bg: AppColors.greenSoft,
-                title: 'Transporte',
-                desc: 'Rotas e horários dos ônibus',
-                onTap: () => Navigator.of(context).push(MaterialPageRoute(builder: (_) => const BusScreen())),
-              ),
-              _Module(
-                icon: '📢',
-                bg: AppColors.orangeSoft,
-                title: 'Editais',
-                desc: 'PROAE, PROEN, PROEX e mais',
-                onTap: () => Navigator.of(context).push(MaterialPageRoute(builder: (_) => const EditaisScreen())),
-              ),
+              for (final chave in _ordemModulos)
+                for (final modulo in modulosDisponiveis.where((m) => m.key == chave))
+                  _Module(
+                    icon: modulo.icon,
+                    bg: modulo.bg,
+                    title: modulo.title,
+                    desc: modulo.desc,
+                    onTap: () => Navigator.of(context).push(MaterialPageRoute(builder: modulo.builder)),
+                  ),
             ],
           ),
           const SectionHeader('Notícias recentes'),
           ...homeNotices.map(
             (n) => AppCard(
-              onTap: onOpenNotif,
+              onTap: widget.onOpenNotif,
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -93,10 +105,11 @@ class HomeScreen extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(n.title, style: const TextStyle(fontSize: 13.5, fontWeight: FontWeight.w800, height: 1.35)),
-                        const SizedBox(height: 3),
-                        Text(n.desc, style: const TextStyle(fontSize: 12, color: AppColors.ink2, height: 1.45)),
-                        const SizedBox(height: 6),
-                        Text(n.when, style: const TextStyle(fontSize: 10.5, color: AppColors.ink2)),
+                        if (n.when.isNotEmpty) ...[
+                          const SizedBox(height: 3),
+                          Text(n.when, style: const TextStyle(fontSize: 11, color: AppColors.ink2)),
+                        ],
+                        SourceTag(text: 'Fonte oficial: ${n.setor}', dotColor: AppColors.blue, topPadding: 5),
                       ],
                     ),
                   ),

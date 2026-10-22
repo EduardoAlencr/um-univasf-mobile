@@ -3,6 +3,7 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import '../state/auth_scope.dart';
 import '../theme/app_theme.dart';
+import '../util/email_valido.dart';
 import '../widgets/pill_button.dart';
 import '../widgets/um_toast.dart';
 import 'cadastro_screen.dart';
@@ -30,6 +31,10 @@ class _LoginScreenState extends State<LoginScreen> {
   Future<void> _entrar() async {
     if (_emailCtrl.text.trim().isEmpty || _senhaCtrl.text.isEmpty) {
       showUmToast(context, 'Preencha e-mail e senha.');
+      return;
+    }
+    if (!emailValido(_emailCtrl.text)) {
+      showUmToast(context, 'Digite um e-mail válido.');
       return;
     }
     setState(() => _carregando = true);

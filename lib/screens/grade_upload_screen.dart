@@ -59,6 +59,13 @@ class _GradeUploadScreenState extends State<GradeUploadScreen> {
       await salvarGradeArquivo(uid, nomeArquivo: arquivo.name, mimeType: mimeType, bytes: bytes, parseada: parseada);
       await auth.setHasGrade(true);
       if (!mounted) return;
+      final montouAutomatico = parseada != null && parseada.temAulas;
+      showUmToast(
+        context,
+        montouAutomatico
+            ? 'Grade enviada e organizada automaticamente!'
+            : 'Arquivo salvo, mas não conseguimos montar sua agenda automaticamente — veja os detalhes na próxima tela.',
+      );
       Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (_) => const GradeResultScreen()));
     } catch (e) {
       if (mounted) showUmToast(context, 'Falha ao enviar o arquivo. Tente novamente.');

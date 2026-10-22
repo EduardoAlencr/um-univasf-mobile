@@ -347,6 +347,12 @@ class _MuralGrade extends StatelessWidget {
 
   Widget _buildCell(BuildContext context, String chave) {
     final disciplina = grade.disciplinas[chave];
+    // Mostrar o nome da disciplina (não só o código da turma) evita que o
+    // aluno precise tocar em cada célula pra saber o que tem naquele
+    // horário — o código continua disponível no toque, junto com sala.
+    final rotulo = disciplina != null
+        ? (disciplina.nome.length > 14 ? '${disciplina.nome.substring(0, 13)}…' : disciplina.nome)
+        : chave.split('-').last;
     return Material(
       color: AppColors.blueSoft,
       borderRadius: BorderRadius.circular(10),
@@ -357,10 +363,14 @@ class _MuralGrade extends StatelessWidget {
             : () => showUmToast(context, '${disciplina.nome} · ${chave.split('-').first} turma ${chave.split('-').last} · ${disciplina.sala}'),
         child: Container(
           alignment: Alignment.center,
+          padding: const EdgeInsets.symmetric(horizontal: 3, vertical: 2),
           constraints: const BoxConstraints(minHeight: 38),
           child: Text(
-            chave.split('-').last,
-            style: const TextStyle(fontSize: 11.5, fontWeight: FontWeight.w900, color: AppColors.blueDark),
+            rotulo,
+            textAlign: TextAlign.center,
+            maxLines: 3,
+            overflow: TextOverflow.ellipsis,
+            style: const TextStyle(fontSize: 8.5, fontWeight: FontWeight.w800, color: AppColors.blueDark, height: 1.15),
           ),
         ),
       ),
