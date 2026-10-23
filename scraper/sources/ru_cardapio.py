@@ -2,12 +2,17 @@
 
 Fluxo:
 1. Busca por texto ("cardapio") no portal, ordenado por data de modificação
-   decrescente, e pega o primeiro resultado em PDF cujo link/título aponte
-   pra um cardápio semanal — isso é robusto a mudanças de estrutura do site
-   (a tag "Cardápio vigente" usada antes parou de ser aplicada; buscar pelo
-   PDF mais recente evita depender dessa marcação manual).
-2. Baixa o PDF e usa pdfplumber para extrair a tabela.
-3. Pra cada refeição (desjejum/almoço/jantar), captura TODAS as categorias
+   decrescente, e lista os candidatos em PDF cujo link/título aponte pra um
+   cardápio semanal — isso é robusto a mudanças de estrutura do site (a tag
+   "Cardápio vigente" usada antes parou de ser aplicada; buscar pela
+   listagem evita depender dessa marcação manual).
+2. A PROAE costuma publicar o PDF da semana seguinte antes da semana atual
+   terminar — pegar sempre "o mais recente" mostraria a semana errada em
+   dias como quinta/sexta. Por isso percorremos os candidatos do mais novo
+   pro mais antigo, baixando e verificando a data de início real (extraída
+   do próprio PDF) até achar o primeiro cuja semana já começou.
+3. Baixa o PDF e usa pdfplumber para extrair a tabela.
+4. Pra cada refeição (desjejum/almoço/jantar), captura TODAS as categorias
    do cardápio daquele dia (proteína, vegetariano, salada, arroz, feijão,
    guarnição, molho, bebida, sobremesa, fruta...), não só um resumo.
 
@@ -20,6 +25,7 @@ from __future__ import annotations
 import io
 import re
 from dataclasses import dataclass, asdict
+from datetime import date
 
 import pdfplumber
 import requests
@@ -65,16 +71,18 @@ class RefeicaoDia:
     itens: list[ItemCardapio]
 
 
-def _achar_pdf_vigente() -> tuple[str, str] | None:
-    """Retorna (url_pdf, titulo) do cardápio vigente, ou None se não achar."""
+def _listar_candidatos_pdf(limite: int = 5) -> list[tuple[str, str]]:
+    """Lista até [limite] PDFs de cardápio retornados pela busca, do mais
+    recente pro mais antigo (ordem já vem assim do Plone)."""
     try:
         resp = robots.get(BUSCA_URL, headers=HEADERS, timeout=TIMEOUT)
         resp.raise_for_status()
     except requests.RequestException as exc:
         print(f"[ru_cardapio] falha na busca: {exc}")
-        return None
+        return []
 
     soup = BeautifulSoup(resp.text, "lxml")
+    candidatos: list[tuple[str, str]] = []
     for link in soup.select("dt.contenttype-file a"):
         href = link.get("href", "")
         titulo = link.get_text(strip=True)
@@ -87,9 +95,36 @@ def _achar_pdf_vigente() -> tuple[str, str] | None:
         # a busca retorna a página "/view" do arquivo; removê-la baixa o PDF cru.
         if pdf_url.endswith("/view"):
             pdf_url = pdf_url[: -len("/view")]
-        return pdf_url, titulo or "Cardápio vigente"
+        candidatos.append((pdf_url, titulo or "Cardápio vigente"))
+        if len(candidatos) >= limite:
+            break
 
-    return None
+    return candidatos
+
+
+_MESES_ABREV = {
+    "jan": 1, "fev": 2, "mar": 3, "abr": 4, "mai": 5, "jun": 6,
+    "jul": 7, "ago": 8, "set": 9, "out": 10, "nov": 11, "dez": 12,
+}
+
+
+def _data_inicio(periodo: str) -> date | None:
+    """Extrai a primeira data de um `periodo` tipo '26/out a 30/out' ou
+    '26/10 a 30/10' (formato numérico, quando houver), assumindo o ano
+    corrente. Retorna None se não reconhecer o formato — nesse caso o
+    chamador trata como "não dá pra confirmar" (nunca como "é a atual")."""
+    m = re.match(r"(\d{1,2})/(\d{1,2}|[A-Za-zÀ-ÿ]{3})", periodo.strip())
+    if not m:
+        return None
+    dia = int(m.group(1))
+    mes_str = m.group(2).lower()
+    mes = int(mes_str) if mes_str.isdigit() else _MESES_ABREV.get(mes_str[:3])
+    if mes is None:
+        return None
+    try:
+        return date(date.today().year, mes, dia)
+    except ValueError:
+        return None
 
 
 def _extrair_periodo(titulo: str, texto_pdf: str) -> str:
@@ -187,19 +222,16 @@ def _montar_refeicoes(tabela: list[list[str | None]], periodo_label: str, nome_s
     return refeicoes
 
 
-def raspar_cardapio_ru() -> dict:
-    """Retorna {"periodo": str, "refeicoes": [...], "legenda": str|None} ou dict vazio."""
-    achado = _achar_pdf_vigente()
-    if not achado:
-        return {}
-    pdf_url, titulo = achado
-
+def _baixar_e_parsear(pdf_url: str, titulo: str) -> dict | None:
+    """Baixa e extrai um PDF de cardápio específico. Retorna None (não
+    lança) em qualquer falha de rede/parsing — o chamador decide se tenta
+    o próximo candidato."""
     try:
         resp = robots.get(pdf_url, headers=HEADERS, timeout=TIMEOUT)
         resp.raise_for_status()
     except requests.RequestException as exc:
         print(f"[ru_cardapio] falha ao baixar PDF: {exc}")
-        return {}
+        return None
 
     try:
         with pdfplumber.open(io.BytesIO(resp.content)) as pdf:
@@ -208,10 +240,10 @@ def raspar_cardapio_ru() -> dict:
             texto = pagina.extract_text() or ""
     except Exception as exc:  # pdfplumber pode levantar vários tipos de erro
         print(f"[ru_cardapio] falha ao parsear PDF: {exc}")
-        return {}
+        return None
 
     if not tabelas:
-        return {}
+        return None
 
     tabela = max(tabelas, key=len)  # a tabela principal costuma ser a maior
 
@@ -221,7 +253,7 @@ def raspar_cardapio_ru() -> dict:
     refeicoes += _montar_refeicoes(tabela, "Jantar", "JANTAR")
 
     if not refeicoes:
-        return {}
+        return None
 
     return {
         "periodo": _extrair_periodo(titulo, texto),
@@ -230,6 +262,32 @@ def raspar_cardapio_ru() -> dict:
         ],
         "legenda": _extrair_legenda(texto),
     }
+
+
+def raspar_cardapio_ru() -> dict:
+    """Retorna {"periodo": str, "refeicoes": [...], "legenda": str|None} ou
+    dict vazio. Percorre os candidatos do mais recente pro mais antigo e
+    usa o primeiro cuja semana já começou — evita mostrar uma semana
+    futura só porque a PROAE publicou o PDF dela com antecedência."""
+    candidatos = _listar_candidatos_pdf()
+    if not candidatos:
+        return {}
+
+    fallback: dict | None = None
+    for pdf_url, titulo in candidatos:
+        dados = _baixar_e_parsear(pdf_url, titulo)
+        if dados is None:
+            continue
+        if fallback is None:
+            fallback = dados  # o mais recente que conseguimos ler, por garantia
+
+        inicio = _data_inicio(dados["periodo"])
+        if inicio is None or inicio <= date.today():
+            return dados  # semana já começou (ou não deu pra confirmar a data)
+
+    # Nenhum candidato com semana já iniciada (raro) — melhor mostrar o mais
+    # recente que conseguimos ler do que nada.
+    return fallback or {}
 
 
 def _extrair_legenda(texto: str) -> str | None:
