@@ -93,8 +93,22 @@ def _achar_pdf_vigente() -> tuple[str, str] | None:
 
 
 def _extrair_periodo(titulo: str, texto_pdf: str) -> str:
-    match = re.search(r"\d{2}/\d{2}(?:/\d{4})?\s*a\s*\d{2}/\d{2}(?:/\d{4})?", texto_pdf or titulo)
-    return match.group(0) if match else titulo
+    # Formato "DD/MM a DD/MM", quando o PDF usa datas numéricas em faixa.
+    match = re.search(r"\d{2}/\d{2}(?:/\d{4})?\s*a\s*\d{2}/\d{2}(?:/\d{4})?", texto_pdf or "")
+    if match:
+        return match.group(0)
+    # Formato real mais comum no PDF atual: uma linha "DATA 26/out 27/out
+    # 28/out 29/out 30/out" — dia + mês abreviado, sem palavra "a" entre as
+    # datas. Pega a primeira e a última ocorrência pra montar o período.
+    datas = re.findall(r"\b\d{2}/[A-Za-zÀ-ÿ]{3}\b", texto_pdf or "")
+    if len(datas) >= 2:
+        return f"{datas[0]} a {datas[-1]}"
+    if datas:
+        return datas[0]
+    # Último recurso: o título do resultado de busca — pode estar
+    # desatualizado (já vimos isso acontecer), mas nunca inventamos uma
+    # data que não esteja em algum lugar do dado real.
+    return titulo
 
 
 def _bloco_da_secao(tabela: list[list[str | None]], nome_secao: str) -> list[list[str | None]]:
