@@ -1,5 +1,5 @@
 {
-  "gerado_em": "2026-10-23T13:57:51",
+  "gerado_em": "2026-10-23T19:22:52",
   "noticias_setores": [
     {
       "setor": "PROAE",
@@ -423,6 +423,27 @@
     },
     {
       "setor": "UNIVASF",
+      "titulo": "Nova espécie de cacto é descoberta na caatinga baiana após mais de um século sem novos registros desse gênero de plantas",
+      "data": "23/10/2026",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/noticias/nova-especie-de-cacto-e-descoberta-na-caatinga-baiana-apos-mais-de-um-seculo-sem-novos-registros-desse-genero-de-plantas"
+    },
+    {
+      "setor": "UNIVASF",
+      "titulo": "Univasf terá Cuidoteca para apoiar estudantes, servidores e terceirizados com crianças",
+      "data": "23/10/2026",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/noticias/univasf-tera-cuidoteca-para-apoiar-estudantes-servidores-e-terceirizados-com-criancas"
+    },
+    {
+      "setor": "UNIVASF",
+      "titulo": "Estudantes e orientadores mostram resultados de pesquisas de iniciação científica e tecnológica no HU-Univasf",
+      "data": "23/10/2026",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/noticias/estudantes-e-orientadores-mostram-resultados-de-pesquisas-de-iniciacao-cientifica-e-tecnologica-no-hu-univasf"
+    },
+    {
+      "setor": "UNIVASF",
       "titulo": "Projeto da Univasf oferece oito bolsas de pesquisa para estudantes de graduação",
       "data": "22/10/2026",
       "resumo": "",
@@ -679,31 +700,10 @@
       "data": "02/10/2026",
       "resumo": "",
       "url": "https://portais.univasf.edu.br/noticias/pesquisa-do-cemafauna-amplia-conhecimento-sobre-especie-de-ave-ameacada-na-caatinga"
-    },
-    {
-      "setor": "UNIVASF",
-      "titulo": "PET-Biomecânica da Univasf apresenta pesquisas em eventos internacionais e nacional",
-      "data": "02/10/2026",
-      "resumo": "",
-      "url": "https://portais.univasf.edu.br/noticias/pet-biomecanica-da-univasf-apresenta-pesquisas-em-eventos-internacionais-e-nacional"
-    },
-    {
-      "setor": "UNIVASF",
-      "titulo": "XVI Mês das Consciências Negras da Univasf debaterá assédio, discriminação, relações étnico-raciais e heteroidentificação",
-      "data": "01/10/2026",
-      "resumo": "",
-      "url": "https://portais.univasf.edu.br/noticias/xvi-mes-das-consciencias-negras-da-univasf-debatera-assedio-discriminacao-relacoes-etnico-raciais-e-heteroidentificacao"
-    },
-    {
-      "setor": "UNIVASF",
-      "titulo": "XI Semana Farmacêutica da Univasf discute inovação e desenvolvimento de medicamentos",
-      "data": "01/10/2026",
-      "resumo": "",
-      "url": "https://portais.univasf.edu.br/noticias/xi-semana-farmaceutica-da-univasf-discute-inovacao-e-desenvolvimento-de-medicamentos"
     }
   ],
   "ru_cardapio": {
-    "periodo": "Janeiro",
+    "periodo": "26/out a 30/out",
     "refeicoes": [
       {
         "dia": "Segunda",
