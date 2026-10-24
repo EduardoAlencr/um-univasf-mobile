@@ -1,6 +1,13 @@
 {
-  "gerado_em": "2026-10-23T20:11:30",
+  "gerado_em": "2026-10-24T13:01:09",
   "noticias_setores": [
+    {
+      "setor": "PROAE",
+      "titulo": "A Pró-Reitoria de Assistência Estudantil da Univasf divulga o Cronograma de Entrevistas Sociais do PSU 2026 – Campus PETROLINA",
+      "data": "23/10/2026",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/proae/noticias/22-10-2026-a-pro-reitoria-de-assistencia-estudantil-da-univasf-divulga-o-cronograma-de-entrevistas-sociais-do-psu-2026-2013-campus-petrolina"
+    },
     {
       "setor": "PROAE",
       "titulo": "A PROAE Informa Sobre o Ajuste do Itinerário, nesta Terça-feira, do Transporte Estudantil",
@@ -133,13 +140,6 @@
       "data": "23/07/2026",
       "resumo": "",
       "url": "https://portais.univasf.edu.br/proae/noticias/22-07-2026-univasf-divulga-o-edital-no-03-2026-referente-ao-processo-seletivo-unificado-psu-2026-para-bolsas-auxilios-e-servicos-do-programa-de-assistencia-estudantil-pae"
-    },
-    {
-      "setor": "PROAE",
-      "titulo": "Resultado Final da Seleção para estagiários dos RUs",
-      "data": "17/07/2026",
-      "resumo": "",
-      "url": "https://portais.univasf.edu.br/proae/noticias/17-07-2026-resultado-final-da-selecao-para-estagiarios-dos-rus"
     },
     {
       "setor": "PROEX",
@@ -1429,6 +1429,13 @@
       "ano": 2026,
       "titulo": "disciplinas; os processos de alteração (quebra) de pré-requisitos; e os processos de matrícula",
       "tag": "matricula"
+    },
+    {
+      "dia": "23",
+      "mes": "Dez",
+      "ano": 2026,
+      "titulo": "Feriado Municipal para o campus Salgueiro – Aniversário da Cidade de Salgueiro/PE.",
+      "tag": "feriado"
     }
   ],
   "colegiado_cecomp": [
