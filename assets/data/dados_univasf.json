@@ -1,5 +1,5 @@
 {
-  "gerado_em": "2026-10-28T15:38:13",
+  "gerado_em": "2026-10-29T15:44:12",
   "noticias_setores": [
     {
       "setor": "PROAE",
@@ -423,6 +423,20 @@
     },
     {
       "setor": "UNIVASF",
+      "titulo": "Seminário na Univasf sobre práticas pedagógicas inclusivas oferece formação para docentes do ensino superior",
+      "data": "29/10/2026",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/noticias/seminario-na-univasf-sobre-praticas-pedagogicas-inclusivas-oferece-formacao-para-docentes-do-ensino-superior"
+    },
+    {
+      "setor": "UNIVASF",
+      "titulo": "Pibid da Univasf recebe Conceito A em avaliação da Capes",
+      "data": "29/10/2026",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/noticias/pibid-da-univasf-recebe-conceito-a-em-avaliacao-da-capes"
+    },
+    {
+      "setor": "UNIVASF",
       "titulo": "Univasf prorroga inscrições para bolsas de pesquisa do Projeto DANT",
       "data": "28/10/2026",
       "resumo": "",
@@ -686,20 +700,6 @@
       "data": "08/10/2026",
       "resumo": "",
       "url": "https://portais.univasf.edu.br/noticias/nota-sobre-episodio-envolvendo-vereador-de-petrolina-no-campus-sede-da-univasf"
-    },
-    {
-      "setor": "UNIVASF",
-      "titulo": "Nota de Repúdio aos ataques sofridos pelos professores do Campus Senhor do Bonfim",
-      "data": "08/10/2026",
-      "resumo": "",
-      "url": "https://portais.univasf.edu.br/noticias/nota-de-repudio-aos-ataques-sofridos-pelos-professores-do-campus-senhor-do-bonfim"
-    },
-    {
-      "setor": "UNIVASF",
-      "titulo": "Nota de solidariedade à Universidade Federal de Pernambuco (UFPE)",
-      "data": "08/10/2026",
-      "resumo": "",
-      "url": "https://portais.univasf.edu.br/noticias/nota-de-solidariedade-a-universidade-federal-de-pernambuco-ufpe"
     }
   ],
   "ru_cardapio": {
@@ -1213,13 +1213,6 @@
     "legenda": "*Contém lactose ** Contém produtos de origem animal ***Contém glúten"
   },
   "calendario": [
-    {
-      "dia": "28",
-      "mes": "Out",
-      "ano": 2026,
-      "titulo": "Feriado Nacional para todos os campi – Dia do Servidor Público.",
-      "tag": "feriado"
-    },
     {
       "dia": "02",
       "mes": "Nov",
