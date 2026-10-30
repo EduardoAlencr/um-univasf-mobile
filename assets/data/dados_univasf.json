@@ -1,5 +1,5 @@
 {
-  "gerado_em": "2026-10-29T15:44:12",
+  "gerado_em": "2026-10-30T15:26:42",
   "noticias_setores": [
     {
       "setor": "PROAE",
@@ -423,6 +423,20 @@
     },
     {
       "setor": "UNIVASF",
+      "titulo": "II Simpósio de Medicamentos Inovadores do Vale do São Francisco integra ciência, engenharia e saúde em inovação em medicamentos",
+      "data": "29/10/2026",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/noticias/ii-simposio-de-medicamentos-inovadores-do-vale-do-sao-francisco-integra-ciencia-engenharia-e-saude-em-inovacao-em-medicamentos"
+    },
+    {
+      "setor": "UNIVASF",
+      "titulo": "Univasf e Universidade de Coimbra formalizam primeiro plano de trabalho no âmbito de projeto de cooperação científica internacional",
+      "data": "29/10/2026",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/noticias/univasf-e-universidade-de-coimbra-formalizam-primeiro-plano-de-trabalho-no-ambito-de-projeto-de-cooperacao-cientifica-internacional"
+    },
+    {
+      "setor": "UNIVASF",
       "titulo": "Seminário na Univasf sobre práticas pedagógicas inclusivas oferece formação para docentes do ensino superior",
       "data": "29/10/2026",
       "resumo": "",
@@ -686,20 +700,6 @@
       "data": "09/10/2026",
       "resumo": "",
       "url": "https://portais.univasf.edu.br/noticias/univasf-abre-selecao-para-mestrado-profissional-em-extensao-rural"
-    },
-    {
-      "setor": "UNIVASF",
-      "titulo": "Justiça Eleitoral assegura realização de ato político estudantil no Campus Sede da Univasf e reconhece autonomia universitária",
-      "data": "09/10/2026",
-      "resumo": "",
-      "url": "https://portais.univasf.edu.br/noticias/justica-eleitoral-assegura-realizacao-de-ato-politico-estudantil-no-campus-sede-da-univasf-e-reconhece-autonomia-universitaria"
-    },
-    {
-      "setor": "UNIVASF",
-      "titulo": "Nota sobre episódio envolvendo vereador de Petrolina no Campus Sede da Univasf",
-      "data": "08/10/2026",
-      "resumo": "",
-      "url": "https://portais.univasf.edu.br/noticias/nota-sobre-episodio-envolvendo-vereador-de-petrolina-no-campus-sede-da-univasf"
     }
   ],
   "ru_cardapio": {
