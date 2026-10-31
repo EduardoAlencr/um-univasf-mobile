@@ -1,5 +1,5 @@
 {
-  "gerado_em": "2026-10-30T15:26:42",
+  "gerado_em": "2026-10-31T14:54:54",
   "noticias_setores": [
     {
       "setor": "PROAE",
@@ -143,6 +143,13 @@
     },
     {
       "setor": "PROEX",
+      "titulo": "Divulgação do Resultado da Classificação Final de Estudantes - Edital AFIRMASUS/Univasf",
+      "data": "30/10/2026",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/proex/divulgacao-do-resultado-da-classificacao-final-de-estudantes-edital-afirmasus-univasf"
+    },
+    {
+      "setor": "PROEX",
       "titulo": "Divulgação do Resultado da Classificação Parcial de Estudantes - Edital AFIRMASUS/Univasf",
       "data": "26/10/2026",
       "resumo": "",
@@ -273,13 +280,6 @@
       "data": "19/04/2026",
       "resumo": "",
       "url": "https://portais.univasf.edu.br/proex/edital-pibex-proex-no-01-2026"
-    },
-    {
-      "setor": "PROEX",
-      "titulo": "Resultado das Inscrições do Edital PIBEX/PROEX N.º01/2026",
-      "data": "09/04/2026",
-      "resumo": "",
-      "url": "https://portais.univasf.edu.br/proex/resultado-das-inscricoes-do-edital-pibex-proex-n-o01-2026"
     },
     {
       "setor": "PROEN",
@@ -1310,6 +1310,20 @@
       "ano": 2026,
       "titulo": "RECESSO ACADÊMICO E ADMINISTRATIVO para todos os campi – Feriado Nacional – Natal.",
       "tag": "feriado"
+    },
+    {
+      "dia": "30",
+      "mes": "Dez",
+      "ano": 2026,
+      "titulo": "finalizar preenchimento da caderneta eletrônica referente a 2026.2, conforme Resolução nº",
+      "tag": "outro"
+    },
+    {
+      "dia": "30",
+      "mes": "Dez",
+      "ano": 2026,
+      "titulo": "Encerramento do Período Letivo 2026.2.",
+      "tag": "outro"
     }
   ],
   "colegiado_cecomp": [
