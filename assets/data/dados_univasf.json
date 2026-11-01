@@ -1,5 +1,5 @@
 {
-  "gerado_em": "2026-10-31T14:54:54",
+  "gerado_em": "2026-11-01T15:37:05",
   "noticias_setores": [
     {
       "setor": "PROAE",
@@ -1324,6 +1324,13 @@
       "ano": 2026,
       "titulo": "Encerramento do Período Letivo 2026.2.",
       "tag": "outro"
+    },
+    {
+      "dia": "31",
+      "mes": "Dez",
+      "ano": 2026,
+      "titulo": "e RECESSO ACADÊMICO E ADMINISTRATIVO para todos os campi – Feriado Nacional",
+      "tag": "feriado"
     }
   ],
   "colegiado_cecomp": [
