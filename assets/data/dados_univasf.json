@@ -1,5 +1,5 @@
 {
-  "gerado_em": "2026-11-02T18:59:16",
+  "gerado_em": "2026-11-03T16:44:18",
   "noticias_setores": [
     {
       "setor": "PROAE",
@@ -423,6 +423,20 @@
     },
     {
       "setor": "UNIVASF",
+      "titulo": "Univasf realiza defesa de memorial para promoção de professor de Engenharia Agrícola e Ambiental à classe de Titular",
+      "data": "03/11/2026",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/noticias/univasf-realiza-defesa-de-memorial-para-promocao-de-professor-de-engenharia-agricola-e-ambiental-a-classe-de-titular"
+    },
+    {
+      "setor": "UNIVASF",
+      "titulo": "HU-Univasf realiza o 1º Simpósio de Integração Multiprofissional, Ensino e Gestão do Cuidado em Saúde nos dias 5 e 6 de novembro",
+      "data": "03/11/2026",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/noticias/hu-univasf-realiza-o-1o-simposio-de-integracao-multiprofissional-ensino-e-gestao-do-cuidado-em-saude-nos-dias-5-e-6-de-novembro"
+    },
+    {
+      "setor": "UNIVASF",
       "titulo": "II Simpósio de Medicamentos Inovadores do Vale do São Francisco integra ciência, engenharia e saúde em inovação em medicamentos",
       "data": "29/10/2026",
       "resumo": "",
@@ -686,20 +700,6 @@
       "data": "14/10/2026",
       "resumo": "",
       "url": "https://portais.univasf.edu.br/noticias/atendimento-multiprofissional-a-mulher-vitima-de-violencia-e-tema-de-roda-de-conversa-no-hu-univasf"
-    },
-    {
-      "setor": "UNIVASF",
-      "titulo": "XVI Mês das Consciências Negras promove debates sobre antirracismo, diversidade e enfrentamento ao assédio na Univasf",
-      "data": "09/10/2026",
-      "resumo": "",
-      "url": "https://portais.univasf.edu.br/noticias/xvi-mes-das-consciencias-negras-promove-debates-sobre-antirracismo-diversidade-e-enfrentamento-ao-assedio-na-univasf"
-    },
-    {
-      "setor": "UNIVASF",
-      "titulo": "Univasf abre seleção para mestrado profissional em Extensão Rural",
-      "data": "09/10/2026",
-      "resumo": "",
-      "url": "https://portais.univasf.edu.br/noticias/univasf-abre-selecao-para-mestrado-profissional-em-extensao-rural"
     }
   ],
   "ru_cardapio": {
@@ -1213,13 +1213,6 @@
     "legenda": "*Contém lactose ** Contém produtos de origem animal ***Contém glúten"
   },
   "calendario": [
-    {
-      "dia": "02",
-      "mes": "Nov",
-      "ano": 2026,
-      "titulo": "Feriado Nacional para todos os campi – Finados.",
-      "tag": "feriado"
-    },
     {
       "dia": "11",
       "mes": "Nov",
