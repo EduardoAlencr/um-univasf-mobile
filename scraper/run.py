@@ -19,6 +19,14 @@ from sources.itinerario import raspar_itinerario
 from sources.ru_cardapio import raspar_cardapio_ru
 from sources.setor_noticias import raspar_todos_setores
 from sources.siga_avisos import raspar_avisos_siga
+from sources.setores.proae import raspar_auxilios_proae, raspar_contato_proae
+from sources.setores.proen import raspar_contato_proen
+from sources.setores.proex import raspar_contato_proex
+from sources.setores.srca import (
+    raspar_atendimento_presencial_srca,
+    raspar_contatos_srca,
+    raspar_horario_presencial_sic,
+)
 
 OUTPUT_DIR = Path(__file__).parent / "output"
 OUTPUT_FILE = OUTPUT_DIR / "dados_univasf.json"
@@ -84,6 +92,53 @@ def main() -> None:
     else:
         print(f"  -> {len(avisos_siga)} avisos")
 
+    print("Coletando contatos do SIC por campus (SRCA)...")
+    srca_contatos = raspar_contatos_srca()
+    if not srca_contatos and anterior.get("srca_contatos"):
+        print("  -> sem dados agora; mantendo os últimos contatos coletados")
+        srca_contatos = anterior["srca_contatos"]
+    else:
+        print(f"  -> {len(srca_contatos)} campi")
+
+    print("Coletando horário de atendimento presencial do SIC (PGD Teletrabalho)...")
+    horario_presencial = raspar_horario_presencial_sic()
+    print(f"  -> {len(horario_presencial)} campi com horário regular identificado")
+    # Mescla no próprio contato por campus (substring, já que os nomes vêm
+    # de fontes diferentes: "Petrolina" bate em "Campus Petrolina (Sede)").
+    for contato in srca_contatos:
+        nome_campus = (contato.get("campus") or "").lower()
+        horario = next((h for chave, h in horario_presencial.items() if chave.lower() in nome_campus), None)
+        contato["horario_presencial"] = horario
+
+    print("Coletando atendimento presencial dos setores internos da SRCA (PGD Teletrabalho)...")
+    srca_atendimento = raspar_atendimento_presencial_srca()
+    if not srca_atendimento and anterior.get("srca_atendimento_presencial"):
+        print("  -> sem dados agora; mantendo o último coletado")
+        srca_atendimento = anterior["srca_atendimento_presencial"]
+    else:
+        print(f"  -> {len(srca_atendimento)} setores")
+
+    print("Coletando auxílios e bolsas de permanência (PROAE)...")
+    proae_auxilios = raspar_auxilios_proae()
+    if not proae_auxilios and anterior.get("proae_auxilios"):
+        print("  -> sem dados agora; mantendo os últimos auxílios coletados")
+        proae_auxilios = anterior["proae_auxilios"]
+    else:
+        print(f"  -> {len(proae_auxilios)} auxílios/bolsas")
+
+    print("Coletando contatos por setor (PROAE, PROEN, PROEX)...")
+    contatos_setores = {
+        "proae": raspar_contato_proae(),
+        "proen": raspar_contato_proen(),
+        "proex": raspar_contato_proex(),
+    }
+    for setor, lista in contatos_setores.items():
+        if not lista and anterior.get("contatos_setores", {}).get(setor):
+            print(f"  -> {setor}: sem dados agora; mantendo os últimos coletados")
+            contatos_setores[setor] = anterior["contatos_setores"][setor]
+        else:
+            print(f"  -> {setor}: {len(lista)} contatos")
+
     dados = {
         "gerado_em": datetime.now().isoformat(timespec="seconds"),
         "noticias_setores": noticias or anterior.get("noticias_setores", []),
@@ -92,6 +147,10 @@ def main() -> None:
         "colegiado_cecomp": cecomp or anterior.get("colegiado_cecomp", []),
         "itinerario_onibus": itinerario,
         "avisos_siga": avisos_siga,
+        "srca_contatos": srca_contatos,
+        "srca_atendimento_presencial": srca_atendimento,
+        "proae_auxilios": proae_auxilios,
+        "contatos_setores": contatos_setores,
     }
 
     OUTPUT_DIR.mkdir(exist_ok=True)

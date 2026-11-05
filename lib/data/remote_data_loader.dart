@@ -39,6 +39,15 @@ Future<void> loadRemoteData() async {
     _aplicarCalendario(json['calendario']);
     _aplicarItinerario(json['itinerario_onibus']);
     _aplicarAvisosSiga(json['avisos_siga']);
+    _aplicarSrcaContatos(json['srca_contatos']);
+    _aplicarAuxiliosProae(json['proae_auxilios']);
+    srcaAtendimentoInterno = _aplicarContatosSetor(json['srca_atendimento_presencial'], srcaAtendimentoInterno);
+    final contatosSetores = json['contatos_setores'];
+    if (contatosSetores is Map) {
+      contatosProae = _aplicarContatosSetor(contatosSetores['proae'], contatosProae);
+      contatosProen = _aplicarContatosSetor(contatosSetores['proen'], contatosProen);
+      contatosProex = _aplicarContatosSetor(contatosSetores['proex'], contatosProex);
+    }
   } catch (_) {
     // JSON malformado (de qualquer fonte) — mantém os mocks.
   }
@@ -284,7 +293,7 @@ void _aplicarCalendario(dynamic lista) {
   // lista real, mesmo vazia, é um resultado válido e precisa ser refletido,
   // principalmente em `eventosMatricula` (nunca deixar o mock do protótipo
   // vazar pros cards de status da Área do Discente quando o scraper não
-  // encontrar nenhum evento de matrícula na janela de 60 dias).
+  // encontrar nenhum evento de matrícula na janela considerada).
   if (lista is! List) return;
 
   final eventos = <CalendarEvent>[];
@@ -298,18 +307,19 @@ void _aplicarCalendario(dynamic lista) {
       CalendarEvent(
         day: dia,
         month: mes,
-        title: titulo.length > 70 ? '${titulo.substring(0, 67)}...' : titulo,
+        title: titulo,
         desc: 'Calendário acadêmico oficial',
         tag: (item['tag'] as String?) ?? 'outro',
         year: item['ano'] as int?,
+        dayEnd: item['dia_fim'] as String?,
       ),
     );
   }
 
-  // A lista de destaque do Calendário (limitada a 6) só é substituída se
-  // vieram eventos de verdade — uma busca vazia não deve esvaziar a prévia.
+  // Lista completa (sem corte) só é substituída se vieram eventos de
+  // verdade — uma busca vazia não deve esvaziar a prévia.
   if (eventos.isNotEmpty) {
-    calendarEvents = eventos.take(6).toList();
+    calendarEvents = eventos;
   }
   // `eventosMatricula`, porém, reflete sempre o resultado real da busca mais
   // recente (inclusive vazio) — é o que alimenta um status que precisa ser
@@ -329,4 +339,75 @@ void _aplicarAvisosSiga(dynamic lista) {
   if (avisos.isEmpty) return;
 
   sigaAvisos = avisos;
+}
+
+void _aplicarSrcaContatos(dynamic lista) {
+  if (lista is! List || lista.isEmpty) return;
+
+  final contatos = <SicContact>[];
+  for (final item in lista) {
+    if (item is! Map) continue;
+    final campus = item['campus'] as String?;
+    final email = item['email'] as String?;
+    if (campus == null || email == null) continue;
+    contatos.add(SicContact(
+      campus: campus,
+      email: email,
+      endereco: item['endereco'] as String?,
+      horarioPresencial: item['horario_presencial'] as String?,
+    ));
+  }
+  if (contatos.isEmpty) return;
+
+  sicContacts = contatos;
+}
+
+void _aplicarAuxiliosProae(dynamic lista) {
+  if (lista is! List || lista.isEmpty) return;
+
+  final auxilios = <AuxilioProae>[];
+  for (final item in lista) {
+    if (item is! Map) continue;
+    final nome = item['nome'] as String?;
+    final url = item['url'] as String?;
+    if (nome == null || url == null) continue;
+    final campiJson = item['campi'];
+    auxilios.add(AuxilioProae(
+      nome: nome,
+      valor: item['valor'] as String?,
+      criterio: item['criterio'] as String?,
+      campi: campiJson is List ? campiJson.whereType<String>().toList() : const [],
+      acumulaCom: (item['acumula_com'] as List?)?.whereType<String>().toList() ?? const [],
+      naoAcumulaCom: (item['nao_acumula_com'] as List?)?.whereType<String>().toList() ?? const [],
+      duracaoDias: item['duracao_dias'] as int?,
+      inscricaoOnline: item['inscricao_online'] as bool? ?? false,
+      url: url,
+    ));
+  }
+  if (auxilios.isEmpty) return;
+
+  auxiliosProae = auxilios;
+}
+
+/// Converte uma `lista` crua de contatos por setor (mesmo formato vindo de
+/// `ContatoSetor`/`ContatoCampus` do scraper) pra `List<ContatoSetor>`,
+/// mantendo `anterior` se a lista vier vazia/malformada — mesmo padrão de
+/// "nunca esvaziar com um resultado ruim" das demais `_aplicar*`.
+List<ContatoSetor> _aplicarContatosSetor(dynamic lista, List<ContatoSetor> anterior) {
+  if (lista is! List || lista.isEmpty) return anterior;
+
+  final contatos = <ContatoSetor>[];
+  for (final item in lista) {
+    if (item is! Map) continue;
+    final setor = item['setor'] as String?;
+    if (setor == null) continue;
+    contatos.add(ContatoSetor(
+      setor: setor,
+      email: item['email'] as String?,
+      telefone: (item['telefone'] ?? item['whatsapp']) as String?,
+      texto: item['texto'] as String?,
+      horario: item['horario'] as String?,
+    ));
+  }
+  return contatos.isEmpty ? anterior : contatos;
 }

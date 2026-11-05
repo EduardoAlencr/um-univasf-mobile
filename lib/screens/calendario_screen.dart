@@ -28,6 +28,8 @@ class _ItemCalendario {
     required this.desc,
     required this.isPessoal,
     this.idPessoal,
+    this.tag = 'outro',
+    this.diaFim,
   });
   final int dia;
   final String mes; // abreviação, ex. "Set"
@@ -35,7 +37,40 @@ class _ItemCalendario {
   final String desc;
   final bool isPessoal;
   final String? idPessoal;
+
+  /// 'feriado' | 'recesso' | 'matricula' | 'avaliacao' | 'outro' — eventos
+  /// pessoais não usam isso pra cor (sempre amarelo), só os oficiais.
+  final String tag;
+
+  /// Último dia de um intervalo (ex. evento "15 a 22"), ou nulo se for um
+  /// único dia.
+  final int? diaFim;
 }
+
+class _TagEstilo {
+  const _TagEstilo(this.soft, this.texto, this.base);
+  final Color soft;
+  final Color texto;
+  final Color base;
+}
+
+const _estiloPorTag = {
+  'feriado': _TagEstilo(AppColors.redSoft, AppColors.redText, AppColors.red),
+  'recesso': _TagEstilo(AppColors.orangeSoft, AppColors.orangeText, AppColors.orange),
+  'matricula': _TagEstilo(AppColors.blueSoft, AppColors.blueDark, AppColors.blue),
+  'avaliacao': _TagEstilo(AppColors.greenSoft, AppColors.greenText, AppColors.green),
+  'outro': _TagEstilo(AppColors.soft2, AppColors.ink2, AppColors.ink2),
+};
+
+const _rotuloPorTag = {
+  'feriado': 'Feriado',
+  'recesso': 'Recesso',
+  'matricula': 'Matrícula',
+  'avaliacao': 'Avaliação',
+  'outro': 'Calendário acadêmico',
+};
+
+_TagEstilo _estiloDoTag(String tag) => _estiloPorTag[tag] ?? _estiloPorTag['outro']!;
 
 class CalendarioScreen extends StatefulWidget {
   const CalendarioScreen({super.key});
@@ -158,6 +193,70 @@ class _CalendarioScreenState extends State<CalendarioScreen> {
     if (mounted) showUmToast(context, 'Lembrete excluído.');
   }
 
+  void _mostrarDetalhe(BuildContext context, _ItemCalendario item) {
+    final estilo = item.isPessoal ? const _TagEstilo(AppColors.yellowSoft, AppColors.yellowText, AppColors.yellow) : _estiloDoTag(item.tag);
+    final rotulo = item.isPessoal ? 'Lembrete pessoal' : (_rotuloPorTag[item.tag] ?? 'Calendário acadêmico');
+    final periodo = item.diaFim != null && item.diaFim != item.dia
+        ? '${item.dia} a ${item.diaFim} de ${item.mes}'
+        : '${item.dia} de ${item.mes}';
+
+    showDialog<void>(
+      context: context,
+      builder: (ctx) => Dialog(
+        backgroundColor: AppColors.card,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(24)),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Container(
+              width: double.infinity,
+              padding: const EdgeInsets.fromLTRB(22, 20, 22, 16),
+              decoration: BoxDecoration(
+                color: estilo.soft,
+                borderRadius: const BorderRadius.only(topLeft: Radius.circular(24), topRight: Radius.circular(24)),
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
+                    children: [
+                      Container(width: 9, height: 9, decoration: BoxDecoration(color: estilo.base, shape: BoxShape.circle)),
+                      const SizedBox(width: 7),
+                      Text(rotulo.toUpperCase(), style: TextStyle(fontSize: 11, fontWeight: FontWeight.w800, color: estilo.texto, letterSpacing: 0.8)),
+                    ],
+                  ),
+                  const SizedBox(height: 10),
+                  Text(periodo, style: TextStyle(fontSize: 13.5, fontWeight: FontWeight.w900, color: estilo.texto)),
+                ],
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.fromLTRB(22, 18, 22, 16),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(item.titulo, style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w900, height: 1.35)),
+                  const SizedBox(height: 10),
+                  Text(item.desc, style: const TextStyle(fontSize: 13, color: AppColors.ink2, height: 1.5)),
+                  const SizedBox(height: 18),
+                  Align(
+                    alignment: Alignment.centerRight,
+                    child: TextButton(
+                      onPressed: () => Navigator.of(ctx).pop(),
+                      child: const Text('Fechar', style: TextStyle(color: AppColors.blueDark, fontWeight: FontWeight.w800)),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final uid = AuthScope.of(context).user?.uid;
@@ -175,7 +274,15 @@ class _CalendarioScreenState extends State<CalendarioScreen> {
     final abrevMes = _mesesAbrev[_mesExibido.month - 1];
 
     final itensPublicos = calendarEvents.map(
-      (e) => _ItemCalendario(dia: int.tryParse(e.day) ?? 0, mes: e.month, titulo: e.title, desc: e.desc, isPessoal: false),
+      (e) => _ItemCalendario(
+        dia: int.tryParse(e.day) ?? 0,
+        mes: e.month,
+        titulo: e.title,
+        desc: e.desc,
+        isPessoal: false,
+        tag: e.tag,
+        diaFim: e.dayEnd != null ? int.tryParse(e.dayEnd!) : null,
+      ),
     );
     final itensPessoais = pessoais.map(
       (e) => _ItemCalendario(
@@ -189,10 +296,16 @@ class _CalendarioScreenState extends State<CalendarioScreen> {
     );
     final todosItens = [...itensPublicos, ...itensPessoais];
 
-    final diasComEvento = <int>{
-      for (final e in todosItens)
-        if (e.mes.toLowerCase() == abrevMes.toLowerCase()) e.dia,
-    }..remove(0);
+    // Tag de cada dia do mês com evento oficial — eventos com intervalo
+    // (ex. "15 a 22") tingem todos os dias do intervalo, não só o inicial.
+    final tagPorDia = <int, String>{};
+    for (final e in itensPublicos) {
+      if (e.mes.toLowerCase() != abrevMes.toLowerCase() || e.dia == 0) continue;
+      final fim = (e.diaFim != null && e.diaFim! >= e.dia) ? e.diaFim! : e.dia;
+      for (var d = e.dia; d <= fim; d++) {
+        tagPorDia.putIfAbsent(d, () => e.tag);
+      }
+    }
     final diasPessoais = <int>{
       for (final e in itensPessoais)
         if (e.mes.toLowerCase() == abrevMes.toLowerCase()) e.dia,
@@ -220,7 +333,7 @@ class _CalendarioScreenState extends State<CalendarioScreen> {
         children: [
           Text('Calendário Acadêmico', style: Theme.of(context).textTheme.headlineMedium),
           const SizedBox(height: 4),
-          const Text('Semestre 2026.2 · azul = oficial, amarelo = seus lembretes', style: TextStyle(fontSize: 12.5, color: AppColors.ink2)),
+          const Text('Semestre 2026.2 · cor por tipo de evento, amarelo = seus lembretes', style: TextStyle(fontSize: 12.5, color: AppColors.ink2)),
           if (proximoLembrete != null) ...[
             const SizedBox(height: 14),
             _LembreteDestaque(evento: proximoLembrete, hoje: _hoje),
@@ -257,7 +370,7 @@ class _CalendarioScreenState extends State<CalendarioScreen> {
                   _DayCell(
                     day: i - offsetInicial + 1,
                     isToday: _mesExibido.year == _hoje.year && _mesExibido.month == _hoje.month && (i - offsetInicial + 1) == _hoje.day,
-                    hasEvent: diasComEvento.contains(i - offsetInicial + 1),
+                    tag: tagPorDia[i - offsetInicial + 1],
                     isPessoal: diasPessoais.contains(i - offsetInicial + 1),
                     onTap: uid == null
                         ? null
@@ -278,50 +391,57 @@ class _CalendarioScreenState extends State<CalendarioScreen> {
                     child: Text('Nenhum evento neste mês.', style: TextStyle(fontSize: 12.5, color: AppColors.ink2)),
                   ),
                 for (final e in eventosDoMes)
-                  Container(
-                    padding: const EdgeInsets.symmetric(vertical: 11),
-                    decoration: const BoxDecoration(border: Border(bottom: BorderSide(color: AppColors.border))),
-                    child: Row(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Container(
-                          width: 48,
-                          padding: const EdgeInsets.symmetric(vertical: 7),
-                          margin: const EdgeInsets.only(right: 12),
-                          decoration: BoxDecoration(
-                            gradient: e.isPessoal ? null : AppColors.gradient,
-                            color: e.isPessoal ? AppColors.yellow : null,
-                            borderRadius: BorderRadius.circular(13),
+                  GestureDetector(
+                    onTap: () => _mostrarDetalhe(context, e),
+                    child: Container(
+                      padding: const EdgeInsets.symmetric(vertical: 11),
+                      decoration: const BoxDecoration(border: Border(bottom: BorderSide(color: AppColors.border))),
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Container(
+                            width: 48,
+                            padding: const EdgeInsets.symmetric(vertical: 7),
+                            margin: const EdgeInsets.only(right: 12),
+                            decoration: BoxDecoration(
+                              color: e.isPessoal ? AppColors.yellow : _estiloDoTag(e.tag).base,
+                              borderRadius: BorderRadius.circular(13),
+                            ),
+                            child: Column(
+                              children: [
+                                Text(
+                                  '${e.dia}',
+                                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.w900, color: e.isPessoal ? AppColors.ink : Colors.white),
+                                ),
+                                Text(
+                                  e.diaFim != null && e.diaFim != e.dia ? 'ATÉ ${e.diaFim}' : e.mes.toUpperCase(),
+                                  style: TextStyle(fontSize: 9, fontWeight: FontWeight.w800, color: e.isPessoal ? AppColors.ink : Colors.white),
+                                ),
+                              ],
+                            ),
                           ),
-                          child: Column(
-                            children: [
-                              Text(
-                                '${e.dia}',
-                                style: TextStyle(fontSize: 16, fontWeight: FontWeight.w900, color: e.isPessoal ? AppColors.ink : Colors.white),
-                              ),
-                              Text(
-                                e.mes.toUpperCase(),
-                                style: TextStyle(fontSize: 9, fontWeight: FontWeight.w800, color: e.isPessoal ? AppColors.ink : Colors.white),
-                              ),
-                            ],
+                          Expanded(
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(e.titulo, maxLines: 2, overflow: TextOverflow.ellipsis, style: const TextStyle(fontSize: 13, fontWeight: FontWeight.w800)),
+                                const SizedBox(height: 2),
+                                Text(
+                                  e.isPessoal ? e.desc : (_rotuloPorTag[e.tag] ?? e.desc),
+                                  maxLines: 1,
+                                  overflow: TextOverflow.ellipsis,
+                                  style: const TextStyle(fontSize: 11.5, color: AppColors.ink2),
+                                ),
+                              ],
+                            ),
                           ),
-                        ),
-                        Expanded(
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(e.titulo, style: const TextStyle(fontSize: 13, fontWeight: FontWeight.w800)),
-                              const SizedBox(height: 2),
-                              Text(e.desc, style: const TextStyle(fontSize: 11.5, color: AppColors.ink2)),
-                            ],
-                          ),
-                        ),
-                        if (e.isPessoal && uid != null)
-                          IconButton(
-                            icon: const Icon(Icons.delete_outline_rounded, size: 20, color: AppColors.ink2),
-                            onPressed: () => _removerEvento(uid, e),
-                          ),
-                      ],
+                          if (e.isPessoal && uid != null)
+                            IconButton(
+                              icon: const Icon(Icons.delete_outline_rounded, size: 20, color: AppColors.ink2),
+                              onPressed: () => _removerEvento(uid, e),
+                            ),
+                        ],
+                      ),
                     ),
                   ),
                 const SourceTag(text: 'Público: atualizado automaticamente · site oficial da UNIVASF', topPadding: 10),
@@ -448,10 +568,13 @@ class _MonthNavButton extends StatelessWidget {
 }
 
 class _DayCell extends StatelessWidget {
-  const _DayCell({required this.day, required this.isToday, required this.hasEvent, this.isPessoal = false, this.onTap});
+  const _DayCell({required this.day, required this.isToday, this.tag, this.isPessoal = false, this.onTap});
   final int day;
   final bool isToday;
-  final bool hasEvent;
+
+  /// Tag do evento oficial nesse dia ('feriado'/'recesso'/'matricula'/
+  /// 'avaliacao'/'outro'), ou nulo se não há evento oficial nesse dia.
+  final String? tag;
   final bool isPessoal;
   final VoidCallback? onTap;
 
@@ -474,9 +597,10 @@ class _DayCell extends StatelessWidget {
       bg = AppColors.yellowSoft;
       fg = AppColors.yellowText;
       weight = FontWeight.w800;
-    } else if (hasEvent) {
-      bg = AppColors.blueSoft;
-      fg = AppColors.blueDark;
+    } else if (tag != null) {
+      final estilo = _estiloDoTag(tag!);
+      bg = estilo.soft;
+      fg = estilo.texto;
       weight = FontWeight.w800;
     }
 
@@ -493,24 +617,7 @@ class _DayCell extends StatelessWidget {
             boxShadow: shadow,
           ),
           alignment: Alignment.center,
-          child: Stack(
-            alignment: Alignment.center,
-            children: [
-              Text('$day', style: TextStyle(fontSize: 12.5, color: fg, fontWeight: weight)),
-              if (hasEvent)
-                Positioned(
-                  bottom: 5,
-                  child: Container(
-                    width: 4,
-                    height: 4,
-                    decoration: BoxDecoration(
-                      color: isToday ? Colors.white : (isPessoal ? AppColors.yellow : AppColors.blue),
-                      shape: BoxShape.circle,
-                    ),
-                  ),
-                ),
-            ],
-          ),
+          child: Text('$day', style: TextStyle(fontSize: 12.5, color: fg, fontWeight: weight)),
         ),
       ),
     );

@@ -99,11 +99,20 @@ class RedirectHistoricoScreen extends StatelessWidget {
                     Container(
                       padding: const EdgeInsets.symmetric(vertical: 9),
                       decoration: const BoxDecoration(border: Border(bottom: BorderSide(color: AppColors.border))),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(c.campus, style: const TextStyle(fontSize: 12.5, fontWeight: FontWeight.w700)),
+                          if (c.endereco != null) ...[
+                            const SizedBox(height: 2),
+                            Text(c.endereco!, style: const TextStyle(fontSize: 11, color: AppColors.ink2, height: 1.4)),
+                          ],
+                          const SizedBox(height: 3),
                           Text(c.email, style: const TextStyle(fontSize: 11.5, color: AppColors.blueDark)),
+                          if (c.horarioPresencial != null) ...[
+                            const SizedBox(height: 3),
+                            Text('🕘 ${c.horarioPresencial}', style: const TextStyle(fontSize: 11, color: AppColors.ink2, height: 1.4)),
+                          ],
                         ],
                       ),
                     ),
@@ -123,7 +132,7 @@ class RedirectHistoricoScreen extends StatelessWidget {
                     variant: PillButtonVariant.secondary,
                     onPressed: () => abrirLink(context, _instagramSrcaUrl),
                   ),
-                  const SourceTag(text: 'Contatos do SIC/SRCA · verificados em 02/09/2026', topPadding: 4),
+                  const SourceTag(text: 'Contatos do SIC/SRCA · atualizado automaticamente', topPadding: 4),
                 ],
               ),
             ),

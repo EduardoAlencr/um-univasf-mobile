@@ -13,9 +13,74 @@ import 'grade_upload_screen.dart';
 import 'login_screen.dart';
 import 'redirect_notas_screen.dart';
 import 'redirect_historico_screen.dart';
+import 'solicitacoes_screen.dart';
+import 'auxilios_screen.dart';
+import 'redirect_matricula_screen.dart';
 
-const _palavrasAjuste = ['ajuste', 'modificaç', 'trancamento'];
 const _descSemPeriodo = 'Consulte o período vigente no SIG@.';
+
+const _tabelaFaltas = [
+  ('30h', '7 faltas'),
+  ('45h', '11 faltas'),
+  ('60h', '15 faltas'),
+  ('75h', '18 faltas'),
+  ('90h', '22 faltas'),
+  ('120h', '30 faltas'),
+];
+
+void _mostrarFrequencia(BuildContext context) {
+  showDialog<void>(
+    context: context,
+    builder: (ctx) => Dialog(
+      backgroundColor: AppColors.card,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(24)),
+      child: Padding(
+        padding: const EdgeInsets.fromLTRB(22, 24, 22, 18),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const Text('📏 Frequência mínima', style: TextStyle(fontSize: 16.5, fontWeight: FontWeight.w900)),
+            const SizedBox(height: 10),
+            const Text(
+              'Frequência mínima obrigatória de 75% da carga horária de cada disciplina. Passando de 25% de faltas, o discente é reprovado por falta no componente curricular como um todo — inclusive se a disciplina tiver carga teórica e prática separadas, o limite se aplica aos dois módulos de forma independente.',
+              style: TextStyle(fontSize: 13, color: AppColors.ink2, height: 1.5),
+            ),
+            const SizedBox(height: 16),
+            Table(
+              border: TableBorder.all(color: AppColors.border, borderRadius: BorderRadius.circular(8)),
+              children: [
+                const TableRow(
+                  decoration: BoxDecoration(color: AppColors.soft2),
+                  children: [
+                    Padding(padding: EdgeInsets.all(8), child: Text('Carga horária', style: TextStyle(fontSize: 12, fontWeight: FontWeight.w800))),
+                    Padding(padding: EdgeInsets.all(8), child: Text('Faltas que reprovam', style: TextStyle(fontSize: 12, fontWeight: FontWeight.w800))),
+                  ],
+                ),
+                for (final linha in _tabelaFaltas)
+                  TableRow(
+                    children: [
+                      Padding(padding: const EdgeInsets.all(8), child: Text(linha.$1, style: const TextStyle(fontSize: 12.5))),
+                      Padding(padding: const EdgeInsets.all(8), child: Text(linha.$2, style: const TextStyle(fontSize: 12.5))),
+                    ],
+                  ),
+              ],
+            ),
+            const SizedBox(height: 16),
+            Align(
+              alignment: Alignment.centerRight,
+              child: TextButton(
+                onPressed: () => Navigator.of(ctx).pop(),
+                child: const Text('Fechar', style: TextStyle(color: AppColors.blueDark, fontWeight: FontWeight.w800)),
+              ),
+            ),
+            const Text('Fonte: Guia do Estudante, Proen (3ª ed., fev/2026)', style: TextStyle(fontSize: 10.5, color: AppColors.ink2)),
+          ],
+        ),
+      ),
+    ),
+  );
+}
 
 class _StatusMatricula {
   const _StatusMatricula({required this.desc, required this.badge, required this.disponivel});
@@ -24,10 +89,14 @@ class _StatusMatricula {
   final bool disponivel;
 }
 
-/// Procura, entre os eventos de calendário com `tag == 'matricula'`, o mais
-/// próximo cujo título bata com [eventos] (já filtrado por palavra-chave).
-/// Nunca inventa datas: se não houver evento real na janela do scraper
-/// (~60 dias), cai no estado honesto "Indisponível".
+/// Procura, entre os eventos de calendário com `tag == 'matricula'`
+/// (matrícula, ajuste/modificação e trancamento — o calendário oficial não
+/// distingue esses tipos, então também não dividimos aqui), o mais próximo
+/// que ainda não passou. Só fica "disponível" (mostra data/prazo de verdade)
+/// quando estiver a no máximo 7 dias — fora dessa janela, mesmo havendo um
+/// evento real mais distante, o card fica "Indisponível" (não revela a
+/// data com antecedência). Nunca inventa datas: sem evento real na janela
+/// do scraper (~60 dias), cai no mesmo estado honesto "Indisponível".
 _StatusMatricula _statusDoEvento(List<CalendarEvent> eventos) {
   final hoje = DateTime.now();
   final hojeSemHora = DateTime(hoje.year, hoje.month, hoje.day);
@@ -49,22 +118,21 @@ _StatusMatricula _statusDoEvento(List<CalendarEvent> eventos) {
       melhorData = data;
     }
   }
-  if (melhor == null || melhorData == null) {
-    return const _StatusMatricula(
-      desc: _descSemPeriodo,
-      badge: AppBadge(label: 'Indisponível', color: BadgeColor.gray),
-      disponivel: false,
-    );
-  }
+  const indisponivel = _StatusMatricula(
+    desc: _descSemPeriodo,
+    badge: AppBadge(label: 'Indisponível', color: BadgeColor.gray),
+    disponivel: false,
+  );
+  if (melhor == null || melhorData == null) return indisponivel;
+
   final diasRestantes = DateTime(melhorData.year, melhorData.month, melhorData.day)
       .difference(DateTime(hoje.year, hoje.month, hoje.day))
       .inDays;
-  final badge = diasRestantes <= 7
-      ? const AppBadge(label: 'Últimos dias', color: BadgeColor.yellow)
-      : const AppBadge(label: 'Em breve', color: BadgeColor.blue);
+  if (diasRestantes > 7) return indisponivel;
+
   return _StatusMatricula(
     desc: '${melhor.title} · ${descreverPrazo(melhorData, hoje)}',
-    badge: badge,
+    badge: const AppBadge(label: 'Últimos dias', color: BadgeColor.yellow),
     disponivel: true,
   );
 }
@@ -74,10 +142,7 @@ class DiscenteScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final eventosAjuste = eventosMatricula.where((e) => _palavrasAjuste.any((p) => e.title.toLowerCase().contains(p))).toList();
-    final eventosGeral = eventosMatricula.where((e) => !_palavrasAjuste.any((p) => e.title.toLowerCase().contains(p))).toList();
-    final statusMatricula = _statusDoEvento(eventosGeral);
-    final statusAjuste = _statusDoEvento(eventosAjuste);
+    final statusMatricula = _statusDoEvento(eventosMatricula);
     return Scaffold(
       appBar: UmAppBar(onAvatarTap: () => goProfile(context)),
       body: SingleChildScrollView(
@@ -130,30 +195,36 @@ class DiscenteScreen extends StatelessWidget {
               onTap: () => Navigator.of(context).push(MaterialPageRoute(builder: (_) => const RedirectHistoricoScreen())),
             ),
             _SigaItem(
+              icon: '🗂️',
+              iconBg: AppColors.soft2,
+              title: 'Solicitações da SRCA',
+              desc: 'Catálogo de requerimentos (declarações, 2ª via, trancamento...)',
+              trailing: const Text('→', style: TextStyle(fontSize: 16, color: AppColors.ink2)),
+              onTap: () => Navigator.of(context).push(MaterialPageRoute(builder: (_) => const SolicitacoesScreen())),
+            ),
+            _SigaItem(
+              icon: '💰',
+              iconBg: AppColors.greenSoft,
+              title: 'Auxílios e Bolsas',
+              desc: 'Permanência, alimentação e outros programas da PROAE',
+              trailing: const Text('→', style: TextStyle(fontSize: 16, color: AppColors.ink2)),
+              onTap: () => Navigator.of(context).push(MaterialPageRoute(builder: (_) => const AuxiliosScreen())),
+            ),
+            _SigaItem(
               icon: '✏️',
               iconBg: AppColors.soft2,
               title: 'Matrícula',
               desc: statusMatricula.desc,
               trailing: statusMatricula.badge,
-              onTap: () => showUmToast(
-                context,
-                statusMatricula.disponivel
-                    ? '${statusMatricula.desc}. Faça a solicitação pelo SIG@.'
-                    : 'Consulte o período de matrícula vigente diretamente no SIG@.',
-              ),
+              onTap: () => Navigator.of(context).push(MaterialPageRoute(builder: (_) => const RedirectMatriculaScreen())),
             ),
             _SigaItem(
-              icon: '🔀',
-              iconBg: AppColors.yellowSoft,
-              title: 'Modificação de Matrícula',
-              desc: statusAjuste.desc,
-              trailing: statusAjuste.badge,
-              onTap: () => showUmToast(
-                context,
-                statusAjuste.disponivel
-                    ? '${statusAjuste.desc}. Faça a solicitação pelo SIG@ ou presencialmente na SRCA.'
-                    : 'Consulte o período de ajuste de matrícula vigente diretamente no SIG@.',
-              ),
+              icon: '📏',
+              iconBg: AppColors.soft2,
+              title: 'Frequência mínima',
+              desc: 'Regra dos 75% e a tabela de faltas por carga horária',
+              trailing: const Text('→', style: TextStyle(fontSize: 16, color: AppColors.ink2)),
+              onTap: () => _mostrarFrequencia(context),
             ),
             if (sigaAvisos.isNotEmpty) ...[
               const SizedBox(height: 22),

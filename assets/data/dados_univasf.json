@@ -1,6 +1,20 @@
 {
-  "gerado_em": "2026-11-04T16:43:58",
+  "gerado_em": "2026-11-05T13:41:30",
   "noticias_setores": [
+    {
+      "setor": "PROAE",
+      "titulo": "A Pró-Reitoria de Assistência Estudantil da Univasf divulga o Cronograma de Entrevistas Sociais do PSU 2026 – Campus SALGUEIRO.",
+      "data": "04/11/2026",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/proae/noticias/a-pro-reitoria-de-assistencia-estudantil-da-univasf-divulga-o-cronograma-de-entrevistas-sociais-do-psu-2026-2013-campus-salgueiro"
+    },
+    {
+      "setor": "PROAE",
+      "titulo": "PROAE divulga Resultado Parcial do Edital nº 04/2026 – PROMISAES",
+      "data": "03/11/2026",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/proae/noticias/03-11-2026-proae-divulga-resultado-parcial-do-edital-no-04-2026-2013-promisaes"
+    },
     {
       "setor": "PROAE",
       "titulo": "A Pró-Reitoria de Assistência Estudantil da Univasf divulga o Cronograma de Entrevistas Sociais do PSU 2026 – Campus PAULO AFONSO.",
@@ -126,20 +140,6 @@
       "data": "07/08/2026",
       "resumo": "",
       "url": "https://portais.univasf.edu.br/proae/noticias/07-08-2026-2013-a-proae-reabre-inscricoes-do-edital-no-02-2026-para-cadastro-de-reserva-das-residencias-estudantis-da-univasf"
-    },
-    {
-      "setor": "PROAE",
-      "titulo": "A PROAE Informa Sobre o Funcionamento do Transporte Estudantil",
-      "data": "06/08/2026",
-      "resumo": "",
-      "url": "https://portais.univasf.edu.br/proae/noticias/06-08-2026-a-proae-informa-sobre-o-funcionamento-do-transporte-estudantil"
-    },
-    {
-      "setor": "PROAE",
-      "titulo": "A PROAE divulga cronograma de atendimentos para orientação aos estudantes inscritos no Processo Seletivo Unificado/PSU 2026",
-      "data": "05/08/2026",
-      "resumo": "",
-      "url": "https://portais.univasf.edu.br/proae/noticias/05-08-2026-2013-a-proae-divulga-cronograma-de-atendimentos-para-orientacao-aos-estudantes-inscritos-no-processo-seletivo-unificado-psu-2026-2"
     },
     {
       "setor": "PROEX",
@@ -423,6 +423,34 @@
     },
     {
       "setor": "UNIVASF",
+      "titulo": "Provas do Enem 2026 começam neste domingo (8)",
+      "data": "05/11/2026",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/noticias/provas-do-enem-2026-comecam-neste-domingo-8"
+    },
+    {
+      "setor": "UNIVASF",
+      "titulo": "Estudantes da Univasf podem se inscrever para cursar disciplinas no IFSertãoPE em 2027",
+      "data": "05/11/2026",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/noticias/estudantes-da-univasf-podem-se-inscrever-para-cursar-disciplinas-no-ifsertaope-em-2027"
+    },
+    {
+      "setor": "UNIVASF",
+      "titulo": "HU-Univasf adquire novas macas hidráulicas para a Unidade de Urgência e Emergência",
+      "data": "05/11/2026",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/noticias/hu-univasf-adquire-novas-macas-hidraulicas-para-a-unidade-de-urgencia-e-emergencia"
+    },
+    {
+      "setor": "UNIVASF",
+      "titulo": "I Semana Clóvis Moura começa nesta quarta-feira (4) na Univasf",
+      "data": "03/11/2026",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/noticias/i-semana-clovis-moura-comeca-nesta-quarta-feira-4-na-univasf"
+    },
+    {
+      "setor": "UNIVASF",
       "titulo": "Univasf realiza defesa de memorial para promoção de professor de Engenharia Agrícola e Ambiental à classe de Titular",
       "data": "03/11/2026",
       "resumo": "",
@@ -672,34 +700,6 @@
       "data": "15/10/2026",
       "resumo": "",
       "url": "https://portais.univasf.edu.br/noticias/hu-univasf-realiza-painel-sobre-cuidado-educacao-e-saude-publica-na-proxima-quinta-feira"
-    },
-    {
-      "setor": "UNIVASF",
-      "titulo": "Univasf abre seleção para mestrado em Agronomia – Produção Vegetal",
-      "data": "14/10/2026",
-      "resumo": "",
-      "url": "https://portais.univasf.edu.br/noticias/univasf-abre-selecao-para-mestrado-em-agronomia-2013-producao-vegetal-1"
-    },
-    {
-      "setor": "UNIVASF",
-      "titulo": "Univasf tem três docentes no ranking Stanford Elsevier Top 2% Scientists 2026",
-      "data": "14/10/2026",
-      "resumo": "",
-      "url": "https://portais.univasf.edu.br/noticias/univasf-tem-tres-docentes-no-ranking-stanford-elsevier-top-2-scientists-2026"
-    },
-    {
-      "setor": "UNIVASF",
-      "titulo": "Proae abre seleção para concessão de auxílio financeiro a estudantes estrangeiros vinculados ao PEC-G",
-      "data": "14/10/2026",
-      "resumo": "",
-      "url": "https://portais.univasf.edu.br/noticias/proae-abre-selecao-para-concessao-de-auxilio-financeiro-a-estudantes-estrangeiros-vinculados-ao-pec-g"
-    },
-    {
-      "setor": "UNIVASF",
-      "titulo": "Atendimento multiprofissional à mulher vítima de violência é tema de roda de conversa no HU-Univasf",
-      "data": "14/10/2026",
-      "resumo": "",
-      "url": "https://portais.univasf.edu.br/noticias/atendimento-multiprofissional-a-mulher-vitima-de-violencia-e-tema-de-roda-de-conversa-no-hu-univasf"
     }
   ],
   "ru_cardapio": {
@@ -1214,116 +1214,636 @@
   },
   "calendario": [
     {
+      "dia": "02",
+      "mes": "Jan",
+      "ano": 2026,
+      "titulo": "Confraternização Universal.",
+      "tag": "outro",
+      "dia_fim": null
+    },
+    {
+      "dia": "17",
+      "mes": "Jan",
+      "ano": 2026,
+      "titulo": "Feriado Municipal para o campus Senhor do Bonfim – Padroeiro de Senhor do Bonfim/BA.",
+      "tag": "feriado",
+      "dia_fim": null
+    },
+    {
+      "dia": "08",
+      "mes": "Fev",
+      "ano": 2026,
+      "titulo": "Carnaval/Quarta-feira de Cinzas. Prazo para abertura de processo de colação de grau em gabinete para os discentes que não",
+      "tag": "outro",
+      "dia_fim": "10"
+    },
+    {
+      "dia": "02",
+      "mes": "Mar",
+      "ano": 2026,
+      "titulo": "Início das aulas do Período Letivo 2026.1.",
+      "tag": "outro",
+      "dia_fim": null
+    },
+    {
+      "dia": "02",
+      "mes": "Mar",
+      "ano": 2026,
+      "titulo": "Semana de acolhimento e integração dos discentes. Registro de matrícula pela SRCA: somente disciplinas com expansão de carga horária, conforme",
+      "tag": "matricula",
+      "dia_fim": "06"
+    },
+    {
+      "dia": "04",
+      "mes": "Mar",
+      "ano": 2026,
+      "titulo": "requerimentos aprovados e encaminhados pelas Coordenações de Curso.",
+      "tag": "outro",
+      "dia_fim": "05"
+    },
+    {
+      "dia": "06",
+      "mes": "Mar",
+      "ano": 2026,
+      "titulo": "Feriado Estadual para os campi no Estado de Pernambuco – Data Magna de Pernambuco. Ajuste da oferta pelas Coordenações de Curso (após matrícula de retardatários e modificação de",
+      "tag": "feriado",
+      "dia_fim": null
+    },
+    {
+      "dia": "06",
+      "mes": "Mar",
+      "ano": 2026,
+      "titulo": "matrícula). Resultado das matrículas de retardatários e modificação de matrículas realizadas pelos discentes,",
+      "tag": "matricula",
+      "dia_fim": "09"
+    },
+    {
+      "dia": "06",
+      "mes": "Mar",
+      "ano": 2026,
+      "titulo": "Feriado Estadual para os campi no Estado de Pernambuco – Data Magna de Pernambuco. Provável início das aulas do Período Letivo 2027.1 (data a confirmar com base no cronograma do",
+      "tag": "feriado",
+      "dia_fim": null
+    },
+    {
+      "dia": "08",
+      "mes": "Mar",
+      "ano": 2026,
+      "titulo": "Sisu). Colação de grau em gabinete dos formandos 2026.2 que não participaram das solenidades",
+      "tag": "outro",
+      "dia_fim": null
+    },
+    {
+      "dia": "09",
+      "mes": "Mar",
+      "ano": 2026,
+      "titulo": "após as 22 horas. Colação de grau em gabinete dos formandos 2025.2 que não participaram das solenidades",
+      "tag": "outro",
+      "dia_fim": null
+    },
+    {
+      "dia": "09",
+      "mes": "Mar",
+      "ano": 2026,
+      "titulo": "regulares.",
+      "tag": "outro",
+      "dia_fim": "20"
+    },
+    {
+      "dia": "10",
+      "mes": "Mar",
+      "ano": 2026,
+      "titulo": "Matrículas em disciplinas com vagas ociosas pelos alunos.",
+      "tag": "matricula",
+      "dia_fim": "11"
+    },
+    {
+      "dia": "12",
+      "mes": "Mar",
+      "ano": 2026,
+      "titulo": "Ajuste da oferta pelas Coordenações de Curso (após a matrícula em vagas ociosas).",
+      "tag": "matricula",
+      "dia_fim": null
+    },
+    {
+      "dia": "12",
+      "mes": "Mar",
+      "ano": 2026,
+      "titulo": "Resultado das matrículas em disciplinas com vagas ociosas, após as 22 horas. Prazo para os discentes solicitarem matrícula extemporânea para o Período 2026.1, conforme o",
+      "tag": "matricula",
+      "dia_fim": null
+    },
+    {
+      "dia": "12",
+      "mes": "Mar",
+      "ano": 2026,
+      "titulo": "art. 51, § 2º, da Resolução nº 08/2015 – Conuni. Data limite para as Coordenações de Curso realizarem as matrículas extemporâneas no SIG@",
+      "tag": "matricula",
+      "dia_fim": "18"
+    },
+    {
+      "dia": "15",
+      "mes": "Mar",
+      "ano": 2026,
+      "titulo": "regulares.",
+      "tag": "outro",
+      "dia_fim": "31"
+    },
+    {
+      "dia": "27",
+      "mes": "Mar",
+      "ano": 2026,
+      "titulo": "para o Período 2026.1, conforme o art. 51, § 3º, da Resolução nº 08/2015 – Conuni.",
+      "tag": "outro",
+      "dia_fim": null
+    },
+    {
+      "dia": "02",
+      "mes": "Abr",
+      "ano": 2026,
+      "titulo": "Cristo/Semana Santa.",
+      "tag": "outro",
+      "dia_fim": "04"
+    },
+    {
+      "dia": "06",
+      "mes": "Abr",
+      "ano": 2026,
+      "titulo": "Trancamento do período ou cancelamento de disciplinas (com ônus), referente a 2026.1. Prazo para os discentes solicitarem dispensa de disciplinas, carga horária eletiva e optativa para o",
+      "tag": "matricula",
+      "dia_fim": "10"
+    },
+    {
+      "dia": "13",
+      "mes": "Abr",
+      "ano": 2026,
+      "titulo": "Período 2026.2.",
+      "tag": "outro",
+      "dia_fim": "29"
+    },
+    {
+      "dia": "20",
+      "mes": "Abr",
+      "ano": 2026,
+      "titulo": "RECESSO ACADÊMICO E ADMINISTRATIVO para todos os campi – Feriado Nacional – Tiradentes.",
+      "tag": "feriado",
+      "dia_fim": "21"
+    },
+    {
+      "dia": "30",
+      "mes": "Abr",
+      "ano": 2026,
+      "titulo": "Feriado Municipal para o campus Salgueiro – Emancipação Política de Salgueiro/PE.",
+      "tag": "feriado",
+      "dia_fim": null
+    },
+    {
+      "dia": "04",
+      "mes": "Mai",
+      "ano": 2026,
+      "titulo": "Prazo para abertura de processo de atividades complementares para registro no Período 2026.1. Prazo para abertura de processos de alteração (quebra) de pré-requisito para o Período 2026.2",
+      "tag": "outro",
+      "dia_fim": "15"
+    },
+    {
+      "dia": "18",
+      "mes": "Mai",
+      "ano": 2026,
+      "titulo": "pelo aluno ou pelos NDEs/Coordenações dos cursos de graduação. Feriado Municipal para o campus Senhor do Bonfim – Aniversário da cidade de Senhor do",
+      "tag": "feriado",
+      "dia_fim": "29"
+    },
+    {
+      "dia": "28",
+      "mes": "Mai",
+      "ano": 2026,
+      "titulo": "Bonfim/BA.",
+      "tag": "outro",
+      "dia_fim": null
+    },
+    {
+      "dia": "04",
+      "mes": "Jun",
+      "ano": 2026,
+      "titulo": "Christi. Prazo para solicitação de matrícula especial/disciplinas isoladas (estudantes de outras IES) para o",
+      "tag": "matricula",
+      "dia_fim": "06"
+    },
+    {
+      "dia": "08",
+      "mes": "Jun",
+      "ano": 2026,
+      "titulo": "Período 2026.2. Prazo para as Coordenações de Curso instruírem os processos de alteração (quebra) de pré- requisitos para o Período 2026.2. Emissão de parecer fundamentado do docente responsável pela",
+      "tag": "outro",
+      "dia_fim": "12"
+    },
+    {
+      "dia": "08",
+      "mes": "Jun",
+      "ano": 2026,
+      "titulo": "disciplina; emissão de parecer consubstanciado do NDE; aprovação pelo Colegiado Acadêmico e posterior envio para SRCA.",
+      "tag": "outro",
+      "dia_fim": "26"
+    },
+    {
+      "dia": "13",
+      "mes": "Jun",
+      "ano": 2026,
+      "titulo": "Feriado Municipal para o campus Salgueiro – Padroeiro de Salgueiro/PE. Data limite para as Coordenações de Curso enviarem os processos de atividades complementares",
+      "tag": "feriado",
+      "dia_fim": null
+    },
+    {
+      "dia": "19",
+      "mes": "Jun",
+      "ano": 2026,
+      "titulo": "para registro no Período 2026.1.",
+      "tag": "outro",
+      "dia_fim": null
+    },
+    {
+      "dia": "23",
+      "mes": "Jun",
+      "ano": 2026,
+      "titulo": "RECESSO ACADÊMICO E ADMINISTRATIVO para todos os campi – Feriado Regional – São João. Feriado Municipal para o campus Serra da Capivara – Aniversário da cidade de São Raimundo",
+      "tag": "feriado",
+      "dia_fim": "24"
+    },
+    {
+      "dia": "25",
+      "mes": "Jun",
+      "ano": 2026,
+      "titulo": "Nonato/PI.",
+      "tag": "outro",
+      "dia_fim": null
+    },
+    {
+      "dia": "02",
+      "mes": "Jul",
+      "ano": 2026,
+      "titulo": "Feriado Estadual – Emancipação da Bahia (somente para os campi no Estado da Bahia). Prazo para os discentes solicitarem reintegração ao curso para o Período 2026.2, conforme o art.",
+      "tag": "feriado",
+      "dia_fim": null
+    },
+    {
+      "dia": "09",
+      "mes": "Jul",
+      "ano": 2026,
+      "titulo": ".394, de 20 de dezembro de 1996, com redação dada pela Lei nº 13.168, de 06 de outubro de",
+      "tag": "outro",
+      "dia_fim": null
+    },
+    {
+      "dia": "10",
+      "mes": "Jul",
+      "ano": 2026,
+      "titulo": "disciplinas; os processos de alteração (quebra) de pré-requisitos; e os processos de matrícula especial/disciplinas isoladas (estudantes de outras IES) para o Período 2026.2. Último dia para os Colegiados divulgarem nas páginas dos cursos os programas dos cursos e demais componentes curriculares, su",
+      "tag": "matricula",
+      "dia_fim": null
+    },
+    {
+      "dia": "10",
+      "mes": "Jul",
+      "ano": 2026,
+      "titulo": "disponíveis e critérios de avaliação para o Período 2026.2, na forma do § 1º do Art. 47 da Lei nº",
+      "tag": "outro",
+      "dia_fim": null
+    },
+    {
+      "dia": "15",
+      "mes": "Jul",
+      "ano": 2026,
+      "titulo": "Feriado Municipal para o campus Juazeiro – Aniversário da cidade de Juazeiro/BA.",
+      "tag": "feriado",
+      "dia_fim": null
+    },
+    {
+      "dia": "16",
+      "mes": "Jul",
+      "ano": 2026,
+      "titulo": "21 - Conuni.",
+      "tag": "outro",
+      "dia_fim": null
+    },
+    {
+      "dia": "18",
+      "mes": "Jul",
+      "ano": 2026,
+      "titulo": "Último dia de aulas do Período 2026.1. Início do prazo para preenchimento dos planos de ensino na caderneta eletrônica para o Período",
+      "tag": "outro",
+      "dia_fim": null
+    },
+    {
+      "dia": "20",
+      "mes": "Jul",
+      "ano": 2026,
+      "titulo": "Exames Finais do Período 2026.1. Prazo para os discentes solicitarem matrícula com expansão de carga horária para o Período",
+      "tag": "matricula",
+      "dia_fim": "24"
+    },
+    {
+      "dia": "20",
+      "mes": "Jul",
+      "ano": 2026,
+      "titulo": "2026.2 às Coordenações de Curso (o discente deve indicar o nome, o código, a turma e o colegiado ofertante da disciplina que deverá ser inserida na matrícula pela SRCA). Matrícula presencial dos estudantes do Programa PEC-G para o Período 2026.2 (entrega de",
+      "tag": "matricula",
+      "dia_fim": "24"
+    },
+    {
+      "dia": "21",
+      "mes": "Jul",
+      "ano": 2026,
+      "titulo": "documentação na SRCA).",
+      "tag": "outro",
+      "dia_fim": "22"
+    },
+    {
+      "dia": "28",
+      "mes": "Jul",
+      "ano": 2026,
+      "titulo": "Feriado Municipal para o campus Paulo Afonso – Aniversário da cidade de Paulo Afonso/BA. Último dia para lançamento das notas e faltas do Período 2026.1 pelos docentes. Data limite para",
+      "tag": "feriado",
+      "dia_fim": null
+    },
+    {
+      "dia": "29",
+      "mes": "Jul",
+      "ano": 2026,
+      "titulo": "finalizar preenchimento da caderneta eletrônica referente a 2026.1, conforme Resolução nº",
+      "tag": "outro",
+      "dia_fim": null
+    },
+    {
+      "dia": "29",
+      "mes": "Jul",
+      "ano": 2026,
+      "titulo": "Encerramento do Período Letivo 2026.1.",
+      "tag": "outro",
+      "dia_fim": null
+    },
+    {
+      "dia": "30",
+      "mes": "Jul",
+      "ano": 2026,
+      "titulo": "Preparação para a matrícula do Período 2026.2 (SIG@ indisponível).",
+      "tag": "matricula",
+      "dia_fim": null
+    },
+    {
+      "dia": "05",
+      "mes": "Set",
+      "ano": 2026,
+      "titulo": "para o Período 2026.2, conforme o art. 51, § 3º, da Resolução nº 08/2015 – Conuni.",
+      "tag": "outro",
+      "dia_fim": null
+    },
+    {
+      "dia": "07",
+      "mes": "Set",
+      "ano": 2026,
+      "titulo": "Feriado Nacional para todos os campi – Independência do Brasil.",
+      "tag": "feriado",
+      "dia_fim": null
+    },
+    {
+      "dia": "07",
+      "mes": "Set",
+      "ano": 2026,
+      "titulo": "Trancamento do período ou cancelamento de disciplinas (com ônus), referente a 2026.2. Prazo para abertura de processo de colação de grau em gabinete para os discentes que não",
+      "tag": "matricula",
+      "dia_fim": "11"
+    },
+    {
+      "dia": "07",
+      "mes": "Set",
+      "ano": 2026,
+      "titulo": "participaram das solenidades regulares do Período 2026.1, conforme Resolução nº 18/2017 Conuni.",
+      "tag": "outro",
+      "dia_fim": "16"
+    },
+    {
+      "dia": "08",
+      "mes": "Set",
+      "ano": 2026,
+      "titulo": "Feriado Municipal para o campus Juazeiro – Padroeira de Juazeiro/BA. Prazo para os discentes solicitarem dispensa de disciplinas, carga horária eletiva e optativa para o",
+      "tag": "feriado",
+      "dia_fim": null
+    },
+    {
+      "dia": "17",
+      "mes": "Set",
+      "ano": 2026,
+      "titulo": "Período 2027.1.",
+      "tag": "outro",
+      "dia_fim": "30"
+    },
+    {
+      "dia": "21",
+      "mes": "Set",
+      "ano": 2026,
+      "titulo": "Feriado Municipal para o campus Petrolina – Aniversário da cidade de Petrolina/PE.",
+      "tag": "feriado",
+      "dia_fim": null
+    },
+    {
+      "dia": "04",
+      "mes": "Out",
+      "ano": 2026,
+      "titulo": "Feriado Municipal para o campus Paulo Afonso – Padroeiro de Paulo Afonso/BA.",
+      "tag": "feriado",
+      "dia_fim": null
+    },
+    {
+      "dia": "05",
+      "mes": "Out",
+      "ano": 2026,
+      "titulo": "Prazo para abertura de processo de atividades complementares para registro no Período 2026.2.",
+      "tag": "outro",
+      "dia_fim": "16"
+    },
+    {
+      "dia": "12",
+      "mes": "Out",
+      "ano": 2026,
+      "titulo": "Feriado Nacional para todos os campi – Padroeira do Brasil.",
+      "tag": "feriado",
+      "dia_fim": null
+    },
+    {
+      "dia": "19",
+      "mes": "Out",
+      "ano": 2026,
+      "titulo": "Feriado Estadual para o campus Serra da Capivara – Constituição do Piauí. Prazo para abertura de processos de alteração (quebra) de pré-requisito para o Período 2027.1",
+      "tag": "feriado",
+      "dia_fim": null
+    },
+    {
+      "dia": "19",
+      "mes": "Out",
+      "ano": 2026,
+      "titulo": "pelo aluno ou pelos NDEs/Coordenações dos cursos de graduação.",
+      "tag": "outro",
+      "dia_fim": "30"
+    },
+    {
+      "dia": "28",
+      "mes": "Out",
+      "ano": 2026,
+      "titulo": "Feriado Nacional para todos os campi – Dia do Servidor Público.",
+      "tag": "feriado",
+      "dia_fim": null
+    },
+    {
+      "dia": "02",
+      "mes": "Nov",
+      "ano": 2026,
+      "titulo": "Feriado Nacional para todos os campi – Finados. Planejamento da oferta de componentes curriculares para o Período 2027.1 pelos Colegiados",
+      "tag": "feriado",
+      "dia_fim": null
+    },
+    {
+      "dia": "03",
+      "mes": "Nov",
+      "ano": 2026,
+      "titulo": "Acadêmicos, sendo o dia 19/11 a data limite para divulgação do planejamento.",
+      "tag": "outro",
+      "dia_fim": "19"
+    },
+    {
       "dia": "11",
       "mes": "Nov",
       "ano": 2026,
-      "titulo": "disciplina; emissão de parecer consubstanciado do NDE; aprovação pelo Colegiado Acadêmico e",
-      "tag": "outro"
+      "titulo": "disciplina; emissão de parecer consubstanciado do NDE; aprovação pelo Colegiado Acadêmico e posterior envio para SRCA.",
+      "tag": "outro",
+      "dia_fim": null
     },
     {
       "dia": "15",
       "mes": "Nov",
       "ano": 2026,
-      "titulo": "Feriado Nacional para todos os campi – Proclamação da República.",
-      "tag": "feriado"
-    },
-    {
-      "dia": "18",
-      "mes": "Nov",
-      "ano": 2026,
-      "titulo": "a requisitos para o Período 2027.1. Emissão de parecer fundamentado do docente responsável pela",
-      "tag": "outro"
+      "titulo": "Feriado Nacional para todos os campi – Proclamação da República. Prazo para as Coordenações de Curso instruírem os processos de alteração (quebra) de pré",
+      "tag": "feriado",
+      "dia_fim": null
     },
     {
       "dia": "20",
       "mes": "Nov",
       "ano": 2026,
-      "titulo": "Feriado Nacional para todos os campi – Dia Nacional de Zumbi e da Consciência Negra.",
-      "tag": "feriado"
+      "titulo": "Feriado Nacional para todos os campi – Dia Nacional de Zumbi e da Consciência Negra. Prazo para solicitação de matrícula especial/disciplinas isoladas (estudantes de outras IES) para o",
+      "tag": "feriado",
+      "dia_fim": null
     },
     {
-      "dia": "01",
-      "mes": "Dez",
+      "dia": "23",
+      "mes": "Nov",
       "ano": 2026,
-      "titulo": "º a 11 Oferta de componentes curriculares para o Período 2027.1 pelas Coordenações de Curso no SIG@.",
-      "tag": "outro"
+      "titulo": "Período 2027.1. Scientex – Dias letivos a serem registrados no diário de classe como atividades de ensino (carga",
+      "tag": "outro",
+      "dia_fim": "27"
+    },
+    {
+      "dia": "24",
+      "mes": "Nov",
+      "ano": 2026,
+      "titulo": "horária) aos que participarem do evento (aulas suspensas). Data limite para as Coordenações de Curso enviarem os processos de atividades complementares",
+      "tag": "outro",
+      "dia_fim": "27"
+    },
+    {
+      "dia": "27",
+      "mes": "Nov",
+      "ano": 2026,
+      "titulo": "para registro no Período 2027.1.",
+      "tag": "outro",
+      "dia_fim": null
     },
     {
       "dia": "02",
       "mes": "Dez",
       "ano": 2026,
       "titulo": "Confraternização Universal.",
-      "tag": "outro"
+      "tag": "outro",
+      "dia_fim": null
     },
     {
       "dia": "12",
       "mes": "Dez",
       "ano": 2026,
-      "titulo": "Último dia de aulas do Período 2026.2.",
-      "tag": "outro"
+      "titulo": "Último dia de aulas do Período 2026.2. Feriado Municipal para o campus Serra da Capivara – Festividade de Santa Luzia em São Raimundo",
+      "tag": "feriado",
+      "dia_fim": null
+    },
+    {
+      "dia": "13",
+      "mes": "Dez",
+      "ano": 2026,
+      "titulo": "Nonato/PI Início do prazo para preenchimento dos planos de ensino na caderneta eletrônica para o Período",
+      "tag": "outro",
+      "dia_fim": null
     },
     {
       "dia": "14",
       "mes": "Dez",
       "ano": 2026,
-      "titulo": "Exames Finais do Período 2026.2.",
-      "tag": "avaliacao"
+      "titulo": "Exames Finais do Período 2026.2. Prazo para os discentes solicitarem matrícula com expansão de carga horária para o Período",
+      "tag": "matricula",
+      "dia_fim": "18"
     },
     {
       "dia": "14",
       "mes": "Dez",
       "ano": 2026,
-      "titulo": "2027.1 às Coordenações de Curso (o discente deve indicar o nome, o código, a turma e o colegiado",
-      "tag": "outro"
+      "titulo": "2027.1 às Coordenações de Curso (o discente deve indicar o nome, o código, a turma e o colegiado ofertante da disciplina que deverá ser inserida na matrícula pela SRCA).",
+      "tag": "matricula",
+      "dia_fim": "18"
     },
     {
       "dia": "16",
       "mes": "Dez",
       "ano": 2026,
       "titulo": "21 - Conuni.",
-      "tag": "outro"
+      "tag": "outro",
+      "dia_fim": null
     },
     {
       "dia": "22",
       "mes": "Dez",
       "ano": 2026,
-      "titulo": "disciplinas; os processos de alteração (quebra) de pré-requisitos; e os processos de matrícula",
-      "tag": "matricula"
+      "titulo": "disciplinas; os processos de alteração (quebra) de pré-requisitos; e os processos de matrícula especial/disciplinas isoladas (estudantes de outras IES) para o Período 2027.1. Último dia para lançamento das notas e faltas do Período 2026.2 pelos docentes. Data limite para",
+      "tag": "matricula",
+      "dia_fim": null
     },
     {
       "dia": "23",
       "mes": "Dez",
       "ano": 2026,
       "titulo": "Feriado Municipal para o campus Salgueiro – Aniversário da Cidade de Salgueiro/PE.",
-      "tag": "feriado"
+      "tag": "feriado",
+      "dia_fim": null
     },
     {
       "dia": "24",
       "mes": "Dez",
       "ano": 2026,
-      "titulo": "RECESSO ACADÊMICO E ADMINISTRATIVO para todos os campi – Feriado Nacional – Natal.",
-      "tag": "feriado"
+      "titulo": "RECESSO ACADÊMICO E ADMINISTRATIVO para todos os campi – Feriado Nacional – Natal. Data limite para as Coordenações de Curso encaminharem à SRCA os processos de dispensa de",
+      "tag": "feriado",
+      "dia_fim": "25"
     },
     {
       "dia": "30",
       "mes": "Dez",
       "ano": 2026,
       "titulo": "finalizar preenchimento da caderneta eletrônica referente a 2026.2, conforme Resolução nº",
-      "tag": "outro"
+      "tag": "outro",
+      "dia_fim": null
     },
     {
       "dia": "30",
       "mes": "Dez",
       "ano": 2026,
       "titulo": "Encerramento do Período Letivo 2026.2.",
-      "tag": "outro"
-    },
-    {
-      "dia": "31",
-      "mes": "Dez",
-      "ano": 2026,
-      "titulo": "e RECESSO ACADÊMICO E ADMINISTRATIVO para todos os campi – Feriado Nacional",
-      "tag": "feriado"
+      "tag": "outro",
+      "dia_fim": null
     }
   ],
   "colegiado_cecomp": [
@@ -3554,5 +4074,298 @@
   },
   "avisos_siga": [
     "BLOQUEIO DE ACESSO/SENHA BLOQUEADA — A funcionalidade ESQUECEU SUA SENHA não funciona, para DESBLOQUEIO: * se for discente, solicite ao SIC do seu campus; * se for docente/técnico, solicite à SRCA. Verifique os contatos na página da SRCA (https://portais.univasf.edu.br/srca)"
-  ]
+  ],
+  "srca_contatos": [
+    {
+      "campus": "Campus Petrolina (Sede)",
+      "email": "sicpnz.srca@univasf.edu.br",
+      "endereco": "Av. José de Sá Maniçoba, S/N – Centro – CEP 56304-917, Petrolina-PE",
+      "horario_presencial": "08h às 14h - Segunda e Sexta 08h às 12h - 13h às 17h - Quarta e Quinta"
+    },
+    {
+      "campus": "Campus Ciências Agrárias",
+      "email": "siccca.srca@univasf.edu.br",
+      "endereco": "Rodovia BR 407, KM 12, Lote 543 – PSNC, S/N – C1, Petrolina-PE",
+      "horario_presencial": "No CCA apenas remoto (servidor lotado em SRN)"
+    },
+    {
+      "campus": "Campus Juazeiro",
+      "email": "sicjzr.srca@univasf.edu.br",
+      "endereco": "Av. Antônio Carlos Magalhães, Nº 510, Country Club, Juazeiro-BA",
+      "horario_presencial": "08h às 12h - 14h às 18h - Terça e Quinta"
+    },
+    {
+      "campus": "Campus Senhor do Bonfim",
+      "email": "sicsbf.srca@univasf.edu.br",
+      "endereco": "Rua Tomaz Guimarães, 45, Derba, Senhor do Bonfim-BA",
+      "horario_presencial": "08h às 12h - 13h às 17h - Segunda e Quarta 12h às 16h - 17h às 21h - Quarta e Quinta"
+    },
+    {
+      "campus": "Campus Paulo Afonso",
+      "email": "sicpaf.srca@univasf.edu.br",
+      "endereco": "Rua da Liberdade, S/N, Sal Torrado, Paulo Afonso-BA",
+      "horario_presencial": null
+    },
+    {
+      "campus": "Campus Serra da Capivara (São Raimundo Nonato)",
+      "email": "sicsrn.srca@univasf.edu.br",
+      "endereco": "Rua João Ferreira dos Santos, S/N, Bairro Campestre, São Raimundo Nonato-PI",
+      "horario_presencial": "13h às 17h - 18h às 22h - Segunda e Terça 13h às 17h - 18h às 22h - Quinta 08h às 12h - 14h ás 18h - Sexta"
+    },
+    {
+      "campus": "Campus Salgueiro",
+      "email": "sicsal.srca@univasf.edu.br",
+      "endereco": "Av. Antônio Angelim, 570, 2º andar Shopping, Santo Antônio, Salgueiro-PE",
+      "horario_presencial": null
+    },
+    {
+      "campus": "SEAD",
+      "email": "sic.sead@univasf.edu.br",
+      "endereco": "Av. José de Sá Maniçoba, S/N, Centro, Petrolina-PE",
+      "horario_presencial": null
+    }
+  ],
+  "srca_atendimento_presencial": [
+    {
+      "setor": "Diretoria SRCA",
+      "horario": "Licença e Férias --",
+      "email": "dara.srca@univasf.edu.br",
+      "whatsapp": "(87)991087945"
+    },
+    {
+      "setor": "Coordenação Registro Acadêmico Graduação",
+      "horario": "09h às 12h - 13h às 18h  - Quarta e Quinta PGD integral PGD integral PGD integral PGD integral",
+      "email": "crag.srca@univasf.edu.br",
+      "whatsapp": "(87) 9 9619 4367 - Josenita (87) 9 9935 9362 - Andrea (87) 9 8137 7365 - Sara (74) 9 9137 4003 - Sinivaldo (81) 9 9903 1494 - Renilson"
+    },
+    {
+      "setor": "Coordenação de Registro Acadêmico de Pós-Graduação",
+      "horario": "08h30 às 14h - Segunda e Sexta 09h às 14h - Quarta 08h às 12h - 13h às 17h - Terça e Quarta",
+      "email": "crapg.srca@univasf.edu.br",
+      "whatsapp": "(87) 9 9150  8850 - Iolanda (87) 9 8813 6056 - Vladson"
+    },
+    {
+      "setor": "Divisão de Assuntos Educacionais",
+      "horario": "08h às 12h - 14h às 18h - Terça e Quarta 10h às 12h - 13h às 18h - Terça-feira 07h às 12h - 13h às 17h - Quarta-feira",
+      "email": "dae.srca@univasf.edu.br",
+      "whatsapp": "(61)999433768 - Charles (87)999471353 - Varlyson"
+    },
+    {
+      "setor": "Divisão de Acervo Acadêmico",
+      "horario": "13h30 às 17h30 - Segunda a quinta",
+      "email": "daa.srca@univasf.edu.br",
+      "whatsapp": "(87)988113076"
+    },
+    {
+      "setor": "Recepção SRCA",
+      "horario": "08h às 13h - Terça e Quinta",
+      "email": "srca@univasf.edu.br",
+      "whatsapp": "(87)991112764"
+    },
+    {
+      "setor": "Diretoria de Seleção e Ingresso Discente",
+      "horario": "09h às 13h - 14h às 18h -Terça e Quinta · PGD Integral",
+      "email": "sid.srca@univasf.edu.br",
+      "whatsapp": "(87)996377238 - Antonia"
+    }
+  ],
+  "proae_auxilios": [
+    {
+      "nome": "Auxílio Alimentação",
+      "valor": "R$250",
+      "criterio": "renda per capita de até um salário minimo e meio",
+      "campi": [
+        "Senhor do Bonfim",
+        "Paulo Afonso",
+        "Serra da Capivara",
+        "Salgueiro"
+      ],
+      "acumula_com": [
+        "Auxílio Creche, Residência Estudantil"
+      ],
+      "nao_acumula_com": [
+        "Bolsa Permanência da Univasf"
+      ],
+      "duracao_dias": 120,
+      "inscricao_online": true,
+      "url": "https://portais.univasf.edu.br/proae/servicos-proae/auxilio-alimentacao"
+    },
+    {
+      "nome": "Auxílio Permanência UNIVASF",
+      "valor": "R$250,00",
+      "criterio": "renda per capita de até um salário minimo",
+      "campi": [
+        "Petrolina",
+        "Ciências Agrárias",
+        "Juazeiro"
+      ],
+      "acumula_com": [
+        "Auxílio Creche, Auxílio Alimentação e Restaurante Universitário",
+        "com Bolsas Acadêmicas como Pibid, Pibic, etc"
+      ],
+      "nao_acumula_com": [
+        "Bolsa Permanência do MEC e Residência Estudantil"
+      ],
+      "duracao_dias": 120,
+      "inscricao_online": true,
+      "url": "https://portais.univasf.edu.br/proae/servicos-proae/auxilio-permanencia"
+    },
+    {
+      "nome": "Bolsa Permanência UNIVASF",
+      "valor": "R$500,00",
+      "criterio": "renda per capita de até um salário minimo e meio",
+      "campi": [
+        "Senhor do Bonfim",
+        "Paulo Afonso",
+        "Serra da Capivara",
+        "Salgueiro"
+      ],
+      "acumula_com": [
+        "Bolsas Acadêmicas como Pibid, Pibic, etc"
+      ],
+      "nao_acumula_com": [
+        "Auxílio Alimentação, Auxílio Transporte, Auxílio Moradia/Residência Estudantil e Bolsa Permanência do MEC"
+      ],
+      "duracao_dias": 120,
+      "inscricao_online": true,
+      "url": "https://portais.univasf.edu.br/proae/servicos-proae/bolsa-permanencia-univasf"
+    },
+    {
+      "nome": "Bolsa Permanência MEC — Indígenas e Quilombolas",
+      "valor": "R$1.400,00",
+      "criterio": null,
+      "campi": [],
+      "acumula_com": [
+        "Restaurante Universitário, PRograma Inclusão Digital,  bolsas  de natureza Acadêmicas e de Extensão como Pibid, Pibic, Pibex etc"
+      ],
+      "nao_acumula_com": [
+        "Bolsa Permanência da UNIVASF, Auxílio Permanência UNIVASF, Auxílio Creche Univasf e Residência Estudantil"
+      ],
+      "duracao_dias": null,
+      "inscricao_online": true,
+      "url": "https://portais.univasf.edu.br/proae/servicos-proae/bolsa-permanencia-mec-indigena-e-quilombola"
+    },
+    {
+      "nome": "Bolsa Permanência MEC — Estudantes de Medicina",
+      "valor": "R$ 700,00",
+      "criterio": null,
+      "campi": [
+        "Paulo Afonso"
+      ],
+      "acumula_com": [
+        "Restaurante Universitário, PRograma Inclusão Digital,  bolsas  de natureza Acadêmicas e de Extensão como Pibid, Pibic, Pibex etc"
+      ],
+      "nao_acumula_com": [
+        "Bolsa Permanência da UNIVASF, Auxílio Permanência UNIVASF, Auxílio Creche Univasf e Residência Estudantil"
+      ],
+      "duracao_dias": null,
+      "inscricao_online": true,
+      "url": "https://portais.univasf.edu.br/proae/servicos-proae/bolsa-permanencia-mec-indigena-e-quilombola"
+    }
+  ],
+  "contatos_setores": {
+    "proae": [
+      {
+        "setor": "Horário de atendimento",
+        "email": null,
+        "telefone": null,
+        "texto": "8h às 12 e das 14h às 18h"
+      },
+      {
+        "setor": "Pró-reitoria",
+        "email": "proae@univasf.edu.br",
+        "telefone": null,
+        "texto": "proae@univasf.edu.br"
+      },
+      {
+        "setor": "Diretoria de Restaurantes Bolsas e Auxílios",
+        "email": "pagamento.proae@univasf.edu.br",
+        "telefone": null,
+        "texto": "pagamento.proae@univasf.edu.br (pagamento de bolsas e auxílios do PAE) - (87) 99119-5098 transporte.proae@univasf.edu.br  (transporte intercampi) - (87) 99904-4694"
+      },
+      {
+        "setor": "Restaurante Universitário — Campus Petrolina Sede — Campus Juazeiro/BA — Campus Ciências Agrárias",
+        "email": "ru@univasf.edu.br",
+        "telefone": null,
+        "texto": "ru@univasf.edu.br (restaurantes universitários)"
+      },
+      {
+        "setor": "Diretoria  de Assuntos Estudantis",
+        "email": "caes.proae@univasf.edu.br",
+        "telefone": null,
+        "texto": "caes.proae@univasf.edu.br  - (87) 99903-1297"
+      },
+      {
+        "setor": "Serviço Social",
+        "email": "servicosocialproae@univasf.edu.br",
+        "telefone": null,
+        "texto": "servicosocialproae@univasf.edu.br  - (87) 99903-1297   e (89) 99427-6506 ( específico para o campus de SRN)"
+      },
+      {
+        "setor": "Residências Estudantis",
+        "email": "residencia.cca@univasf.edu.br",
+        "telefone": null,
+        "texto": "residencia.cca@univasf.edu.br (residencia estudantil campus ciências agrárias) residencia.srn@univasf.edu.br (residencia estudantil campus São Raimundo Nonato) residenciaestudantil.paf@univasf.edu.br (residencia estudantil campus Paulo Afonso)"
+      }
+    ],
+    "proen": [
+      {
+        "setor": "Pró-reitoria de Ensino - PROEN",
+        "email": "proen@univasf.edu.br",
+        "telefone": "(87) 99172-2552"
+      },
+      {
+        "setor": "Diretoria de Planejamento de  Ensino - DPE",
+        "email": "dpe@univasf.edu.br",
+        "telefone": "(87) 98867-4932"
+      },
+      {
+        "setor": "Diretoria de Programas Especiais de Graduação - DPEG",
+        "email": "dpeg.proen@univasf.edu.br",
+        "telefone": "(87) 99944-0286"
+      },
+      {
+        "setor": "Coordenação Pedagógica - CP — Campus Petrolina",
+        "email": "coordenacaopedagogica@univasf.edu.br",
+        "telefone": "(87) 93300-6453 / (87) 93300-6453"
+      },
+      {
+        "setor": "Coordenação Pedagógica - CP — Campus Senhor do Bonfim",
+        "email": "coordenacaopedagogica.sbf@univasf.edu.br",
+        "telefone": "(71) 99238-3689"
+      },
+      {
+        "setor": "Coordenação Pedagógica - CP — Campus Serra da Capivara",
+        "email": "coordenacaopedagogica.srn@univasf.edu.br",
+        "telefone": "(89) 9971-7970"
+      },
+      {
+        "setor": "Coordenação Pedagógica - CP — Campus Paulo Afonso",
+        "email": "coordenacaopedagogica.pa@univasf.edu.br",
+        "telefone": null
+      }
+    ],
+    "proex": [
+      {
+        "setor": "Secretaria Administrativa",
+        "email": "proex@univasf.edu.br",
+        "telefone": null
+      },
+      {
+        "setor": "Departamento de Extensão - DEX",
+        "email": "proex.dex@univasf.edu.br",
+        "telefone": null
+      },
+      {
+        "setor": "Departamento de Arte, Cultura e Ações Comunitárias - DACC",
+        "email": "proex.dacc@univasf.edu.br",
+        "telefone": null
+      },
+      {
+        "setor": "Espaço Plural da Univasf",
+        "email": "espacoplural@univasf.edu.br",
+        "telefone": null
+      }
+    ]
+  }
 }

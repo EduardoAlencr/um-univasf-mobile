@@ -56,17 +56,37 @@ class _GradeUploadScreenState extends State<GradeUploadScreen> {
       // Só PDF tem texto extraível — imagem (print) fica só guardada/aberta,
       // sem tentar montar a grade automaticamente (evita OCR impreciso).
       final parseada = mimeType == 'application/pdf' ? await parsearGradePdf(bytes) : null;
-      await salvarGradeArquivo(uid, nomeArquivo: arquivo.name, mimeType: mimeType, bytes: bytes, parseada: parseada);
+      final montouAutomatico = parseada != null && parseada.temAulas;
+      // Quando não montou e é PDF, checa se o motivo é "sem texto nenhum"
+      // (PDF de imagem/captura de tela) pra avisar isso especificamente.
+      final pdfSemTexto = !montouAutomatico && mimeType == 'application/pdf' && !await pdfTemTextoExtraivel(bytes);
+      final arquivoSalvo = GradeArquivo(
+        nomeArquivo: arquivo.name,
+        mimeType: mimeType,
+        bytes: bytes,
+        enviadoEm: DateTime.now(),
+        parseada: parseada,
+        pdfSemTexto: pdfSemTexto,
+      );
+      await salvarGradeArquivo(
+        uid,
+        nomeArquivo: arquivoSalvo.nomeArquivo,
+        mimeType: arquivoSalvo.mimeType,
+        bytes: arquivoSalvo.bytes,
+        parseada: arquivoSalvo.parseada,
+        pdfSemTexto: arquivoSalvo.pdfSemTexto,
+      );
       await auth.setHasGrade(true);
       if (!mounted) return;
-      final montouAutomatico = parseada != null && parseada.temAulas;
       showUmToast(
         context,
         montouAutomatico
             ? 'Grade enviada e organizada automaticamente!'
-            : 'Arquivo salvo, mas não conseguimos montar sua agenda automaticamente — veja os detalhes na próxima tela.',
+            : pdfSemTexto
+                ? 'Este PDF parece ser uma imagem (print/captura de tela) — veja como exportar certo na próxima tela.'
+                : 'Arquivo salvo, mas não conseguimos montar sua agenda automaticamente — veja os detalhes na próxima tela.',
       );
-      Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (_) => const GradeResultScreen()));
+      Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (_) => GradeResultScreen(arquivoInicial: arquivoSalvo)));
     } catch (e) {
       if (mounted) showUmToast(context, 'Falha ao enviar o arquivo. Tente novamente.');
     } finally {

@@ -223,13 +223,17 @@ List<Edital> editais = [
 ];
 
 class CalendarEvent {
-  const CalendarEvent({required this.day, required this.month, required this.title, required this.desc, this.tag = 'outro', this.year});
+  const CalendarEvent({required this.day, required this.month, required this.title, required this.desc, this.tag = 'outro', this.year, this.dayEnd});
   final String day;
   final String month;
   final String title;
   final String desc;
   final String tag; // 'feriado' | 'recesso' | 'matricula' | 'avaliacao' | 'outro'
   final int? year;
+
+  /// Último dia de um intervalo (ex. "15 a 22") — nulo quando o evento é
+  /// de um único dia.
+  final String? dayEnd;
 }
 
 List<CalendarEvent> calendarEvents = [
@@ -249,19 +253,131 @@ const calendarEventDays = {29};
 const calendarTodayDay = 26;
 
 class SicContact {
-  const SicContact({required this.campus, required this.email});
+  const SicContact({required this.campus, required this.email, this.endereco, this.horarioPresencial});
   final String campus;
   final String email;
+  final String? endereco;
+
+  /// Horário de atendimento presencial (regime PGD/teletrabalho), coletado
+  /// da página oficial. Nulo quando não há horário regular identificado
+  /// pro campus (ex. período de férias de quem atende, sem substituto
+  /// definido) — nunca um horário inventado ou genérico.
+  final String? horarioPresencial;
 }
 
 /// Contatos do SIC (Serviço de Informação ao Cidadão) por campus, vinculados
 /// à SRCA — cada campus/colegiado tem seu próprio e-mail de atendimento.
-const sicContacts = [
-  SicContact(campus: 'Ciências Agrárias', email: 'siccca.srca@univasf.edu.br'),
-  SicContact(campus: 'Juazeiro', email: 'sicjzr.srca@univasf.edu.br'),
-  SicContact(campus: 'Salgueiro', email: 'sicsal.srca@univasf.edu.br'),
-  SicContact(campus: 'Senhor do Bonfim', email: 'sicsbf.srca@univasf.edu.br'),
-  SicContact(campus: 'Serra da Capivara', email: 'sicsrn.srca@univasf.edu.br'),
-  SicContact(campus: 'Paulo Afonso', email: 'sicpaf.srca@univasf.edu.br'),
-  SicContact(campus: 'SEAD', email: 'sic.sead@univasf.edu.br'),
+/// Lista de exemplo até o scraper rodar (`_aplicarSrcaContatos`); o valor
+/// real substitui esta lista inteira, sem mesclar.
+List<SicContact> sicContacts = [
+  SicContact(
+    campus: 'Petrolina (Sede)',
+    email: 'sicpnz.srca@univasf.edu.br',
+    endereco: 'Av. José de Sá Maniçoba, S/N – Centro – CEP 56304-917, Petrolina-PE',
+  ),
+  SicContact(
+    campus: 'Ciências Agrárias',
+    email: 'siccca.srca@univasf.edu.br',
+    endereco: 'Rodovia BR 407, KM 12, Lote 543 – PSNC, S/N – C1, Petrolina-PE',
+  ),
+  SicContact(
+    campus: 'Juazeiro',
+    email: 'sicjzr.srca@univasf.edu.br',
+    endereco: 'Av. Antônio Carlos Magalhães, Nº 510, Country Club, Juazeiro-BA',
+  ),
+  SicContact(
+    campus: 'Senhor do Bonfim',
+    email: 'sicsbf.srca@univasf.edu.br',
+    endereco: 'Rua Tomaz Guimarães, 45, Derba, Senhor do Bonfim-BA',
+  ),
+  SicContact(
+    campus: 'Paulo Afonso',
+    email: 'sicpaf.srca@univasf.edu.br',
+    endereco: 'Rua da Liberdade, S/N, Sal Torrado, Paulo Afonso-BA',
+  ),
+  SicContact(
+    campus: 'Serra da Capivara',
+    email: 'sicsrn.srca@univasf.edu.br',
+    endereco: 'Rua João Ferreira dos Santos, S/N, Bairro Campestre, São Raimundo Nonato-PI',
+  ),
+  SicContact(
+    campus: 'Salgueiro',
+    email: 'sicsal.srca@univasf.edu.br',
+    endereco: 'Av. Antônio Angelim, 570, 2º andar Shopping, Santo Antônio, Salgueiro-PE',
+  ),
+  SicContact(
+    campus: 'SEAD',
+    email: 'sic.sead@univasf.edu.br',
+    endereco: 'Av. José de Sá Maniçoba, S/N, Centro, Petrolina-PE',
+  ),
 ];
+
+/// Um auxílio/bolsa de permanência da PROAE — valor, critério e campi em
+/// texto livre, extraídos da própria página oficial (não normatizados),
+/// já que a redação de cada edital varia.
+class AuxilioProae {
+  const AuxilioProae({
+    required this.nome,
+    this.valor,
+    this.criterio,
+    this.campi = const [],
+    this.acumulaCom = const [],
+    this.naoAcumulaCom = const [],
+    this.duracaoDias,
+    this.inscricaoOnline = false,
+    required this.url,
+  });
+  final String nome;
+  final String? valor;
+  final String? criterio;
+  final List<String> campi;
+
+  /// Com quais outros auxílios/bolsas pode acumular, em texto livre tal
+  /// como aparece na página oficial (ex. "Auxílio Creche, Residência
+  /// Estudantil").
+  final List<String> acumulaCom;
+  final List<String> naoAcumulaCom;
+
+  /// Duração aproximada do processo seletivo completo, em dias.
+  final int? duracaoDias;
+  final bool inscricaoOnline;
+  final String url;
+}
+
+/// Auxílios/bolsas da PROAE, coletados das páginas oficiais. Vazio até o
+/// scraper rodar — sem exemplo mocado (valor/critério errado seria pior
+/// que não mostrar nada, já que é informação financeira).
+List<AuxilioProae> auxiliosProae = [];
+
+/// Contato de um setor interno de uma pró-reitoria (PROAE, PROEN, PROEX) ou
+/// da SRCA — e-mail/telefone/WhatsApp, coletados das páginas oficiais de
+/// contato de cada setor. `telefone` cobre tanto telefone fixo quanto
+/// WhatsApp, como vem na fonte (às vezes é o mesmo número pros dois).
+class ContatoSetor {
+  const ContatoSetor({required this.setor, this.email, this.telefone, this.texto, this.horario});
+  final String setor;
+  final String? email;
+  final String? telefone;
+
+  /// Texto completo coletado (quando o setor tem mais de um e-mail/telefone
+  /// na mesma seção da página oficial) — usado pra não perder informação
+  /// quando `email`/`telefone` só conseguem capturar o primeiro valor.
+  final String? texto;
+
+  /// Horário de atendimento presencial (regime PGD) — só preenchido pros
+  /// setores internos da SRCA, que vêm da tabela do PGD Teletrabalho.
+  final String? horario;
+}
+
+/// Contatos por setor, agrupados por pró-reitoria/órgão. Vazios até o
+/// scraper rodar.
+List<ContatoSetor> contatosProae = [];
+List<ContatoSetor> contatosProen = [];
+List<ContatoSetor> contatosProex = [];
+
+/// Atendimento presencial dos setores internos da SRCA (Diretoria,
+/// Coordenações de Registro Acadêmico, Divisões, Recepção, Diretoria de
+/// Seleção e Ingresso Discente) — mesma tabela PGD Teletrabalho que
+/// alimenta `SicContact.horarioPresencial`, só que pros setores internos
+/// em vez dos SICs por campus.
+List<ContatoSetor> srcaAtendimentoInterno = [];

@@ -16,7 +16,15 @@ import '../navigation/go_profile.dart';
 import 'grade_upload_screen.dart';
 
 class GradeResultScreen extends StatefulWidget {
-  const GradeResultScreen({super.key});
+  const GradeResultScreen({super.key, this.arquivoInicial});
+
+  /// Quando vem de um envio recém-feito (`GradeUploadScreen`), evita buscar
+  /// de novo no Firestore logo após salvar — essa busca imediata podia
+  /// correr com a propagação da escrita e, ocasionalmente, voltar vazia
+  /// mesmo com o arquivo já salvo, fazendo a tela mostrar "nenhuma grade
+  /// enviada" por engano. Sem esse parâmetro (reentrada normal pelo hub),
+  /// busca no Firestore como antes.
+  final GradeArquivo? arquivoInicial;
 
   @override
   State<GradeResultScreen> createState() => _GradeResultScreenState();
@@ -28,7 +36,7 @@ class _GradeResultScreenState extends State<GradeResultScreen> {
   @override
   void initState() {
     super.initState();
-    _futuro = _carregar();
+    _futuro = widget.arquivoInicial != null ? Future.value(widget.arquivoInicial) : _carregar();
   }
 
   Future<GradeArquivo?> _carregar() async {
@@ -145,9 +153,11 @@ class _GradeResultScreenState extends State<GradeResultScreen> {
   }
 
   List<Widget> _conteudoSomenteArquivo(GradeArquivo arquivo) {
-    final motivo = arquivo.mimeType == 'application/pdf'
-        ? 'Não conseguimos montar sua grade automaticamente a partir desse PDF — o formato pode ser diferente do padrão do SIG@.'
-        : 'Imagens não têm texto extraível, então a grade não é montada automaticamente — só o arquivo fica salvo.';
+    final motivo = arquivo.pdfSemTexto
+        ? 'Este PDF parece ser uma imagem (print ou foto da tela), não um arquivo de texto exportado do SIG@ — por isso não tem nada pra ler automaticamente. Abra a Grade de Horário no SIG@ e use a opção de imprimir/exportar como PDF do navegador (não uma captura de tela), depois envie de novo.'
+        : arquivo.mimeType == 'application/pdf'
+            ? 'Não conseguimos montar sua grade automaticamente a partir desse PDF — o formato pode ser diferente do padrão do SIG@.'
+            : 'Imagens não têm texto extraível, então a grade não é montada automaticamente — só o arquivo fica salvo.';
     return [
       Text('Minha Grade de Horários', style: Theme.of(context).textTheme.headlineMedium),
       const SizedBox(height: 4),

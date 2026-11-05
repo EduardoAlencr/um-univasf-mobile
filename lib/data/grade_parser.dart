@@ -48,6 +48,22 @@ final _regexDisciplinaLinha = RegExp(
 /// Retorna `null` se o arquivo não tiver a estrutura esperada — nesse
 /// caso o app deve só guardar/exibir o arquivo original, sem inventar
 /// disciplinas ou horários.
+/// Verifica rapidamente se o PDF tem algum texto extraível, sem tentar
+/// montar a grade — usado só pra diferenciar, numa falha de [parsearGradePdf],
+/// "este PDF é uma imagem/captura de tela" (zero texto, sem OCR não dá pra
+/// ler) de "o PDF tem texto, mas não bate com o formato esperado da Grade
+/// de Horário do SIG@" — mensagens de erro bem diferentes pro usuário.
+Future<bool> pdfTemTextoExtraivel(Uint8List bytes) async {
+  try {
+    final doc = await PdfDocument.openData(bytes, sourceName: 'grade.pdf');
+    if (doc.pages.isEmpty) return false;
+    final texto = await doc.pages.first.loadStructuredText();
+    return texto.fullText.trim().length > 30;
+  } catch (_) {
+    return false;
+  }
+}
+
 Future<GradeParseada?> parsearGradePdf(Uint8List bytes) async {
   PdfDocument? doc;
   try {

@@ -46,7 +46,7 @@ PALAVRAS_TAG = [
     ("exame", "avaliacao"),
 ]
 
-DIA_RE = re.compile(r"^(\d{1,2})(?:/(\d{1,2}))?(?:\s*(?:a|e|,)\s*(\d{1,2})(?:/(\d{1,2}))?)?")
+DIA_RE = re.compile(r"^(\d{1,2})(?:/(\d{1,2}))?(?:\s*(?:a|à|e|,)\s*(\d{1,2})(?:/(\d{1,2}))?)?")
 
 # Palavra em maiúsculas isolada (não colada a minúscula antes/depois) — usada
 # para reconstruir o nome do mês quando o layout do PDF quebra o texto do
@@ -62,6 +62,7 @@ class EventoCalendario:
     ano: int
     titulo: str
     tag: str
+    dia_fim: str | None = None
 
     def as_date(self) -> date | None:
         try:
@@ -116,6 +117,30 @@ def _identificar_mes_ano(texto_tabela: str) -> tuple[str, int] | None:
     return None
 
 
+_CONECTIVOS_SOLTOS = {"a", "à", "e", "de", "da", "do", "das", "dos", "º", "ª", "conuni", "conuni."}
+
+
+def _texto_valido(texto: str) -> bool:
+    """Mesmo filtro de ruído de sempre (cabeçalho solto, só números,
+    sigla curta em caixa alta...), só que aplicado ao bloco inteiro de uma
+    atividade em vez de uma única linha."""
+    if len(texto) < 6:
+        return False
+    if texto.upper() == texto and len(texto.split()) <= 2:
+        return False
+    if re.fullmatch(r"[\d\s]+", texto):
+        return False
+    if not re.search(r"[A-Za-zÀ-ÿ]{3,}", texto):
+        return False
+    # Começa com um conectivo solto (ex. "a participaram...") — sinal de
+    # que é a continuação de uma atividade anterior que quebrou de forma
+    # estranha no PDF, não uma atividade nova de verdade.
+    primeira_palavra = texto.split(" ", 1)[0].lower().rstrip(".")
+    if primeira_palavra in _CONECTIVOS_SOLTOS:
+        return False
+    return True
+
+
 def _extrair_eventos_tabela(texto_tabela: str, nome_mes_pt: str, ano_mes: int) -> list[EventoCalendario]:
     eventos: list[EventoCalendario] = []
     if nome_mes_pt.lower()[:3] not in MESES:
@@ -125,28 +150,33 @@ def _extrair_eventos_tabela(texto_tabela: str, nome_mes_pt: str, ano_mes: int) -
     partes = re.split(r"\bDIAS\s+ATIVIDADES\b", texto_tabela, maxsplit=1)
     corpo = partes[1] if len(partes) > 1 else texto_tabela
 
+    # Cada atividade pode quebrar em várias linhas (colunas estreitas no
+    # PDF) — por isso agrupamos em blocos: uma linha que começa com um dia
+    # abre um novo bloco, e as linhas seguintes (sem dia no início) são
+    # continuação do texto da mesma atividade, até o próximo bloco.
+    blocos: list[tuple[re.Match, list[str]]] = []
     for linha in corpo.splitlines():
         linha = linha.strip()
+        if not linha:
+            continue
         m = DIA_RE.match(linha)
-        if not m or len(linha) < 8:
-            continue
-        dia_num = m.group(1)
-        resto = linha[m.end():].strip(" -–")
-        if len(resto) < 6:
-            continue
-        if resto.upper() == resto and len(resto.split()) <= 2:
-            continue
-        if re.fullmatch(r"[\d\s]+", resto):
-            continue
-        if not re.search(r"[A-Za-zÀ-ÿ]{3,}", resto):
+        if m and m.group(1):
+            blocos.append((m, [linha[m.end():].strip(" -–")]))
+        elif blocos:
+            blocos[-1][1].append(linha)
+
+    for m, linhas_resto in blocos:
+        resto = " ".join(l for l in linhas_resto if l).strip(" -–")
+        if not _texto_valido(resto):
             continue
         eventos.append(
             EventoCalendario(
-                dia=dia_num.zfill(2),
+                dia=m.group(1).zfill(2),
                 mes=nome_mes_pt.capitalize()[:3],
                 ano=ano_mes,
-                titulo=resto[:140],
+                titulo=resto[:300],
                 tag=_classificar_tag(resto),
+                dia_fim=m.group(3).zfill(2) if m.group(3) else None,
             )
         )
     return eventos
@@ -176,7 +206,7 @@ def _extrair_eventos_pagina(pagina) -> list[EventoCalendario]:
     return eventos
 
 
-def raspar_calendario(janela_dias: int = 60) -> list[dict]:
+def raspar_calendario(dias_passado: int = 400, dias_futuro: int = 400) -> list[dict]:
     pdf_url = _achar_pdf_calendario()
     if not pdf_url:
         return []
@@ -198,12 +228,16 @@ def raspar_calendario(janela_dias: int = 60) -> list[dict]:
         return []
 
     hoje = date.today()
-    limite = hoje + timedelta(days=janela_dias)
+    # Janela larga (padrão ~13 meses pra cada lado) só pra descartar lixo de
+    # OCR/parse com data absurda — o calendário acadêmico (passado e futuro
+    # dentro do ano corrente) fica todo disponível, não só os próximos dias.
+    limite_passado = hoje - timedelta(days=dias_passado)
+    limite_futuro = hoje + timedelta(days=dias_futuro)
     eventos_na_janela = []
     vistos = set()
     for e in eventos:
         d = e.as_date()
-        if d is None or not (hoje <= d <= limite):
+        if d is None or not (limite_passado <= d <= limite_futuro):
             continue
         chave = (e.dia, e.mes, e.ano, e.titulo)
         if chave in vistos:

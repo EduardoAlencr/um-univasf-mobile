@@ -14,6 +14,7 @@ class GradeArquivo {
     required this.bytes,
     required this.enviadoEm,
     this.parseada,
+    this.pdfSemTexto = false,
   });
 
   final String nomeArquivo;
@@ -23,6 +24,12 @@ class GradeArquivo {
 
   /// A grade extraída automaticamente do PDF, se o formato foi reconhecido.
   final GradeParseada? parseada;
+
+  /// true quando o PDF enviado não tinha nenhum texto extraível (típico de
+  /// um PDF gerado a partir de print/captura de tela, não exportado de
+  /// verdade pelo SIG@) — usado só pra mostrar uma mensagem de erro mais
+  /// específica do que "formato não reconhecido".
+  final bool pdfSemTexto;
 }
 
 /// ~700KB de arquivo original — sobra margem pro overhead de ~33% do
@@ -37,6 +44,7 @@ Future<void> salvarGradeArquivo(
   required String mimeType,
   required Uint8List bytes,
   GradeParseada? parseada,
+  bool pdfSemTexto = false,
 }) {
   return _doc(uid).set({
     'hasGrade': true,
@@ -46,6 +54,7 @@ Future<void> salvarGradeArquivo(
       'base64': base64Encode(bytes),
       'enviadoEm': Timestamp.now(),
       'parseada': parseada == null ? null : _serializarGradeParseada(parseada),
+      'pdfSemTexto': pdfSemTexto,
     },
   }, SetOptions(merge: true));
 }
@@ -60,6 +69,7 @@ Future<GradeArquivo?> lerGradeArquivo(String uid) async {
     bytes: base64Decode(dados['base64'] as String? ?? ''),
     enviadoEm: (dados['enviadoEm'] as Timestamp?)?.toDate() ?? DateTime.now(),
     parseada: _desserializarGradeParseada(dados['parseada'] as Map<String, dynamic>?),
+    pdfSemTexto: dados['pdfSemTexto'] as bool? ?? false,
   );
 }
 

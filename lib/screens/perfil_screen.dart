@@ -6,8 +6,13 @@ import '../widgets/app_card.dart';
 import '../widgets/confirm_dialog.dart';
 import '../widgets/pill_button.dart';
 import '../widgets/um_toast.dart';
+import '../util/abrir_link.dart';
+import 'canais_emergencia_screen.dart';
+import 'contatos_universidade_screen.dart';
 import 'sobre_screen.dart';
 import 'termos_screen.dart';
+
+const _urlGuiaEstudante = 'https://drive.google.com/file/d/1Vgzk9IKUBo2QvuLkFp_W5VUnVfP0qxbc/view?usp=drive_link';
 
 class PerfilScreen extends StatelessWidget {
   const PerfilScreen({super.key});
@@ -162,6 +167,42 @@ class PerfilScreen extends StatelessWidget {
                     },
                     child: const Text('Excluir', style: TextStyle(color: Color(0xFFB3402F), fontWeight: FontWeight.w800, fontSize: 12)),
                   ),
+                  showBorder: false,
+                ),
+              ],
+            ),
+          ),
+          AppCard(
+            onTap: () => Navigator.of(context).push(MaterialPageRoute(builder: (_) => const ContatosUniversidadeScreen())),
+            child: const Column(
+              children: [
+                _SettingRow(
+                  label: '📇 Contatos da Universidade',
+                  trailing: Icon(Icons.chevron_right_rounded, color: AppColors.ink2),
+                  showBorder: false,
+                ),
+              ],
+            ),
+          ),
+          AppCard(
+            onTap: () => Navigator.of(context).push(MaterialPageRoute(builder: (_) => const CanaisEmergenciaScreen())),
+            child: const Column(
+              children: [
+                _SettingRow(
+                  label: '🆘 Canais de Apoio e Emergência',
+                  trailing: Icon(Icons.chevron_right_rounded, color: AppColors.ink2),
+                  showBorder: false,
+                ),
+              ],
+            ),
+          ),
+          AppCard(
+            onTap: () => abrirLink(context, _urlGuiaEstudante),
+            child: const Column(
+              children: [
+                _SettingRow(
+                  label: '📘 Guia do Estudante (Proen)',
+                  trailing: Icon(Icons.open_in_new_rounded, color: AppColors.ink2),
                   showBorder: false,
                 ),
               ],
