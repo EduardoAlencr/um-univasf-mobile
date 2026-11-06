@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:open_filex/open_filex.dart';
 import 'package:path_provider/path_provider.dart';
@@ -32,17 +33,43 @@ class GradeResultScreen extends StatefulWidget {
 
 class _GradeResultScreenState extends State<GradeResultScreen> {
   late Future<GradeArquivo?> _futuro;
+  String? _uid;
+  bool _futuroInicializado = false;
 
   @override
   void initState() {
     super.initState();
-    _futuro = widget.arquivoInicial != null ? Future.value(widget.arquivoInicial) : _carregar();
+    if (widget.arquivoInicial != null) {
+      _futuro = Future.value(widget.arquivoInicial);
+      _futuroInicializado = true;
+    }
+  }
+
+  // AuthScope.of(context) usa dependOnInheritedWidgetOfExactType, que o
+  // Flutter proíbe chamar dentro de initState() (o elemento ainda não
+  // terminou de ser montado nesse ponto) — por isso o uid é lido aqui, no
+  // lugar certo do ciclo de vida pra isso, e guardado num campo. Nem
+  // _carregar() nem o botão de "tentar de novo" voltam a chamar
+  // AuthScope.of diretamente: sempre reaproveitam esse valor já lido.
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    _uid = AuthScope.of(context).user?.uid;
+    if (!_futuroInicializado) {
+      _futuroInicializado = true;
+      _futuro = _carregar();
+    }
   }
 
   Future<GradeArquivo?> _carregar() async {
-    final uid = AuthScope.of(context).user?.uid;
+    final uid = _uid;
     if (uid == null) return null;
-    return lerGradeArquivo(uid);
+    try {
+      return await lerGradeArquivo(uid);
+    } catch (e, st) {
+      if (kDebugMode) debugPrint('[grade_result_screen] ERRO ao carregar grade: $e\n$st');
+      rethrow;
+    }
   }
 
   Future<void> _abrir(GradeArquivo arquivo) async {
@@ -68,6 +95,40 @@ class _GradeResultScreenState extends State<GradeResultScreen> {
         builder: (context, snapshot) {
           if (snapshot.connectionState != ConnectionState.done) {
             return const Center(child: CircularProgressIndicator(color: AppColors.blue));
+          }
+          if (snapshot.hasError) {
+            // Falha real (ex. timeout por instabilidade de rede/servidor) —
+            // nunca mostra "nenhuma grade enviada" nesse caso: isso levaria
+            // a reenviar sem necessidade, arriscando substituir uma grade
+            // que continua salva, só não foi possível ler agora.
+            return Center(
+              child: Padding(
+                padding: const EdgeInsets.all(24),
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    const Text(
+                      'Não foi possível carregar sua grade agora (conexão instável). Seus dados continuam salvos — tente de novo em instantes.',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(color: AppColors.ink2),
+                    ),
+                    if (kDebugMode) ...[
+                      const SizedBox(height: 10),
+                      Text(
+                        '${snapshot.error}',
+                        textAlign: TextAlign.center,
+                        style: const TextStyle(fontSize: 10.5, color: Colors.redAccent),
+                      ),
+                    ],
+                    const SizedBox(height: 16),
+                    PillButton(
+                      label: 'Tentar de novo',
+                      onPressed: () => setState(() => _futuro = _carregar()),
+                    ),
+                  ],
+                ),
+              ),
+            );
           }
           final arquivo = snapshot.data;
           if (arquivo == null) {
@@ -137,7 +198,7 @@ class _GradeResultScreenState extends State<GradeResultScreen> {
                     final uid = AuthScope.of(context).user?.uid;
                     if (uid != null) await excluirGradeArquivo(uid);
                     if (!context.mounted) return;
-                    await AuthScope.of(context).setHasGrade(false);
+                    AuthScope.of(context).setHasGrade(false);
                     if (!context.mounted) return;
                     showUmToast(context, 'Grade excluída da sua conta.');
                     Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (_) => const GradeUploadScreen()));

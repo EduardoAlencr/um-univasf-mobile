@@ -1,5 +1,5 @@
 {
-  "gerado_em": "2026-11-05T16:57:50",
+  "gerado_em": "2026-11-06T12:25:23",
   "noticias_setores": [
     {
       "setor": "PROAE",
@@ -423,6 +423,34 @@
     },
     {
       "setor": "UNIVASF",
+      "titulo": "4ª Jornada de Psicologia Jurídica discute o enfrentamento às violências e as éticas do cuidado",
+      "data": "06/11/2026",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/noticias/4a-jornada-de-psicologia-juridica-discute-o-enfrentamento-as-violencias-e-as-eticas-do-cuidado"
+    },
+    {
+      "setor": "UNIVASF",
+      "titulo": "Estudantes já podem participar da pesquisa Perfil Diversidade Univasf 2026",
+      "data": "06/11/2026",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/noticias/estudantes-ja-podem-participar-da-pesquisa-perfil-diversidade-univasf-2026"
+    },
+    {
+      "setor": "UNIVASF",
+      "titulo": "Hospital Universitário da Univasf integra mutirão nacional com diversos atendimentos",
+      "data": "06/11/2026",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/noticias/hospital-universitario-da-univasf-integra-mutirao-nacional-com-diversos-atendimentos"
+    },
+    {
+      "setor": "UNIVASF",
+      "titulo": "Inscrições de chapas para eleição do Reitorado 2027-2031 da Univasf começam nesta quinta-feira (5)",
+      "data": "05/11/2026",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/noticias/inscricoes-de-chapas-para-eleicao-do-reitorado-2027-2031-da-univasf-comecam-nesta-quinta-feira-5"
+    },
+    {
+      "setor": "UNIVASF",
       "titulo": "Provas do Enem 2026 começam neste domingo (8)",
       "data": "05/11/2026",
       "resumo": "",
@@ -672,34 +700,6 @@
       "data": "16/10/2026",
       "resumo": "",
       "url": "https://portais.univasf.edu.br/noticias/nota-da-pro-reitoria-de-ensino-sobre-aulas-remotas-para-o-cca-nesta-sexta-feira-16"
-    },
-    {
-      "setor": "UNIVASF",
-      "titulo": "Univasf e Incra iniciam projeto para a regularização fundiária de 12 comunidades quilombolas de Pernambuco e Bahia",
-      "data": "15/10/2026",
-      "resumo": "",
-      "url": "https://portais.univasf.edu.br/noticias/univasf-e-incra-iniciam-projeto-para-a-regularizacao-fundiaria-de-12-comunidades-quilombolas-de-pernambuco-e-bahia"
-    },
-    {
-      "setor": "UNIVASF",
-      "titulo": "Nota de Repúdio do Colegiado de História aos ataques a docentes da Univasf",
-      "data": "15/10/2026",
-      "resumo": "",
-      "url": "https://portais.univasf.edu.br/noticias/nota-de-repudio-do-colegiado-de-historia-aos-ataques-a-docentes-da-univasf"
-    },
-    {
-      "setor": "UNIVASF",
-      "titulo": "Programa de Pós-Graduação em Ciência Animal da Univasf realiza seleção para mestrado e doutorado",
-      "data": "15/10/2026",
-      "resumo": "",
-      "url": "https://portais.univasf.edu.br/noticias/programa-de-pos-graduacao-em-ciencia-animal-da-univasf-realiza-selecao-para-mestrado-e-doutorado"
-    },
-    {
-      "setor": "UNIVASF",
-      "titulo": "HU-Univasf realiza painel sobre cuidado, educação e saúde pública na próxima quinta-feira",
-      "data": "15/10/2026",
-      "resumo": "",
-      "url": "https://portais.univasf.edu.br/noticias/hu-univasf-realiza-painel-sobre-cuidado-educacao-e-saude-publica-na-proxima-quinta-feira"
     }
   ],
   "ru_cardapio": {
@@ -1214,12 +1214,14 @@
   },
   "calendario": [
     {
-      "dia": "02",
-      "mes": "Jan",
-      "ano": 2026,
-      "titulo": "Confraternização Universal.",
-      "tag": "outro",
-      "dia_fim": null
+      "dia": "31",
+      "mes": "Dez",
+      "ano": 2025,
+      "titulo": "RECESSO ACADÊMICO E ADMINISTRATIVO para todos os campi – Feriado Nacional – Confraternização Universal.",
+      "tag": "feriado",
+      "dia_fim": "02",
+      "mes_fim": "Jan",
+      "ano_fim": 2026
     },
     {
       "dia": "17",
@@ -1227,15 +1229,39 @@
       "ano": 2026,
       "titulo": "Feriado Municipal para o campus Senhor do Bonfim – Padroeiro de Senhor do Bonfim/BA.",
       "tag": "feriado",
-      "dia_fim": null
+      "dia_fim": null,
+      "mes_fim": null,
+      "ano_fim": null
+    },
+    {
+      "dia": "01",
+      "mes": "Fev",
+      "ano": 2026,
+      "titulo": "Colação de Grau com solenidade dos formandos 2026.2, conforme Resolução nº 18/2017 - Conuni.",
+      "tag": "outro",
+      "dia_fim": null,
+      "mes_fim": null,
+      "ano_fim": null
     },
     {
       "dia": "08",
       "mes": "Fev",
       "ano": 2026,
-      "titulo": "Carnaval/Quarta-feira de Cinzas. Prazo para abertura de processo de colação de grau em gabinete para os discentes que não",
+      "titulo": "RECESSO ACADÊMICO E ADMINISTRATIVO para todos os campi – Ponto Facultativo – Carnaval/Quarta-feira de Cinzas.",
+      "tag": "recesso",
+      "dia_fim": "10",
+      "mes_fim": null,
+      "ano_fim": null
+    },
+    {
+      "dia": "22",
+      "mes": "Fev",
+      "ano": 2026,
+      "titulo": "Prazo para abertura de processo de colação de grau em gabinete para os discentes que não participaram das solenidades regulares do Período 2026.2, conforme Resolução nº 18/2017 - Conuni.",
       "tag": "outro",
-      "dia_fim": "10"
+      "dia_fim": "03",
+      "mes_fim": "Mar",
+      "ano_fim": 2026
     },
     {
       "dia": "02",
@@ -1243,71 +1269,79 @@
       "ano": 2026,
       "titulo": "Início das aulas do Período Letivo 2026.1.",
       "tag": "outro",
-      "dia_fim": null
+      "dia_fim": null,
+      "mes_fim": null,
+      "ano_fim": null
     },
     {
       "dia": "02",
       "mes": "Mar",
       "ano": 2026,
-      "titulo": "Semana de acolhimento e integração dos discentes. Registro de matrícula pela SRCA: somente disciplinas com expansão de carga horária, conforme",
-      "tag": "matricula",
-      "dia_fim": "06"
+      "titulo": "Semana de acolhimento e integração dos discentes.",
+      "tag": "outro",
+      "dia_fim": "06",
+      "mes_fim": null,
+      "ano_fim": null
     },
     {
       "dia": "04",
       "mes": "Mar",
       "ano": 2026,
-      "titulo": "requerimentos aprovados e encaminhados pelas Coordenações de Curso.",
-      "tag": "outro",
-      "dia_fim": "05"
-    },
-    {
-      "dia": "06",
-      "mes": "Mar",
-      "ano": 2026,
-      "titulo": "Feriado Estadual para os campi no Estado de Pernambuco – Data Magna de Pernambuco. Ajuste da oferta pelas Coordenações de Curso (após matrícula de retardatários e modificação de",
-      "tag": "feriado",
-      "dia_fim": null
-    },
-    {
-      "dia": "06",
-      "mes": "Mar",
-      "ano": 2026,
-      "titulo": "matrícula). Resultado das matrículas de retardatários e modificação de matrículas realizadas pelos discentes,",
+      "titulo": "Registro de matrícula pela SRCA: somente disciplinas com expansão de carga horária, conforme requerimentos aprovados e encaminhados pelas Coordenações de Curso.",
       "tag": "matricula",
-      "dia_fim": "09"
+      "dia_fim": "05",
+      "mes_fim": null,
+      "ano_fim": null
     },
     {
       "dia": "06",
       "mes": "Mar",
       "ano": 2026,
-      "titulo": "Feriado Estadual para os campi no Estado de Pernambuco – Data Magna de Pernambuco. Provável início das aulas do Período Letivo 2027.1 (data a confirmar com base no cronograma do",
+      "titulo": "Feriado Estadual para os campi no Estado de Pernambuco – Data Magna de Pernambuco.",
       "tag": "feriado",
-      "dia_fim": null
+      "dia_fim": null,
+      "mes_fim": null,
+      "ano_fim": null
+    },
+    {
+      "dia": "06",
+      "mes": "Mar",
+      "ano": 2026,
+      "titulo": "Ajuste da oferta pelas Coordenações de Curso (após matrícula de retardatários e modificação de matrícula).",
+      "tag": "matricula",
+      "dia_fim": "09",
+      "mes_fim": null,
+      "ano_fim": null
     },
     {
       "dia": "08",
       "mes": "Mar",
       "ano": 2026,
-      "titulo": "Sisu). Colação de grau em gabinete dos formandos 2026.2 que não participaram das solenidades",
+      "titulo": "Provável início das aulas do Período Letivo 2027.1 (data a confirmar com base no cronograma do Sisu).",
       "tag": "outro",
-      "dia_fim": null
+      "dia_fim": null,
+      "mes_fim": null,
+      "ano_fim": null
     },
     {
       "dia": "09",
       "mes": "Mar",
       "ano": 2026,
-      "titulo": "após as 22 horas. Colação de grau em gabinete dos formandos 2025.2 que não participaram das solenidades",
-      "tag": "outro",
-      "dia_fim": null
+      "titulo": "Resultado das matrículas de retardatários e modificação de matrículas realizadas pelos discentes, após as 22 horas.",
+      "tag": "matricula",
+      "dia_fim": null,
+      "mes_fim": null,
+      "ano_fim": null
     },
     {
       "dia": "09",
       "mes": "Mar",
       "ano": 2026,
-      "titulo": "regulares.",
+      "titulo": "Colação de grau em gabinete dos formandos 2025.2 que não participaram das solenidades regulares.",
       "tag": "outro",
-      "dia_fim": "20"
+      "dia_fim": "20",
+      "mes_fim": null,
+      "ano_fim": null
     },
     {
       "dia": "10",
@@ -1315,7 +1349,9 @@
       "ano": 2026,
       "titulo": "Matrículas em disciplinas com vagas ociosas pelos alunos.",
       "tag": "matricula",
-      "dia_fim": "11"
+      "dia_fim": "11",
+      "mes_fim": null,
+      "ano_fim": null
     },
     {
       "dia": "12",
@@ -1323,63 +1359,79 @@
       "ano": 2026,
       "titulo": "Ajuste da oferta pelas Coordenações de Curso (após a matrícula em vagas ociosas).",
       "tag": "matricula",
-      "dia_fim": null
+      "dia_fim": null,
+      "mes_fim": null,
+      "ano_fim": null
     },
     {
       "dia": "12",
       "mes": "Mar",
       "ano": 2026,
-      "titulo": "Resultado das matrículas em disciplinas com vagas ociosas, após as 22 horas. Prazo para os discentes solicitarem matrícula extemporânea para o Período 2026.1, conforme o",
+      "titulo": "Resultado das matrículas em disciplinas com vagas ociosas, após as 22 horas.",
       "tag": "matricula",
-      "dia_fim": null
+      "dia_fim": null,
+      "mes_fim": null,
+      "ano_fim": null
     },
     {
       "dia": "12",
       "mes": "Mar",
       "ano": 2026,
-      "titulo": "art. 51, § 2º, da Resolução nº 08/2015 – Conuni. Data limite para as Coordenações de Curso realizarem as matrículas extemporâneas no SIG@",
+      "titulo": "Prazo para os discentes solicitarem matrícula extemporânea para o Período 2026.1, conforme o art. 51, § 2º, da Resolução nº 08/2015 – Conuni.",
       "tag": "matricula",
-      "dia_fim": "18"
+      "dia_fim": "18",
+      "mes_fim": null,
+      "ano_fim": null
     },
     {
       "dia": "15",
       "mes": "Mar",
       "ano": 2026,
-      "titulo": "regulares.",
+      "titulo": "Colação de grau em gabinete dos formandos 2026.2 que não participaram das solenidades regulares.",
       "tag": "outro",
-      "dia_fim": "31"
+      "dia_fim": "31",
+      "mes_fim": null,
+      "ano_fim": null
     },
     {
       "dia": "27",
       "mes": "Mar",
       "ano": 2026,
-      "titulo": "para o Período 2026.1, conforme o art. 51, § 3º, da Resolução nº 08/2015 – Conuni.",
-      "tag": "outro",
-      "dia_fim": null
+      "titulo": "Data limite para as Coordenações de Curso realizarem as matrículas extemporâneas no SIG@ para o Período 2026.1, conforme o art. 51, § 3º, da Resolução nº 08/2015 – Conuni.",
+      "tag": "matricula",
+      "dia_fim": null,
+      "mes_fim": null,
+      "ano_fim": null
     },
     {
       "dia": "02",
       "mes": "Abr",
       "ano": 2026,
-      "titulo": "Cristo/Semana Santa.",
-      "tag": "outro",
-      "dia_fim": "04"
+      "titulo": "RECESSO ACADÊMICO E ADMINISTRATIVO para todos os campi – Feriado Nacional – Paixão de Cristo/Semana Santa.",
+      "tag": "feriado",
+      "dia_fim": "04",
+      "mes_fim": null,
+      "ano_fim": null
     },
     {
       "dia": "06",
       "mes": "Abr",
       "ano": 2026,
-      "titulo": "Trancamento do período ou cancelamento de disciplinas (com ônus), referente a 2026.1. Prazo para os discentes solicitarem dispensa de disciplinas, carga horária eletiva e optativa para o",
+      "titulo": "Trancamento do período ou cancelamento de disciplinas (com ônus), referente a 2026.1.",
       "tag": "matricula",
-      "dia_fim": "10"
+      "dia_fim": "10",
+      "mes_fim": null,
+      "ano_fim": null
     },
     {
       "dia": "13",
       "mes": "Abr",
       "ano": 2026,
-      "titulo": "Período 2026.2.",
+      "titulo": "Prazo para os discentes solicitarem dispensa de disciplinas, carga horária eletiva e optativa para o Período 2026.2.",
       "tag": "outro",
-      "dia_fim": "29"
+      "dia_fim": "29",
+      "mes_fim": null,
+      "ano_fim": null
     },
     {
       "dia": "20",
@@ -1387,7 +1439,9 @@
       "ano": 2026,
       "titulo": "RECESSO ACADÊMICO E ADMINISTRATIVO para todos os campi – Feriado Nacional – Tiradentes.",
       "tag": "feriado",
-      "dia_fim": "21"
+      "dia_fim": "21",
+      "mes_fim": null,
+      "ano_fim": null
     },
     {
       "dia": "30",
@@ -1395,119 +1449,179 @@
       "ano": 2026,
       "titulo": "Feriado Municipal para o campus Salgueiro – Emancipação Política de Salgueiro/PE.",
       "tag": "feriado",
-      "dia_fim": null
+      "dia_fim": null,
+      "mes_fim": null,
+      "ano_fim": null
+    },
+    {
+      "dia": "01",
+      "mes": "Mai",
+      "ano": 2026,
+      "titulo": "RECESSO ACADÊMICO E ADMINISTRATIVO para todos os campi – Feriado Nacional – Dia Mundial do Trabalho.",
+      "tag": "feriado",
+      "dia_fim": null,
+      "mes_fim": null,
+      "ano_fim": null
     },
     {
       "dia": "04",
       "mes": "Mai",
       "ano": 2026,
-      "titulo": "Prazo para abertura de processo de atividades complementares para registro no Período 2026.1. Prazo para abertura de processos de alteração (quebra) de pré-requisito para o Período 2026.2",
+      "titulo": "Prazo para abertura de processo de atividades complementares para registro no Período 2026.1.",
       "tag": "outro",
-      "dia_fim": "15"
+      "dia_fim": "15",
+      "mes_fim": null,
+      "ano_fim": null
     },
     {
       "dia": "18",
       "mes": "Mai",
       "ano": 2026,
-      "titulo": "pelo aluno ou pelos NDEs/Coordenações dos cursos de graduação. Feriado Municipal para o campus Senhor do Bonfim – Aniversário da cidade de Senhor do",
-      "tag": "feriado",
-      "dia_fim": "29"
+      "titulo": "Prazo para abertura de processos de alteração (quebra) de pré-requisito para o Período 2026.2 pelo aluno ou pelos NDEs/Coordenações dos cursos de graduação.",
+      "tag": "outro",
+      "dia_fim": "29",
+      "mes_fim": null,
+      "ano_fim": null
     },
     {
       "dia": "28",
       "mes": "Mai",
       "ano": 2026,
-      "titulo": "Bonfim/BA.",
+      "titulo": "Feriado Municipal para o campus Senhor do Bonfim – Aniversário da cidade de Senhor do Bonfim/BA.",
+      "tag": "feriado",
+      "dia_fim": null,
+      "mes_fim": null,
+      "ano_fim": null
+    },
+    {
+      "dia": "01",
+      "mes": "Jun",
+      "ano": 2026,
+      "titulo": "Planejamento da oferta de componentes curriculares para o Período 2026.2 pelos Colegiados Acadêmicos, sendo o dia 19/06 a data limite para divulgação do planejamento.",
       "tag": "outro",
-      "dia_fim": null
+      "dia_fim": null,
+      "mes_fim": null,
+      "ano_fim": null
     },
     {
       "dia": "04",
       "mes": "Jun",
       "ano": 2026,
-      "titulo": "Christi. Prazo para solicitação de matrícula especial/disciplinas isoladas (estudantes de outras IES) para o",
+      "titulo": "RECESSO ACADÊMICO E ADMINISTRATIVO para todos os campi – Ponto facultativo – Corpus Christi.",
+      "tag": "recesso",
+      "dia_fim": "06",
+      "mes_fim": null,
+      "ano_fim": null
+    },
+    {
+      "dia": "08",
+      "mes": "Jun",
+      "ano": 2026,
+      "titulo": "Prazo para solicitação de matrícula especial/disciplinas isoladas (estudantes de outras IES) para o Período 2026.2.",
       "tag": "matricula",
-      "dia_fim": "06"
+      "dia_fim": "12",
+      "mes_fim": null,
+      "ano_fim": null
     },
     {
       "dia": "08",
       "mes": "Jun",
       "ano": 2026,
-      "titulo": "Período 2026.2. Prazo para as Coordenações de Curso instruírem os processos de alteração (quebra) de pré- requisitos para o Período 2026.2. Emissão de parecer fundamentado do docente responsável pela",
+      "titulo": "Prazo para as Coordenações de Curso instruírem os processos de alteração (quebra) de pré- requisitos para o Período 2026.2. Emissão de parecer fundamentado do docente responsável pela disciplina; emissão de parecer consubstanciado do NDE; aprovação pelo Colegiado Acadêmico e posterior envio para SRC",
       "tag": "outro",
-      "dia_fim": "12"
-    },
-    {
-      "dia": "08",
-      "mes": "Jun",
-      "ano": 2026,
-      "titulo": "disciplina; emissão de parecer consubstanciado do NDE; aprovação pelo Colegiado Acadêmico e posterior envio para SRCA.",
-      "tag": "outro",
-      "dia_fim": "26"
+      "dia_fim": "26",
+      "mes_fim": null,
+      "ano_fim": null
     },
     {
       "dia": "13",
       "mes": "Jun",
       "ano": 2026,
-      "titulo": "Feriado Municipal para o campus Salgueiro – Padroeiro de Salgueiro/PE. Data limite para as Coordenações de Curso enviarem os processos de atividades complementares",
+      "titulo": "Feriado Municipal para o campus Salgueiro – Padroeiro de Salgueiro/PE.",
       "tag": "feriado",
-      "dia_fim": null
+      "dia_fim": null,
+      "mes_fim": null,
+      "ano_fim": null
     },
     {
       "dia": "19",
       "mes": "Jun",
       "ano": 2026,
-      "titulo": "para registro no Período 2026.1.",
+      "titulo": "Data limite para as Coordenações de Curso enviarem os processos de atividades complementares para registro no Período 2026.1.",
       "tag": "outro",
-      "dia_fim": null
+      "dia_fim": null,
+      "mes_fim": null,
+      "ano_fim": null
     },
     {
       "dia": "23",
       "mes": "Jun",
       "ano": 2026,
-      "titulo": "RECESSO ACADÊMICO E ADMINISTRATIVO para todos os campi – Feriado Regional – São João. Feriado Municipal para o campus Serra da Capivara – Aniversário da cidade de São Raimundo",
+      "titulo": "RECESSO ACADÊMICO E ADMINISTRATIVO para todos os campi – Feriado Regional – São João.",
       "tag": "feriado",
-      "dia_fim": "24"
+      "dia_fim": "24",
+      "mes_fim": null,
+      "ano_fim": null
     },
     {
       "dia": "25",
       "mes": "Jun",
       "ano": 2026,
-      "titulo": "Nonato/PI.",
+      "titulo": "Feriado Municipal para o campus Serra da Capivara – Aniversário da cidade de São Raimundo Nonato/PI.",
+      "tag": "feriado",
+      "dia_fim": null,
+      "mes_fim": null,
+      "ano_fim": null
+    },
+    {
+      "dia": "29",
+      "mes": "Jun",
+      "ano": 2026,
+      "titulo": "Oferta de componentes curriculares para o Período 2026.2 pelas Coordenações de Curso no SIG@.",
       "tag": "outro",
-      "dia_fim": null
+      "dia_fim": "10",
+      "mes_fim": "Jul",
+      "ano_fim": 2026
     },
     {
       "dia": "02",
       "mes": "Jul",
       "ano": 2026,
-      "titulo": "Feriado Estadual – Emancipação da Bahia (somente para os campi no Estado da Bahia). Prazo para os discentes solicitarem reintegração ao curso para o Período 2026.2, conforme o art.",
+      "titulo": "Feriado Estadual – Emancipação da Bahia (somente para os campi no Estado da Bahia).",
       "tag": "feriado",
-      "dia_fim": null
+      "dia_fim": null,
+      "mes_fim": null,
+      "ano_fim": null
     },
     {
-      "dia": "09",
+      "dia": "06",
       "mes": "Jul",
       "ano": 2026,
-      "titulo": ".394, de 20 de dezembro de 1996, com redação dada pela Lei nº 13.168, de 06 de outubro de",
+      "titulo": "Prazo para os discentes solicitarem reintegração ao curso para o Período 2026.2, conforme o art. 63 da Resolução nº 08/2015 – Conuni.",
       "tag": "outro",
-      "dia_fim": null
+      "dia_fim": "15",
+      "mes_fim": null,
+      "ano_fim": null
     },
     {
       "dia": "10",
       "mes": "Jul",
       "ano": 2026,
-      "titulo": "disciplinas; os processos de alteração (quebra) de pré-requisitos; e os processos de matrícula especial/disciplinas isoladas (estudantes de outras IES) para o Período 2026.2. Último dia para os Colegiados divulgarem nas páginas dos cursos os programas dos cursos e demais componentes curriculares, su",
+      "titulo": "Data limite para as Coordenações de Curso encaminharem à SRCA os processos de dispensa de disciplinas; os processos de alteração (quebra) de pré-requisitos; e os processos de matrícula especial/disciplinas isoladas (estudantes de outras IES) para o Período 2026.2.",
       "tag": "matricula",
-      "dia_fim": null
+      "dia_fim": null,
+      "mes_fim": null,
+      "ano_fim": null
     },
     {
       "dia": "10",
       "mes": "Jul",
       "ano": 2026,
-      "titulo": "disponíveis e critérios de avaliação para o Período 2026.2, na forma do § 1º do Art. 47 da Lei nº",
+      "titulo": "Último dia para os Colegiados divulgarem nas páginas dos cursos os programas dos cursos e demais componentes curriculares, sua duração, requisitos, qualificação dos professores, recursos disponíveis e critérios de avaliação para o Período 2026.2, na forma do § 1º do Art. 47 da Lei nº 9.394, de 20 de",
       "tag": "outro",
-      "dia_fim": null
+      "dia_fim": null,
+      "mes_fim": null,
+      "ano_fim": null
     },
     {
       "dia": "15",
@@ -1515,63 +1629,79 @@
       "ano": 2026,
       "titulo": "Feriado Municipal para o campus Juazeiro – Aniversário da cidade de Juazeiro/BA.",
       "tag": "feriado",
-      "dia_fim": null
-    },
-    {
-      "dia": "16",
-      "mes": "Jul",
-      "ano": 2026,
-      "titulo": "21 - Conuni.",
-      "tag": "outro",
-      "dia_fim": null
+      "dia_fim": null,
+      "mes_fim": null,
+      "ano_fim": null
     },
     {
       "dia": "18",
       "mes": "Jul",
       "ano": 2026,
-      "titulo": "Último dia de aulas do Período 2026.1. Início do prazo para preenchimento dos planos de ensino na caderneta eletrônica para o Período",
+      "titulo": "Último dia de aulas do Período 2026.1.",
       "tag": "outro",
-      "dia_fim": null
+      "dia_fim": null,
+      "mes_fim": null,
+      "ano_fim": null
     },
     {
       "dia": "20",
       "mes": "Jul",
       "ano": 2026,
-      "titulo": "Exames Finais do Período 2026.1. Prazo para os discentes solicitarem matrícula com expansão de carga horária para o Período",
-      "tag": "matricula",
-      "dia_fim": "24"
+      "titulo": "Início do prazo para preenchimento dos planos de ensino na caderneta eletrônica para o Período 2026.2.",
+      "tag": "outro",
+      "dia_fim": null,
+      "mes_fim": null,
+      "ano_fim": null
     },
     {
       "dia": "20",
       "mes": "Jul",
       "ano": 2026,
-      "titulo": "2026.2 às Coordenações de Curso (o discente deve indicar o nome, o código, a turma e o colegiado ofertante da disciplina que deverá ser inserida na matrícula pela SRCA). Matrícula presencial dos estudantes do Programa PEC-G para o Período 2026.2 (entrega de",
+      "titulo": "Exames Finais do Período 2026.1.",
+      "tag": "avaliacao",
+      "dia_fim": "24",
+      "mes_fim": null,
+      "ano_fim": null
+    },
+    {
+      "dia": "20",
+      "mes": "Jul",
+      "ano": 2026,
+      "titulo": "Prazo para os discentes solicitarem matrícula com expansão de carga horária para o Período 2026.2 às Coordenações de Curso (o discente deve indicar o nome, o código, a turma e o colegiado ofertante da disciplina que deverá ser inserida na matrícula pela SRCA).",
       "tag": "matricula",
-      "dia_fim": "24"
+      "dia_fim": "24",
+      "mes_fim": null,
+      "ano_fim": null
     },
     {
       "dia": "21",
       "mes": "Jul",
       "ano": 2026,
-      "titulo": "documentação na SRCA).",
-      "tag": "outro",
-      "dia_fim": "22"
+      "titulo": "Matrícula presencial dos estudantes do Programa PEC-G para o Período 2026.2 (entrega de documentação na SRCA).",
+      "tag": "matricula",
+      "dia_fim": "22",
+      "mes_fim": null,
+      "ano_fim": null
     },
     {
       "dia": "28",
       "mes": "Jul",
       "ano": 2026,
-      "titulo": "Feriado Municipal para o campus Paulo Afonso – Aniversário da cidade de Paulo Afonso/BA. Último dia para lançamento das notas e faltas do Período 2026.1 pelos docentes. Data limite para",
+      "titulo": "Feriado Municipal para o campus Paulo Afonso – Aniversário da cidade de Paulo Afonso/BA.",
       "tag": "feriado",
-      "dia_fim": null
+      "dia_fim": null,
+      "mes_fim": null,
+      "ano_fim": null
     },
     {
       "dia": "29",
       "mes": "Jul",
       "ano": 2026,
-      "titulo": "finalizar preenchimento da caderneta eletrônica referente a 2026.1, conforme Resolução nº",
+      "titulo": "Último dia para lançamento das notas e faltas do Período 2026.1 pelos docentes. Data limite para finalizar preenchimento da caderneta eletrônica referente a 2026.1, conforme Resolução nº 16/2021 - Conuni.",
       "tag": "outro",
-      "dia_fim": null
+      "dia_fim": null,
+      "mes_fim": null,
+      "ano_fim": null
     },
     {
       "dia": "29",
@@ -1579,7 +1709,9 @@
       "ano": 2026,
       "titulo": "Encerramento do Período Letivo 2026.1.",
       "tag": "outro",
-      "dia_fim": null
+      "dia_fim": null,
+      "mes_fim": null,
+      "ano_fim": null
     },
     {
       "dia": "30",
@@ -1587,15 +1719,29 @@
       "ano": 2026,
       "titulo": "Preparação para a matrícula do Período 2026.2 (SIG@ indisponível).",
       "tag": "matricula",
-      "dia_fim": null
+      "dia_fim": null,
+      "mes_fim": null,
+      "ano_fim": null
+    },
+    {
+      "dia": "31",
+      "mes": "Jul",
+      "ano": 2026,
+      "titulo": "Matrícula dos alunos veteranos para o Período 2026.2.",
+      "tag": "matricula",
+      "dia_fim": "03",
+      "mes_fim": "Ago",
+      "ano_fim": 2026
     },
     {
       "dia": "05",
       "mes": "Set",
       "ano": 2026,
-      "titulo": "para o Período 2026.2, conforme o art. 51, § 3º, da Resolução nº 08/2015 – Conuni.",
-      "tag": "outro",
-      "dia_fim": null
+      "titulo": "Data limite para as Coordenações de Curso realizarem as matrículas extemporâneas no SIG@ para o Período 2026.2, conforme o art. 51, § 3º, da Resolução nº 08/2015 – Conuni.",
+      "tag": "matricula",
+      "dia_fim": null,
+      "mes_fim": null,
+      "ano_fim": null
     },
     {
       "dia": "07",
@@ -1603,39 +1749,49 @@
       "ano": 2026,
       "titulo": "Feriado Nacional para todos os campi – Independência do Brasil.",
       "tag": "feriado",
-      "dia_fim": null
+      "dia_fim": null,
+      "mes_fim": null,
+      "ano_fim": null
     },
     {
       "dia": "07",
       "mes": "Set",
       "ano": 2026,
-      "titulo": "Trancamento do período ou cancelamento de disciplinas (com ônus), referente a 2026.2. Prazo para abertura de processo de colação de grau em gabinete para os discentes que não",
+      "titulo": "Trancamento do período ou cancelamento de disciplinas (com ônus), referente a 2026.2.",
       "tag": "matricula",
-      "dia_fim": "11"
+      "dia_fim": "11",
+      "mes_fim": null,
+      "ano_fim": null
     },
     {
       "dia": "07",
       "mes": "Set",
       "ano": 2026,
-      "titulo": "participaram das solenidades regulares do Período 2026.1, conforme Resolução nº 18/2017 Conuni.",
+      "titulo": "Prazo para abertura de processo de colação de grau em gabinete para os discentes que não participaram das solenidades regulares do Período 2026.1, conforme Resolução nº 18/2017 - Conuni.",
       "tag": "outro",
-      "dia_fim": "16"
+      "dia_fim": "16",
+      "mes_fim": null,
+      "ano_fim": null
     },
     {
       "dia": "08",
       "mes": "Set",
       "ano": 2026,
-      "titulo": "Feriado Municipal para o campus Juazeiro – Padroeira de Juazeiro/BA. Prazo para os discentes solicitarem dispensa de disciplinas, carga horária eletiva e optativa para o",
+      "titulo": "Feriado Municipal para o campus Juazeiro – Padroeira de Juazeiro/BA.",
       "tag": "feriado",
-      "dia_fim": null
+      "dia_fim": null,
+      "mes_fim": null,
+      "ano_fim": null
     },
     {
       "dia": "17",
       "mes": "Set",
       "ano": 2026,
-      "titulo": "Período 2027.1.",
+      "titulo": "Prazo para os discentes solicitarem dispensa de disciplinas, carga horária eletiva e optativa para o Período 2027.1.",
       "tag": "outro",
-      "dia_fim": "30"
+      "dia_fim": "30",
+      "mes_fim": null,
+      "ano_fim": null
     },
     {
       "dia": "21",
@@ -1643,7 +1799,19 @@
       "ano": 2026,
       "titulo": "Feriado Municipal para o campus Petrolina – Aniversário da cidade de Petrolina/PE.",
       "tag": "feriado",
-      "dia_fim": null
+      "dia_fim": null,
+      "mes_fim": null,
+      "ano_fim": null
+    },
+    {
+      "dia": "01",
+      "mes": "Out",
+      "ano": 2026,
+      "titulo": "Colação de grau em gabinete dos formandos 2026.1 que não participaram das solenidades regulares.",
+      "tag": "outro",
+      "dia_fim": null,
+      "mes_fim": null,
+      "ano_fim": null
     },
     {
       "dia": "04",
@@ -1651,7 +1819,9 @@
       "ano": 2026,
       "titulo": "Feriado Municipal para o campus Paulo Afonso – Padroeiro de Paulo Afonso/BA.",
       "tag": "feriado",
-      "dia_fim": null
+      "dia_fim": null,
+      "mes_fim": null,
+      "ano_fim": null
     },
     {
       "dia": "05",
@@ -1659,7 +1829,9 @@
       "ano": 2026,
       "titulo": "Prazo para abertura de processo de atividades complementares para registro no Período 2026.2.",
       "tag": "outro",
-      "dia_fim": "16"
+      "dia_fim": "16",
+      "mes_fim": null,
+      "ano_fim": null
     },
     {
       "dia": "12",
@@ -1667,23 +1839,29 @@
       "ano": 2026,
       "titulo": "Feriado Nacional para todos os campi – Padroeira do Brasil.",
       "tag": "feriado",
-      "dia_fim": null
+      "dia_fim": null,
+      "mes_fim": null,
+      "ano_fim": null
     },
     {
       "dia": "19",
       "mes": "Out",
       "ano": 2026,
-      "titulo": "Feriado Estadual para o campus Serra da Capivara – Constituição do Piauí. Prazo para abertura de processos de alteração (quebra) de pré-requisito para o Período 2027.1",
+      "titulo": "Feriado Estadual para o campus Serra da Capivara – Constituição do Piauí.",
       "tag": "feriado",
-      "dia_fim": null
+      "dia_fim": null,
+      "mes_fim": null,
+      "ano_fim": null
     },
     {
       "dia": "19",
       "mes": "Out",
       "ano": 2026,
-      "titulo": "pelo aluno ou pelos NDEs/Coordenações dos cursos de graduação.",
+      "titulo": "Prazo para abertura de processos de alteração (quebra) de pré-requisito para o Período 2027.1 pelo aluno ou pelos NDEs/Coordenações dos cursos de graduação.",
       "tag": "outro",
-      "dia_fim": "30"
+      "dia_fim": "30",
+      "mes_fim": null,
+      "ano_fim": null
     },
     {
       "dia": "28",
@@ -1691,127 +1869,159 @@
       "ano": 2026,
       "titulo": "Feriado Nacional para todos os campi – Dia do Servidor Público.",
       "tag": "feriado",
-      "dia_fim": null
+      "dia_fim": null,
+      "mes_fim": null,
+      "ano_fim": null
     },
     {
       "dia": "02",
       "mes": "Nov",
       "ano": 2026,
-      "titulo": "Feriado Nacional para todos os campi – Finados. Planejamento da oferta de componentes curriculares para o Período 2027.1 pelos Colegiados",
+      "titulo": "Feriado Nacional para todos os campi – Finados.",
       "tag": "feriado",
-      "dia_fim": null
+      "dia_fim": null,
+      "mes_fim": null,
+      "ano_fim": null
     },
     {
       "dia": "03",
       "mes": "Nov",
       "ano": 2026,
-      "titulo": "Acadêmicos, sendo o dia 19/11 a data limite para divulgação do planejamento.",
+      "titulo": "Planejamento da oferta de componentes curriculares para o Período 2027.1 pelos Colegiados Acadêmicos, sendo o dia 19/11 a data limite para divulgação do planejamento.",
       "tag": "outro",
-      "dia_fim": "19"
-    },
-    {
-      "dia": "11",
-      "mes": "Nov",
-      "ano": 2026,
-      "titulo": "disciplina; emissão de parecer consubstanciado do NDE; aprovação pelo Colegiado Acadêmico e posterior envio para SRCA.",
-      "tag": "outro",
-      "dia_fim": null
+      "dia_fim": "19",
+      "mes_fim": null,
+      "ano_fim": null
     },
     {
       "dia": "15",
       "mes": "Nov",
       "ano": 2026,
-      "titulo": "Feriado Nacional para todos os campi – Proclamação da República. Prazo para as Coordenações de Curso instruírem os processos de alteração (quebra) de pré",
+      "titulo": "Feriado Nacional para todos os campi – Proclamação da República.",
       "tag": "feriado",
-      "dia_fim": null
+      "dia_fim": null,
+      "mes_fim": null,
+      "ano_fim": null
+    },
+    {
+      "dia": "18",
+      "mes": "Nov",
+      "ano": 2026,
+      "titulo": "Prazo para as Coordenações de Curso instruírem os processos de alteração (quebra) de pré- requisitos para o Período 2027.1. Emissão de parecer fundamentado do docente responsável pela disciplina; emissão de parecer consubstanciado do NDE; aprovação pelo Colegiado Acadêmico e posterior envio para SRC",
+      "tag": "outro",
+      "dia_fim": "11",
+      "mes_fim": "Dez",
+      "ano_fim": 2026
     },
     {
       "dia": "20",
       "mes": "Nov",
       "ano": 2026,
-      "titulo": "Feriado Nacional para todos os campi – Dia Nacional de Zumbi e da Consciência Negra. Prazo para solicitação de matrícula especial/disciplinas isoladas (estudantes de outras IES) para o",
+      "titulo": "Feriado Nacional para todos os campi – Dia Nacional de Zumbi e da Consciência Negra.",
       "tag": "feriado",
-      "dia_fim": null
+      "dia_fim": null,
+      "mes_fim": null,
+      "ano_fim": null
     },
     {
       "dia": "23",
       "mes": "Nov",
       "ano": 2026,
-      "titulo": "Período 2027.1. Scientex – Dias letivos a serem registrados no diário de classe como atividades de ensino (carga",
-      "tag": "outro",
-      "dia_fim": "27"
+      "titulo": "Prazo para solicitação de matrícula especial/disciplinas isoladas (estudantes de outras IES) para o Período 2027.1.",
+      "tag": "matricula",
+      "dia_fim": "27",
+      "mes_fim": null,
+      "ano_fim": null
     },
     {
       "dia": "24",
       "mes": "Nov",
       "ano": 2026,
-      "titulo": "horária) aos que participarem do evento (aulas suspensas). Data limite para as Coordenações de Curso enviarem os processos de atividades complementares",
+      "titulo": "Scientex – Dias letivos a serem registrados no diário de classe como atividades de ensino (carga horária) aos que participarem do evento (aulas suspensas).",
       "tag": "outro",
-      "dia_fim": "27"
+      "dia_fim": "27",
+      "mes_fim": null,
+      "ano_fim": null
     },
     {
       "dia": "27",
       "mes": "Nov",
       "ano": 2026,
-      "titulo": "para registro no Período 2027.1.",
+      "titulo": "Data limite para as Coordenações de Curso enviarem os processos de atividades complementares para registro no Período 2027.1.",
       "tag": "outro",
-      "dia_fim": null
+      "dia_fim": null,
+      "mes_fim": null,
+      "ano_fim": null
     },
     {
-      "dia": "02",
+      "dia": "01",
       "mes": "Dez",
       "ano": 2026,
-      "titulo": "Confraternização Universal.",
+      "titulo": "Oferta de componentes curriculares para o Período 2027.1 pelas Coordenações de Curso no SIG@.",
       "tag": "outro",
-      "dia_fim": null
+      "dia_fim": null,
+      "mes_fim": null,
+      "ano_fim": null
     },
     {
       "dia": "12",
       "mes": "Dez",
       "ano": 2026,
-      "titulo": "Último dia de aulas do Período 2026.2. Feriado Municipal para o campus Serra da Capivara – Festividade de Santa Luzia em São Raimundo",
-      "tag": "feriado",
-      "dia_fim": null
+      "titulo": "Último dia de aulas do Período 2026.2.",
+      "tag": "outro",
+      "dia_fim": null,
+      "mes_fim": null,
+      "ano_fim": null
     },
     {
       "dia": "13",
       "mes": "Dez",
       "ano": 2026,
-      "titulo": "Nonato/PI Início do prazo para preenchimento dos planos de ensino na caderneta eletrônica para o Período",
-      "tag": "outro",
-      "dia_fim": null
+      "titulo": "Feriado Municipal para o campus Serra da Capivara – Festividade de Santa Luzia em São Raimundo Nonato/PI",
+      "tag": "feriado",
+      "dia_fim": null,
+      "mes_fim": null,
+      "ano_fim": null
     },
     {
       "dia": "14",
       "mes": "Dez",
       "ano": 2026,
-      "titulo": "Exames Finais do Período 2026.2. Prazo para os discentes solicitarem matrícula com expansão de carga horária para o Período",
-      "tag": "matricula",
-      "dia_fim": "18"
+      "titulo": "Início do prazo para preenchimento dos planos de ensino na caderneta eletrônica para o Período 2027.1.",
+      "tag": "outro",
+      "dia_fim": null,
+      "mes_fim": null,
+      "ano_fim": null
     },
     {
       "dia": "14",
       "mes": "Dez",
       "ano": 2026,
-      "titulo": "2027.1 às Coordenações de Curso (o discente deve indicar o nome, o código, a turma e o colegiado ofertante da disciplina que deverá ser inserida na matrícula pela SRCA).",
-      "tag": "matricula",
-      "dia_fim": "18"
+      "titulo": "Exames Finais do Período 2026.2.",
+      "tag": "avaliacao",
+      "dia_fim": "18",
+      "mes_fim": null,
+      "ano_fim": null
     },
     {
-      "dia": "16",
+      "dia": "14",
       "mes": "Dez",
       "ano": 2026,
-      "titulo": "21 - Conuni.",
-      "tag": "outro",
-      "dia_fim": null
+      "titulo": "Prazo para os discentes solicitarem matrícula com expansão de carga horária para o Período 2027.1 às Coordenações de Curso (o discente deve indicar o nome, o código, a turma e o colegiado ofertante da disciplina que deverá ser inserida na matrícula pela SRCA).",
+      "tag": "matricula",
+      "dia_fim": "18",
+      "mes_fim": null,
+      "ano_fim": null
     },
     {
       "dia": "22",
       "mes": "Dez",
       "ano": 2026,
-      "titulo": "disciplinas; os processos de alteração (quebra) de pré-requisitos; e os processos de matrícula especial/disciplinas isoladas (estudantes de outras IES) para o Período 2027.1. Último dia para lançamento das notas e faltas do Período 2026.2 pelos docentes. Data limite para",
+      "titulo": "Data limite para as Coordenações de Curso encaminharem à SRCA os processos de dispensa de disciplinas; os processos de alteração (quebra) de pré-requisitos; e os processos de matrícula especial/disciplinas isoladas (estudantes de outras IES) para o Período 2027.1.",
       "tag": "matricula",
-      "dia_fim": null
+      "dia_fim": null,
+      "mes_fim": null,
+      "ano_fim": null
     },
     {
       "dia": "23",
@@ -1819,23 +2029,29 @@
       "ano": 2026,
       "titulo": "Feriado Municipal para o campus Salgueiro – Aniversário da Cidade de Salgueiro/PE.",
       "tag": "feriado",
-      "dia_fim": null
+      "dia_fim": null,
+      "mes_fim": null,
+      "ano_fim": null
     },
     {
       "dia": "24",
       "mes": "Dez",
       "ano": 2026,
-      "titulo": "RECESSO ACADÊMICO E ADMINISTRATIVO para todos os campi – Feriado Nacional – Natal. Data limite para as Coordenações de Curso encaminharem à SRCA os processos de dispensa de",
+      "titulo": "RECESSO ACADÊMICO E ADMINISTRATIVO para todos os campi – Feriado Nacional – Natal.",
       "tag": "feriado",
-      "dia_fim": "25"
+      "dia_fim": "25",
+      "mes_fim": null,
+      "ano_fim": null
     },
     {
       "dia": "30",
       "mes": "Dez",
       "ano": 2026,
-      "titulo": "finalizar preenchimento da caderneta eletrônica referente a 2026.2, conforme Resolução nº",
+      "titulo": "Último dia para lançamento das notas e faltas do Período 2026.2 pelos docentes. Data limite para finalizar preenchimento da caderneta eletrônica referente a 2026.2, conforme Resolução nº 16/2021 - Conuni.",
       "tag": "outro",
-      "dia_fim": null
+      "dia_fim": null,
+      "mes_fim": null,
+      "ano_fim": null
     },
     {
       "dia": "30",
@@ -1843,7 +2059,19 @@
       "ano": 2026,
       "titulo": "Encerramento do Período Letivo 2026.2.",
       "tag": "outro",
-      "dia_fim": null
+      "dia_fim": null,
+      "mes_fim": null,
+      "ano_fim": null
+    },
+    {
+      "dia": "31",
+      "mes": "Dez",
+      "ano": 2026,
+      "titulo": "RECESSO ACADÊMICO E ADMINISTRATIVO para todos os campi – Feriado Nacional – Confraternização Universal.",
+      "tag": "feriado",
+      "dia_fim": "02",
+      "mes_fim": "Jan",
+      "ano_fim": 2027
     }
   ],
   "colegiado_cecomp": [

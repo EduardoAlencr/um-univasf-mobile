@@ -1,5 +1,9 @@
-import 'dart:typed_data';
+import 'package:flutter/foundation.dart';
 import 'package:pdfrx/pdfrx.dart';
+
+void _log(String msg) {
+  if (kDebugMode) debugPrint('[grade_parser] $msg');
+}
 
 /// Uma disciplina identificada na tabela "Disciplinas Solicitadas" do PDF
 /// do SIG@ — nome e sala(s), indexada pela chave `CCMPxxxx-TURMA`.
@@ -39,8 +43,18 @@ class GradeParseada {
 
 final _regexAula = RegExp(r'[A-Z]{4}\d{4}\s*-\s*\S+');
 final _regexHora = RegExp(r'\b\d{2}:00:');
-final _regexDisciplinaLinha = RegExp(
-  r'([A-Z]{4})(\d{4})\s+(.+?)\s+([A-Z0-9]{1,3})\s*-\s*(.+?)\s+(CONFIRMADA|CANCELADA|PENDENTE|AGUARDANDO[\s\S]{0,20}?)\b',
+final _regexCodigoDisciplina = RegExp(r'[A-Z]{4}\d{4}');
+// Só o "resto" da linha de uma disciplina (nome/turma/sala/situação), já
+// sem o código — usado numa janela pequena (até o próximo código ou fim do
+// bloco), nunca no bloco inteiro. Isso evita duas coisas que a versão
+// antiga (uma regex só, com `dotAll` cobrindo o bloco inteiro) causava em
+// PDFs reais onde o nome da sala quebra em várias linhas antes do código:
+// disciplinas sendo engolidas pela entrada vizinha, e — o risco mais sério
+// — o motor de regex testar um número enorme de combinações de onde cada
+// grupo lazy começa/termina dentro de um texto grande, podendo travar o
+// app por muito tempo numa grade real mais "bagunçada".
+final _regexRestoDisciplina = RegExp(
+  r'^\s*(.+?)\s+([A-Z0-9]{1,3})\s*-\s*(.*?)\s*(CONFIRMADA|CANCELADA|PENDENTE|AGUARDANDO.{0,20}?)\b',
   dotAll: true,
 );
 
@@ -67,10 +81,14 @@ Future<bool> pdfTemTextoExtraivel(Uint8List bytes) async {
 Future<GradeParseada?> parsearGradePdf(Uint8List bytes) async {
   PdfDocument? doc;
   try {
+    _log('abrindo PDF (${bytes.length} bytes)...');
     doc = await PdfDocument.openData(bytes, sourceName: 'grade.pdf');
+    _log('PDF aberto, ${doc.pages.length} página(s)');
     if (doc.pages.isEmpty) return null;
     final pagina = doc.pages.first;
+    _log('carregando texto estruturado da página...');
     final texto = await pagina.loadStructuredText();
+    _log('texto estruturado carregado (${texto.fullText.length} chars)');
 
     // 1) cabeçalho dos dias -> posição X de cada coluna.
     final posDias = <String, double>{};
@@ -79,6 +97,7 @@ Future<GradeParseada?> parsearGradePdf(Uint8List bytes) async {
       if (ocorrencias.isEmpty) continue;
       posDias[dia] = ocorrencias.first.bounds.left;
     }
+    _log('cabeçalho dos dias: ${posDias.length}/6 encontrados');
     if (posDias.length < 6) return null; // não é o formato esperado
 
     // 2) rótulos de horário -> posição Y de cada linha.
@@ -88,6 +107,7 @@ Future<GradeParseada?> parsearGradePdf(Uint8List bytes) async {
       final rotulo = m.text.substring(0, 5); // "07:00"
       posHoras.putIfAbsent(rotulo, () => m.bounds.top);
     }
+    _log('rótulos de horário: ${posHoras.length} encontrados');
     if (posHoras.isEmpty) return null;
     final horasOrdenadas = posHoras.keys.toList()
       ..sort((a, b) => posHoras[b]!.compareTo(posHoras[a]!)); // maior Y = topo da página
@@ -99,6 +119,7 @@ Future<GradeParseada?> parsearGradePdf(Uint8List bytes) async {
     };
 
     final ocorrenciasAula = await texto.allMatches(_regexAula).toList();
+    _log('ocorrências de aula no grid: ${ocorrenciasAula.length}');
     for (final m in ocorrenciasAula) {
       final chave = _normalizarChave(m.text);
       if (chave == null) continue;
@@ -132,6 +153,8 @@ Future<GradeParseada?> parsearGradePdf(Uint8List bytes) async {
       grade[horaEscolhida]![indiceDia] = chave;
     }
 
+    _log('grid montado, preenchendo tabela de disciplinas...');
+
     // 4) tabela "Disciplinas Solicitadas" -> nome/sala por chave.
     final textoCompleto = texto.fullText;
     final inicio = textoCompleto.indexOf('Disciplinas Solicitadas');
@@ -141,15 +164,25 @@ Future<GradeParseada?> parsearGradePdf(Uint8List bytes) async {
         : textoCompleto.substring(inicio, fim == -1 ? textoCompleto.length : fim);
 
     final disciplinas = <String, GradeDisciplina>{};
-    for (final m in _regexDisciplinaLinha.allMatches(blocoDisciplinas)) {
-      final codigo = '${m.group(1)}${m.group(2)}';
-      final nome = _limparEspacos(m.group(3)!);
-      final turma = m.group(4)!;
-      final sala = _limparEspacos(m.group(5)!);
-      disciplinas['$codigo-$turma'] = GradeDisciplina(nome: nome, sala: sala);
+    final codigos = _regexCodigoDisciplina.allMatches(blocoDisciplinas).toList();
+    _log('códigos de disciplina encontrados na tabela: ${codigos.length}');
+    for (var i = 0; i < codigos.length; i++) {
+      final codigo = codigos[i];
+      final fimJanela = i + 1 < codigos.length ? codigos[i + 1].start : blocoDisciplinas.length;
+      final janela = blocoDisciplinas.substring(codigo.end, fimJanela);
+      final m = _regexRestoDisciplina.matchAsPrefix(janela);
+      if (m == null) continue; // formato inesperado pra essa disciplina — não inventa nome/sala
+      final nome = _limparEspacos(m.group(1)!);
+      final turma = m.group(2)!;
+      final sala = _limparEspacos(m.group(3)!);
+      disciplinas['${codigo.group(0)}-$turma'] = GradeDisciplina(nome: nome, sala: sala);
     }
-    if (disciplinas.isEmpty) return null;
+    if (disciplinas.isEmpty) {
+      _log('nenhuma disciplina reconhecida na tabela — retornando null');
+      return null;
+    }
 
+    _log('concluído: ${disciplinas.length} disciplina(s) na tabela');
     return GradeParseada(
       curso: _extrairCampo(textoCompleto, 'Curso:'),
       periodo: _extrairCampo(textoCompleto, 'Período:'),
@@ -157,7 +190,8 @@ Future<GradeParseada?> parsearGradePdf(Uint8List bytes) async {
       disciplinas: disciplinas,
       grade: grade,
     );
-  } catch (_) {
+  } catch (e, st) {
+    _log('ERRO durante o parse: $e\n$st');
     return null;
   } finally {
     await doc?.dispose();

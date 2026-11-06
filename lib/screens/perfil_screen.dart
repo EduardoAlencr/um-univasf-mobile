@@ -68,8 +68,12 @@ class PerfilScreen extends StatelessWidget {
     );
 
     if (novoNome == null || novoNome.isEmpty || !context.mounted) return;
-    await AuthScope.of(context).atualizarNome(novoNome);
-    if (context.mounted) showUmToast(context, 'Nome atualizado.');
+    try {
+      await AuthScope.of(context).atualizarNome(novoNome);
+      if (context.mounted) showUmToast(context, 'Nome atualizado.');
+    } catch (_) {
+      if (context.mounted) showUmToast(context, 'Não foi possível atualizar o nome agora. Tente de novo.');
+    }
   }
 
   @override
@@ -160,6 +164,7 @@ class PerfilScreen extends StatelessWidget {
                         destructive: true,
                       );
                       if (!confirmed || !context.mounted) return;
+                      showUmToast(context, 'Excluindo seus dados…');
                       final resultado = await AuthScope.of(context).excluirDadosEConta();
                       if (!context.mounted) return;
                       Navigator.of(context).popUntil((r) => r.isFirst);

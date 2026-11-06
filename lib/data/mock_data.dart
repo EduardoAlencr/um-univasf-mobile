@@ -223,7 +223,17 @@ List<Edital> editais = [
 ];
 
 class CalendarEvent {
-  const CalendarEvent({required this.day, required this.month, required this.title, required this.desc, this.tag = 'outro', this.year, this.dayEnd});
+  const CalendarEvent({
+    required this.day,
+    required this.month,
+    required this.title,
+    required this.desc,
+    this.tag = 'outro',
+    this.year,
+    this.dayEnd,
+    this.monthEnd,
+    this.yearEnd,
+  });
   final String day;
   final String month;
   final String title;
@@ -231,9 +241,13 @@ class CalendarEvent {
   final String tag; // 'feriado' | 'recesso' | 'matricula' | 'avaliacao' | 'outro'
   final int? year;
 
-  /// Último dia de um intervalo (ex. "15 a 22") — nulo quando o evento é
-  /// de um único dia.
+  /// Último dia de um intervalo (ex. "15 a 22"), ou "18 a 11" quando o
+  /// intervalo atravessa pro mês seguinte — nesse caso [monthEnd]/[yearEnd]
+  /// também vêm preenchidos, nunca assumindo que o fim é no mesmo mês do
+  /// início. Nulo quando o evento é de um único dia.
   final String? dayEnd;
+  final String? monthEnd;
+  final int? yearEnd;
 }
 
 List<CalendarEvent> calendarEvents = [

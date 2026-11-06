@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
@@ -9,6 +10,10 @@ import 'package:shared_preferences/shared_preferences.dart';
 /// local (shared_preferences), por não ter relação nenhuma com a conta.
 class AuthState extends ChangeNotifier {
   static const _keyWelcomeDismissed = 'welcomeDismissed';
+  // Nunca deixa uma chamada ao Firestore ficar pendurada em silêncio (ex.
+  // instabilidade de rede, ou — como já aconteceu — a cota diária do
+  // projeto esgotada fazendo o SDK tentar de novo sem nunca completar).
+  static const _timeoutFirestore = Duration(seconds: 20);
 
   final _auth = FirebaseAuth.instance;
   final _db = FirebaseFirestore.instance;
@@ -76,7 +81,7 @@ class AuthState extends ChangeNotifier {
         'curso': curso,
         'periodo': periodo,
         'criadoEm': FieldValue.serverTimestamp(),
-      });
+      }).timeout(_timeoutFirestore);
     }
   }
 
@@ -93,15 +98,19 @@ class AuthState extends ChangeNotifier {
     await user.reload();
     _user = _auth.currentUser;
     notifyListeners();
-    await _db.collection('users').doc(user.uid).set({'nome': novoNome}, SetOptions(merge: true));
+    await _db.collection('users').doc(user.uid).set({'nome': novoNome}, SetOptions(merge: true)).timeout(_timeoutFirestore);
   }
 
-  Future<void> setHasGrade(bool value) async {
+  /// Só atualiza o estado local, pra UI reagir na hora sem esperar outra
+  /// ida ao Firestore — `gradeArquivo` (gravado/apagado por
+  /// `salvarGradeArquivo`/`excluirGradeArquivo`) é a única fonte de
+  /// verdade real; não existe mais um campo `hasGrade` separado pra
+  /// manter sincronizado (era exatamente isso que podia dessincronizar:
+  /// duas escritas pro mesmo fato, cada uma podendo falhar/atrasar
+  /// independente da outra).
+  void setHasGrade(bool value) {
     _hasGrade = value;
     notifyListeners();
-    final uid = _user?.uid;
-    if (uid == null) return;
-    await _db.collection('users').doc(uid).set({'hasGrade': value}, SetOptions(merge: true));
   }
 
   /// Apaga de verdade os dados pessoais do usuário: a subcoleção de
@@ -121,16 +130,31 @@ class AuthState extends ChangeNotifier {
     if (user == null) return 'Nenhuma conta ativa.';
     final uid = user.uid;
 
-    final lembretes = await _db.collection('users').doc(uid).collection('calendarioPessoal').get();
-    final batch = _db.batch();
-    for (final doc in lembretes.docs) {
-      batch.delete(doc.reference);
+    try {
+      final lembretes = await _db
+          .collection('users')
+          .doc(uid)
+          .collection('calendarioPessoal')
+          .get()
+          .timeout(_timeoutFirestore);
+      final batch = _db.batch();
+      for (final doc in lembretes.docs) {
+        batch.delete(doc.reference);
+      }
+      batch.delete(_db.collection('users').doc(uid));
+      await batch.commit().timeout(_timeoutFirestore);
+    } catch (e) {
+      // Nunca deixa a chamada travar/falhar em silêncio — sem isso, uma
+      // falha aqui (ex. timeout por instabilidade do Firestore) não dava
+      // nenhum retorno pra UI, parecendo que o botão simplesmente não fez
+      // nada (nem excluiu, nem deslogou, nem avisou).
+      return e is TimeoutException
+          ? 'Não foi possível excluir seus dados agora (conexão instável). Nada foi apagado — tente de novo em instantes.'
+          : 'Não foi possível excluir seus dados agora. Nada foi apagado — tente de novo em instantes.';
     }
-    batch.delete(_db.collection('users').doc(uid));
-    await batch.commit();
 
     try {
-      await user.delete();
+      await user.delete().timeout(_timeoutFirestore);
       return 'Seus dados e sua conta foram excluídos.';
     } on FirebaseAuthException catch (e) {
       await _auth.signOut();
@@ -138,13 +162,23 @@ class AuthState extends ChangeNotifier {
         return 'Seus dados foram excluídos. Por segurança, entre novamente e repita a exclusão pra remover também a conta.';
       }
       return 'Seus dados foram excluídos, mas não foi possível excluir a conta agora (${e.code}).';
+    } catch (e) {
+      // Dados já foram apagados nesse ponto (passou do bloco acima) — só a
+      // exclusão da conta em si que não terminou a tempo.
+      await _auth.signOut();
+      return 'Seus dados foram excluídos, mas não foi possível excluir a conta agora (conexão instável). Entre novamente e repita a exclusão.';
     }
   }
 
+  /// Deduz se há grade enviada direto da presença de `gradeArquivo` no
+  /// documento — não lê mais um campo `hasGrade` separado (ver comentário
+  /// em `setHasGrade`).
   Future<bool> _lerHasGrade(String uid) async {
     try {
-      final doc = await _db.collection('users').doc(uid).get();
-      return doc.data()?['hasGrade'] as bool? ?? false;
+      final doc = await _db.collection('users').doc(uid).get().timeout(_timeoutFirestore);
+      final temGrade = doc.data()?['gradeArquivo'] != null;
+      if (kDebugMode) debugPrint('[auth_state] _lerHasGrade($uid) -> gradeArquivo presente: $temGrade');
+      return temGrade;
     } catch (_) {
       return false;
     }

@@ -1,6 +1,6 @@
 import 'dart:convert';
-import 'dart:typed_data';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter/foundation.dart';
 import 'grade_parser.dart';
 
 /// O PDF/imagem da grade que o usuário enviou, guardado como base64 direto
@@ -38,6 +38,14 @@ const limiteBytesGrade = 700 * 1024;
 
 DocumentReference<Map<String, dynamic>> _doc(String uid) => FirebaseFirestore.instance.collection('users').doc(uid);
 
+// Tempo-limite pras chamadas ao Firestore nesta tela — sem isso, um erro
+// "silencioso" do SDK (ex. cota diária do projeto esgotada, que fica
+// tentando de novo sem nunca completar nem lançar exceção) deixa a tela
+// travada em "Lendo grade…" pra sempre, sem nenhum aviso ao usuário. Com o
+// tempo-limite, isso vira um erro de verdade, tratado pelo `catch` de quem
+// chama (mostra um toast em vez de travar).
+const _timeoutFirestore = Duration(seconds: 20);
+
 Future<void> salvarGradeArquivo(
   String uid, {
   required String nomeArquivo,
@@ -47,7 +55,6 @@ Future<void> salvarGradeArquivo(
   bool pdfSemTexto = false,
 }) {
   return _doc(uid).set({
-    'hasGrade': true,
     'gradeArquivo': {
       'nomeArquivo': nomeArquivo,
       'mimeType': mimeType,
@@ -56,12 +63,13 @@ Future<void> salvarGradeArquivo(
       'parseada': parseada == null ? null : _serializarGradeParseada(parseada),
       'pdfSemTexto': pdfSemTexto,
     },
-  }, SetOptions(merge: true));
+  }, SetOptions(merge: true)).timeout(_timeoutFirestore);
 }
 
 Future<GradeArquivo?> lerGradeArquivo(String uid) async {
-  final snap = await _doc(uid).get();
+  final snap = await _doc(uid).get().timeout(_timeoutFirestore);
   final dados = snap.data()?['gradeArquivo'] as Map<String, dynamic>?;
+  if (kDebugMode) debugPrint('[grade_arquivo] lerGradeArquivo($uid) -> gradeArquivo presente: ${dados != null}');
   if (dados == null) return null;
   return GradeArquivo(
     nomeArquivo: dados['nomeArquivo'] as String? ?? 'grade',
@@ -75,9 +83,8 @@ Future<GradeArquivo?> lerGradeArquivo(String uid) async {
 
 Future<void> excluirGradeArquivo(String uid) {
   return _doc(uid).set({
-    'hasGrade': false,
     'gradeArquivo': FieldValue.delete(),
-  }, SetOptions(merge: true));
+  }, SetOptions(merge: true)).timeout(_timeoutFirestore);
 }
 
 Map<String, dynamic> _serializarGradeParseada(GradeParseada g) {

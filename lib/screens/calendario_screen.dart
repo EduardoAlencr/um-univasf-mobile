@@ -4,6 +4,7 @@ import '../data/mock_data.dart';
 import '../state/auth_scope.dart';
 import '../theme/app_theme.dart';
 import '../util/data_pt.dart';
+import '../widgets/app_badge.dart';
 import '../widgets/app_card.dart';
 import '../widgets/confirm_dialog.dart';
 import '../widgets/source_tag.dart';
@@ -30,6 +31,7 @@ class _ItemCalendario {
     this.idPessoal,
     this.tag = 'outro',
     this.diaFim,
+    this.mesFim,
   });
   final int dia;
   final String mes; // abreviação, ex. "Set"
@@ -45,21 +47,23 @@ class _ItemCalendario {
   /// Último dia de um intervalo (ex. evento "15 a 22"), ou nulo se for um
   /// único dia.
   final int? diaFim;
+
+  /// Mês do fim do intervalo, só quando diferente do mês de início (ex.
+  /// "18 de Novembro a 11 de Dezembro") — nulo quando o intervalo fica
+  /// dentro do mesmo mês.
+  final String? mesFim;
 }
 
-class _TagEstilo {
-  const _TagEstilo(this.soft, this.texto, this.base);
-  final Color soft;
-  final Color texto;
-  final Color base;
-}
-
-const _estiloPorTag = {
-  'feriado': _TagEstilo(AppColors.redSoft, AppColors.redText, AppColors.red),
-  'recesso': _TagEstilo(AppColors.orangeSoft, AppColors.orangeText, AppColors.orange),
-  'matricula': _TagEstilo(AppColors.blueSoft, AppColors.blueDark, AppColors.blue),
-  'avaliacao': _TagEstilo(AppColors.greenSoft, AppColors.greenText, AppColors.green),
-  'outro': _TagEstilo(AppColors.soft2, AppColors.ink2, AppColors.ink2),
+// Só usado como selo pequeno (mesmo padrão do AppBadge já usado em todo o
+// app) pra diferenciar a categoria — a grade e os destaques do mês
+// continuam só azul (oficial) / amarelo (pessoal), igual ao resto do app,
+// pra não destoar da paleta contida que o app já usa em todo o resto.
+const _corPorTag = {
+  'feriado': BadgeColor.red,
+  'recesso': BadgeColor.orange,
+  'matricula': BadgeColor.blue,
+  'avaliacao': BadgeColor.green,
+  'outro': BadgeColor.gray,
 };
 
 const _rotuloPorTag = {
@@ -67,10 +71,10 @@ const _rotuloPorTag = {
   'recesso': 'Recesso',
   'matricula': 'Matrícula',
   'avaliacao': 'Avaliação',
-  'outro': 'Calendário acadêmico',
+  'outro': 'Calendário',
 };
 
-_TagEstilo _estiloDoTag(String tag) => _estiloPorTag[tag] ?? _estiloPorTag['outro']!;
+BadgeColor _corDoTag(String tag) => _corPorTag[tag] ?? BadgeColor.gray;
 
 class CalendarioScreen extends StatefulWidget {
   const CalendarioScreen({super.key});
@@ -176,8 +180,12 @@ class _CalendarioScreenState extends State<CalendarioScreen> {
     );
 
     if (confirmou != true || tituloCtrl.text.trim().isEmpty) return;
-    await adicionarEventoPessoal(uid, titulo: tituloCtrl.text.trim(), data: dataEscolhida);
-    if (mounted) showUmToast(context, 'Lembrete adicionado ao seu calendário.');
+    try {
+      await adicionarEventoPessoal(uid, titulo: tituloCtrl.text.trim(), data: dataEscolhida);
+      if (mounted) showUmToast(context, 'Lembrete adicionado ao seu calendário.');
+    } catch (_) {
+      if (mounted) showUmToast(context, 'Não foi possível salvar o lembrete agora. Tente de novo.');
+    }
   }
 
   Future<void> _removerEvento(String uid, _ItemCalendario item) async {
@@ -189,16 +197,25 @@ class _CalendarioScreenState extends State<CalendarioScreen> {
       destructive: true,
     );
     if (!confirmou || item.idPessoal == null) return;
-    await removerEventoPessoal(uid, item.idPessoal!);
-    if (mounted) showUmToast(context, 'Lembrete excluído.');
+    try {
+      await removerEventoPessoal(uid, item.idPessoal!);
+      if (mounted) showUmToast(context, 'Lembrete excluído.');
+    } catch (_) {
+      if (mounted) showUmToast(context, 'Não foi possível excluir o lembrete agora. Tente de novo.');
+    }
   }
 
   void _mostrarDetalhe(BuildContext context, _ItemCalendario item) {
-    final estilo = item.isPessoal ? const _TagEstilo(AppColors.yellowSoft, AppColors.yellowText, AppColors.yellow) : _estiloDoTag(item.tag);
-    final rotulo = item.isPessoal ? 'Lembrete pessoal' : (_rotuloPorTag[item.tag] ?? 'Calendário acadêmico');
-    final periodo = item.diaFim != null && item.diaFim != item.dia
-        ? '${item.dia} a ${item.diaFim} de ${item.mes}'
-        : '${item.dia} de ${item.mes}';
+    // Azul/amarelo (oficial/pessoal), igual ao resto do app — a categoria
+    // (feriado/recesso/matrícula/avaliação) vira só um selo pequeno dentro
+    // do conteúdo, não a cor principal do diálogo.
+    final soft = item.isPessoal ? AppColors.yellowSoft : AppColors.blueSoft;
+    final texto = item.isPessoal ? AppColors.yellowText : AppColors.blueDark;
+    final periodo = item.diaFim == null || (item.diaFim == item.dia && item.mesFim == null)
+        ? '${item.dia} de ${item.mes}'
+        : item.mesFim != null
+            ? '${item.dia} de ${item.mes} a ${item.diaFim} de ${item.mesFim}'
+            : '${item.dia} a ${item.diaFim} de ${item.mes}';
 
     showDialog<void>(
       context: context,
@@ -213,23 +230,10 @@ class _CalendarioScreenState extends State<CalendarioScreen> {
               width: double.infinity,
               padding: const EdgeInsets.fromLTRB(22, 20, 22, 16),
               decoration: BoxDecoration(
-                color: estilo.soft,
+                color: soft,
                 borderRadius: const BorderRadius.only(topLeft: Radius.circular(24), topRight: Radius.circular(24)),
               ),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Row(
-                    children: [
-                      Container(width: 9, height: 9, decoration: BoxDecoration(color: estilo.base, shape: BoxShape.circle)),
-                      const SizedBox(width: 7),
-                      Text(rotulo.toUpperCase(), style: TextStyle(fontSize: 11, fontWeight: FontWeight.w800, color: estilo.texto, letterSpacing: 0.8)),
-                    ],
-                  ),
-                  const SizedBox(height: 10),
-                  Text(periodo, style: TextStyle(fontSize: 13.5, fontWeight: FontWeight.w900, color: estilo.texto)),
-                ],
-              ),
+              child: Text(periodo.toUpperCase(), style: TextStyle(fontSize: 11, fontWeight: FontWeight.w800, color: texto, letterSpacing: 0.8)),
             ),
             Padding(
               padding: const EdgeInsets.fromLTRB(22, 18, 22, 16),
@@ -237,6 +241,11 @@ class _CalendarioScreenState extends State<CalendarioScreen> {
                 mainAxisSize: MainAxisSize.min,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
+                  AppBadge(
+                    label: item.isPessoal ? 'Lembrete pessoal' : (_rotuloPorTag[item.tag] ?? 'Calendário'),
+                    color: item.isPessoal ? BadgeColor.yellow : _corDoTag(item.tag),
+                  ),
+                  const SizedBox(height: 10),
                   Text(item.titulo, style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w900, height: 1.35)),
                   const SizedBox(height: 10),
                   Text(item.desc, style: const TextStyle(fontSize: 13, color: AppColors.ink2, height: 1.5)),
@@ -282,6 +291,7 @@ class _CalendarioScreenState extends State<CalendarioScreen> {
         isPessoal: false,
         tag: e.tag,
         diaFim: e.dayEnd != null ? int.tryParse(e.dayEnd!) : null,
+        mesFim: e.monthEnd,
       ),
     );
     final itensPessoais = pessoais.map(
@@ -296,13 +306,33 @@ class _CalendarioScreenState extends State<CalendarioScreen> {
     );
     final todosItens = [...itensPublicos, ...itensPessoais];
 
+    final primeiroDoMes = DateTime(_mesExibido.year, _mesExibido.month, 1);
+    final diasNoMes = DateTime(_mesExibido.year, _mesExibido.month + 1, 0).day;
+    final offsetInicial = primeiroDoMes.weekday - 1; // 0=Seg
+
     // Tag de cada dia do mês com evento oficial — eventos com intervalo
     // (ex. "15 a 22") tingem todos os dias do intervalo, não só o inicial.
+    // Quando o intervalo atravessa pro mês seguinte (mesFim != null),
+    // tinge até o fim do mês exibido (se for o mês de início) ou desde o
+    // dia 1 (se for o mês de fim) — nunca assume que o fim é no mesmo mês.
     final tagPorDia = <int, String>{};
     for (final e in itensPublicos) {
-      if (e.mes.toLowerCase() != abrevMes.toLowerCase() || e.dia == 0) continue;
-      final fim = (e.diaFim != null && e.diaFim! >= e.dia) ? e.diaFim! : e.dia;
-      for (var d = e.dia; d <= fim; d++) {
+      final mesInicioBate = e.mes.toLowerCase() == abrevMes.toLowerCase();
+      final mesFimBate = e.mesFim?.toLowerCase() == abrevMes.toLowerCase();
+      if (e.dia == 0 || (!mesInicioBate && !mesFimBate)) continue;
+
+      int inicio, fim;
+      if (mesInicioBate && (e.mesFim == null || e.mesFim!.toLowerCase() == abrevMes.toLowerCase())) {
+        inicio = e.dia;
+        fim = (e.diaFim != null && e.diaFim! >= e.dia) ? e.diaFim! : e.dia;
+      } else if (mesInicioBate) {
+        inicio = e.dia; // intervalo continua no mês seguinte
+        fim = diasNoMes;
+      } else {
+        inicio = 1; // mês de chegada de um intervalo iniciado no mês anterior
+        fim = e.diaFim ?? 1;
+      }
+      for (var d = inicio; d <= fim; d++) {
         tagPorDia.putIfAbsent(d, () => e.tag);
       }
     }
@@ -312,10 +342,6 @@ class _CalendarioScreenState extends State<CalendarioScreen> {
     }..remove(0);
     final eventosDoMes = todosItens.where((e) => e.mes.toLowerCase() == abrevMes.toLowerCase()).toList()
       ..sort((a, b) => a.dia.compareTo(b.dia));
-
-    final primeiroDoMes = DateTime(_mesExibido.year, _mesExibido.month, 1);
-    final diasNoMes = DateTime(_mesExibido.year, _mesExibido.month + 1, 0).day;
-    final offsetInicial = primeiroDoMes.weekday - 1; // 0=Seg
     final totalCelulas = ((offsetInicial + diasNoMes + 6) ~/ 7) * 7;
 
     final hojeSemHora = DateTime(_hoje.year, _hoje.month, _hoje.day);
@@ -333,7 +359,7 @@ class _CalendarioScreenState extends State<CalendarioScreen> {
         children: [
           Text('Calendário Acadêmico', style: Theme.of(context).textTheme.headlineMedium),
           const SizedBox(height: 4),
-          const Text('Semestre 2026.2 · cor por tipo de evento, amarelo = seus lembretes', style: TextStyle(fontSize: 12.5, color: AppColors.ink2)),
+          const Text('Semestre 2026.2 · azul = oficial, amarelo = seus lembretes', style: TextStyle(fontSize: 12.5, color: AppColors.ink2)),
           if (proximoLembrete != null) ...[
             const SizedBox(height: 14),
             _LembreteDestaque(evento: proximoLembrete, hoje: _hoje),
@@ -404,7 +430,8 @@ class _CalendarioScreenState extends State<CalendarioScreen> {
                             padding: const EdgeInsets.symmetric(vertical: 7),
                             margin: const EdgeInsets.only(right: 12),
                             decoration: BoxDecoration(
-                              color: e.isPessoal ? AppColors.yellow : _estiloDoTag(e.tag).base,
+                              gradient: e.isPessoal ? null : AppColors.gradient,
+                              color: e.isPessoal ? AppColors.yellow : null,
                               borderRadius: BorderRadius.circular(13),
                             ),
                             child: Column(
@@ -414,7 +441,11 @@ class _CalendarioScreenState extends State<CalendarioScreen> {
                                   style: TextStyle(fontSize: 16, fontWeight: FontWeight.w900, color: e.isPessoal ? AppColors.ink : Colors.white),
                                 ),
                                 Text(
-                                  e.diaFim != null && e.diaFim != e.dia ? 'ATÉ ${e.diaFim}' : e.mes.toUpperCase(),
+                                  e.diaFim == null || (e.diaFim == e.dia && e.mesFim == null)
+                                      ? e.mes.toUpperCase()
+                                      : e.mesFim != null
+                                          ? 'ATÉ ${e.diaFim}/${e.mesFim!.toUpperCase()}'
+                                          : 'ATÉ ${e.diaFim}',
                                   style: TextStyle(fontSize: 9, fontWeight: FontWeight.w800, color: e.isPessoal ? AppColors.ink : Colors.white),
                                 ),
                               ],
@@ -425,13 +456,8 @@ class _CalendarioScreenState extends State<CalendarioScreen> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(e.titulo, maxLines: 2, overflow: TextOverflow.ellipsis, style: const TextStyle(fontSize: 13, fontWeight: FontWeight.w800)),
-                                const SizedBox(height: 2),
-                                Text(
-                                  e.isPessoal ? e.desc : (_rotuloPorTag[e.tag] ?? e.desc),
-                                  maxLines: 1,
-                                  overflow: TextOverflow.ellipsis,
-                                  style: const TextStyle(fontSize: 11.5, color: AppColors.ink2),
-                                ),
+                                const SizedBox(height: 4),
+                                AppBadge(label: e.isPessoal ? 'Lembrete pessoal' : (_rotuloPorTag[e.tag] ?? 'Calendário'), color: e.isPessoal ? BadgeColor.yellow : _corDoTag(e.tag)),
                               ],
                             ),
                           ),
@@ -598,9 +624,11 @@ class _DayCell extends StatelessWidget {
       fg = AppColors.yellowText;
       weight = FontWeight.w800;
     } else if (tag != null) {
-      final estilo = _estiloDoTag(tag!);
-      bg = estilo.soft;
-      fg = estilo.texto;
+      // Sempre azul pra qualquer evento oficial, igual ao resto do app —
+      // a categoria (feriado/recesso/matrícula/avaliação) só aparece como
+      // selo na lista e no diálogo de detalhe, não tingindo a grade inteira.
+      bg = AppColors.blueSoft;
+      fg = AppColors.blueDark;
       weight = FontWeight.w800;
     }
 

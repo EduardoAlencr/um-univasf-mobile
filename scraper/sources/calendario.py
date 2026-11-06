@@ -5,9 +5,17 @@ Fonte oficial: https://portais.univasf.edu.br/estudante/informacoes-ao-estudante
 O PDF publica, por mês, uma tabela com o mini-calendário e a lista "DIAS /
 ATIVIDADES". Algumas páginas contêm DUAS tabelas de mês lado a lado (ex.:
 Outubro e Novembro) — por isso extraímos cada tabela pela sua própria
-bounding box (`page.find_tables()` + `within_bbox`) e processamos o texto
-recortado de cada uma isoladamente. Isso evita o bug de atribuir eventos ao
-mês errado quando uma página tem mais de uma tabela.
+bounding box (`page.find_tables()` + `within_bbox`) pra identificar o
+mês/ano, mas o corpo "DIAS ATIVIDADES" é lido **célula por célula**
+(`tabela.extract()`), não como texto corrido. Isso é importante: extrair
+a tabela inteira como texto linearizado (`extract_text()`) intercala
+atividades vizinhas quando o texto de uma quebra em várias linhas, cortando
+ou embaralhando datas — ler célula por célula respeita a borda real da
+tabela, então cada linha fica como um par `(dia(s), atividade)` de verdade,
+sem depender de heurística pra adivinhar onde uma atividade termina e a
+próxima começa. Um detalhe do PDF: célula por célula junta palavras sem
+espaço se usar as tolerâncias padrão do pdfplumber — por isso sempre
+chamamos `extract(x_tolerance=1.5, y_tolerance=1.5)`.
 """
 from __future__ import annotations
 
@@ -35,6 +43,7 @@ MESES_ORDEM = [
     "JANEIRO", "FEVEREIRO", "MARÇO", "ABRIL", "MAIO", "JUNHO",
     "JULHO", "AGOSTO", "SETEMBRO", "OUTUBRO", "NOVEMBRO", "DEZEMBRO",
 ]
+_NUM_PARA_MES_ABREV = {i + 1: nome.capitalize()[:3] for i, nome in enumerate(MESES_ORDEM)}
 
 PALAVRAS_TAG = [
     ("feriado", "feriado"),
@@ -63,12 +72,37 @@ class EventoCalendario:
     titulo: str
     tag: str
     dia_fim: str | None = None
+    # Só preenchidos quando o intervalo atravessa pro mês seguinte (ex. "18/11
+    # a 11/12") — sem isso, um evento assim mostraria "18 a 11 de Novembro",
+    # com o fim antes do início. Quando `dia_fim` existe mas `mes_fim` não, o
+    # fim é no mesmo mês/ano do início.
+    mes_fim: str | None = None
+    ano_fim: int | None = None
 
     def as_date(self) -> date | None:
         try:
             return date(self.ano, MESES[self.mes.lower()[:3]], int(self.dia))
         except (ValueError, KeyError):
             return None
+
+
+def _mes_ano_a_partir_de(mes_num: int | None, mes_base_abrev: str, ano_base: int) -> tuple[str, int]:
+    """Resolve mês/ano de um dia a partir do número de mês explícito no PDF
+    (ex. o "/12" em "18/11 a 11/12"), relativo a um mês/ano base — nunca
+    assume que um dia com mês explícito diferente pertence ao mesmo mês da
+    tabela. Só lida com a virada pro mês/ano adjacente (ex. Dez -> Jan do
+    ano seguinte), que é o único caso real num calendário acadêmico — um
+    intervalo não pula vários meses de uma vez."""
+    if mes_num is None or not (1 <= mes_num <= 12):
+        return mes_base_abrev, ano_base
+    mes_base_num = MESES[mes_base_abrev.lower()[:3]]
+    if mes_num == mes_base_num:
+        return mes_base_abrev, ano_base
+    if mes_base_num == 12 and mes_num == 1:
+        return _NUM_PARA_MES_ABREV[mes_num], ano_base + 1
+    if mes_base_num == 1 and mes_num == 12:
+        return _NUM_PARA_MES_ABREV[mes_num], ano_base - 1
+    return _NUM_PARA_MES_ABREV[mes_num], ano_base
 
 
 def _achar_pdf_calendario() -> str | None:
@@ -117,66 +151,79 @@ def _identificar_mes_ano(texto_tabela: str) -> tuple[str, int] | None:
     return None
 
 
-_CONECTIVOS_SOLTOS = {"a", "à", "e", "de", "da", "do", "das", "dos", "º", "ª", "conuni", "conuni."}
-
-
 def _texto_valido(texto: str) -> bool:
-    """Mesmo filtro de ruído de sempre (cabeçalho solto, só números,
-    sigla curta em caixa alta...), só que aplicado ao bloco inteiro de uma
-    atividade em vez de uma única linha."""
+    """Filtro de ruído mínimo — com a extração célula por célula, cada
+    linha da tabela já vem isolada de verdade; isso só descarta linha
+    vazia/lixo residual (ex. célula "DIAS"/"ATIVIDADES" do cabeçalho, caso
+    entre por engano)."""
     if len(texto) < 6:
         return False
     if texto.upper() == texto and len(texto.split()) <= 2:
         return False
-    if re.fullmatch(r"[\d\s]+", texto):
-        return False
     if not re.search(r"[A-Za-zÀ-ÿ]{3,}", texto):
-        return False
-    # Começa com um conectivo solto (ex. "a participaram...") — sinal de
-    # que é a continuação de uma atividade anterior que quebrou de forma
-    # estranha no PDF, não uma atividade nova de verdade.
-    primeira_palavra = texto.split(" ", 1)[0].lower().rstrip(".")
-    if primeira_palavra in _CONECTIVOS_SOLTOS:
         return False
     return True
 
 
-def _extrair_eventos_tabela(texto_tabela: str, nome_mes_pt: str, ano_mes: int) -> list[EventoCalendario]:
+def _extrair_eventos_tabela_celulas(tabela, nome_mes_pt: str, ano_mes: int) -> list[EventoCalendario]:
+    """Lê a tabela célula por célula (não como texto corrido) — cada linha
+    da seção "DIAS ATIVIDADES" já vem como um par `(dia(s), atividade)`
+    isolado pela própria borda da tabela, o que evita o corte/mistura de
+    datas que a extração por texto linearizado (`extract_text`) causava
+    quando uma atividade quebrava em várias linhas."""
     eventos: list[EventoCalendario] = []
     if nome_mes_pt.lower()[:3] not in MESES:
         return eventos
 
-    # A seção de eventos vem depois do cabeçalho "DIAS ATIVIDADES".
-    partes = re.split(r"\bDIAS\s+ATIVIDADES\b", texto_tabela, maxsplit=1)
-    corpo = partes[1] if len(partes) > 1 else texto_tabela
+    try:
+        linhas = tabela.extract(x_tolerance=1.5, y_tolerance=1.5)
+    except Exception as exc:
+        print(f"[calendario] falha ao extrair células da tabela de {nome_mes_pt}: {exc}")
+        return eventos
 
-    # Cada atividade pode quebrar em várias linhas (colunas estreitas no
-    # PDF) — por isso agrupamos em blocos: uma linha que começa com um dia
-    # abre um novo bloco, e as linhas seguintes (sem dia no início) são
-    # continuação do texto da mesma atividade, até o próximo bloco.
-    blocos: list[tuple[re.Match, list[str]]] = []
-    for linha in corpo.splitlines():
-        linha = linha.strip()
-        if not linha:
-            continue
-        m = DIA_RE.match(linha)
-        if m and m.group(1):
-            blocos.append((m, [linha[m.end():].strip(" -–")]))
-        elif blocos:
-            blocos[-1][1].append(linha)
+    # A seção de eventos começa na linha de cabeçalho "DIAS" | "ATIVIDADES".
+    inicio = next((i for i, linha in enumerate(linhas) if linha and (linha[0] or "").strip().upper() == "DIAS"), None)
+    if inicio is None:
+        return eventos
 
-    for m, linhas_resto in blocos:
-        resto = " ".join(l for l in linhas_resto if l).strip(" -–")
-        if not _texto_valido(resto):
+    for linha in linhas[inicio + 1:]:
+        if not linha or linha[0] is None:
             continue
+        dia_cel = linha[0].replace("\n", " ").strip()
+        atividade_cel = (linha[1] or "").replace("\n", " ").strip() if len(linha) > 1 else ""
+        atividade_cel = re.sub(r"\s+", " ", atividade_cel)
+
+        m = DIA_RE.match(dia_cel)
+        if not m or not m.group(1):
+            continue
+        if not _texto_valido(atividade_cel):
+            continue
+
+        mes_tabela_abrev = nome_mes_pt.capitalize()[:3]
+        mes_ini_num = int(m.group(2)) if m.group(2) else None
+        mes_ini_abrev, ano_ini = _mes_ano_a_partir_de(mes_ini_num, mes_tabela_abrev, ano_mes)
+
+        dia_fim = m.group(3)
+        mes_fim_abrev: str | None = None
+        ano_fim: int | None = None
+        if dia_fim:
+            mes_fim_num = int(m.group(4)) if m.group(4) else None
+            mes_fim_abrev, ano_fim = _mes_ano_a_partir_de(mes_fim_num, mes_ini_abrev, ano_ini)
+            # Só guarda mes_fim/ano_fim quando realmente diferem do início —
+            # mantém o JSON enxuto pro caso comum (intervalo dentro do mesmo mês).
+            if mes_fim_abrev == mes_ini_abrev and ano_fim == ano_ini:
+                mes_fim_abrev, ano_fim = None, None
+
         eventos.append(
             EventoCalendario(
                 dia=m.group(1).zfill(2),
-                mes=nome_mes_pt.capitalize()[:3],
-                ano=ano_mes,
-                titulo=resto[:300],
-                tag=_classificar_tag(resto),
-                dia_fim=m.group(3).zfill(2) if m.group(3) else None,
+                mes=mes_ini_abrev,
+                ano=ano_ini,
+                titulo=atividade_cel[:300],
+                tag=_classificar_tag(atividade_cel),
+                dia_fim=dia_fim.zfill(2) if dia_fim else None,
+                mes_fim=mes_fim_abrev,
+                ano_fim=ano_fim,
             )
         )
     return eventos
@@ -201,7 +248,7 @@ def _extrair_eventos_pagina(pagina) -> list[EventoCalendario]:
         if not mes_ano:
             continue
         nome_mes, ano = mes_ano
-        eventos += _extrair_eventos_tabela(texto, nome_mes, ano)
+        eventos += _extrair_eventos_tabela_celulas(tabela, nome_mes, ano)
 
     return eventos
 

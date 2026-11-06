@@ -1,4 +1,6 @@
+import 'dart:async';
 import 'package:file_picker/file_picker.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import '../data/grade_arquivo.dart';
 import '../data/grade_parser.dart';
@@ -10,6 +12,10 @@ import '../widgets/um_toast.dart';
 import '../navigation/go_profile.dart';
 import 'grade_result_screen.dart';
 
+void _log(String msg) {
+  if (kDebugMode) debugPrint('[grade_upload_screen] $msg');
+}
+
 class GradeUploadScreen extends StatefulWidget {
   const GradeUploadScreen({super.key});
 
@@ -17,10 +23,26 @@ class GradeUploadScreen extends StatefulWidget {
   State<GradeUploadScreen> createState() => _GradeUploadScreenState();
 }
 
+// Intervalo mínimo entre tentativas de envio — proteção barata contra uma
+// rajada de escritas no Firestore (ex. usuário martelando "enviar" depois
+// de uma falha), independente da causa da falha em si.
+const _intervaloMinimoEntreEnvios = Duration(seconds: 8);
+
 class _GradeUploadScreenState extends State<GradeUploadScreen> {
   bool _enviando = false;
+  DateTime? _ultimaTentativa;
 
   Future<void> _selecionarEEnviar() async {
+    final ultima = _ultimaTentativa;
+    if (ultima != null) {
+      final espera = _intervaloMinimoEntreEnvios - DateTime.now().difference(ultima);
+      if (espera > Duration.zero) {
+        showUmToast(context, 'Aguarde ${espera.inSeconds + 1}s antes de tentar de novo.');
+        return;
+      }
+    }
+    _ultimaTentativa = DateTime.now();
+
     final resultado = await FilePicker.pickFiles(
       type: FileType.custom,
       allowedExtensions: ['pdf', 'jpg', 'jpeg', 'png'],
@@ -53,9 +75,12 @@ class _GradeUploadScreenState extends State<GradeUploadScreen> {
         'png' => 'image/png',
         _ => 'image/jpeg',
       };
+      _log('arquivo selecionado: ${arquivo.name} (${bytes.length} bytes, $mimeType)');
       // Só PDF tem texto extraível — imagem (print) fica só guardada/aberta,
       // sem tentar montar a grade automaticamente (evita OCR impreciso).
+      _log('chamando parsearGradePdf...');
       final parseada = mimeType == 'application/pdf' ? await parsearGradePdf(bytes) : null;
+      _log('parsearGradePdf retornou (temAulas: ${parseada?.temAulas})');
       final montouAutomatico = parseada != null && parseada.temAulas;
       // Quando não montou e é PDF, checa se o motivo é "sem texto nenhum"
       // (PDF de imagem/captura de tela) pra avisar isso especificamente.
@@ -68,6 +93,7 @@ class _GradeUploadScreenState extends State<GradeUploadScreen> {
         parseada: parseada,
         pdfSemTexto: pdfSemTexto,
       );
+      _log('salvando no Firestore...');
       await salvarGradeArquivo(
         uid,
         nomeArquivo: arquivoSalvo.nomeArquivo,
@@ -76,7 +102,8 @@ class _GradeUploadScreenState extends State<GradeUploadScreen> {
         parseada: arquivoSalvo.parseada,
         pdfSemTexto: arquivoSalvo.pdfSemTexto,
       );
-      await auth.setHasGrade(true);
+      _log('salvo com sucesso no Firestore');
+      auth.setHasGrade(true);
       if (!mounted) return;
       showUmToast(
         context,
@@ -87,8 +114,16 @@ class _GradeUploadScreenState extends State<GradeUploadScreen> {
                 : 'Arquivo salvo, mas não conseguimos montar sua agenda automaticamente — veja os detalhes na próxima tela.',
       );
       Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (_) => GradeResultScreen(arquivoInicial: arquivoSalvo)));
-    } catch (e) {
-      if (mounted) showUmToast(context, 'Falha ao enviar o arquivo. Tente novamente.');
+    } catch (e, st) {
+      _log('ERRO no envio: $e\n$st');
+      if (mounted) {
+        showUmToast(
+          context,
+          e is TimeoutException
+              ? 'A conexão com o servidor demorou demais (rede instável ou indisponível no momento). Tente novamente em alguns minutos.'
+              : 'Falha ao enviar o arquivo. Tente novamente.',
+        );
+      }
     } finally {
       if (mounted) setState(() => _enviando = false);
     }

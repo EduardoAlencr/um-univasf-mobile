@@ -27,10 +27,14 @@ Stream<List<EventoPessoal>> streamEventosPessoais(String uid) {
       );
 }
 
+// Mesmo tempo-limite usado nas outras escritas do app (grade, exclusão de
+// conta) — nunca deixa uma chamada ficar pendurada em silêncio.
+const _timeoutFirestore = Duration(seconds: 20);
+
 Future<void> adicionarEventoPessoal(String uid, {required String titulo, required DateTime data}) {
-  return _colecao(uid).add({'titulo': titulo, 'data': Timestamp.fromDate(data)});
+  return _colecao(uid).add({'titulo': titulo, 'data': Timestamp.fromDate(data)}).timeout(_timeoutFirestore);
 }
 
 Future<void> removerEventoPessoal(String uid, String id) {
-  return _colecao(uid).doc(id).delete();
+  return _colecao(uid).doc(id).delete().timeout(_timeoutFirestore);
 }
