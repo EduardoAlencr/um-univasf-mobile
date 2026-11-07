@@ -1,6 +1,13 @@
 {
-  "gerado_em": "2026-11-06T16:30:33",
+  "gerado_em": "2026-11-07T15:17:41",
   "noticias_setores": [
+    {
+      "setor": "PROAE",
+      "titulo": "PROAE/UNIVASF divulga Resultado Final do PROMISAES 2026",
+      "data": "06/11/2026",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/proae/noticias/06-11-2026-proae-univasf-divulga-resultado-final-do-promisaes-2026"
+    },
     {
       "setor": "PROAE",
       "titulo": "A Pró-Reitoria de Assistência Estudantil da Univasf divulga o Cronograma de Entrevistas Sociais do PSU 2026 – Campus SALGUEIRO.",
@@ -133,13 +140,6 @@
       "data": "13/08/2026",
       "resumo": "",
       "url": "https://portais.univasf.edu.br/proae/noticias/13-08-2026-acesso-temporario-aos-restaurantes-universitarios-para-estudantes-cotistas-de-renda-ingressantes-em-2026-1-e-2026.2"
-    },
-    {
-      "setor": "PROAE",
-      "titulo": "A PROAE reabre inscrições do Edital nº 02/2026 para Cadastro de Reserva das Residências Estudantis da UNIVASF",
-      "data": "07/08/2026",
-      "resumo": "",
-      "url": "https://portais.univasf.edu.br/proae/noticias/07-08-2026-2013-a-proae-reabre-inscricoes-do-edital-no-02-2026-para-cadastro-de-reserva-das-residencias-estudantis-da-univasf"
     },
     {
       "setor": "PROEX",
@@ -423,6 +423,20 @@
     },
     {
       "setor": "UNIVASF",
+      "titulo": "Univasf realiza abertura dos cursos de formação para estudantes quilombolas e ciganos",
+      "data": "06/11/2026",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/noticias/univasf-realiza-abertura-dos-cursos-de-formacao-para-estudantes-quilombolas-e-ciganos"
+    },
+    {
+      "setor": "UNIVASF",
+      "titulo": "Univasf participa de encontro regional sobre assistência estudantil e permanência universitária",
+      "data": "06/11/2026",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/noticias/univasf-participa-de-encontro-regional-sobre-assistencia-estudantil-e-permanencia-universitaria"
+    },
+    {
+      "setor": "UNIVASF",
       "titulo": "4ª Jornada de Psicologia Jurídica discute o enfrentamento às violências e as éticas do cuidado",
       "data": "06/11/2026",
       "resumo": "",
@@ -686,20 +700,6 @@
       "data": "19/10/2026",
       "resumo": "",
       "url": "https://portais.univasf.edu.br/noticias/defesa-de-memorial-do-docente-julianeli-tolentino-de-lima-para-promocao-a-classe-de-professor-titular-acontece-nesta-quarta-feira-21"
-    },
-    {
-      "setor": "UNIVASF",
-      "titulo": "Univasf celebra 22 anos de uma história construída junto com o povo sertanejo",
-      "data": "18/10/2026",
-      "resumo": "",
-      "url": "https://portais.univasf.edu.br/noticias/univasf-celebra-22-anos-de-uma-historia-construida-junto-com-o-povo-sertanejo"
-    },
-    {
-      "setor": "UNIVASF",
-      "titulo": "Nota da Pró-Reitoria de Ensino sobre aulas remotas para o CCA nesta sexta-feira (16)",
-      "data": "16/10/2026",
-      "resumo": "",
-      "url": "https://portais.univasf.edu.br/noticias/nota-da-pro-reitoria-de-ensino-sobre-aulas-remotas-para-o-cca-nesta-sexta-feira-16"
     }
   ],
   "ru_cardapio": {
