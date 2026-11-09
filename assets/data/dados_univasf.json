@@ -1,6 +1,13 @@
 {
-  "gerado_em": "2026-11-09T10:12:22",
+  "gerado_em": "2026-11-09T19:21:47",
   "noticias_setores": [
+    {
+      "setor": "PROAE",
+      "titulo": "LISTA FINAL DE SOLICITAÇÕES DE TRANSPORTE, ALOJAMENTO E ACESSO AOS RESTAURANTES UNIVERSITÁRIOS – 19ª SCIENTEX",
+      "data": "09/11/2026",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/proae/noticias/09-11-2026-lista-final-de-solicitacoes-de-transporte-alojamento-e-acesso-aos-restaurantes-universitarios-2013-19a-scientex"
+    },
     {
       "setor": "PROAE",
       "titulo": "A Pró-Reitoria de Assistência Estudantil da Univasf divulga o Cronograma de Entrevistas Sociais do PSU 2026 – Campus SERRA DA CAPIVARA.",
@@ -133,13 +140,6 @@
       "data": "20/08/2026",
       "resumo": "",
       "url": "https://portais.univasf.edu.br/proae/noticias/20-08-2026-2013-a-proae-prorroga-prazo-de-inscricoes-do-processo-seletivo-unificado-2013-psu-2026"
-    },
-    {
-      "setor": "PROAE",
-      "titulo": "PROAE prorroga prazo de inscrições do Processo Seletivo Unificado – PSU 2026",
-      "data": "13/08/2026",
-      "resumo": "",
-      "url": "https://portais.univasf.edu.br/proae/noticias/13-08-2026-proae-prorroga-prazo-de-inscricoes-do-processo-seletivo-unificado-2013-psu-2026"
     },
     {
       "setor": "PROEX",
@@ -423,6 +423,20 @@
     },
     {
       "setor": "UNIVASF",
+      "titulo": "Cemafauna apresenta resultados de pesquisa sobre a conservação de peixes do Rio São Francisco em workshop de Aquicultura e Pesca",
+      "data": "09/11/2026",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/noticias/cemafauna-apresenta-resultados-de-pesquisa-sobre-a-conservacao-de-peixes-do-rio-sao-francisco-em-workshop-de-aquicultura-e-pesca"
+    },
+    {
+      "setor": "UNIVASF",
+      "titulo": "Mestrado em Ensino da Univasf oferece 30 vagas para a turma 2027",
+      "data": "09/11/2026",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/noticias/mestrado-em-ensino-da-univasf-oferece-30-vagas-para-a-turma-2027"
+    },
+    {
+      "setor": "UNIVASF",
       "titulo": "Profissionais do HU-Univasf lançam livro sobre Psicologia Hospitalar e Saúde Mental",
       "data": "09/11/2026",
       "resumo": "",
@@ -686,20 +700,6 @@
       "data": "20/10/2026",
       "resumo": "",
       "url": "https://portais.univasf.edu.br/noticias/mensagem-do-reitor-pelos-122-anos-da-univasf"
-    },
-    {
-      "setor": "UNIVASF",
-      "titulo": "Univasf realiza 11º Fórum de Mobilização Antimanicomial com programação sobre cuidado em liberdade",
-      "data": "20/10/2026",
-      "resumo": "",
-      "url": "https://portais.univasf.edu.br/noticias/univasf-realiza-11o-forum-de-mobilizacao-antimanicomial-com-programacao-sobre-cuidado-em-liberdade"
-    },
-    {
-      "setor": "UNIVASF",
-      "titulo": "Univasf está com inscrições abertas para o Programa de Mobilidade Estudantil InterIES",
-      "data": "20/10/2026",
-      "resumo": "",
-      "url": "https://portais.univasf.edu.br/noticias/univasf-esta-com-inscricoes-abertas-para-o-programa-de-mobilidade-estudantil-interies"
     }
   ],
   "ru_cardapio": {
