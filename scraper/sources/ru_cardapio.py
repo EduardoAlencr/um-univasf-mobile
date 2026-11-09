@@ -129,13 +129,13 @@ def _data_inicio(periodo: str) -> date | None:
 
 def _extrair_periodo(titulo: str, texto_pdf: str) -> str:
     # Formato "DD/MM a DD/MM", quando o PDF usa datas numéricas em faixa.
-    match = re.search(r"\d{2}/\d{2}(?:/\d{4})?\s*a\s*\d{2}/\d{2}(?:/\d{4})?", texto_pdf or "")
+    match = re.search(r"\d{1,2}/\d{1,2}(?:/\d{4})?\s*a\s*\d{1,2}/\d{1,2}(?:/\d{4})?", texto_pdf or "")
     if match:
         return match.group(0)
     # Formato real mais comum no PDF atual: uma linha "DATA 26/out 27/out
     # 28/out 29/out 30/out" — dia + mês abreviado, sem palavra "a" entre as
     # datas. Pega a primeira e a última ocorrência pra montar o período.
-    datas = re.findall(r"\b\d{2}/[A-Za-zÀ-ÿ]{3}\b", texto_pdf or "")
+    datas = re.findall(r"\b\d{1,2}/[A-Za-zÀ-ÿ]{3}\b", texto_pdf or "")
     if len(datas) >= 2:
         return f"{datas[0]} a {datas[-1]}"
     if datas:
@@ -266,28 +266,36 @@ def _baixar_e_parsear(pdf_url: str, titulo: str) -> dict | None:
 
 def raspar_cardapio_ru() -> dict:
     """Retorna {"periodo": str, "refeicoes": [...], "legenda": str|None} ou
-    dict vazio. Percorre os candidatos do mais recente pro mais antigo e
-    usa o primeiro cuja semana já começou — evita mostrar uma semana
-    futura só porque a PROAE publicou o PDF dela com antecedência."""
+    dict vazio. A ordem da busca no portal é por data de modificação, não
+    por período coberto — um PDF antigo re-salvo recentemente pode aparecer
+    na frente de semanas mais novas. Por isso não paramos no primeiro
+    candidato cuja semana "já começou": lemos todos os candidatos e ficamos
+    com o que tem a data de início mais recente (sem ser futura) — a
+    semana atual de verdade, independente da ordem em que apareceu."""
     candidatos = _listar_candidatos_pdf()
     if not candidatos:
         return {}
 
-    fallback: dict | None = None
+    primeiro_legivel: dict | None = None
+    melhor: dict | None = None
+    melhor_inicio: date | None = None
     for pdf_url, titulo in candidatos:
         dados = _baixar_e_parsear(pdf_url, titulo)
         if dados is None:
             continue
-        if fallback is None:
-            fallback = dados  # o mais recente que conseguimos ler, por garantia
+        if primeiro_legivel is None:
+            primeiro_legivel = dados  # por garantia, se nada mais bater
 
         inicio = _data_inicio(dados["periodo"])
-        if inicio is None or inicio <= date.today():
-            return dados  # semana já começou (ou não deu pra confirmar a data)
+        if inicio is None or inicio > date.today():
+            continue
+        if melhor_inicio is None or inicio > melhor_inicio:
+            melhor_inicio = inicio
+            melhor = dados
 
-    # Nenhum candidato com semana já iniciada (raro) — melhor mostrar o mais
-    # recente que conseguimos ler do que nada.
-    return fallback or {}
+    # Nenhum candidato com data de início confirmável e já iniciada (raro) —
+    # melhor mostrar o mais recente que conseguimos ler do que nada.
+    return melhor or primeiro_legivel or {}
 
 
 def _extrair_legenda(texto: str) -> str | None:
