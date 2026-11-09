@@ -53,20 +53,7 @@ Future<void> loadRemoteData() async {
   }
 }
 
-// TEMP (teste local, remover antes de commitar): força o uso do asset
-// embutido, ignorando rede/cache, pra testar dados novos que ainda não
-// foram publicados no GitHub.
-const _forcarAssetLocalParaTeste = true;
-
 Future<String?> _buscarJson() async {
-  if (_forcarAssetLocalParaTeste) {
-    try {
-      return await rootBundle.loadString('assets/data/dados_univasf.json');
-    } catch (_) {
-      return null;
-    }
-  }
-
   final remoto = await _buscarRemoto();
   if (remoto != null) return remoto;
 
