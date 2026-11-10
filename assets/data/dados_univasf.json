@@ -1,6 +1,13 @@
 {
-  "gerado_em": "2026-11-09T19:21:47",
+  "gerado_em": "2026-11-10T16:41:24",
   "noticias_setores": [
+    {
+      "setor": "PROAE",
+      "titulo": "A Pró-Reitoria de Assistência Estudantil da Univasf divulga o Cronograma de Entrevistas Sociais do PSU 2026 – Campus JUAZEIRO.",
+      "data": "10/11/2026",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/proae/noticias/a-pro-reitoria-de-assistencia-estudantil-da-univasf-divulga-o-cronograma-de-entrevistas-sociais-do-psu-2026-2013-campus-juazeiro"
+    },
     {
       "setor": "PROAE",
       "titulo": "LISTA FINAL DE SOLICITAÇÕES DE TRANSPORTE, ALOJAMENTO E ACESSO AOS RESTAURANTES UNIVERSITÁRIOS – 19ª SCIENTEX",
@@ -133,13 +140,6 @@
       "data": "21/08/2026",
       "resumo": "",
       "url": "https://portais.univasf.edu.br/proae/noticias/21-08-2026-proae-prorroga-prazo-da-reabertura-de-inscricoes-para-residencias-estudantis"
-    },
-    {
-      "setor": "PROAE",
-      "titulo": "A PROAE prorroga prazo de inscrições do Processo Seletivo Unificado – PSU 2026",
-      "data": "20/08/2026",
-      "resumo": "",
-      "url": "https://portais.univasf.edu.br/proae/noticias/20-08-2026-2013-a-proae-prorroga-prazo-de-inscricoes-do-processo-seletivo-unificado-2013-psu-2026"
     },
     {
       "setor": "PROEX",
@@ -423,6 +423,27 @@
     },
     {
       "setor": "UNIVASF",
+      "titulo": "Univasf realiza seleção simplificada para professor substituto",
+      "data": "10/11/2026",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/noticias/univasf-realiza-selecao-simplificada-para-professor-substituto-3"
+    },
+    {
+      "setor": "UNIVASF",
+      "titulo": "Fadesa está credenciada junto ao MEC e MCTI para atuar como fundação de apoio à Univasf",
+      "data": "09/11/2026",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/noticias/fadesa-esta-credenciada-junto-ao-mec-e-mcti-para-atuar-como-fundacao-de-apoio-a-univasf"
+    },
+    {
+      "setor": "UNIVASF",
+      "titulo": "Pesquisa de Clima Organizacional da Univasf aponta reconhecimento institucional e oportunidades de melhoria no ambiente de trabalho",
+      "data": "09/11/2026",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/noticias/pesquisa-de-clima-organizacional-da-univasf-aponta-reconhecimento-institucional-e-oportunidades-de-melhoria-no-ambiente-de-trabalho"
+    },
+    {
+      "setor": "UNIVASF",
       "titulo": "Cemafauna apresenta resultados de pesquisa sobre a conservação de peixes do Rio São Francisco em workshop de Aquicultura e Pesca",
       "data": "09/11/2026",
       "resumo": "",
@@ -679,27 +700,6 @@
       "data": "21/10/2026",
       "resumo": "",
       "url": "https://portais.univasf.edu.br/noticias/hu-univasf-oferece-unica-residencia-medica-em-cuidados-paliativos-no-interior-do-nordeste"
-    },
-    {
-      "setor": "UNIVASF",
-      "titulo": "Univasf flexibiliza presença dos estudantes nos dias 23 e 26 de outubro de 2026",
-      "data": "20/10/2026",
-      "resumo": "",
-      "url": "https://portais.univasf.edu.br/noticias/univasf-flexibiliza-presenca-dos-estudantes-nos-dias-23-e-26-de-outubro-de-2026"
-    },
-    {
-      "setor": "UNIVASF",
-      "titulo": "Conselho Universitário da Univasf lança nota em defesa da autonomia universitária, da democracia e do exercício da cidadania",
-      "data": "20/10/2026",
-      "resumo": "",
-      "url": "https://portais.univasf.edu.br/noticias/conselho-universitario-da-univasf-lanca-nota-em-defesa-da-autonomia-universitaria-da-democracia-e-do-exercicio-da-cidadania"
-    },
-    {
-      "setor": "UNIVASF",
-      "titulo": "Mensagem do reitor pelos 22 anos da Univasf",
-      "data": "20/10/2026",
-      "resumo": "",
-      "url": "https://portais.univasf.edu.br/noticias/mensagem-do-reitor-pelos-122-anos-da-univasf"
     }
   ],
   "ru_cardapio": {
