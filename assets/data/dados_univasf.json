@@ -1,5 +1,5 @@
 {
-  "gerado_em": "2026-11-10T16:41:24",
+  "gerado_em": "2026-11-11T16:47:02",
   "noticias_setores": [
     {
       "setor": "PROAE",
@@ -423,6 +423,27 @@
     },
     {
       "setor": "UNIVASF",
+      "titulo": "Estudantes de Ciência da Computação da Univasf se destacam no 3º Hackathon Sertão Salgueiro",
+      "data": "11/11/2026",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/noticias/estudantes-de-ciencia-da-computacao-da-univasf-se-destacam-no-3o-hackathon-sertao-salgueiro"
+    },
+    {
+      "setor": "UNIVASF",
+      "titulo": "Proae divulga lista final de solicitações de transporte, alojamento e acesso aos Restaurantes Universitários na 19ª Scientex",
+      "data": "10/11/2026",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/noticias/proae-divulga-lista-final-de-solicitacoes-de-transporte-alojamento-e-acesso-aos-restaurantes-universitarios-na-19a-scientex"
+    },
+    {
+      "setor": "UNIVASF",
+      "titulo": "Em mutirão realizado neste sábado (07), HU-Univasf atendeu pacientes que aguardavam em filas de espera do SUS",
+      "data": "10/11/2026",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/noticias/em-mutirao-realizado-neste-sabado-07-hu-univasf-atendeu-pacientes-que-aguardavam-em-filas-de-espera-do-sus"
+    },
+    {
+      "setor": "UNIVASF",
       "titulo": "Univasf realiza seleção simplificada para professor substituto",
       "data": "10/11/2026",
       "resumo": "",
@@ -679,27 +700,6 @@
       "data": "22/10/2026",
       "resumo": "",
       "url": "https://portais.univasf.edu.br/noticias/univasf-oferta-20-vagas-para-doutorado-profissional-em-agroecologia-e-desenvolvimento-territorial"
-    },
-    {
-      "setor": "UNIVASF",
-      "titulo": "Univasf e Ministério Público de Pernambuco firmam acordo de cooperação técnica para ações em inclusão e acessibilidade",
-      "data": "22/10/2026",
-      "resumo": "",
-      "url": "https://portais.univasf.edu.br/noticias/univasf-e-ministerio-publico-de-pernambuco-firmam-acordo-de-cooperacao-tecnica-para-acoes-em-inclusao-e-acessibilidade"
-    },
-    {
-      "setor": "UNIVASF",
-      "titulo": "Exposição “O Tempo Entre as Coisas”, em cartaz na Univasf, reúne memória, natureza e materiais reaproveitados",
-      "data": "21/10/2026",
-      "resumo": "",
-      "url": "https://portais.univasf.edu.br/noticias/exposicao-201co-tempo-entre-as-coisas201d-em-cartaz-na-univasf-reune-memoria-natureza-e-materiais-reaproveitados-1"
-    },
-    {
-      "setor": "UNIVASF",
-      "titulo": "HU-Univasf oferece única residência médica em cuidados paliativos no interior do Nordeste",
-      "data": "21/10/2026",
-      "resumo": "",
-      "url": "https://portais.univasf.edu.br/noticias/hu-univasf-oferece-unica-residencia-medica-em-cuidados-paliativos-no-interior-do-nordeste"
     }
   ],
   "ru_cardapio": {
