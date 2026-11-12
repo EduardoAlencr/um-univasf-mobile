@@ -1,5 +1,5 @@
 {
-  "gerado_em": "2026-11-11T16:47:02",
+  "gerado_em": "2026-11-12T17:16:25",
   "noticias_setores": [
     {
       "setor": "PROAE",
@@ -423,6 +423,13 @@
     },
     {
       "setor": "UNIVASF",
+      "titulo": "Cemafauna destaca protagonismo feminino na conservação da Caatinga durante a 23ª Semana Nacional de Ciência e Tecnologia do Sesc Petrolina",
+      "data": "12/11/2026",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/noticias/cemafauna-destaca-protagonismo-feminino-na-conservacao-da-caatinga-durante-a-23a-semana-nacional-de-ciencia-e-tecnologia-do-sesc-petrolina"
+    },
+    {
+      "setor": "UNIVASF",
       "titulo": "Estudantes de Ciência da Computação da Univasf se destacam no 3º Hackathon Sertão Salgueiro",
       "data": "11/11/2026",
       "resumo": "",
@@ -693,13 +700,6 @@
       "data": "22/10/2026",
       "resumo": "",
       "url": "https://portais.univasf.edu.br/noticias/projeto-da-univasf-oferece-oito-bolsas-de-pesquisa-para-estudantes-de-graduacao"
-    },
-    {
-      "setor": "UNIVASF",
-      "titulo": "Univasf oferta 20 vagas para Doutorado Profissional em Agroecologia e Desenvolvimento Territorial",
-      "data": "22/10/2026",
-      "resumo": "",
-      "url": "https://portais.univasf.edu.br/noticias/univasf-oferta-20-vagas-para-doutorado-profissional-em-agroecologia-e-desenvolvimento-territorial"
     }
   ],
   "ru_cardapio": {
