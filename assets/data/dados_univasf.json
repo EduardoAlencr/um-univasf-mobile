@@ -1,5 +1,5 @@
 {
-  "gerado_em": "2026-11-12T17:16:25",
+  "gerado_em": "2026-11-13T16:52:20",
   "noticias_setores": [
     {
       "setor": "PROAE",
@@ -423,6 +423,13 @@
     },
     {
       "setor": "UNIVASF",
+      "titulo": "Univasf promove curso sobre patrimônio genético, conhecimento tradicional e uso do SisGen",
+      "data": "12/11/2026",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/noticias/univasf-promove-curso-sobre-patrimonio-genetico-conhecimento-tradicional-e-uso-do-sisgen"
+    },
+    {
+      "setor": "UNIVASF",
       "titulo": "Cemafauna destaca protagonismo feminino na conservação da Caatinga durante a 23ª Semana Nacional de Ciência e Tecnologia do Sesc Petrolina",
       "data": "12/11/2026",
       "resumo": "",
@@ -693,13 +700,6 @@
       "data": "23/10/2026",
       "resumo": "",
       "url": "https://portais.univasf.edu.br/noticias/estudantes-e-orientadores-mostram-resultados-de-pesquisas-de-iniciacao-cientifica-e-tecnologica-no-hu-univasf"
-    },
-    {
-      "setor": "UNIVASF",
-      "titulo": "Projeto da Univasf oferece oito bolsas de pesquisa para estudantes de graduação",
-      "data": "22/10/2026",
-      "resumo": "",
-      "url": "https://portais.univasf.edu.br/noticias/projeto-da-univasf-oferece-oito-bolsas-de-pesquisa-para-estudantes-de-graduacao"
     }
   ],
   "ru_cardapio": {
