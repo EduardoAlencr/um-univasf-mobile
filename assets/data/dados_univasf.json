@@ -1,5 +1,5 @@
 {
-  "gerado_em": "2026-11-13T16:52:20",
+  "gerado_em": "2026-11-14T15:26:33",
   "noticias_setores": [
     {
       "setor": "PROAE",
@@ -423,6 +423,20 @@
     },
     {
       "setor": "UNIVASF",
+      "titulo": "Comissão Eleitoral homologa inscrição de chapa única para eleição do Reitorado 2027-2031 da Univasf",
+      "data": "13/11/2026",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/noticias/comissao-eleitoral-homologa-inscricao-de-chapa-unica-para-eleicao-do-reitorado-2027-2031-da-univasf"
+    },
+    {
+      "setor": "UNIVASF",
+      "titulo": "Projeto DANT lança guia temático Proteção e Saúde da Mulher no Campo",
+      "data": "13/11/2026",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/noticias/projeto-dant-lanca-guia-tematico-protecao-e-saude-da-mulher-no-campo"
+    },
+    {
+      "setor": "UNIVASF",
       "titulo": "Univasf promove curso sobre patrimônio genético, conhecimento tradicional e uso do SisGen",
       "data": "12/11/2026",
       "resumo": "",
@@ -686,20 +700,6 @@
       "data": "23/10/2026",
       "resumo": "",
       "url": "https://portais.univasf.edu.br/noticias/nova-especie-de-cacto-e-descoberta-na-caatinga-baiana-apos-mais-de-um-seculo-sem-novos-registros-desse-genero-de-plantas"
-    },
-    {
-      "setor": "UNIVASF",
-      "titulo": "Univasf terá Cuidoteca para apoiar estudantes, servidores e terceirizados com crianças",
-      "data": "23/10/2026",
-      "resumo": "",
-      "url": "https://portais.univasf.edu.br/noticias/univasf-tera-cuidoteca-para-apoiar-estudantes-servidores-e-terceirizados-com-criancas"
-    },
-    {
-      "setor": "UNIVASF",
-      "titulo": "Estudantes e orientadores mostram resultados de pesquisas de iniciação científica e tecnológica no HU-Univasf",
-      "data": "23/10/2026",
-      "resumo": "",
-      "url": "https://portais.univasf.edu.br/noticias/estudantes-e-orientadores-mostram-resultados-de-pesquisas-de-iniciacao-cientifica-e-tecnologica-no-hu-univasf"
     }
   ],
   "ru_cardapio": {
