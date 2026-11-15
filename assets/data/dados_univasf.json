@@ -1,5 +1,5 @@
 {
-  "gerado_em": "2026-11-14T15:26:33",
+  "gerado_em": "2026-11-15T15:59:02",
   "noticias_setores": [
     {
       "setor": "PROAE",
@@ -423,6 +423,13 @@
     },
     {
       "setor": "UNIVASF",
+      "titulo": "Informe sobre corpo encontrado no Campus Juazeiro",
+      "data": "14/11/2026",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/noticias/informe-sobre-corpo-encontrado-no-campus-juazeiro"
+    },
+    {
+      "setor": "UNIVASF",
       "titulo": "Comissão Eleitoral homologa inscrição de chapa única para eleição do Reitorado 2027-2031 da Univasf",
       "data": "13/11/2026",
       "resumo": "",
@@ -693,13 +700,6 @@
       "data": "26/10/2026",
       "resumo": "",
       "url": "https://portais.univasf.edu.br/noticias/abertas-as-inscricoes-para-o-programa-andifes-de-mobilidade-academica-na-univasf"
-    },
-    {
-      "setor": "UNIVASF",
-      "titulo": "Nova espécie de cacto é descoberta na caatinga baiana após mais de um século sem novos registros desse gênero de plantas",
-      "data": "23/10/2026",
-      "resumo": "",
-      "url": "https://portais.univasf.edu.br/noticias/nova-especie-de-cacto-e-descoberta-na-caatinga-baiana-apos-mais-de-um-seculo-sem-novos-registros-desse-genero-de-plantas"
     }
   ],
   "ru_cardapio": {
