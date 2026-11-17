@@ -1,6 +1,13 @@
 {
-  "gerado_em": "2026-11-16T19:04:41",
+  "gerado_em": "2026-11-17T17:59:59",
   "noticias_setores": [
+    {
+      "setor": "PROAE",
+      "titulo": "17.11.2026 A PROAE divulga cronograma de Entrevistas Sociais do PSU 2026 para estudantes do Campus Ciências Agrárias (CCA)",
+      "data": "17/11/2026",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/proae/noticias/16-11-2026-a-proae-divulga-cronograma-de-entrevistas-sociais-do-psu-2026-para-estudantes-do-campus-ciencias-agrarias-cca"
+    },
     {
       "setor": "PROAE",
       "titulo": "A Pró-Reitoria de Assistência Estudantil da Univasf divulga o Cronograma de Entrevistas Sociais do PSU 2026 – Campus JUAZEIRO.",
@@ -133,13 +140,6 @@
       "data": "31/08/2026",
       "resumo": "",
       "url": "https://portais.univasf.edu.br/proae/noticias/31-08-2026-2013-proae-inicia-etapa-de-analises-socioeconomicas-do-processo-seletivo-unificado-psu-2026"
-    },
-    {
-      "setor": "PROAE",
-      "titulo": "PROAE PRORROGA PRAZO DA REABERTURA DE INSCRIÇÕES PARA RESIDÊNCIAS ESTUDANTIS",
-      "data": "21/08/2026",
-      "resumo": "",
-      "url": "https://portais.univasf.edu.br/proae/noticias/21-08-2026-proae-prorroga-prazo-da-reabertura-de-inscricoes-para-residencias-estudantis"
     },
     {
       "setor": "PROEX",
@@ -423,6 +423,20 @@
     },
     {
       "setor": "UNIVASF",
+      "titulo": "Univasf alcança Nível 3 – Integrado (Pleno) no Modelo de Maturidade em Integridade Pública da CGU",
+      "data": "16/11/2026",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/noticias/univasf-alcanca-nivel-3-2013-integrado-pleno-no-modelo-de-maturidade-em-integridade-publica-da-cgu"
+    },
+    {
+      "setor": "UNIVASF",
+      "titulo": "Mais de mil trabalhos acadêmicos serão apresentados na 19ª Scientex",
+      "data": "16/11/2026",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/noticias/mais-de-mil-trabalhos-academicos-serao-apresentados-na-19a-scientex"
+    },
+    {
+      "setor": "UNIVASF",
       "titulo": "Projeto do HU-Univasf aprovado em edital nacional participa de seminário da Rede HU+",
       "data": "16/11/2026",
       "resumo": "",
@@ -686,20 +700,6 @@
       "data": "26/10/2026",
       "resumo": "",
       "url": "https://portais.univasf.edu.br/noticias/professora-da-universite-clermont-auvergne-ministra-palestra-na-univasf-sobre-aplicacoes-e-potencial-dos-exopolissacarideos"
-    },
-    {
-      "setor": "UNIVASF",
-      "titulo": "Pesquisa revela barreiras no acesso de mulheres rurais ao diagnóstico e tratamento do câncer no Brasil",
-      "data": "26/10/2026",
-      "resumo": "",
-      "url": "https://portais.univasf.edu.br/noticias/pesquisa-revela-barreiras-no-acesso-de-mulheres-rurais-ao-diagnostico-e-tratamento-do-cancer-no-brasil"
-    },
-    {
-      "setor": "UNIVASF",
-      "titulo": "XII Semana de Ciências Sociais da Univasf começa nesta terça-feira (27)",
-      "data": "26/10/2026",
-      "resumo": "",
-      "url": "https://portais.univasf.edu.br/noticias/xii-semana-de-ciencias-sociais-da-univasf-comeca-nesta-terca-feira-27"
     }
   ],
   "ru_cardapio": {
