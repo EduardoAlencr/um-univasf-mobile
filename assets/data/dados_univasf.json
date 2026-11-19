@@ -1,5 +1,5 @@
 {
-  "gerado_em": "2026-11-18T17:41:45",
+  "gerado_em": "2026-11-19T17:51:07",
   "noticias_setores": [
     {
       "setor": "PROAE",
@@ -423,6 +423,27 @@
     },
     {
       "setor": "UNIVASF",
+      "titulo": "Comissão Eleitoral Geral realiza entrevista pública com a chapa candidata à Reitoria e Vice-Reitoria da Univasf",
+      "data": "18/11/2026",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/noticias/comissao-eleitoral-geral-realiza-entrevista-publica-com-a-chapa-candidata-a-reitoria-e-vice-reitoria-da-univasf"
+    },
+    {
+      "setor": "UNIVASF",
+      "titulo": "Programa Bolsa Permanência está com inscrições abertas para estudantes indígenas e quilombolas",
+      "data": "18/11/2026",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/noticias/programa-bolsa-permanencia-esta-com-inscricoes-abertas-para-estudantes-indigenas-e-quilombolas"
+    },
+    {
+      "setor": "UNIVASF",
+      "titulo": "XVIII Snafs destaca produção científica e formação em Educação Física e saúde no Nordeste",
+      "data": "18/11/2026",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/noticias/xviii-snafs-destaca-producao-cientifica-e-formacao-em-educacao-fisica-e-saude-no-nordeste"
+    },
+    {
+      "setor": "UNIVASF",
       "titulo": "Câncer de boca – especialista do HU-Univasf destaca formas de prevenção e sinais de alerta",
       "data": "18/11/2026",
       "resumo": "",
@@ -679,27 +700,6 @@
       "data": "29/10/2026",
       "resumo": "",
       "url": "https://portais.univasf.edu.br/noticias/pibid-da-univasf-recebe-conceito-a-em-avaliacao-da-capes"
-    },
-    {
-      "setor": "UNIVASF",
-      "titulo": "Univasf prorroga inscrições para bolsas de pesquisa do Projeto DANT",
-      "data": "28/10/2026",
-      "resumo": "",
-      "url": "https://portais.univasf.edu.br/noticias/univasf-prorroga-inscricoes-para-bolsas-de-pesquisa-do-projeto-dant"
-    },
-    {
-      "setor": "UNIVASF",
-      "titulo": "Proae divulga lista preliminar de solicitação de transporte, alojamento e de acesso ao Restaurante Universitário na 19ª Scientex",
-      "data": "27/10/2026",
-      "resumo": "",
-      "url": "https://portais.univasf.edu.br/noticias/proae-divulga-lista-preliminar-de-solicitacao-de-transporte-alojamento-e-de-acesso-ao-restaurante-universitario-na-19a-scientex"
-    },
-    {
-      "setor": "UNIVASF",
-      "titulo": "Abertas as inscrições para Comissão Eleitoral Geral que conduzirá processo de escolha do Reitorado – Gestão 2027-2031 da Univasf",
-      "data": "27/10/2026",
-      "resumo": "",
-      "url": "https://portais.univasf.edu.br/noticias/abertas-as-inscricoes-para-comissao-eleitoral-geral-que-conduzira-processo-de-escolha-do-reitorado-2013-gestao-2027-2031-da-univasf"
     }
   ],
   "ru_cardapio": {
