@@ -1,5 +1,5 @@
 {
-  "gerado_em": "2026-11-19T17:51:07",
+  "gerado_em": "2026-11-20T17:26:25",
   "noticias_setores": [
     {
       "setor": "PROAE",
@@ -423,6 +423,20 @@
     },
     {
       "setor": "UNIVASF",
+      "titulo": "Estudantes de Medicina Veterinária da Univasf participam do Dia D da Campanha de Vacinação Antirrábica para cães e gatos em Petrolina",
+      "data": "19/11/2026",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/noticias/estudantes-de-medicina-veterinaria-da-univasf-participam-do-dia-d-da-campanha-de-vacinacao-antirrabica-para-caes-e-gatos-em-petrolina"
+    },
+    {
+      "setor": "UNIVASF",
+      "titulo": "Univasf fortalece políticas afirmativas e combate ao racismo com criação de nova Pró-Reitoria",
+      "data": "19/11/2026",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/noticias/univasf-fortalece-politicas-afirmativas-e-combate-ao-racismo-com-criacao-de-nova-pro-reitoria"
+    },
+    {
+      "setor": "UNIVASF",
       "titulo": "Comissão Eleitoral Geral realiza entrevista pública com a chapa candidata à Reitoria e Vice-Reitoria da Univasf",
       "data": "18/11/2026",
       "resumo": "",
@@ -686,20 +700,6 @@
       "data": "29/10/2026",
       "resumo": "",
       "url": "https://portais.univasf.edu.br/noticias/univasf-e-universidade-de-coimbra-formalizam-primeiro-plano-de-trabalho-no-ambito-de-projeto-de-cooperacao-cientifica-internacional"
-    },
-    {
-      "setor": "UNIVASF",
-      "titulo": "Seminário na Univasf sobre práticas pedagógicas inclusivas oferece formação para docentes do ensino superior",
-      "data": "29/10/2026",
-      "resumo": "",
-      "url": "https://portais.univasf.edu.br/noticias/seminario-na-univasf-sobre-praticas-pedagogicas-inclusivas-oferece-formacao-para-docentes-do-ensino-superior"
-    },
-    {
-      "setor": "UNIVASF",
-      "titulo": "Pibid da Univasf recebe Conceito A em avaliação da Capes",
-      "data": "29/10/2026",
-      "resumo": "",
-      "url": "https://portais.univasf.edu.br/noticias/pibid-da-univasf-recebe-conceito-a-em-avaliacao-da-capes"
     }
   ],
   "ru_cardapio": {
