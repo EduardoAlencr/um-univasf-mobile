@@ -1,6 +1,13 @@
 {
-  "gerado_em": "2026-11-23T20:44:16",
+  "gerado_em": "2026-11-24T19:49:42",
   "noticias_setores": [
+    {
+      "setor": "PROAE",
+      "titulo": "A PROAE informa sobre alterações no Transporte Estudantil e Restaurantes Universitários durante a 19ª SCIENTEX.",
+      "data": "24/11/2026",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/proae/noticias/24-11-2026-a-proae-informa-sobre-alteracoes-no-transporte-estudantil-e-restaurantes-universitarios-durante-a-19a-scientex"
+    },
     {
       "setor": "PROAE",
       "titulo": "UNIVASF abre inscrições para o Programa Bolsa Permanência do MEC destinado a estudantes indígenas e quilombolas.",
@@ -133,13 +140,6 @@
       "data": "15/09/2026",
       "resumo": "",
       "url": "https://portais.univasf.edu.br/proae/noticias/15-09-2026-a-proae-informa-sobre-o-itinerario-temporario-do-transporte-estudantil"
-    },
-    {
-      "setor": "PROAE",
-      "titulo": "CONVOCAÇÃO PARA ENTREVISTA SOCIAL - Processo Seletivo Simplificado – Residências Estudantis",
-      "data": "14/09/2026",
-      "resumo": "",
-      "url": "https://portais.univasf.edu.br/proae/noticias/14-09-2026-convocacao-para-entrevista-social-processo-seletivo-simplificado-2013-residencias-estudantis"
     },
     {
       "setor": "PROEX",
@@ -423,6 +423,27 @@
     },
     {
       "setor": "UNIVASF",
+      "titulo": "19ª Scientex começa nesta quarta-feira (25) com conferência do presidente do CNPq",
+      "data": "24/11/2026",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/noticias/19a-scientex-comeca-nesta-quarta-feira-25-com-conferencia-do-presidente-do-cnpq"
+    },
+    {
+      "setor": "UNIVASF",
+      "titulo": "Nota de Pesar – Falecimento do professor Eduard Montgomery",
+      "data": "24/11/2026",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/noticias/nota-de-pesar-2013-falecimento-do-professor-eduard-montgomery"
+    },
+    {
+      "setor": "UNIVASF",
+      "titulo": "Univasf promove curso sobre proteção de dados para profissionais de saúde de Dormentes (PE)",
+      "data": "24/11/2026",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/noticias/univasf-promove-curso-sobre-protecao-de-dados-para-profissionais-de-saude-de-dormentes-pe"
+    },
+    {
+      "setor": "UNIVASF",
       "titulo": "Univasf divulga resultado da segunda etapa e convoca classificados para matrícula presencial do PS-PVO 2027",
       "data": "23/11/2026",
       "resumo": "",
@@ -679,27 +700,6 @@
       "data": "05/11/2026",
       "resumo": "",
       "url": "https://portais.univasf.edu.br/noticias/hu-univasf-adquire-novas-macas-hidraulicas-para-a-unidade-de-urgencia-e-emergencia"
-    },
-    {
-      "setor": "UNIVASF",
-      "titulo": "I Semana Clóvis Moura começa nesta quarta-feira (4) na Univasf",
-      "data": "03/11/2026",
-      "resumo": "",
-      "url": "https://portais.univasf.edu.br/noticias/i-semana-clovis-moura-comeca-nesta-quarta-feira-4-na-univasf"
-    },
-    {
-      "setor": "UNIVASF",
-      "titulo": "Univasf realiza defesa de memorial para promoção de professor de Engenharia Agrícola e Ambiental à classe de Titular",
-      "data": "03/11/2026",
-      "resumo": "",
-      "url": "https://portais.univasf.edu.br/noticias/univasf-realiza-defesa-de-memorial-para-promocao-de-professor-de-engenharia-agricola-e-ambiental-a-classe-de-titular"
-    },
-    {
-      "setor": "UNIVASF",
-      "titulo": "HU-Univasf realiza o 1º Simpósio de Integração Multiprofissional, Ensino e Gestão do Cuidado em Saúde nos dias 5 e 6 de novembro",
-      "data": "03/11/2026",
-      "resumo": "",
-      "url": "https://portais.univasf.edu.br/noticias/hu-univasf-realiza-o-1o-simposio-de-integracao-multiprofissional-ensino-e-gestao-do-cuidado-em-saude-nos-dias-5-e-6-de-novembro"
     }
   ],
   "ru_cardapio": {
