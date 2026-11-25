@@ -1,5 +1,5 @@
 {
-  "gerado_em": "2026-11-24T19:49:42",
+  "gerado_em": "2026-11-25T18:55:01",
   "noticias_setores": [
     {
       "setor": "PROAE",
@@ -423,6 +423,20 @@
     },
     {
       "setor": "UNIVASF",
+      "titulo": "Univasf tem reportagem premiada na I Mostra de Jornalismo das Universidades Federais",
+      "data": "25/11/2026",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/noticias/univasf-tem-reportagem-premiada-na-i-mostra-de-jornalismo-das-universidades-federais"
+    },
+    {
+      "setor": "UNIVASF",
+      "titulo": "CEG realiza até quinta-feira (26) eleição simulada para testar sistema de votação para escolha do novo Reitorado da Univasf",
+      "data": "24/11/2026",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/noticias/ceg-realiza-ate-quinta-feira-26-eleicao-simulada-para-testar-sistema-de-votacao-para-escolha-do-novo-reitorado-da-univasf"
+    },
+    {
+      "setor": "UNIVASF",
       "titulo": "19ª Scientex começa nesta quarta-feira (25) com conferência do presidente do CNPq",
       "data": "24/11/2026",
       "resumo": "",
@@ -686,20 +700,6 @@
       "data": "05/11/2026",
       "resumo": "",
       "url": "https://portais.univasf.edu.br/noticias/provas-do-enem-2026-comecam-neste-domingo-8"
-    },
-    {
-      "setor": "UNIVASF",
-      "titulo": "Estudantes da Univasf podem se inscrever para cursar disciplinas no IFSertãoPE em 2027",
-      "data": "05/11/2026",
-      "resumo": "",
-      "url": "https://portais.univasf.edu.br/noticias/estudantes-da-univasf-podem-se-inscrever-para-cursar-disciplinas-no-ifsertaope-em-2027"
-    },
-    {
-      "setor": "UNIVASF",
-      "titulo": "HU-Univasf adquire novas macas hidráulicas para a Unidade de Urgência e Emergência",
-      "data": "05/11/2026",
-      "resumo": "",
-      "url": "https://portais.univasf.edu.br/noticias/hu-univasf-adquire-novas-macas-hidraulicas-para-a-unidade-de-urgencia-e-emergencia"
     }
   ],
   "ru_cardapio": {
