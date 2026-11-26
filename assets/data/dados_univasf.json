@@ -1,5 +1,5 @@
 {
-  "gerado_em": "2026-11-25T18:55:01",
+  "gerado_em": "2026-11-26T18:46:05",
   "noticias_setores": [
     {
       "setor": "PROAE",
@@ -423,6 +423,13 @@
     },
     {
       "setor": "UNIVASF",
+      "titulo": "Candidatos da Chapa 1 ao Reitorado 2027-2031 apresentam propostas em Entrevista Pública promovida pela CEG",
+      "data": "25/11/2026",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/noticias/candidatos-da-chapa-1-ao-reitorado-2027-2031apresentam-propostas-em-entrevista-publica-promovida-pela-ceg"
+    },
+    {
+      "setor": "UNIVASF",
       "titulo": "Univasf tem reportagem premiada na I Mostra de Jornalismo das Universidades Federais",
       "data": "25/11/2026",
       "resumo": "",
@@ -693,13 +700,6 @@
       "data": "05/11/2026",
       "resumo": "",
       "url": "https://portais.univasf.edu.br/noticias/inscricoes-de-chapas-para-eleicao-do-reitorado-2027-2031-da-univasf-comecam-nesta-quinta-feira-5"
-    },
-    {
-      "setor": "UNIVASF",
-      "titulo": "Provas do Enem 2026 começam neste domingo (8)",
-      "data": "05/11/2026",
-      "resumo": "",
-      "url": "https://portais.univasf.edu.br/noticias/provas-do-enem-2026-comecam-neste-domingo-8"
     }
   ],
   "ru_cardapio": {
@@ -4583,38 +4583,6 @@
       "duracao_dias": 120,
       "inscricao_online": true,
       "url": "https://portais.univasf.edu.br/proae/servicos-proae/bolsa-permanencia-univasf"
-    },
-    {
-      "nome": "Bolsa Permanência MEC — Indígenas e Quilombolas",
-      "valor": "R$1.400,00",
-      "criterio": null,
-      "campi": [],
-      "acumula_com": [
-        "Restaurante Universitário, PRograma Inclusão Digital,  bolsas  de natureza Acadêmicas e de Extensão como Pibid, Pibic, Pibex etc"
-      ],
-      "nao_acumula_com": [
-        "Bolsa Permanência da UNIVASF, Auxílio Permanência UNIVASF, Auxílio Creche Univasf e Residência Estudantil"
-      ],
-      "duracao_dias": null,
-      "inscricao_online": true,
-      "url": "https://portais.univasf.edu.br/proae/servicos-proae/bolsa-permanencia-mec-indigena-e-quilombola"
-    },
-    {
-      "nome": "Bolsa Permanência MEC — Estudantes de Medicina",
-      "valor": "R$ 700,00",
-      "criterio": null,
-      "campi": [
-        "Paulo Afonso"
-      ],
-      "acumula_com": [
-        "Restaurante Universitário, PRograma Inclusão Digital,  bolsas  de natureza Acadêmicas e de Extensão como Pibid, Pibic, Pibex etc"
-      ],
-      "nao_acumula_com": [
-        "Bolsa Permanência da UNIVASF, Auxílio Permanência UNIVASF, Auxílio Creche Univasf e Residência Estudantil"
-      ],
-      "duracao_dias": null,
-      "inscricao_online": true,
-      "url": "https://portais.univasf.edu.br/proae/servicos-proae/bolsa-permanencia-mec-indigena-e-quilombola"
     }
   ],
   "contatos_setores": {
