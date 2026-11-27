@@ -1,6 +1,13 @@
 {
-  "gerado_em": "2026-11-26T18:46:05",
+  "gerado_em": "2026-11-27T18:35:53",
   "noticias_setores": [
+    {
+      "setor": "PROAE",
+      "titulo": "PROAE divulga homologação das inscrições do Programa Bolsa Permanência do MEC – Edital nº 05/2026",
+      "data": "27/11/2026",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/proae/noticias/27-11-2026-proae-divulga-homologacao-das-inscricoes-do-programa-bolsa-permanencia-do-mec-2013-edital-no-05-2026"
+    },
     {
       "setor": "PROAE",
       "titulo": "A PROAE informa sobre alterações no Transporte Estudantil e Restaurantes Universitários durante a 19ª SCIENTEX.",
@@ -133,13 +140,6 @@
       "data": "22/09/2026",
       "resumo": "",
       "url": "https://portais.univasf.edu.br/proae/noticias/22-09-2026-a-proae-disponibiliza-formulario-para-solicitacao-de-transporte-alojamento-e-acesso-ao-restaurante-universitario-durante-a-19a-scientex"
-    },
-    {
-      "setor": "PROAE",
-      "titulo": "A PROAE Informa Sobre o Itinerário Temporário do Transporte Estudantil",
-      "data": "15/09/2026",
-      "resumo": "",
-      "url": "https://portais.univasf.edu.br/proae/noticias/15-09-2026-a-proae-informa-sobre-o-itinerario-temporario-do-transporte-estudantil"
     },
     {
       "setor": "PROEX",
@@ -423,6 +423,41 @@
     },
     {
       "setor": "UNIVASF",
+      "titulo": "Experiências científicas e observação astronômica serão destaques da I Mostra Didático-Científica em Senhor do Bonfim",
+      "data": "27/11/2026",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/noticias/experiencias-cientificas-e-observacao-astronomica-serao-destaques-da-i-mostra-didatico-cientifica-em-senhor-do-bonfim"
+    },
+    {
+      "setor": "UNIVASF",
+      "titulo": "4ª edição do Ciência no Parque acontece neste sábado (28) no Parque Municipal Josepha Coelho",
+      "data": "27/11/2026",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/noticias/4a-edicao-do-ciencia-no-parque-acontece-neste-sabado-28-no-parque-municipal-josepha-coelho"
+    },
+    {
+      "setor": "UNIVASF",
+      "titulo": "Projeto Caramelos Univasf realiza feira de adoção de filhotes durante a 19ª Scientex",
+      "data": "27/11/2026",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/noticias/projeto-caramelos-univasf-realiza-feira-de-adocao-de-filhotes-durante-a-19a-scientex"
+    },
+    {
+      "setor": "UNIVASF",
+      "titulo": "19ª Scientex reúne comunidade acadêmica da Univasf em programação integrada de ensino, pesquisa, tecnologia e extensão",
+      "data": "26/11/2026",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/noticias/19a-scientex-reune-comunidade-academica-da-univasf-em-programacao-integrada-de-ensino-pesquisa-tecnologia-e-extensao"
+    },
+    {
+      "setor": "UNIVASF",
+      "titulo": "I Encontro sobre Ciência Aberta acontece em 4 de dezembro no Campus Sede da Univasf",
+      "data": "26/11/2026",
+      "resumo": "",
+      "url": "https://portais.univasf.edu.br/noticias/i-encontro-sobre-ciencia-aberta-acontece-em-4-de-dezembro-no-campus-sede-da-univasf"
+    },
+    {
+      "setor": "UNIVASF",
       "titulo": "Candidatos da Chapa 1 ao Reitorado 2027-2031 apresentam propostas em Entrevista Pública promovida pela CEG",
       "data": "25/11/2026",
       "resumo": "",
@@ -665,41 +700,6 @@
       "data": "06/11/2026",
       "resumo": "",
       "url": "https://portais.univasf.edu.br/noticias/univasf-realiza-abertura-dos-cursos-de-formacao-para-estudantes-quilombolas-e-ciganos"
-    },
-    {
-      "setor": "UNIVASF",
-      "titulo": "Univasf participa de encontro regional sobre assistência estudantil e permanência universitária",
-      "data": "06/11/2026",
-      "resumo": "",
-      "url": "https://portais.univasf.edu.br/noticias/univasf-participa-de-encontro-regional-sobre-assistencia-estudantil-e-permanencia-universitaria"
-    },
-    {
-      "setor": "UNIVASF",
-      "titulo": "4ª Jornada de Psicologia Jurídica discute o enfrentamento às violências e as éticas do cuidado",
-      "data": "06/11/2026",
-      "resumo": "",
-      "url": "https://portais.univasf.edu.br/noticias/4a-jornada-de-psicologia-juridica-discute-o-enfrentamento-as-violencias-e-as-eticas-do-cuidado"
-    },
-    {
-      "setor": "UNIVASF",
-      "titulo": "Estudantes já podem participar da pesquisa Perfil Diversidade Univasf 2026",
-      "data": "06/11/2026",
-      "resumo": "",
-      "url": "https://portais.univasf.edu.br/noticias/estudantes-ja-podem-participar-da-pesquisa-perfil-diversidade-univasf-2026"
-    },
-    {
-      "setor": "UNIVASF",
-      "titulo": "Hospital Universitário da Univasf integra mutirão nacional com diversos atendimentos",
-      "data": "06/11/2026",
-      "resumo": "",
-      "url": "https://portais.univasf.edu.br/noticias/hospital-universitario-da-univasf-integra-mutirao-nacional-com-diversos-atendimentos"
-    },
-    {
-      "setor": "UNIVASF",
-      "titulo": "Inscrições de chapas para eleição do Reitorado 2027-2031 da Univasf começam nesta quinta-feira (5)",
-      "data": "05/11/2026",
-      "resumo": "",
-      "url": "https://portais.univasf.edu.br/noticias/inscricoes-de-chapas-para-eleicao-do-reitorado-2027-2031-da-univasf-comecam-nesta-quinta-feira-5"
     }
   ],
   "ru_cardapio": {
@@ -4583,6 +4583,38 @@
       "duracao_dias": 120,
       "inscricao_online": true,
       "url": "https://portais.univasf.edu.br/proae/servicos-proae/bolsa-permanencia-univasf"
+    },
+    {
+      "nome": "Bolsa Permanência MEC — Indígenas e Quilombolas",
+      "valor": "R$1.400,00",
+      "criterio": null,
+      "campi": [],
+      "acumula_com": [
+        "Restaurante Universitário, PRograma Inclusão Digital,  bolsas  de natureza Acadêmicas e de Extensão como Pibid, Pibic, Pibex etc"
+      ],
+      "nao_acumula_com": [
+        "Bolsa Permanência da UNIVASF, Auxílio Permanência UNIVASF, Auxílio Creche Univasf e Residência Estudantil"
+      ],
+      "duracao_dias": null,
+      "inscricao_online": true,
+      "url": "https://portais.univasf.edu.br/proae/servicos-proae/bolsa-permanencia-mec-indigena-e-quilombola"
+    },
+    {
+      "nome": "Bolsa Permanência MEC — Estudantes de Medicina",
+      "valor": "R$ 700,00",
+      "criterio": null,
+      "campi": [
+        "Paulo Afonso"
+      ],
+      "acumula_com": [
+        "Restaurante Universitário, PRograma Inclusão Digital,  bolsas  de natureza Acadêmicas e de Extensão como Pibid, Pibic, Pibex etc"
+      ],
+      "nao_acumula_com": [
+        "Bolsa Permanência da UNIVASF, Auxílio Permanência UNIVASF, Auxílio Creche Univasf e Residência Estudantil"
+      ],
+      "duracao_dias": null,
+      "inscricao_online": true,
+      "url": "https://portais.univasf.edu.br/proae/servicos-proae/bolsa-permanencia-mec-indigena-e-quilombola"
     }
   ],
   "contatos_setores": {
